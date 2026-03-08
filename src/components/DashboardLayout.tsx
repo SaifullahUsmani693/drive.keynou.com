@@ -20,7 +20,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
       <aside className="hidden md:flex w-64 flex-col border-r border-border bg-card/50">
         <div className="p-6">
           <Link to="/" className="font-display text-lg font-bold">
-            short<span className="text-primary">.keynou</span>
+            keynou<span className="text-primary"> drive</span>
           </Link>
         </div>
 
