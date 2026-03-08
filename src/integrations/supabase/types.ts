@@ -14,7 +14,155 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      click_events: {
+        Row: {
+          browser: string | null
+          city: string | null
+          clicked_at: string
+          country: string | null
+          device: string | null
+          id: string
+          ip_address: string | null
+          link_id: string
+          os: string | null
+          referrer: string | null
+          user_id: string
+        }
+        Insert: {
+          browser?: string | null
+          city?: string | null
+          clicked_at?: string
+          country?: string | null
+          device?: string | null
+          id?: string
+          ip_address?: string | null
+          link_id: string
+          os?: string | null
+          referrer?: string | null
+          user_id: string
+        }
+        Update: {
+          browser?: string | null
+          city?: string | null
+          clicked_at?: string
+          country?: string | null
+          device?: string | null
+          id?: string
+          ip_address?: string | null
+          link_id?: string
+          os?: string | null
+          referrer?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "click_events_link_id_fkey"
+            columns: ["link_id"]
+            isOneToOne: false
+            referencedRelation: "links"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      custom_domains: {
+        Row: {
+          created_at: string
+          domain: string
+          id: string
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          domain: string
+          id?: string
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          domain?: string
+          id?: string
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      links: {
+        Row: {
+          clicks: number
+          created_at: string
+          destination_url: string
+          id: string
+          short_code: string
+          status: string
+          title: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          clicks?: number
+          created_at?: string
+          destination_url: string
+          id?: string
+          short_code: string
+          status?: string
+          title?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          clicks?: number
+          created_at?: string
+          destination_url?: string
+          id?: string
+          short_code?: string
+          status?: string
+          title?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          company_logo_url: string | null
+          company_name: string | null
+          created_at: string
+          display_name: string | null
+          id: string
+          plan: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          company_logo_url?: string | null
+          company_name?: string | null
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          plan?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          avatar_url?: string | null
+          company_logo_url?: string | null
+          company_name?: string | null
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          plan?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
