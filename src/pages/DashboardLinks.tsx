@@ -44,7 +44,7 @@ const DashboardLinks = () => {
               <div className="space-y-2">
                 <Label>Custom alias (optional)</Label>
                 <div className="flex items-center gap-2">
-                  <span className="text-sm text-muted-foreground whitespace-nowrap">short.keynou.com/</span>
+                  <span className="text-sm text-muted-foreground whitespace-nowrap">drive.keynou.com/</span>
                   <Input placeholder="my-link" className="h-11" />
                 </div>
               </div>
@@ -78,7 +78,7 @@ const DashboardLinks = () => {
             >
               <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-2">
-                  <p className="text-sm font-medium text-primary">short.keynou.com/{link.short}</p>
+                  <p className="text-sm font-medium text-primary">drive.keynou.com/{link.short}</p>
                   <button className="text-muted-foreground hover:text-foreground"><Copy className="w-3.5 h-3.5" /></button>
                   <button className="text-muted-foreground hover:text-foreground"><ExternalLink className="w-3.5 h-3.5" /></button>
                 </div>

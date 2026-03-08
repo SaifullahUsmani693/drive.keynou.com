@@ -65,7 +65,7 @@ const DashboardSettings = () => {
             
             {!isPro && (
               <div className="glass rounded-lg p-4 border-primary/20 mb-6">
-                <p className="text-sm mb-2">Free plan shows <strong>short.keynou.com</strong> branding on redirect pages.</p>
+                <p className="text-sm mb-2">Free plan shows <strong>drive.keynou.com</strong> branding on redirect pages.</p>
                 <p className="text-xs text-muted-foreground mb-3">Upgrade to Pro to display your company name and logo instead.</p>
                 <Button size="sm" className="bg-gradient-primary hover:opacity-90">Upgrade to Pro — $15/mo</Button>
               </div>
@@ -81,7 +81,7 @@ const DashboardSettings = () => {
                   className="h-11"
                   disabled={!isPro}
                 />
-                <p className="text-xs text-muted-foreground">Shown on redirect pages instead of short.keynou branding</p>
+                <p className="text-xs text-muted-foreground">Shown on redirect pages instead of keynou drive branding</p>
               </div>
               <div className="space-y-2">
                 <Label>Company Logo</Label>
@@ -97,7 +97,7 @@ const DashboardSettings = () => {
                 <div className="bg-secondary/20 rounded-lg p-6 text-center">
                   <p className="text-xs text-muted-foreground mb-2">You are being redirected by</p>
                   <p className="font-display text-lg font-bold">
-                    {isPro && companyName ? companyName : <>short<span className="text-primary">.keynou</span></>}
+                    {isPro && companyName ? companyName : <>keynou<span className="text-primary"> drive</span></>}
                   </p>
                   <p className="text-xs text-muted-foreground mt-2">Redirecting in 3 seconds...</p>
                 </div>

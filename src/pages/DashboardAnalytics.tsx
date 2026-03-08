@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 import { Globe2, Monitor, Smartphone, Tablet } from "lucide-react";
 
 const topLinks = [
-  { name: "short.keynou.com/launch", clicks: 1284 },
-  { name: "short.keynou.com/promo", clicks: 892 },
-  { name: "short.keynou.com/blog", clicks: 456 },
-  { name: "short.keynou.com/app", clicks: 321 },
-  { name: "short.keynou.com/docs", clicks: 198 },
+  { name: "drive.keynou.com/launch", clicks: 1284 },
+  { name: "drive.keynou.com/promo", clicks: 892 },
+  { name: "drive.keynou.com/blog", clicks: 456 },
+  { name: "drive.keynou.com/app", clicks: 321 },
+  { name: "drive.keynou.com/docs", clicks: 198 },
 ];
 
 const topCountries = [

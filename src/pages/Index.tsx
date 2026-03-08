@@ -23,7 +23,7 @@ const Index = () => {
       <nav className="fixed top-0 w-full z-50 glass">
         <div className="container mx-auto flex items-center justify-between h-16 px-6">
           <Link to="/" className="font-display text-xl font-bold text-foreground">
-            short<span className="text-primary">.keynou</span>
+            keynou<span className="text-primary"> drive</span>
           </Link>
           <div className="hidden md:flex items-center gap-8">
             <a href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Features</a>
@@ -92,7 +92,7 @@ const Index = () => {
                   <div className="w-3 h-3 rounded-full bg-destructive/60" />
                   <div className="w-3 h-3 rounded-full bg-accent/60" />
                   <div className="w-3 h-3 rounded-full bg-primary/60" />
-                  <span className="ml-4 text-xs text-muted-foreground font-mono">dashboard.short.keynou.com</span>
+                  <span className="ml-4 text-xs text-muted-foreground font-mono">dashboard.drive.keynou.com</span>
                 </div>
                 <div className="grid grid-cols-3 gap-4 mb-6">
                   {[
@@ -187,7 +187,7 @@ const Index = () => {
               <p className="text-4xl font-display font-bold mb-1">$0<span className="text-base font-normal text-muted-foreground">/mo</span></p>
               <p className="text-sm text-muted-foreground mb-6">Perfect for getting started</p>
               <ul className="space-y-3 mb-8">
-                {["50 short links", "Basic analytics", "short.keynou.com branding", "Community support"].map((item) => (
+                {["50 short links", "Basic analytics", "drive.keynou.com branding", "Community support"].map((item) => (
                   <li key={item} className="flex items-center gap-2 text-sm">
                     <Check className="w-4 h-4 text-accent" /> {item}
                   </li>
@@ -238,8 +238,8 @@ const Index = () => {
       {/* Footer */}
       <footer className="border-t border-border py-12">
         <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="font-display font-bold">short<span className="text-primary">.keynou</span></p>
-          <p className="text-sm text-muted-foreground">© 2026 short.keynou.com. All rights reserved.</p>
+           <p className="font-display font-bold">keynou<span className="text-primary"> drive</span></p>
+          <p className="text-sm text-muted-foreground">© 2026 drive.keynou.com. All rights reserved.</p>
         </div>
       </footer>
     </div>
