@@ -64,7 +64,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         {/* Mobile header */}
         <header className="md:hidden flex items-center justify-between p-4 border-b border-border">
           <Link to="/" className="font-display text-lg font-bold">
-            short<span className="text-primary">.keynou</span>
+            keynou<span className="text-primary"> drive</span>
           </Link>
           <Link to="/dashboard/settings">
             <Settings className="w-5 h-5 text-muted-foreground" />

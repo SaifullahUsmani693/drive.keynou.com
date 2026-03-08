@@ -13,10 +13,10 @@ const stats = [
 ];
 
 const recentLinks = [
-  { short: "short.keynou.com/launch", original: "https://example.com/very-long-url-launch-page", clicks: 1284, created: "2h ago" },
-  { short: "short.keynou.com/promo", original: "https://example.com/summer-promo-2024", clicks: 892, created: "5h ago" },
-  { short: "short.keynou.com/blog", original: "https://example.com/blog/how-to-grow", clicks: 456, created: "1d ago" },
-  { short: "short.keynou.com/app", original: "https://example.com/download-app", clicks: 321, created: "2d ago" },
+   { short: "drive.keynou.com/launch", original: "https://example.com/very-long-url-launch-page", clicks: 1284, created: "2h ago" },
+  { short: "drive.keynou.com/promo", original: "https://example.com/summer-promo-2024", clicks: 892, created: "5h ago" },
+  { short: "drive.keynou.com/blog", original: "https://example.com/blog/how-to-grow", clicks: 456, created: "1d ago" },
+  { short: "drive.keynou.com/app", original: "https://example.com/download-app", clicks: 321, created: "2d ago" },
 ];
 
 const Dashboard = () => {

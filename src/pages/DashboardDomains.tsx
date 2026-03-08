@@ -46,7 +46,7 @@ const DashboardDomains = () => {
                 <div className="bg-card rounded p-3 font-mono text-xs">
                   <p><span className="text-muted-foreground">Type:</span> CNAME</p>
                   <p><span className="text-muted-foreground">Name:</span> links</p>
-                  <p><span className="text-muted-foreground">Value:</span> cname.short.keynou.com</p>
+                  <p><span className="text-muted-foreground">Value:</span> cname.drive.keynou.com</p>
                 </div>
               </div>
               <Button className="w-full h-11 bg-gradient-primary hover:opacity-90">Verify & Add Domain</Button>

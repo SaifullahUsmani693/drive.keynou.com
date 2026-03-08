@@ -238,8 +238,8 @@ const Index = () => {
       {/* Footer */}
       <footer className="border-t border-border py-12">
         <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="font-display font-bold">short<span className="text-primary">.keynou</span></p>
-          <p className="text-sm text-muted-foreground">© 2026 short.keynou.com. All rights reserved.</p>
+           <p className="font-display font-bold">keynou<span className="text-primary"> drive</span></p>
+          <p className="text-sm text-muted-foreground">© 2026 drive.keynou.com. All rights reserved.</p>
         </div>
       </footer>
     </div>

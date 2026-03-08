@@ -31,7 +31,7 @@ const Login = () => {
           className="w-full max-w-sm"
         >
           <Link to="/" className="font-display text-xl font-bold mb-8 block">
-            short<span className="text-primary">.keynou</span>
+            keynou<span className="text-primary"> drive</span>
           </Link>
           <h1 className="font-display text-2xl font-bold mb-2">Sign in</h1>
           <p className="text-sm text-muted-foreground mb-8">Enter your credentials to access your account</p>

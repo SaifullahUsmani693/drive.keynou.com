@@ -78,7 +78,7 @@ const DashboardLinks = () => {
             >
               <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-2">
-                  <p className="text-sm font-medium text-primary">short.keynou.com/{link.short}</p>
+                  <p className="text-sm font-medium text-primary">drive.keynou.com/{link.short}</p>
                   <button className="text-muted-foreground hover:text-foreground"><Copy className="w-3.5 h-3.5" /></button>
                   <button className="text-muted-foreground hover:text-foreground"><ExternalLink className="w-3.5 h-3.5" /></button>
                 </div>

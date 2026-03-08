@@ -40,7 +40,7 @@ const Signup = () => {
       <div className="flex-1 flex items-center justify-center p-8">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="w-full max-w-sm">
           <Link to="/" className="font-display text-xl font-bold mb-8 block">
-            short<span className="text-primary">.keynou</span>
+            keynou<span className="text-primary"> drive</span>
           </Link>
           <h1 className="font-display text-2xl font-bold mb-2">Create account</h1>
           <p className="text-sm text-muted-foreground mb-8">Get started with your free account</p>

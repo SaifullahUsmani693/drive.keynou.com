@@ -97,7 +97,7 @@ const DashboardSettings = () => {
                 <div className="bg-secondary/20 rounded-lg p-6 text-center">
                   <p className="text-xs text-muted-foreground mb-2">You are being redirected by</p>
                   <p className="font-display text-lg font-bold">
-                    {isPro && companyName ? companyName : <>short<span className="text-primary">.keynou</span></>}
+                    {isPro && companyName ? companyName : <>keynou<span className="text-primary"> drive</span></>}
                   </p>
                   <p className="text-xs text-muted-foreground mt-2">Redirecting in 3 seconds...</p>
                 </div>
