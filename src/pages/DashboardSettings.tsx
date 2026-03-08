@@ -65,7 +65,7 @@ const DashboardSettings = () => {
             
             {!isPro && (
               <div className="glass rounded-lg p-4 border-primary/20 mb-6">
-                <p className="text-sm mb-2">Free plan shows <strong>short.keynou.com</strong> branding on redirect pages.</p>
+                <p className="text-sm mb-2">Free plan shows <strong>drive.keynou.com</strong> branding on redirect pages.</p>
                 <p className="text-xs text-muted-foreground mb-3">Upgrade to Pro to display your company name and logo instead.</p>
                 <Button size="sm" className="bg-gradient-primary hover:opacity-90">Upgrade to Pro — $15/mo</Button>
               </div>
