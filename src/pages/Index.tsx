@@ -23,7 +23,7 @@ const Index = () => {
       <nav className="fixed top-0 w-full z-50 glass">
         <div className="container mx-auto flex items-center justify-between h-16 px-6">
           <Link to="/" className="font-display text-xl font-bold text-foreground">
-            short<span className="text-primary">.keynou</span>
+            keynou<span className="text-primary"> drive</span>
           </Link>
           <div className="hidden md:flex items-center gap-8">
             <a href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Features</a>
