@@ -81,7 +81,7 @@ const DashboardSettings = () => {
                   className="h-11"
                   disabled={!isPro}
                 />
-                <p className="text-xs text-muted-foreground">Shown on redirect pages instead of short.keynou branding</p>
+                <p className="text-xs text-muted-foreground">Shown on redirect pages instead of keynou drive branding</p>
               </div>
               <div className="space-y-2">
                 <Label>Company Logo</Label>
