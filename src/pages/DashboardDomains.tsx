@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
 const mockDomains = [
-  { domain: "short.keynou.com", status: "active", links: 147, isPrimary: true },
+  { domain: "drive.keynou.com", status: "active", links: 147, isPrimary: true },
 ];
 
 const DashboardDomains = () => {
