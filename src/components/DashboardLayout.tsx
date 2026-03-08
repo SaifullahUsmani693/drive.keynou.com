@@ -61,7 +61,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
               Upgrade to Pro
             </Button>
           </div>
-          <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground w-full px-3 py-2">
+          <button onClick={handleSignOut} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground w-full px-3 py-2">
             <LogOut className="w-4 h-4" /> Sign out
           </button>
         </div>
