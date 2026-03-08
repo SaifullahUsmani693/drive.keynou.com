@@ -92,7 +92,7 @@ const Index = () => {
                   <div className="w-3 h-3 rounded-full bg-destructive/60" />
                   <div className="w-3 h-3 rounded-full bg-accent/60" />
                   <div className="w-3 h-3 rounded-full bg-primary/60" />
-                  <span className="ml-4 text-xs text-muted-foreground font-mono">dashboard.short.keynou.com</span>
+                  <span className="ml-4 text-xs text-muted-foreground font-mono">dashboard.drive.keynou.com</span>
                 </div>
                 <div className="grid grid-cols-3 gap-4 mb-6">
                   {[
