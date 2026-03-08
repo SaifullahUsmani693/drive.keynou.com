@@ -18,7 +18,7 @@ const Login = () => {
         <div className="relative z-10 p-12 max-w-md">
           <h2 className="font-display text-4xl font-bold text-primary-foreground mb-4">Welcome back</h2>
           <p className="text-primary-foreground/70 text-lg">
-            Manage your links, track analytics, and grow your business with short.keynou.
+            Manage your links, track analytics, and grow your business with keynou drive.
           </p>
         </div>
       </div>
