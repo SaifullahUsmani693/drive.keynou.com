@@ -187,7 +187,7 @@ const Index = () => {
               <p className="text-4xl font-display font-bold mb-1">$0<span className="text-base font-normal text-muted-foreground">/mo</span></p>
               <p className="text-sm text-muted-foreground mb-6">Perfect for getting started</p>
               <ul className="space-y-3 mb-8">
-                {["50 short links", "Basic analytics", "short.keynou.com branding", "Community support"].map((item) => (
+                {["50 short links", "Basic analytics", "drive.keynou.com branding", "Community support"].map((item) => (
                   <li key={item} className="flex items-center gap-2 text-sm">
                     <Check className="w-4 h-4 text-accent" /> {item}
                   </li>
