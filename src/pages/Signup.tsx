@@ -19,7 +19,7 @@ const Signup = () => {
         <div className="relative z-10 p-12 max-w-md">
           <h2 className="font-display text-4xl font-bold mb-4">Start shortening</h2>
           <p className="text-muted-foreground text-lg">
-            Join thousands of marketers using short.keynou to grow their business.
+            Join thousands of marketers using keynou drive to grow their business.
           </p>
           <div className="mt-8 grid grid-cols-3 gap-4">
             {[
