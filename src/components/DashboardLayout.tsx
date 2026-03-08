@@ -1,7 +1,8 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BarChart3, Link2, Globe2, Settings, LogOut, LayoutDashboard, Crown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/contexts/AuthContext";
 
 const navItems = [
   { icon: LayoutDashboard, label: "Dashboard", path: "/dashboard" },
@@ -13,6 +14,13 @@ const navItems = [
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const { signOut } = useAuth();
+
+  const handleSignOut = async () => {
+    await signOut();
+    navigate("/login");
+  };
 
   return (
     <div className="min-h-screen flex bg-background">
@@ -53,7 +61,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
               Upgrade to Pro
             </Button>
           </div>
-          <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground w-full px-3 py-2">
+          <button onClick={handleSignOut} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground w-full px-3 py-2">
             <LogOut className="w-4 h-4" /> Sign out
           </button>
         </div>
