@@ -1,23 +1,66 @@
 import DashboardLayout from "@/components/DashboardLayout";
 import { motion } from "framer-motion";
-import { Plus, Search, Copy, ExternalLink, MoreHorizontal, Pencil, Trash2 } from "lucide-react";
+import { Plus, Search, Copy, ExternalLink, MoreHorizontal, Pencil, Trash2, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
-
-const mockLinks = [
-  { id: "1", short: "launch", url: "https://example.com/product-launch-2024", clicks: 1284, status: "active", created: "Mar 1, 2026" },
-  { id: "2", short: "promo", url: "https://example.com/summer-promo", clicks: 892, status: "active", created: "Feb 28, 2026" },
-  { id: "3", short: "blog", url: "https://example.com/blog/growth-tips", clicks: 456, status: "active", created: "Feb 25, 2026" },
-  { id: "4", short: "app", url: "https://example.com/download", clicks: 321, status: "active", created: "Feb 20, 2026" },
-  { id: "5", short: "docs", url: "https://example.com/documentation/getting-started", clicks: 198, status: "active", created: "Feb 15, 2026" },
-];
+import { useLinks, useCreateLink, useUpdateLink, useDeleteLink, generateShortCode } from "@/hooks/useLinks";
+import { toast } from "sonner";
+import { format } from "date-fns";
 
 const DashboardLinks = () => {
   const [search, setSearch] = useState("");
+  const [createOpen, setCreateOpen] = useState(false);
+  const [editOpen, setEditOpen] = useState(false);
+  const [editId, setEditId] = useState("");
+  const [url, setUrl] = useState("");
+  const [alias, setAlias] = useState("");
+
+  const { data: links, isLoading } = useLinks();
+  const createLink = useCreateLink();
+  const updateLink = useUpdateLink();
+  const deleteLink = useDeleteLink();
+
+  const handleCreate = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!url) return;
+    const shortCode = alias || generateShortCode();
+    createLink.mutate({ destinationUrl: url, shortCode }, {
+      onSuccess: () => {
+        setUrl("");
+        setAlias("");
+        setCreateOpen(false);
+      },
+    });
+  };
+
+  const handleEdit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!url) return;
+    updateLink.mutate({ id: editId, destinationUrl: url, shortCode: alias }, {
+      onSuccess: () => {
+        setUrl("");
+        setAlias("");
+        setEditOpen(false);
+      },
+    });
+  };
+
+  const openEdit = (link: any) => {
+    setEditId(link.id);
+    setUrl(link.destination_url);
+    setAlias(link.short_code);
+    setEditOpen(true);
+  };
+
+  const filtered = links?.filter(
+    (l) =>
+      l.short_code.toLowerCase().includes(search.toLowerCase()) ||
+      l.destination_url.toLowerCase().includes(search.toLowerCase())
+  ) ?? [];
 
   return (
     <DashboardLayout>
@@ -26,7 +69,7 @@ const DashboardLinks = () => {
           <h1 className="font-display text-2xl font-bold mb-1">Links</h1>
           <p className="text-sm text-muted-foreground">Manage all your shortened URLs</p>
         </div>
-        <Dialog>
+        <Dialog open={createOpen} onOpenChange={setCreateOpen}>
           <DialogTrigger asChild>
             <Button className="bg-gradient-primary hover:opacity-90 gap-2">
               <Plus className="w-4 h-4" /> Create Link
@@ -36,23 +79,50 @@ const DashboardLinks = () => {
             <DialogHeader>
               <DialogTitle className="font-display">Create New Link</DialogTitle>
             </DialogHeader>
-            <form className="space-y-4 mt-4" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-4 mt-4" onSubmit={handleCreate}>
               <div className="space-y-2">
                 <Label>Destination URL</Label>
-                <Input placeholder="https://example.com/very-long-url" className="h-11" />
+                <Input placeholder="https://example.com/very-long-url" className="h-11" value={url} onChange={(e) => setUrl(e.target.value)} required />
               </div>
               <div className="space-y-2">
                 <Label>Custom alias (optional)</Label>
                 <div className="flex items-center gap-2">
                   <span className="text-sm text-muted-foreground whitespace-nowrap">drive.keynou.com/</span>
-                  <Input placeholder="my-link" className="h-11" />
+                  <Input placeholder="my-link" className="h-11" value={alias} onChange={(e) => setAlias(e.target.value)} />
                 </div>
               </div>
-              <Button className="w-full h-11 bg-gradient-primary hover:opacity-90">Create Link</Button>
+              <Button className="w-full h-11 bg-gradient-primary hover:opacity-90" disabled={createLink.isPending}>
+                {createLink.isPending ? <Loader2 className="w-4 h-4 animate-spin" /> : "Create Link"}
+              </Button>
             </form>
           </DialogContent>
         </Dialog>
       </div>
+
+      {/* Edit Dialog */}
+      <Dialog open={editOpen} onOpenChange={setEditOpen}>
+        <DialogContent className="glass">
+          <DialogHeader>
+            <DialogTitle className="font-display">Edit Link</DialogTitle>
+          </DialogHeader>
+          <form className="space-y-4 mt-4" onSubmit={handleEdit}>
+            <div className="space-y-2">
+              <Label>Destination URL</Label>
+              <Input placeholder="https://example.com" className="h-11" value={url} onChange={(e) => setUrl(e.target.value)} required />
+            </div>
+            <div className="space-y-2">
+              <Label>Alias</Label>
+              <div className="flex items-center gap-2">
+                <span className="text-sm text-muted-foreground whitespace-nowrap">drive.keynou.com/</span>
+                <Input className="h-11" value={alias} onChange={(e) => setAlias(e.target.value)} required />
+              </div>
+            </div>
+            <Button className="w-full h-11 bg-gradient-primary hover:opacity-90" disabled={updateLink.isPending}>
+              {updateLink.isPending ? <Loader2 className="w-4 h-4 animate-spin" /> : "Save Changes"}
+            </Button>
+          </form>
+        </DialogContent>
+      </Dialog>
 
       {/* Search */}
       <div className="relative mb-6">
@@ -67,42 +137,50 @@ const DashboardLinks = () => {
 
       {/* Links list */}
       <div className="glass rounded-xl overflow-hidden">
-        <div className="divide-y divide-border">
-          {mockLinks.map((link, i) => (
-            <motion.div
-              key={link.id}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.03 }}
-              className="p-4 flex items-center justify-between hover:bg-secondary/20 transition-colors"
-            >
-              <div className="min-w-0 flex-1">
-                <div className="flex items-center gap-2">
-                  <p className="text-sm font-medium text-primary">drive.keynou.com/{link.short}</p>
-                  <button className="text-muted-foreground hover:text-foreground"><Copy className="w-3.5 h-3.5" /></button>
-                  <button className="text-muted-foreground hover:text-foreground"><ExternalLink className="w-3.5 h-3.5" /></button>
+        {isLoading ? (
+          <div className="p-12 flex justify-center"><Loader2 className="w-6 h-6 animate-spin text-muted-foreground" /></div>
+        ) : filtered.length === 0 ? (
+          <div className="p-12 text-center text-muted-foreground text-sm">
+            {links?.length === 0 ? "No links yet. Create your first one!" : "No links match your search."}
+          </div>
+        ) : (
+          <div className="divide-y divide-border">
+            {filtered.map((link, i) => (
+              <motion.div
+                key={link.id}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.03 }}
+                className="p-4 flex items-center justify-between hover:bg-secondary/20 transition-colors"
+              >
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center gap-2">
+                    <p className="text-sm font-medium text-primary">drive.keynou.com/{link.short_code}</p>
+                    <button onClick={() => { navigator.clipboard.writeText(`drive.keynou.com/${link.short_code}`); toast.success("Copied!"); }} className="text-muted-foreground hover:text-foreground"><Copy className="w-3.5 h-3.5" /></button>
+                    <a href={link.destination_url} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground"><ExternalLink className="w-3.5 h-3.5" /></a>
+                  </div>
+                  <p className="text-xs text-muted-foreground truncate mt-0.5">{link.destination_url}</p>
                 </div>
-                <p className="text-xs text-muted-foreground truncate mt-0.5">{link.url}</p>
-              </div>
-              <div className="flex items-center gap-6 ml-4">
-                <div className="text-right">
-                  <p className="text-sm font-semibold">{link.clicks.toLocaleString()}</p>
-                  <p className="text-xs text-muted-foreground">clicks</p>
+                <div className="flex items-center gap-6 ml-4">
+                  <div className="text-right">
+                    <p className="text-sm font-semibold">{(link.clicks || 0).toLocaleString()}</p>
+                    <p className="text-xs text-muted-foreground">clicks</p>
+                  </div>
+                  <span className="text-xs text-muted-foreground hidden sm:block">{format(new Date(link.created_at), "MMM d, yyyy")}</span>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <button className="text-muted-foreground hover:text-foreground p-1"><MoreHorizontal className="w-4 h-4" /></button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end">
+                      <DropdownMenuItem className="gap-2" onClick={() => openEdit(link)}><Pencil className="w-3.5 h-3.5" /> Edit</DropdownMenuItem>
+                      <DropdownMenuItem className="gap-2 text-destructive" onClick={() => deleteLink.mutate(link.id)}><Trash2 className="w-3.5 h-3.5" /> Delete</DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </div>
-                <span className="text-xs text-muted-foreground hidden sm:block">{link.created}</span>
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <button className="text-muted-foreground hover:text-foreground p-1"><MoreHorizontal className="w-4 h-4" /></button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end">
-                    <DropdownMenuItem className="gap-2"><Pencil className="w-3.5 h-3.5" /> Edit</DropdownMenuItem>
-                    <DropdownMenuItem className="gap-2 text-destructive"><Trash2 className="w-3.5 h-3.5" /> Delete</DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              </motion.div>
+            ))}
+          </div>
+        )}
       </div>
     </DashboardLayout>
   );
