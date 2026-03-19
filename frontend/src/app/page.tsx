@@ -229,73 +229,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="reviews" className="py-24">
-        <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="mb-16 text-center"
-          >
-            <h2 className="font-display text-3xl font-bold md:text-5xl">Loved by teams shipping links fast</h2>
-            <p className="mx-auto mt-4 max-w-md text-lg text-muted-foreground">
-              Trusted by growth, product, and ops teams who need reliable branded links without busywork.
-            </p>
-          </motion.div>
-
-          <div className="grid gap-6 lg:grid-cols-3">
-            {reviews.map((review, index) => (
-              <motion.div
-                key={review.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="glass rounded-2xl p-6"
-              >
-                <p className="text-sm text-muted-foreground">“{review.quote}”</p>
-                <div className="mt-6">
-                  <p className="text-sm font-semibold">{review.name}</p>
-                  <p className="text-xs text-muted-foreground">{review.role}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="faq" className="py-24">
-        <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="mb-16 text-center"
-          >
-            <h2 className="font-display text-3xl font-bold md:text-5xl">FAQ</h2>
-            <p className="mx-auto mt-4 max-w-md text-lg text-muted-foreground">
-              Quick answers before you launch your next short link.
-            </p>
-          </motion.div>
-
-          <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
-            {faqs.map((faq, index) => (
-              <motion.div
-                key={faq.question}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
-                className="glass rounded-2xl p-6"
-              >
-                <h3 className="font-display text-lg font-semibold">{faq.question}</h3>
-                <p className="mt-3 text-sm text-muted-foreground">{faq.answer}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section id="features" className="py-24">
         <div className="container mx-auto px-6">
           <motion.div
@@ -453,9 +386,7 @@ export default function Home() {
 
       <footer className="border-t border-border py-12">
         <div className="container mx-auto flex flex-col items-center justify-between gap-4 px-6 md:flex-row">
-          <p className="font-display font-bold">
-            keynou<span className="text-primary"> drive</span>
-          </p>
+          <img src="/keynou_drove_logo.png" alt="Keynou Drive" className="h-8 w-auto" />
           <p className="text-sm text-muted-foreground">© 2026 drive.keynou.com. All rights reserved.</p>
         </div>
       </footer>
