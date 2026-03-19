@@ -1,73 +1,70 @@
-# Welcome to your Lovable project
+# Keynou Drive (Django + Next.js)
 
-## Project info
+Manual subscription management with multi-tenant URL shortening and analytics.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Prerequisites
 
-## How can I edit this code?
+- Python 3.12+
+- Node.js 18+
+- Redis (for caching)
+- PostgreSQL (optional, SQLite works for dev)
 
-There are several ways of editing your application.
+## Backend setup (Django)
 
-**Use Lovable**
+```bash
+cd backend
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py seed_default_tenant
+python manage.py createsuperuser
+python manage.py runserver 0.0.0.0:8000
+```
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+### Backend environment variables
 
-Changes made via Lovable will be committed automatically to this repo.
+Set these in your shell or a `.env` file (example values shown):
 
-**Use your preferred IDE**
+```bash
+DJANGO_DEBUG=1
+DJANGO_ALLOWED_HOSTS=*
+DJANGO_CORS_ALLOWED_ORIGINS=http://localhost:3000
+DJANGO_DB=sqlite
+POSTGRES_DB=keynou_drive
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+POSTGRES_HOST=localhost
+POSTGRES_PORT=5432
+REDIS_URL=redis://localhost:6379/0
+```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Frontend setup (Next.js)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+cd frontend
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Frontend environment variables
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Create `frontend/.env.local`:
 
-**Use GitHub Codespaces**
+```bash
+NEXT_PUBLIC_API_BASE_URL=http://localhost:8000
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Useful URLs
 
-## What technologies are used for this project?
+- Frontend: http://localhost:3000
+- Backend: http://localhost:8000
+- Django Admin: http://localhost:8000/admin
 
-This project is built with:
+## Admin panel usage
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+After logging in with a user whose profile has `is_admin=true`, visit:
 
-## How can I deploy this project?
+- http://localhost:3000/admin
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+From there, you can enable access, adjust link caps, and review subscription requests.

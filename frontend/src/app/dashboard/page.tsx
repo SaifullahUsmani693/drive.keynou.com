@@ -4,6 +4,8 @@ import { useEffect, useMemo, useState } from "react";
 import { BarChart3, Copy, Link2, Loader2, ShieldCheck } from "lucide-react";
 
 import { analyticsApi, driveApi } from "@/lib/api";
+import DashboardShell from "@/components/dashboard/DashboardShell";
+import AuthGuard from "@/components/providers/AuthGuard";
 import { useAppSelector } from "@/lib/hooks";
 
 const initialForm = { name: "", email: "", phone: "", message: "" };
@@ -100,8 +102,8 @@ export default function DashboardPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white">
-      <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-10">
+    <AuthGuard>
+      <DashboardShell>
         <header className="flex flex-col gap-2">
           <p className="text-xs uppercase tracking-[0.3em] text-emerald-200">Dashboard</p>
           <h1 className="text-3xl font-semibold">Manual access overview</h1>
@@ -330,7 +332,7 @@ export default function DashboardPage() {
             </div>
           </div>
         </section>
-      </div>
-    </div>
+      </DashboardShell>
+    </AuthGuard>
   );
 }

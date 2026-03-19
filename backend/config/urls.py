@@ -23,4 +23,6 @@ urlpatterns = [
     path("api/accounts/", include("accounts.urls")),
     path("api/drive/", include("drive.urls")),
     path("api/analytics/", include("analytics.urls")),
+    path("api/admin/", include("accounts.admin_urls")),
+    path("api/admin/", include("drive.admin_urls")),
 ]

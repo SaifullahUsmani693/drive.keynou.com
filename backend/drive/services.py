@@ -49,3 +49,10 @@ def subscription_request_stats(*, tenant):
 
 def get_active_link(*, tenant, short_code: str):
     return Link.objects.select_related("tenant").get(tenant=tenant, short_code=short_code, is_active=True)
+
+
+def update_subscription_request(*, request_obj, status: str, admin_notes: str = ""):
+    request_obj.status = status
+    request_obj.admin_notes = admin_notes
+    request_obj.save(update_fields=["status", "admin_notes", "updated_at"])
+    return request_obj

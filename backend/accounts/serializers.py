@@ -29,3 +29,15 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ["id", "email", "username", "first_name", "last_name", "profile"]
+
+
+class LoginSerializer(serializers.Serializer):
+    identifier = serializers.CharField()
+    password = serializers.CharField(write_only=True)
+
+
+class RegisterSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    username = serializers.CharField(required=False, allow_blank=True)
+    password = serializers.CharField(write_only=True)
+    company_name = serializers.CharField(required=False, allow_blank=True)
