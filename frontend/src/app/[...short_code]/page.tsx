@@ -20,18 +20,17 @@ export default function PublicRedirectPage() {
   const [payload, setPayload] = useState<ResolvePayload | null>(null);
   const [error, setError] = useState<string | null>(null);
   const shortCodeParts = Array.isArray(params?.short_code) ? params.short_code : [];
-  const tenantId = shortCodeParts[0];
-  const slug = shortCodeParts.slice(1).join("/");
+  const slug = shortCodeParts.join("/");
 
   const branding = payload?.branding ?? {};
   const primaryColor = branding.primary_color || "hsl(var(--primary))";
   const textColor = branding.text_color || "hsl(var(--foreground))";
 
   useEffect(() => {
-    if (!tenantId || !slug) return;
+    if (!slug) return;
     const apiBase = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000";
     const controller = new AbortController();
-    fetch(`${apiBase}/api/drive/resolve/${tenantId}/${slug}/`, { signal: controller.signal })
+    fetch(`${apiBase}/api/drive/resolve/${slug}/`, { signal: controller.signal })
       .then(async (response) => {
         if (!response.ok) {
           const data = await response.json().catch(() => ({}));
@@ -53,7 +52,7 @@ export default function PublicRedirectPage() {
       });
 
     return () => controller.abort();
-  }, [tenantId, slug]);
+  }, [slug]);
 
   const logoUrl = useMemo(() => {
     if (payload?.is_paid && branding.logo_url) {

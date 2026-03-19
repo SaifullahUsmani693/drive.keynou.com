@@ -280,7 +280,7 @@ export default function LinksPage() {
                 <span>Select all</span>
               </div>
               {recentLinks.map((link) => {
-                const shortUrl = `${resolvedBaseUrl}/${link.tenant}/${link.short_code}`;
+                const shortUrl = `${resolvedBaseUrl}/${link.short_code}`;
                 const isEditing = editingId === link.id;
                 return (
                   <div key={link.id} className="p-4 flex items-center justify-between hover:bg-secondary/20 transition-colors">

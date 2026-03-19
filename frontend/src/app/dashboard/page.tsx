@@ -189,7 +189,7 @@ export default function DashboardPage() {
             <div className="divide-y divide-border">
               {recentLinks.map((link) => {
                 const baseUrl = typeof window !== "undefined" ? window.location.origin : fallbackSiteUrl;
-                const shortUrl = `${baseUrl}/${link.tenant}/${link.short_code}`;
+                const shortUrl = `${baseUrl}/${link.short_code}`;
                 return (
                   <div key={link.id} className="p-4 flex items-center justify-between hover:bg-secondary/20 transition-colors">
                     <div className="min-w-0 flex-1">

@@ -138,8 +138,8 @@ class PublicResolveView(APIView):
     authentication_classes = []
     permission_classes = [AllowAny]
 
-    def get(self, request, tenant_id: int, short_code: str):
-        cached = get_cached_resolve(tenant_id=tenant_id, short_code=short_code)
+    def get(self, request, short_code: str):
+        cached = get_cached_resolve(short_code=short_code)
         if cached:
             ip_address = request.META.get("HTTP_X_FORWARDED_FOR", "").split(",")[0].strip() or request.META.get(
                 "REMOTE_ADDR"
@@ -156,17 +156,15 @@ class PublicResolveView(APIView):
             cached_payload = cached.get("payload")
             if cached_payload:
                 return api_response(data=cached_payload, message="Link resolved")
-        tenant = Tenant.objects.filter(id=tenant_id, is_active=True).first()
-        if tenant is None:
-            return api_response(message="Tenant not found", status_code=404)
-
         link = (
-            tenant.links.filter(short_code=short_code, is_active=True)
-            .select_related("tenant")
+            Link.objects.select_related("tenant")
+            .filter(short_code=short_code, is_active=True, tenant__is_active=True)
             .first()
         )
         if link is None:
             return api_response(message="Link not found", status_code=404)
+
+        tenant = link.tenant
 
         ip_address = request.META.get("HTTP_X_FORWARDED_FOR", "").split(",")[0].strip() or request.META.get(
             "REMOTE_ADDR"
@@ -189,7 +187,6 @@ class PublicResolveView(APIView):
             **branding_payload,
         }
         set_cached_resolve(
-            tenant_id=tenant.id,
             short_code=short_code,
             payload={
                 "tenant_id": tenant.id,
