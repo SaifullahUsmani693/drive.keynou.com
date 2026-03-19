@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, BarChart3, Globe2, Link2, Zap, Shield, Crown, Check } from "lucide-react";
+import { ArrowRight, BarChart3, Globe2, Link2, Zap, Shield, Crown, Check, Mail, Phone, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
+import { Textarea } from "@/components/ui/textarea";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 const features = [
   { icon: Link2, title: "Custom Short Links", desc: "Create branded, memorable links that boost click-through rates." },
@@ -16,6 +19,37 @@ const features = [
 
 const Index = () => {
   const [url, setUrl] = useState("");
+  const [contact, setContact] = useState({ name: "", email: "", phone: "", message: "" });
+  const [isSubmittingContact, setIsSubmittingContact] = useState(false);
+
+  const handleContactSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!contact.name || !contact.email || !contact.phone || !contact.message) {
+      toast.error("Please fill out all contact fields.");
+      return;
+    }
+
+    setIsSubmittingContact(true);
+
+    const { error } = await supabase.from("subscription_requests").insert({
+      name: contact.name,
+      email: contact.email,
+      phone: contact.phone,
+      message: contact.message,
+      user_id: null,
+    });
+
+    setIsSubmittingContact(false);
+
+    if (error) {
+      toast.error(error.message);
+      return;
+    }
+
+    toast.success("Your request has been sent.");
+    setContact({ name: "", email: "", phone: "", message: "" });
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -27,7 +61,7 @@ const Index = () => {
           </Link>
           <div className="hidden md:flex items-center gap-8">
             <a href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Features</a>
-            <a href="#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Pricing</a>
+            <a href="#contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Contact</a>
           </div>
           <div className="flex items-center gap-3">
             <Link to="/login">
@@ -162,8 +196,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Pricing */}
-      <section id="pricing" className="py-24">
+      {/* Contact */}
+      <section id="contact" className="py-24">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0 }}
@@ -171,65 +205,94 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">Simple pricing</h2>
-            <p className="text-muted-foreground text-lg">Start free, upgrade when you need more.</p>
+            <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">Contact for more access</h2>
+            <p className="text-muted-foreground text-lg">Keep your existing caps, then send a request if you need higher limits or manual access changes.</p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-            {/* Free */}
+          <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               className="glass rounded-2xl p-8"
             >
-              <h3 className="font-display text-xl font-semibold mb-2">Free</h3>
-              <p className="text-4xl font-display font-bold mb-1">$0<span className="text-base font-normal text-muted-foreground">/mo</span></p>
-              <p className="text-sm text-muted-foreground mb-6">Perfect for getting started</p>
-              <ul className="space-y-3 mb-8">
-                {["50 short links", "Basic analytics", "drive.keynou.com branding", "Community support"].map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-sm">
-                    <Check className="w-4 h-4 text-accent" /> {item}
-                  </li>
-                ))}
-              </ul>
-              <Link to="/signup">
-                <Button variant="outline" className="w-full">Get Started Free</Button>
-              </Link>
-            </motion.div>
-
-            {/* Pro */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative glass rounded-2xl p-8 border-primary/40"
-            >
-              <div className="absolute -top-3 right-6 px-3 py-1 rounded-full bg-gradient-primary text-xs font-semibold text-primary-foreground">
-                Popular
-              </div>
-              <h3 className="font-display text-xl font-semibold mb-2">Pro</h3>
-              <p className="text-4xl font-display font-bold mb-1">$15<span className="text-base font-normal text-muted-foreground">/mo</span></p>
-              <p className="text-sm text-muted-foreground mb-6">For serious marketers</p>
+              <h3 className="font-display text-xl font-semibold mb-2">Current caps stay in place</h3>
+              <p className="text-sm text-muted-foreground mb-6">You’re no longer sending users through pricing or checkout. Instead, users request changes and you enable or disable access manually.</p>
               <ul className="space-y-3 mb-8">
                 {[
-                  "Unlimited short links",
-                  "Advanced analytics & geo tracking",
-                  "Custom domain support",
-                  "Your branding & logo",
-                  "Priority support",
-                  "API access",
+                  "Users keep their current link caps",
+                  "Requests can ask for higher limits",
+                  "You collect payment personally",
+                  "You manually allow or disallow access from the admin panel",
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-2 text-sm">
                     <Check className="w-4 h-4 text-accent" /> {item}
                   </li>
                 ))}
               </ul>
-              <Link to="/signup">
-                <Button className="w-full bg-gradient-primary hover:opacity-90 transition-opacity">
-                  Start Pro Trial
-                </Button>
-              </Link>
+              <div className="grid sm:grid-cols-3 gap-3">
+                <div className="rounded-xl bg-secondary/30 p-4">
+                  <Mail className="w-4 h-4 text-primary mb-2" />
+                  <p className="text-sm font-medium">Manual review</p>
+                </div>
+                <div className="rounded-xl bg-secondary/30 p-4">
+                  <Phone className="w-4 h-4 text-primary mb-2" />
+                  <p className="text-sm font-medium">Direct follow-up</p>
+                </div>
+                <div className="rounded-xl bg-secondary/30 p-4">
+                  <MessageSquare className="w-4 h-4 text-primary mb-2" />
+                  <p className="text-sm font-medium">Cap increase requests</p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative glass rounded-2xl p-8 border-primary/40"
+            >
+              <h3 className="font-display text-xl font-semibold mb-6">Request a cap increase</h3>
+              <form className="space-y-4" onSubmit={handleContactSubmit}>
+                <Input
+                  placeholder="Your name"
+                  value={contact.name}
+                  onChange={(e) => setContact((current) => ({ ...current, name: e.target.value }))}
+                  className="h-11"
+                  required
+                />
+                <Input
+                  type="email"
+                  placeholder="Email address"
+                  value={contact.email}
+                  onChange={(e) => setContact((current) => ({ ...current, email: e.target.value }))}
+                  className="h-11"
+                  required
+                />
+                <Input
+                  placeholder="Phone number"
+                  value={contact.phone}
+                  onChange={(e) => setContact((current) => ({ ...current, phone: e.target.value }))}
+                  className="h-11"
+                  required
+                />
+                <Textarea
+                  placeholder="Tell us what cap or access change you need."
+                  value={contact.message}
+                  onChange={(e) => setContact((current) => ({ ...current, message: e.target.value }))}
+                  rows={5}
+                  required
+                />
+                <div className="flex flex-col sm:flex-row gap-3 items-stretch">
+                  <Button type="submit" className="flex-1 bg-gradient-primary hover:opacity-90 transition-opacity" disabled={isSubmittingContact}>
+                    {isSubmittingContact ? "Sending Request..." : "Send Request"}
+                  </Button>
+                  <Link to="/login" className="flex-1">
+                    <Button variant="outline" className="w-full">Log In</Button>
+                  </Link>
+                </div>
+                <p className="text-xs text-muted-foreground">Users can also submit requests from inside their dashboard, where they appear in your admin panel for manual review.</p>
+              </form>
             </motion.div>
           </div>
         </div>

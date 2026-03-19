@@ -1,6 +1,6 @@
 import DashboardLayout from "@/components/DashboardLayout";
 import { motion } from "framer-motion";
-import { Plus, Globe2, CheckCircle, AlertCircle, Crown } from "lucide-react";
+import { Plus, Globe2, CheckCircle, AlertCircle, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -31,10 +31,10 @@ const DashboardDomains = () => {
             <div className="space-y-4 mt-4">
               <div className="glass rounded-lg p-4 border-primary/20">
                 <div className="flex items-center gap-2 mb-2">
-                  <Crown className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-semibold">Pro Feature</span>
+                  <ShieldCheck className="w-4 h-4 text-primary" />
+                  <span className="text-sm font-semibold">Manual Approval</span>
                 </div>
-                <p className="text-xs text-muted-foreground">Custom domains are available on the Pro plan ($15/mo). Upgrade to connect your own domain.</p>
+                <p className="text-xs text-muted-foreground">Custom domains are enabled manually. Contact admin after payment to allow domain access for your account.</p>
               </div>
               <div className="space-y-2">
                 <Label>Domain</Label>

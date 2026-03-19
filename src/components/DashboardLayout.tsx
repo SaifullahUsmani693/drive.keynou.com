@@ -1,8 +1,9 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { BarChart3, Link2, Globe2, Settings, LogOut, LayoutDashboard, Crown } from "lucide-react";
+import { BarChart3, Link2, Globe2, Settings, LogOut, LayoutDashboard, ShieldCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
+import { useProfileAccess } from "@/hooks/useProfileAccess";
 
 const navItems = [
   { icon: LayoutDashboard, label: "Dashboard", path: "/dashboard" },
@@ -16,6 +17,11 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const { signOut } = useAuth();
+  const { data: profile } = useProfileAccess();
+
+  const sidebarItems = profile?.is_admin
+    ? [...navItems, { icon: ShieldCheck, label: "Admin", path: "/admin/subscriptions" }]
+    : navItems;
 
   const handleSignOut = async () => {
     await signOut();
@@ -33,7 +39,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         </div>
 
         <nav className="flex-1 px-3 space-y-1">
-          {navItems.map((item) => (
+          {sidebarItems.map((item) => (
             <Link
               key={item.path}
               to={item.path}
@@ -53,12 +59,16 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         <div className="p-4">
           <div className="glass rounded-xl p-4 mb-3">
             <div className="flex items-center gap-2 mb-2">
-              <Crown className="w-4 h-4 text-primary" />
-              <span className="text-xs font-semibold">Free Plan</span>
+              <ShieldCheck className="w-4 h-4 text-primary" />
+              <span className="text-xs font-semibold">Manual Access</span>
             </div>
-            <p className="text-xs text-muted-foreground mb-3">Upgrade for custom domains & branding</p>
-            <Button size="sm" className="w-full bg-gradient-primary hover:opacity-90 text-xs">
-              Upgrade to Pro
+            <p className="text-xs text-muted-foreground mb-3">
+              {profile?.subscription_active
+                ? `Access enabled · Cap: ${profile.link_limit} links`
+                : "Access is pending. Send a request if you need your cap increased."}
+            </p>
+            <Button size="sm" className="w-full bg-gradient-primary hover:opacity-90 text-xs" onClick={() => navigate("/dashboard/settings") }>
+              Contact for Changes
             </Button>
           </div>
           <button onClick={handleSignOut} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground w-full px-3 py-2">

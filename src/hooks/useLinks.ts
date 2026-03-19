@@ -2,6 +2,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "sonner";
+import { useProfileAccess } from "@/hooks/useProfileAccess";
 
 export const useLinks = () => {
   const { user } = useAuth();
@@ -23,9 +24,20 @@ export const useLinks = () => {
 export const useCreateLink = () => {
   const queryClient = useQueryClient();
   const { user } = useAuth();
+  const { data: profile } = useProfileAccess();
 
   return useMutation({
     mutationFn: async ({ destinationUrl, shortCode }: { destinationUrl: string; shortCode: string }) => {
+      const existingLinks = (queryClient.getQueryData(["links", user?.id]) as Array<{ id: string }> | undefined) ?? [];
+
+      if (!profile?.subscription_active) {
+        throw new Error("Your access is not enabled yet. Contact admin for approval.");
+      }
+
+      if (existingLinks.length >= profile.link_limit) {
+        throw new Error(`You have reached your current cap of ${profile.link_limit} links. Request a cap increase from settings.`);
+      }
+
       const { data, error } = await supabase
         .from("links")
         .insert({

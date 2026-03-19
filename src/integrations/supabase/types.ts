@@ -91,6 +91,45 @@ export type Database = {
         }
         Relationships: []
       }
+      subscription_requests: {
+        Row: {
+          admin_notes: string | null
+          created_at: string
+          email: string
+          id: string
+          message: string
+          name: string
+          phone: string
+          status: string
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          admin_notes?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          message: string
+          name: string
+          phone: string
+          status?: string
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          admin_notes?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string
+          name?: string
+          phone?: string
+          status?: string
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
       links: {
         Row: {
           clicks: number
@@ -135,7 +174,10 @@ export type Database = {
           created_at: string
           display_name: string | null
           id: string
+          is_admin: boolean
+          link_limit: number
           plan: string
+          subscription_active: boolean
           updated_at: string
           user_id: string
         }
@@ -146,7 +188,10 @@ export type Database = {
           created_at?: string
           display_name?: string | null
           id?: string
+          is_admin?: boolean
+          link_limit?: number
           plan?: string
+          subscription_active?: boolean
           updated_at?: string
           user_id: string
         }
@@ -157,7 +202,10 @@ export type Database = {
           created_at?: string
           display_name?: string | null
           id?: string
+          is_admin?: boolean
+          link_limit?: number
           plan?: string
+          subscription_active?: boolean
           updated_at?: string
           user_id?: string
         }

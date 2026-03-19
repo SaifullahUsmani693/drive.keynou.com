@@ -7,12 +7,14 @@ import { useState } from "react";
 import { useLinks, useCreateLink, generateShortCode } from "@/hooks/useLinks";
 import { useDashboardStats } from "@/hooks/useAnalytics";
 import { toast } from "sonner";
+import { useProfileAccess } from "@/hooks/useProfileAccess";
 
 const Dashboard = () => {
   const [newUrl, setNewUrl] = useState("");
   const { data: links, isLoading: linksLoading } = useLinks();
   const { data: stats, isLoading: statsLoading } = useDashboardStats();
   const createLink = useCreateLink();
+  const { data: profile } = useProfileAccess();
 
   const handleShorten = () => {
     if (!newUrl) return;
@@ -51,6 +53,11 @@ const Dashboard = () => {
             {createLink.isPending ? <Loader2 className="w-4 h-4 animate-spin" /> : <><Plus className="w-4 h-4" /> Shorten</>}
           </Button>
         </div>
+        <p className="text-xs text-muted-foreground mt-3">
+          {profile?.subscription_active
+            ? `Access enabled. You are using ${(links ?? []).length} of ${profile.link_limit} allowed links.`
+            : "Access is currently disabled. Contact admin to enable your account or raise your cap."}
+        </p>
       </motion.div>
 
       {/* Stats */}

@@ -4,13 +4,37 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
-import { Crown, Upload, CreditCard } from "lucide-react";
+import { Upload, ShieldCheck } from "lucide-react";
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Textarea } from "@/components/ui/textarea";
+import { useAuth } from "@/contexts/AuthContext";
+import { useCreateSubscriptionRequest, useMySubscriptionRequests, useProfileAccess } from "@/hooks/useProfileAccess";
 
 const DashboardSettings = () => {
   const [companyName, setCompanyName] = useState("");
-  const isPro = false;
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+  const { user } = useAuth();
+  const { data: profile } = useProfileAccess();
+  const { data: requests } = useMySubscriptionRequests();
+  const createSubscriptionRequest = useCreateSubscriptionRequest();
+  const isPro = !!profile?.subscription_active;
+
+  const handleRequestSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    createSubscriptionRequest.mutate({
+      name: profile?.display_name || user?.user_metadata?.full_name || "",
+      email: user?.email || "",
+      phone,
+      message,
+    }, {
+      onSuccess: () => {
+        setPhone("");
+        setMessage("");
+      },
+    });
+  };
 
   return (
     <DashboardLayout>
@@ -23,7 +47,7 @@ const DashboardSettings = () => {
         <TabsList className="bg-secondary/30">
           <TabsTrigger value="profile">Profile</TabsTrigger>
           <TabsTrigger value="branding">Branding</TabsTrigger>
-          <TabsTrigger value="billing">Billing</TabsTrigger>
+          <TabsTrigger value="contact">Contact</TabsTrigger>
         </TabsList>
 
         {/* Profile */}
@@ -58,7 +82,7 @@ const DashboardSettings = () => {
               <h2 className="font-display text-lg font-semibold">Branding</h2>
               {!isPro && (
                 <span className="flex items-center gap-1 text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
-                  <Crown className="w-3 h-3" /> Pro Required
+                  <ShieldCheck className="w-3 h-3" /> Admin Approval Required
                 </span>
               )}
             </div>
@@ -66,8 +90,8 @@ const DashboardSettings = () => {
             {!isPro && (
               <div className="glass rounded-lg p-4 border-primary/20 mb-6">
                 <p className="text-sm mb-2">Free plan shows <strong>drive.keynou.com</strong> branding on redirect pages.</p>
-                <p className="text-xs text-muted-foreground mb-3">Upgrade to Pro to display your company name and logo instead.</p>
-                <Button size="sm" className="bg-gradient-primary hover:opacity-90">Upgrade to Pro — $15/mo</Button>
+                <p className="text-xs text-muted-foreground mb-3">Contact you for approval to enable branding and higher caps manually.</p>
+                <Button size="sm" className="bg-gradient-primary hover:opacity-90" onClick={() => document.querySelector('[data-state="inactive"][value="contact"]')?.dispatchEvent(new MouseEvent('click', { bubbles: true }))}>Request Access Change</Button>
               </div>
             )}
 
@@ -107,35 +131,73 @@ const DashboardSettings = () => {
           </motion.div>
         </TabsContent>
 
-        {/* Billing */}
-        <TabsContent value="billing">
+        {/* Contact */}
+        <TabsContent value="contact">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="glass rounded-xl p-6 max-w-2xl">
-            <h2 className="font-display text-lg font-semibold mb-6">Billing & Subscription</h2>
-            
+            <h2 className="font-display text-lg font-semibold mb-6">Contact & Manual Access</h2>
+
             <div className="glass rounded-lg p-5 mb-6">
-              <div className="flex items-center justify-between mb-3">
-                <div>
-                  <p className="font-semibold">Free Plan</p>
-                  <p className="text-sm text-muted-foreground">50 links, basic analytics</p>
-                </div>
-                <span className="text-xs px-3 py-1 rounded-full bg-secondary text-muted-foreground">Current</span>
+              <div className="flex items-center gap-2 mb-3">
+                <ShieldCheck className="w-4 h-4 text-primary" />
+                <p className="font-semibold">Current access</p>
               </div>
-              <Separator className="my-3" />
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="font-semibold flex items-center gap-2">
-                    Pro Plan <Crown className="w-4 h-4 text-primary" />
-                  </p>
-                  <p className="text-sm text-muted-foreground">Unlimited links, custom domains, your branding</p>
-                </div>
-                <p className="font-display text-xl font-bold">$15<span className="text-sm font-normal text-muted-foreground">/mo</span></p>
+              <div className="space-y-2 text-sm">
+                <p>Status: <span className="font-medium">{profile?.subscription_active ? "Enabled" : "Pending manual approval"}</span></p>
+                <p>Link cap: <span className="font-medium">{profile?.link_limit ?? 50} links</span></p>
+              </div>
+              <Separator className="my-4" />
+              <div className="text-sm text-muted-foreground">
+                You take payment personally, then manually enable or disable access from the admin panel.
               </div>
             </div>
 
-            <Button className="bg-gradient-primary hover:opacity-90 gap-2">
-              <CreditCard className="w-4 h-4" /> Upgrade to Pro
-            </Button>
-            <p className="text-xs text-muted-foreground mt-2">Secure payment via 2Checkout. Cancel anytime.</p>
+            <form className="space-y-4" onSubmit={handleRequestSubmit}>
+              <div className="space-y-2">
+                <Label>Name</Label>
+                <Input value={profile?.display_name || user?.user_metadata?.full_name || ""} className="h-11" disabled />
+              </div>
+              <div className="space-y-2">
+                <Label>Email</Label>
+                <Input value={user?.email || ""} className="h-11" disabled />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="phone">Phone</Label>
+                <Input id="phone" value={phone} onChange={(e) => setPhone(e.target.value)} className="h-11" placeholder="Your phone number" required />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="message">Message</Label>
+                <Textarea
+                  id="message"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder="Ask for a cap increase or access change."
+                  rows={5}
+                  required
+                />
+              </div>
+              <Button className="bg-gradient-primary hover:opacity-90 gap-2" disabled={createSubscriptionRequest.isPending}>
+                Send Request
+              </Button>
+            </form>
+
+            <div className="mt-6">
+              <h3 className="font-semibold mb-3">Recent requests</h3>
+              <div className="space-y-3">
+                {(requests ?? []).length === 0 ? (
+                  <p className="text-sm text-muted-foreground">No requests submitted yet.</p>
+                ) : (
+                  (requests ?? []).slice(0, 5).map((request) => (
+                    <div key={request.id} className="rounded-lg border border-border p-4">
+                      <div className="flex items-center justify-between gap-3 mb-2">
+                        <p className="text-sm font-medium">{request.phone}</p>
+                        <span className="text-[10px] px-2 py-1 rounded-full bg-secondary text-muted-foreground uppercase tracking-wide">{request.status}</span>
+                      </div>
+                      <p className="text-sm whitespace-pre-wrap">{request.message}</p>
+                    </div>
+                  ))
+                )}
+              </div>
+            </div>
           </motion.div>
         </TabsContent>
       </Tabs>
