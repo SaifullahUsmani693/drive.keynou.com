@@ -30,7 +30,10 @@ def _format_short_code(*, user, short_code: str | None) -> str:
 
 
 def create_link(*, tenant, user, destination_url: str, short_code: str | None):
-    profile = Profile.objects.select_related("tenant").get(user=user)
+    profile, _ = Profile.objects.select_related("tenant").get_or_create(
+        user=user,
+        defaults={"tenant": tenant},
+    )
     free_limit = 2
     effective_limit = profile.link_limit if profile.subscription_active else free_limit
 

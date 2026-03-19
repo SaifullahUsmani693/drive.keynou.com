@@ -4,12 +4,13 @@ import { useEffect } from "react";
 
 import { accountsApi } from "@/lib/api";
 import { useAppDispatch } from "@/lib/hooks";
-import { setUser } from "@/lib/features/authSlice";
+import { setAuthLoading, setUser } from "@/lib/features/authSlice";
 
 export default function AppBootstrap() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
+    dispatch(setAuthLoading(true));
     accountsApi
       .me()
       .then((response) => {

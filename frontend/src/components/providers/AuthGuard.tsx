@@ -1,21 +1,23 @@
 "use client";
 
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 import { useAppSelector } from "@/lib/hooks";
 
 export default function AuthGuard({ children }: { children: React.ReactNode }) {
   const router = useRouter();
-  const user = useAppSelector((state) => state.auth.user);
+  const pathname = usePathname();
+  const { user, isLoading } = useAppSelector((state) => state.auth);
 
   useEffect(() => {
-    if (user === null) {
-      router.replace("/login");
+    if (!isLoading && user === null) {
+      const next = encodeURIComponent(pathname || "/dashboard");
+      router.replace(`/login?next=${next}`);
     }
-  }, [user, router]);
+  }, [isLoading, user, router, pathname]);
 
-  if (user === null) {
+  if (isLoading || user === null) {
     return null;
   }
 

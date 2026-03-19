@@ -17,6 +17,7 @@ import { toast } from "sonner";
 
 import { analyticsApi, driveApi } from "@/lib/api";
 import DashboardShell from "@/components/dashboard/DashboardShell";
+import Link from "next/link";
 import AuthGuard from "@/components/providers/AuthGuard";
 import { useAppSelector } from "@/lib/hooks";
 import { Button } from "@/components/ui/button";
@@ -105,9 +106,9 @@ export default function DashboardPage() {
               <p className="text-xs text-muted-foreground">Head to the links page to create and manage URLs.</p>
             </div>
             <Button className="h-11 px-6 bg-gradient-primary hover:opacity-90 gap-2" asChild>
-              <a href="/dashboard/links">
+              <Link href="/dashboard/links">
                 <Plus className="w-4 h-4" /> New link
-              </a>
+              </Link>
             </Button>
           </div>
           <p className="text-xs text-muted-foreground mt-3">

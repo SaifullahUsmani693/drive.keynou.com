@@ -71,13 +71,10 @@ export default function LinksPage() {
   const verifiedDomains = useMemo(() => domains.filter((domain) => domain.is_verified), [domains]);
   const resolvedBaseUrl = useMemo(() => {
     if (selectedDomain) {
-      return `https://${selectedDomain}`;
+      return `https://${selectedDomain}/r`;
     }
     if (verifiedDomains.length === 1) {
-      return `https://${verifiedDomains[0].domain}`;
-    }
-    if (typeof window !== "undefined") {
-      return window.location.origin;
+      return `https://${verifiedDomains[0].domain}/r`;
     }
     return shortBaseUrl;
   }, [selectedDomain, verifiedDomains]);
