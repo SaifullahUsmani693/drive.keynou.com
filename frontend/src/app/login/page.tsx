@@ -61,13 +61,20 @@ export default function LoginPage() {
 
       <div className="flex-1 flex items-center justify-center p-8">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="w-full max-w-sm">
-          <Link href="/" className="font-display text-xl font-bold mb-8 block">
-            keynou<span className="text-primary"> drive</span>
+          <Link href="/" className="mb-8 block">
+            <img src="/keynou_drove_logo.png" alt="Keynou Drive" className="h-10 w-auto" />
           </Link>
           <h1 className="font-display text-2xl font-bold mb-2">Sign in</h1>
           <p className="text-sm text-muted-foreground mb-8">Enter your credentials to access your account</p>
 
-          <Button variant="outline" className="w-full mb-4 h-11 gap-2" onClick={handleGoogle} type="button">
+          <Button
+            variant="outline"
+            className="w-full mb-4 h-11 gap-2"
+            onClick={handleGoogle}
+            type="button"
+            aria-label="Continue with Google"
+            title="Continue with Google"
+          >
             <svg className="w-4 h-4" viewBox="0 0 24 24">
               <path
                 d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"
@@ -105,6 +112,7 @@ export default function LoginPage() {
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
                 className="h-11"
+                autoComplete="email"
                 required
               />
             </div>
@@ -122,6 +130,7 @@ export default function LoginPage() {
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
                 className="h-11"
+                autoComplete="current-password"
                 required
               />
             </div>

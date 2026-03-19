@@ -3,5 +3,5 @@
 import { Toaster } from "sonner";
 
 export default function AppToaster() {
-  return <Toaster position="top-right" richColors />;
+  return <Toaster position="bottom-center" richColors />;
 }

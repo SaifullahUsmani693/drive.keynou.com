@@ -16,10 +16,13 @@ api.interceptors.response.use(
   },
   (error: AxiosError) => {
     const message = (error.response?.data as { message?: string })?.message || error.message;
-    if (message) {
+    console.log('error')
+    console.log()
+    if (message && error.status != 403) {
       toast.error(message);
     }
-    return Promise.reject(error);
+    // return Promise.reject(error);
+    return null
   },
 );
 

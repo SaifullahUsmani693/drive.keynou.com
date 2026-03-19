@@ -27,7 +27,17 @@ class LinkSerializer(serializers.ModelSerializer):
 
 class LinkCreateSerializer(serializers.Serializer):
     destination_url = serializers.URLField(max_length=2000)
-    short_code = serializers.CharField(max_length=32, required=False, allow_blank=True)
+    short_code = serializers.CharField(max_length=255, required=False, allow_blank=True)
+
+
+class LinkUpdateSerializer(serializers.Serializer):
+    destination_url = serializers.URLField(max_length=2000, required=False)
+    short_code = serializers.CharField(max_length=255, required=False, allow_blank=True)
+    is_active = serializers.BooleanField(required=False)
+
+
+class LinkBulkDeleteSerializer(serializers.Serializer):
+    ids = serializers.ListField(child=serializers.IntegerField(), allow_empty=False)
 
 
 class SubscriptionRequestSerializer(serializers.ModelSerializer):

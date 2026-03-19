@@ -10,13 +10,16 @@ import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { setUser } from "@/lib/features/authSlice";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
 
 const navItems = [
   { icon: LayoutDashboard, label: "Dashboard", path: "/dashboard" },
   { icon: Link2, label: "Links", path: "/dashboard/links" },
   { icon: BarChart3, label: "Analytics", path: "/dashboard/analytics" },
   { icon: Globe2, label: "Domains", path: "/dashboard/domains" },
-  { icon: Settings, label: "Settings", path: "/dashboard" },
+  { icon: Settings, label: "Settings", path: "/dashboard/settings" },
 ];
 
 export default function DashboardShell({ children }: { children: React.ReactNode }) {
@@ -27,6 +30,11 @@ export default function DashboardShell({ children }: { children: React.ReactNode
   const profile = user?.profile;
   const [linkCount, setLinkCount] = useState(0);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [showCapForm, setShowCapForm] = useState(false);
+  const [isSubmittingCap, setIsSubmittingCap] = useState(false);
+  const [capAmount, setCapAmount] = useState("");
+  const [capMessage, setCapMessage] = useState("");
+  const [capPhone, setCapPhone] = useState("");
 
   const usageLimit = useMemo(() => {
     if (!profile) return 2;
@@ -48,6 +56,33 @@ export default function DashboardShell({ children }: { children: React.ReactNode
     router.replace("/login");
   };
 
+  const handleCapRequest = async (event: React.FormEvent) => {
+    event.preventDefault();
+    if (!user) return;
+    if (!capAmount || !capMessage) {
+      toast.error("Enter the requested cap and a short message.");
+      return;
+    }
+    setIsSubmittingCap(true);
+    try {
+      await driveApi.createSubscriptionRequest({
+        name: user.username || user.email || "User",
+        email: user.email || "",
+        phone: capPhone,
+        message: `Requested cap: ${capAmount}\n${capMessage}`,
+      });
+      toast.success("Cap increase request sent.");
+      setCapAmount("");
+      setCapMessage("");
+      setCapPhone("");
+      setShowCapForm(false);
+    } catch (error: any) {
+      toast.error(error?.response?.data?.message || "Unable to send request");
+    } finally {
+      setIsSubmittingCap(false);
+    }
+  };
+
   useEffect(() => {
     if (!user) return;
     const loadLinks = async () => {
@@ -66,8 +101,8 @@ export default function DashboardShell({ children }: { children: React.ReactNode
     <div className="min-h-screen flex bg-background">
       <aside className="hidden md:flex w-64 flex-col border-r border-border bg-card/50">
         <div className="p-6">
-          <Link href="/" className="font-display text-lg font-bold">
-            keynou<span className="text-primary"> drive</span>
+          <Link href="/" className="flex items-center">
+            <img src="/keynou_drove_logo.png" alt="Keynou Drive" className="h-8 w-auto" />
           </Link>
         </div>
 
@@ -106,10 +141,44 @@ export default function DashboardShell({ children }: { children: React.ReactNode
             <Button
               size="sm"
               className="w-full bg-gradient-primary hover:opacity-90 text-xs"
-              onClick={() => router.push("/dashboard")}
+              onClick={() => setShowCapForm((prev) => !prev)}
+              type="button"
             >
-              Contact for Changes
+              Increase cap
             </Button>
+            {showCapForm ? (
+              <form onSubmit={handleCapRequest} className="mt-3 space-y-2">
+                <Input
+                  value={capAmount}
+                  onChange={(event) => setCapAmount(event.target.value)}
+                  placeholder="Requested cap (e.g. 50 links)"
+                  className="h-9 bg-secondary/40"
+                  required
+                />
+                <Input
+                  value={capPhone}
+                  onChange={(event) => setCapPhone(event.target.value)}
+                  placeholder="Phone (optional)"
+                  className="h-9 bg-secondary/40"
+                />
+                <Textarea
+                  value={capMessage}
+                  onChange={(event) => setCapMessage(event.target.value)}
+                  placeholder="Tell us why you need more links"
+                  rows={3}
+                  className="bg-secondary/40"
+                  required
+                />
+                <Button
+                  size="sm"
+                  className="w-full bg-gradient-primary hover:opacity-90 text-xs"
+                  type="submit"
+                  disabled={isSubmittingCap}
+                >
+                  {isSubmittingCap ? "Sending..." : "Send request"}
+                </Button>
+              </form>
+            ) : null}
           </div>
           <button
             onClick={handleLogout}
@@ -122,8 +191,8 @@ export default function DashboardShell({ children }: { children: React.ReactNode
 
       <main className="flex-1 overflow-auto">
         <header className="md:hidden flex items-center justify-between p-4 border-b border-border">
-          <Link href="/" className="font-display text-lg font-bold">
-            keynou<span className="text-primary"> drive</span>
+          <Link href="/" className="flex items-center">
+            <img src="/keynou_drove_logo.png" alt="Keynou Drive" className="h-8 w-auto" />
           </Link>
           <button
             type="button"
@@ -164,8 +233,8 @@ export default function DashboardShell({ children }: { children: React.ReactNode
           />
           <aside className="absolute left-0 top-0 h-full w-72 bg-card shadow-2xl border-r border-border p-6 flex flex-col">
             <div className="flex items-center justify-between">
-              <Link href="/" className="font-display text-lg font-bold">
-                keynou<span className="text-primary"> drive</span>
+              <Link href="/" className="flex items-center">
+                <img src="/keynou_drove_logo.png" alt="Keynou Drive" className="h-8 w-auto" />
               </Link>
               <button
                 type="button"
@@ -212,13 +281,44 @@ export default function DashboardShell({ children }: { children: React.ReactNode
               <Button
                 size="sm"
                 className="w-full bg-gradient-primary hover:opacity-90 text-xs"
-                onClick={() => {
-                  setIsMobileOpen(false);
-                  router.push("/dashboard");
-                }}
+                onClick={() => setShowCapForm((prev) => !prev)}
+                type="button"
               >
-                Contact for Changes
+                Increase cap
               </Button>
+              {showCapForm ? (
+                <form onSubmit={handleCapRequest} className="mt-3 space-y-2">
+                  <Input
+                    value={capAmount}
+                    onChange={(event) => setCapAmount(event.target.value)}
+                    placeholder="Requested cap (e.g. 50 links)"
+                    className="h-9 bg-secondary/40"
+                    required
+                  />
+                  <Input
+                    value={capPhone}
+                    onChange={(event) => setCapPhone(event.target.value)}
+                    placeholder="Phone (optional)"
+                    className="h-9 bg-secondary/40"
+                  />
+                  <Textarea
+                    value={capMessage}
+                    onChange={(event) => setCapMessage(event.target.value)}
+                    placeholder="Tell us why you need more links"
+                    rows={3}
+                    className="bg-secondary/40"
+                    required
+                  />
+                  <Button
+                    size="sm"
+                    className="w-full bg-gradient-primary hover:opacity-90 text-xs"
+                    type="submit"
+                    disabled={isSubmittingCap}
+                  >
+                    {isSubmittingCap ? "Sending..." : "Send request"}
+                  </Button>
+                </form>
+              ) : null}
             </div>
 
             <button

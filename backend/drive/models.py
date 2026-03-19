@@ -6,16 +6,13 @@ from django.utils import timezone
 class Link(models.Model):
     tenant = models.ForeignKey("tenants.Tenant", on_delete=models.CASCADE, related_name="links")
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="links")
-    short_code = models.CharField(max_length=32)
+    short_code = models.CharField(max_length=255, unique=True)
     destination_url = models.URLField(max_length=2000)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        constraints = [
-            models.UniqueConstraint(fields=["tenant", "short_code"], name="uniq_tenant_short_code"),
-        ]
         indexes = [
             models.Index(fields=["tenant", "owner"]),
             models.Index(fields=["tenant", "is_active"]),

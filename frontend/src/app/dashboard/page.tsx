@@ -22,7 +22,7 @@ import AuthGuard from "@/components/providers/AuthGuard";
 import { useAppSelector } from "@/lib/hooks";
 import { Button } from "@/components/ui/button";
 
-const shortBaseUrl = process.env.NEXT_PUBLIC_SHORT_BASE_URL || "http://localhost:8000/api/drive/r";
+const fallbackSiteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 export default function DashboardPage() {
   const user = useAppSelector((state) => state.auth.user);
@@ -99,6 +99,28 @@ export default function DashboardPage() {
           <p className="text-sm text-muted-foreground">Overview of your link performance</p>
         </div>
 
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-8">
+          {[
+            { label: "Manage Links", href: "/dashboard/links", icon: Link2 },
+            { label: "Analytics", href: "/dashboard/analytics", icon: MousePointerClick },
+            { label: "Domains", href: "/dashboard/domains", icon: Globe2 },
+            { label: "Settings", href: "/dashboard/settings", icon: ArrowUpRight },
+          ].map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              className="glass rounded-xl p-4 flex items-center justify-between hover:bg-secondary/20 transition-colors"
+              title={item.label}
+            >
+              <div className="flex items-center gap-3">
+                <item.icon className="w-4 h-4 text-muted-foreground" />
+                <span className="text-sm font-semibold text-foreground">{item.label}</span>
+              </div>
+              <ArrowUpRight className="w-4 h-4 text-muted-foreground" />
+            </Link>
+          ))}
+        </div>
+
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="glass rounded-xl p-4 mb-8">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
@@ -166,18 +188,22 @@ export default function DashboardPage() {
           ) : (
             <div className="divide-y divide-border">
               {recentLinks.map((link) => {
-                const shortUrl = `${shortBaseUrl}/${link.short_code}`;
+                const baseUrl = typeof window !== "undefined" ? window.location.origin : fallbackSiteUrl;
+                const shortUrl = `${baseUrl}/${link.tenant}/${link.short_code}`;
                 return (
                   <div key={link.id} className="p-4 flex items-center justify-between hover:bg-secondary/20 transition-colors">
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-2">
                         <p className="text-sm font-medium text-primary truncate">{shortUrl}</p>
                         <button
+                          type="button"
                           onClick={() => {
                             navigator.clipboard.writeText(shortUrl);
                             toast.success("Copied!");
                           }}
                           className="text-muted-foreground hover:text-foreground"
+                          aria-label="Copy short link"
+                          title="Copy short link"
                         >
                           <Copy className="w-3.5 h-3.5" />
                         </button>
@@ -186,6 +212,8 @@ export default function DashboardPage() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-muted-foreground hover:text-foreground"
+                          aria-label="Open destination URL"
+                          title="Open destination URL"
                         >
                           <ExternalLink className="w-3.5 h-3.5" />
                         </a>

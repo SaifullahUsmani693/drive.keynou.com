@@ -7,6 +7,9 @@ class Tenant(models.Model):
     slug = models.SlugField(unique=True)
     primary_domain = models.CharField(max_length=255, unique=True)
     is_active = models.BooleanField(default=True)
+    brand_logo_url = models.URLField(max_length=2000, blank=True)
+    brand_primary_color = models.CharField(max_length=32, blank=True)
+    brand_text_color = models.CharField(max_length=32, blank=True)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 

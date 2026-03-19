@@ -59,14 +59,22 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       <nav className="fixed top-0 z-50 w-full glass">
         <div className="container mx-auto flex h-16 items-center justify-between px-6">
-          <Link href="/" className="font-display text-xl font-bold text-foreground">
-            keynou<span className="text-primary"> drive</span>
+          <Link href="/" className="flex items-center">
+            <img src="/keynou_drove_logo.png" alt="Keynou Drive" className="h-9 w-auto" />
           </Link>
           <div className="hidden items-center gap-8 md:flex">
-            <a href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <a
+              href="#features"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              title="Jump to features"
+            >
               Features
             </a>
-            <a href="#contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <a
+              href="#contact"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              title="Jump to contact form"
+            >
               Contact
             </a>
           </div>
@@ -110,10 +118,12 @@ export default function Home() {
 
             <div className="mx-auto mt-10 flex max-w-xl flex-col gap-3 sm:flex-row">
               <Input
+                type="url"
                 placeholder="Paste your long URL here..."
                 value={url}
                 onChange={(event) => setUrl(event.target.value)}
                 className="h-12 bg-secondary/50 border-border/50 text-base"
+                aria-label="Paste a long URL to shorten"
               />
               <Link href="/signup">
                 <Button className="h-12 px-8 bg-gradient-primary hover:opacity-90 transition-opacity whitespace-nowrap">
@@ -267,6 +277,8 @@ export default function Home() {
                   value={contact.name}
                   onChange={(event) => setContact((current) => ({ ...current, name: event.target.value }))}
                   className="h-11"
+                  autoComplete="name"
+                  aria-label="Your name"
                   required
                 />
                 <Input
@@ -275,6 +287,8 @@ export default function Home() {
                   value={contact.email}
                   onChange={(event) => setContact((current) => ({ ...current, email: event.target.value }))}
                   className="h-11"
+                  autoComplete="email"
+                  aria-label="Email address"
                   required
                 />
                 <Input
@@ -282,6 +296,8 @@ export default function Home() {
                   value={contact.phone}
                   onChange={(event) => setContact((current) => ({ ...current, phone: event.target.value }))}
                   className="h-11"
+                  autoComplete="tel"
+                  aria-label="Phone number"
                   required
                 />
                 <Textarea
@@ -289,6 +305,7 @@ export default function Home() {
                   value={contact.message}
                   onChange={(event) => setContact((current) => ({ ...current, message: event.target.value }))}
                   rows={5}
+                  aria-label="Request details"
                   required
                 />
                 <div className="flex flex-col items-stretch gap-3 sm:flex-row">

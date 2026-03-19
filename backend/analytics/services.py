@@ -13,11 +13,27 @@ def enrich_geo_from_ip(ip_address: str | None):
     return {"country": "", "region": "", "city": ""}
 
 
-def log_click_event(*, tenant, link, ip_address=None, user_agent="", referer="", country="", region="", city=""):
+def log_click_event(
+    *,
+    tenant=None,
+    link=None,
+    tenant_id=None,
+    link_id=None,
+    ip_address=None,
+    user_agent="",
+    referer="",
+    country="",
+    region="",
+    city="",
+):
+    resolved_tenant_id = tenant_id or getattr(tenant, "id", None)
+    resolved_link_id = link_id or getattr(link, "id", None)
+    if resolved_tenant_id is None or resolved_link_id is None:
+        raise ValueError("tenant/tenant_id and link/link_id are required")
     geo = enrich_geo_from_ip(ip_address)
     return ClickEvent.objects.create(
-        tenant=tenant,
-        link=link,
+        tenant_id=resolved_tenant_id,
+        link_id=resolved_link_id,
         ip_address=ip_address,
         user_agent=user_agent,
         referer=referer,
