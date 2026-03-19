@@ -6,3 +6,5 @@ class AnalyticsSummarySerializer(serializers.Serializer):
     unique_links = serializers.IntegerField()
     top_links = serializers.ListField(child=serializers.DictField())
     recent_clicks = serializers.IntegerField()
+    country_counts = serializers.ListField(child=serializers.DictField(), required=False)
+    total_countries = serializers.IntegerField(required=False)

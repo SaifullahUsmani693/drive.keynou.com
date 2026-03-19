@@ -44,6 +44,7 @@ class SubscriptionRequest(models.Model):
     message = models.TextField()
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="pending")
     admin_notes = models.TextField(blank=True)
+    subscription_expires_at = models.DateTimeField(null=True, blank=True)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 

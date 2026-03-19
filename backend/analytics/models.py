@@ -9,6 +9,7 @@ class ClickEvent(models.Model):
     user_agent = models.TextField(blank=True)
     referer = models.URLField(max_length=2000, blank=True)
     country = models.CharField(max_length=128, blank=True)
+    country_code = models.CharField(max_length=8, blank=True)
     region = models.CharField(max_length=128, blank=True)
     city = models.CharField(max_length=128, blank=True)
     created_at = models.DateTimeField(default=timezone.now)

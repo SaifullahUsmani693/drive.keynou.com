@@ -17,7 +17,20 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Keynou Drive",
-  description: "Powerul branded url shortening service with custom domain, custom short links, editing of existing shortlink destination urls, multiple domains and subdomains support, advanced analytics, custom branding during redirection, and much much more.",
+  description:
+    "Keynou Drive is the modern branded URL shortener for teams that want custom short links, deep analytics, custom domains, and branded redirects with total control.",
+  keywords: [
+    "url shortener",
+    "branded url shortener",
+    "cheap url shortener",
+    "cheap branded url shortener",
+    "free url shortener",
+    "better url shortener",
+    "new url shortener",
+    "custom short links",
+    "short link analytics",
+    "custom domains",
+  ],
 };
 
 export default function RootLayout({

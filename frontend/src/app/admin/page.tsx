@@ -53,7 +53,7 @@ export default function AdminPage() {
 
   const updateRequest = async (
     requestId: number | string,
-    values: { status: "pending" | "approved" | "declined"; admin_notes?: string },
+    values: { status: "pending" | "approved" | "declined"; admin_notes?: string; subscription_expires_at?: string | null },
   ) => {
     setSavingRequestId(requestId);
     try {
@@ -141,16 +141,52 @@ export default function AdminPage() {
               </div>
             ) : (
               <div className="mt-6 space-y-4">
-                {requests.map((request) => (
-                  <div key={request.id} className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                {requests.map((request) => {
+                  const expiresAt = request.subscription_expires_at
+                    ? new Date(request.subscription_expires_at)
+                    : null;
+                  const daysLeft = expiresAt
+                    ? Math.ceil((expiresAt.getTime() - Date.now()) / (1000 * 60 * 60 * 24))
+                    : null;
+                  const expiryLabel =
+                    daysLeft === null
+                      ? ""
+                      : daysLeft < 0
+                        ? "Expired"
+                        : `Expires in ${daysLeft}d`;
+
+                  return (
+                    <div key={request.id} className="rounded-2xl border border-white/10 bg-white/5 p-4">
                     <div className="flex items-start justify-between">
                       <div>
                         <p className="text-sm font-semibold">{request.name}</p>
                         <p className="text-xs text-white/50">{request.email}</p>
                       </div>
-                      <span className="text-xs text-white/50">{request.status}</span>
+                      <div className="flex flex-col items-end gap-1">
+                        <span className="text-xs text-white/50">{request.status}</span>
+                        {expiryLabel ? (
+                          <span className="text-[10px] uppercase tracking-wide text-amber-200">{expiryLabel}</span>
+                        ) : null}
+                      </div>
                     </div>
                     <p className="mt-3 text-xs text-white/70">{request.message}</p>
+                    <input
+                      type="date"
+                      className="mt-3 w-full rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs text-white"
+                      value={request.subscription_expires_at?.split("T")[0] || ""}
+                      onChange={(event) =>
+                        setRequests((prev) =>
+                          prev.map((item) =>
+                            item.id === request.id
+                              ? {
+                                  ...item,
+                                  subscription_expires_at: event.target.value || null,
+                                }
+                              : item,
+                          ),
+                        )
+                      }
+                    />
                     <input
                       className="mt-3 w-full rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs text-white"
                       placeholder="Admin notes"
@@ -173,6 +209,7 @@ export default function AdminPage() {
                             updateRequest(request.id, {
                               status,
                               admin_notes: request.admin_notes,
+                              subscription_expires_at: request.subscription_expires_at,
                             })
                           }
                         >
@@ -181,7 +218,8 @@ export default function AdminPage() {
                       ))}
                     </div>
                   </div>
-                ))}
+                );
+              })}
               </div>
             )}
           </div>

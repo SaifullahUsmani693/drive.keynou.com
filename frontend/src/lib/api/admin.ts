@@ -8,6 +8,7 @@ export type AdminProfileUpdatePayload = {
 export type AdminRequestUpdatePayload = {
   status: "pending" | "approved" | "declined";
   admin_notes?: string;
+  subscription_expires_at?: string | null;
 };
 
 export const adminApi = {

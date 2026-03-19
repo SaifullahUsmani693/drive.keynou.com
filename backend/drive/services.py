@@ -172,8 +172,13 @@ def bulk_delete_links(*, tenant, user, ids: list[int]) -> int:
     return deleted
 
 
-def update_subscription_request(*, request_obj, status: str, admin_notes: str = ""):
+def update_subscription_request(*, request_obj, status: str, admin_notes: str = "", subscription_expires_at=None):
     request_obj.status = status
     request_obj.admin_notes = admin_notes
-    request_obj.save(update_fields=["status", "admin_notes", "updated_at"])
+    if subscription_expires_at is not None:
+        request_obj.subscription_expires_at = subscription_expires_at
+    update_fields = ["status", "admin_notes", "updated_at"]
+    if subscription_expires_at is not None:
+        update_fields.append("subscription_expires_at")
+    request_obj.save(update_fields=update_fields)
     return request_obj

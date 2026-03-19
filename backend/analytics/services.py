@@ -1,4 +1,7 @@
 from datetime import timedelta
+from functools import lru_cache
+import os
+from pathlib import Path
 
 from django.core.cache import cache
 from django.db.models import Count
@@ -6,11 +9,41 @@ from django.utils import timezone
 
 from analytics.models import ClickEvent
 
+try:
+    import geoip2.database
+except ImportError:  # pragma: no cover
+    geoip2 = None
+
+
+@lru_cache(maxsize=1)
+def _geoip_reader():
+    if geoip2 is None:
+        return None
+    db_path = os.getenv("GEOIP_DB_PATH", "")
+    if not db_path:
+        return None
+    resolved = Path(db_path)
+    if not resolved.exists():
+        return None
+    return geoip2.database.Reader(str(resolved))
+
 
 def enrich_geo_from_ip(ip_address: str | None):
     if not ip_address:
-        return {"country": "", "region": "", "city": ""}
-    return {"country": "", "region": "", "city": ""}
+        return {"country": "", "country_code": "", "region": "", "city": ""}
+    reader = _geoip_reader()
+    if reader is None:
+        return {"country": "", "country_code": "", "region": "", "city": ""}
+    try:
+        response = reader.city(ip_address)
+    except Exception:
+        return {"country": "", "country_code": "", "region": "", "city": ""}
+    return {
+        "country": response.country.name or "",
+        "country_code": response.country.iso_code or "",
+        "region": response.subdivisions.most_specific.name or "",
+        "city": response.city.name or "",
+    }
 
 
 def log_click_event(
@@ -38,6 +71,7 @@ def log_click_event(
         user_agent=user_agent,
         referer=referer,
         country=country or geo["country"],
+        country_code=geo.get("country_code", ""),
         region=region or geo["region"],
         city=city or geo["city"],
     )
@@ -59,11 +93,20 @@ def analytics_summary(*, tenant):
         .annotate(total=Count("id"))
         .order_by("-total")[:5]
     )
+    country_counts = (
+        ClickEvent.objects.filter(tenant=tenant)
+        .exclude(country_code="")
+        .values("country_code", "country")
+        .annotate(total=Count("id"))
+        .order_by("-total")
+    )
     payload = {
         "total_clicks": total_clicks,
         "recent_clicks": recent_clicks,
         "unique_links": unique_links,
         "top_links": list(top_links),
+        "country_counts": list(country_counts),
+        "total_countries": len(country_counts),
     }
     cache.set(cache_key, payload, timeout=60)
     return payload

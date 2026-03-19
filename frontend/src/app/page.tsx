@@ -24,12 +24,50 @@ import { Textarea } from "@/components/ui/textarea";
 import { driveApi } from "@/lib/api";
 
 const features = [
-  { icon: Link2, title: "Custom Short Links", desc: "Create branded, memorable links that boost click-through rates." },
-  { icon: BarChart3, title: "Deep Analytics", desc: "Track clicks, referrers, devices, and geographic data in real-time." },
-  { icon: Globe2, title: "World Map Tracking", desc: "Visualize your link traffic across the globe with interactive maps." },
-  { icon: Zap, title: "Instant Redirects", desc: "Lightning-fast redirects with 99.9% uptime guarantee." },
-  { icon: Shield, title: "Custom Domains", desc: "Connect your own domain for fully branded short links." },
-  { icon: Crown, title: "White Label", desc: "Remove our branding and add your company logo on Pro plan." },
+  { icon: Link2, title: "Global short links", desc: "Create compact, globally unique short codes that never collide." },
+  { icon: Shield, title: "Branded splash pages", desc: "Show your logo, colors, and loading splash before every redirect." },
+  { icon: Globe2, title: "Custom domains", desc: "Map multiple domains to the same workspace and swap instantly." },
+  { icon: BarChart3, title: "Live click analytics", desc: "Track clicks, referrers, devices, and geo in real time." },
+  { icon: Zap, title: "Instant redirects", desc: "Fast caching and 60-minute resolve TTL for stable performance." },
+  { icon: Crown, title: "Team-ready controls", desc: "Manual access controls, cap approvals, and admin review flows." },
+];
+
+const reviews = [
+  {
+    quote: "We moved 4 teams over in a day. The branded splash pages alone doubled trust on outbound links.",
+    name: "Ayesha K.",
+    role: "Growth Lead",
+  },
+  {
+    quote: "Short links finally feel premium. Global codes, custom domains, and live analytics in one place.",
+    name: "Daniel R.",
+    role: "Head of Marketing Ops",
+  },
+  {
+    quote: "Cap controls and manual approvals let us run enterprise clients without overbuilding billing.",
+    name: "Nadia S.",
+    role: "Founder",
+  },
+];
+
+const faqs = [
+  {
+    question: "How is Keynou Drive different from other shorteners?",
+    answer:
+      "You get branded splash screens, global short codes, multi-domain support, and real-time analytics without extra tools.",
+  },
+  {
+    question: "Can I use my own domain?",
+    answer: "Yes. Connect and verify multiple domains, then choose the default for every link you create.",
+  },
+  {
+    question: "Do you support custom aliases?",
+    answer: "Yes. Create human-friendly slugs with a 255 character limit and guaranteed uniqueness.",
+  },
+  {
+    question: "Is there a free tier?",
+    answer: "Yes. Free accounts have a small cap. You can request higher caps from the dashboard at any time.",
+  },
 ];
 
 export default function Home() {
@@ -71,6 +109,20 @@ export default function Home() {
               Features
             </a>
             <a
+              href="#reviews"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              title="Jump to reviews"
+            >
+              Reviews
+            </a>
+            <a
+              href="#faq"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              title="Jump to FAQ"
+            >
+              FAQ
+            </a>
+            <a
               href="#contact"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               title="Jump to contact form"
@@ -106,14 +158,14 @@ export default function Home() {
           >
             <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-1.5 text-sm text-primary">
               <Zap className="h-3.5 w-3.5" />
-              Trusted by 10,000+ marketers
+              Built for modern teams shipping branded links
             </div>
             <h1 className="font-display text-5xl font-bold tracking-tight leading-[1.1] md:text-7xl">
-              Short links, <span className="text-gradient">big impact</span>
+              Short links that <span className="text-gradient">feel premium</span>
             </h1>
             <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground md:text-xl">
-              The modern URL shortener with powerful analytics, custom domains, and branded redirects for growing
-              businesses.
+              Launch branded, global short links with live analytics, custom domains, and a polished redirect splash that
+              looks like your product.
             </p>
 
             <div className="mx-auto mt-10 flex max-w-xl flex-col gap-3 sm:flex-row">
@@ -127,7 +179,7 @@ export default function Home() {
               />
               <Link href="/signup">
                 <Button className="h-12 px-8 bg-gradient-primary hover:opacity-90 transition-opacity whitespace-nowrap">
-                  Shorten URL <ArrowRight className="ml-1 h-4 w-4" />
+                  Launch my short links <ArrowRight className="ml-1 h-4 w-4" />
                 </Button>
               </Link>
             </div>
@@ -177,6 +229,73 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="reviews" className="py-24">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="mb-16 text-center"
+          >
+            <h2 className="font-display text-3xl font-bold md:text-5xl">Loved by teams shipping links fast</h2>
+            <p className="mx-auto mt-4 max-w-md text-lg text-muted-foreground">
+              Trusted by growth, product, and ops teams who need reliable branded links without busywork.
+            </p>
+          </motion.div>
+
+          <div className="grid gap-6 lg:grid-cols-3">
+            {reviews.map((review, index) => (
+              <motion.div
+                key={review.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="glass rounded-2xl p-6"
+              >
+                <p className="text-sm text-muted-foreground">“{review.quote}”</p>
+                <div className="mt-6">
+                  <p className="text-sm font-semibold">{review.name}</p>
+                  <p className="text-xs text-muted-foreground">{review.role}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" className="py-24">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="mb-16 text-center"
+          >
+            <h2 className="font-display text-3xl font-bold md:text-5xl">FAQ</h2>
+            <p className="mx-auto mt-4 max-w-md text-lg text-muted-foreground">
+              Quick answers before you launch your next short link.
+            </p>
+          </motion.div>
+
+          <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
+            {faqs.map((faq, index) => (
+              <motion.div
+                key={faq.question}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.08 }}
+                className="glass rounded-2xl p-6"
+              >
+                <h3 className="font-display text-lg font-semibold">{faq.question}</h3>
+                <p className="mt-3 text-sm text-muted-foreground">{faq.answer}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="features" className="py-24">
         <div className="container mx-auto px-6">
           <motion.div
@@ -222,9 +341,9 @@ export default function Home() {
             viewport={{ once: true }}
             className="mb-16 text-center"
           >
-            <h2 className="font-display text-3xl font-bold md:text-5xl">Contact for more access</h2>
+            <h2 className="font-display text-3xl font-bold md:text-5xl">Launch with the right cap</h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Keep your existing caps, then send a request if you need higher limits or manual access changes.
+              Tell us the volume you need and we’ll enable the exact cap for your team. No hidden upgrades.
             </p>
           </motion.div>
 
