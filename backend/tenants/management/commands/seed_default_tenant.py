@@ -14,6 +14,6 @@ class Command(BaseCommand):
         TenantDomain.objects.get_or_create(
             tenant=tenant,
             domain="localhost",
-            defaults={"is_primary": True},
+            defaults={"is_primary": True, "is_verified": True},
         )
         self.stdout.write(self.style.SUCCESS("Default tenant seeded"))

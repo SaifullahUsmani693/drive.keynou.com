@@ -170,6 +170,8 @@ CORS_ALLOW_CREDENTIALS = True
 
 REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379/0")
 
+CUSTOM_DOMAIN_TARGET = os.getenv("CUSTOM_DOMAIN_TARGET", os.getenv("DJANGO_ALLOWED_HOSTS", "localhost").split(",")[0])
+
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",

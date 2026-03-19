@@ -12,6 +12,6 @@ class TenantAdmin(admin.ModelAdmin):
 
 @admin.register(TenantDomain)
 class TenantDomainAdmin(admin.ModelAdmin):
-    list_display = ("domain", "tenant", "is_primary")
-    list_filter = ("is_primary",)
+    list_display = ("domain", "tenant", "is_primary", "is_verified", "verified_at")
+    list_filter = ("is_primary", "is_verified")
     search_fields = ("domain", "tenant__name")

@@ -28,6 +28,7 @@ export default function DashboardShell({ children }: { children: React.ReactNode
           </Link>
           <nav className="flex items-center gap-4 text-sm text-white/70">
             <Link href="/dashboard">Dashboard</Link>
+            <Link href="/dashboard/domains">Domains</Link>
             {user?.profile?.is_admin ? (
               <Link href="/admin" className="inline-flex items-center gap-2 text-emerald-200">
                 <ShieldCheck className="h-4 w-4" /> Admin

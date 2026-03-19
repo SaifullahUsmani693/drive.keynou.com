@@ -1,0 +1,9 @@
+from django.urls import path
+
+from tenants.views import DomainDetailView, DomainListCreateView, DomainVerifyView
+
+urlpatterns = [
+    path("domains/", DomainListCreateView.as_view(), name="tenant-domains"),
+    path("domains/<int:domain_id>/", DomainDetailView.as_view(), name="tenant-domain-detail"),
+    path("domains/<int:domain_id>/verify/", DomainVerifyView.as_view(), name="tenant-domain-verify"),
+]

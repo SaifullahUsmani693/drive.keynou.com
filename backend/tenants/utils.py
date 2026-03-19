@@ -10,7 +10,7 @@ def resolve_tenant(request: HttpRequest) -> Optional[object]:
     if not host:
         return None
     try:
-        domain = TenantDomain.objects.select_related("tenant").get(domain=host)
+        domain = TenantDomain.objects.select_related("tenant").get(domain=host, is_verified=True)
     except TenantDomain.DoesNotExist:
         if host in {"localhost", "127.0.0.1"}:
             return Tenant.objects.filter(is_active=True).first()

@@ -25,10 +25,13 @@ class TenantDomain(models.Model):
     tenant = models.ForeignKey(Tenant, on_delete=models.CASCADE, related_name="domains")
     domain = models.CharField(max_length=255, unique=True)
     is_primary = models.BooleanField(default=False)
+    is_verified = models.BooleanField(default=False)
+    verification_token = models.CharField(max_length=64, blank=True)
+    verified_at = models.DateTimeField(null=True, blank=True)
     created_at = models.DateTimeField(default=timezone.now)
 
     class Meta:
-        indexes = [models.Index(fields=["tenant", "domain"])]
+        indexes = [models.Index(fields=["tenant", "domain"]), models.Index(fields=["is_verified"])]
 
     def __str__(self) -> str:
         return self.domain
