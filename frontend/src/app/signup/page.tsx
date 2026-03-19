@@ -1,106 +1,171 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Users } from "lucide-react";
+import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 import { accountsApi } from "@/lib/api";
-import { useAppDispatch } from "@/lib/hooks";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { setUser } from "@/lib/features/authSlice";
-
-const initialForm = { email: "", username: "", password: "", company_name: "" };
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
 
 export default function SignupPage() {
   const dispatch = useAppDispatch();
   const router = useRouter();
-  const [form, setForm] = useState(initialForm);
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const user = useAppSelector((state) => state.auth.user);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleChange = (field: keyof typeof form) => (event: React.ChangeEvent<HTMLInputElement>) => {
-    setForm((prev) => ({ ...prev, [field]: event.target.value }));
-  };
+  useEffect(() => {
+    if (user) {
+      router.replace("/dashboard");
+    }
+  }, [router, user]);
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    setIsSubmitting(true);
+    if (password.length < 8) {
+      toast.error("Password must be at least 8 characters");
+      return;
+    }
+    setIsLoading(true);
     try {
       const response = await accountsApi.register({
-        email: form.email,
-        username: form.username || undefined,
-        password: form.password,
-        company_name: form.company_name || undefined,
+        email,
+        username: name,
+        password,
       });
       dispatch(setUser(response.data?.data ?? null));
       router.push("/dashboard");
+    } catch (error: any) {
+      toast.error(error?.response?.data?.message || "Unable to create account");
     } finally {
-      setIsSubmitting(false);
+      setIsLoading(false);
     }
   };
 
+  const handleGoogle = () => {
+    toast.error("Google sign-in is not configured yet.");
+  };
+
   return (
-    <div className="min-h-screen bg-slate-950 text-white">
-      <div className="mx-auto flex max-w-5xl flex-col gap-10 px-6 py-16 md:flex-row">
-        <div className="flex-1 space-y-4">
-          <p className="text-xs uppercase tracking-[0.3em] text-emerald-200">Get started</p>
-          <h1 className="text-3xl font-semibold">Create your Keynou Drive workspace</h1>
-          <p className="text-sm text-white/70">
-            Start with manual access. You can request higher caps once your team is live.
+    <div className="min-h-screen flex">
+      <div
+        className="hidden lg:flex lg:w-1/2 relative overflow-hidden items-center justify-center"
+        style={{ background: "var(--gradient-dark)" }}
+      >
+        <div className="absolute inset-0 grid-pattern opacity-20" />
+        <div className="relative z-10 p-12 max-w-md text-primary-foreground">
+          <h2 className="font-display text-4xl font-bold mb-4">Start shortening</h2>
+          <p className="text-primary-foreground/70 text-lg">
+            Join thousands of marketers using keynou drive to grow their business.
           </p>
-          <div className="mt-6 rounded-3xl border border-white/10 bg-white/5 p-6">
-            <div className="flex items-center gap-3">
-              <Users className="h-5 w-5 text-emerald-300" />
-              <p className="text-sm text-white/70">Multi-tenant ready from day one</p>
-            </div>
+          <div className="mt-8 grid grid-cols-3 gap-4">
+            {[
+              { n: "10K+", l: "Users" },
+              { n: "50M+", l: "Links" },
+              { n: "99.9%", l: "Uptime" },
+            ].map((stat) => (
+              <div key={stat.l} className="glass rounded-lg p-3 text-center">
+                <p className="font-display text-xl font-bold text-primary">{stat.n}</p>
+                <p className="text-xs text-primary-foreground/70">{stat.l}</p>
+              </div>
+            ))}
           </div>
         </div>
+      </div>
 
-        <div className="w-full max-w-md rounded-3xl border border-white/10 bg-white/5 p-6">
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <input
-              className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40"
-              placeholder="Work email"
-              type="email"
-              value={form.email}
-              onChange={handleChange("email")}
-              required
-            />
-            <input
-              className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40"
-              placeholder="Username"
-              value={form.username}
-              onChange={handleChange("username")}
-            />
-            <input
-              className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40"
-              placeholder="Company name"
-              value={form.company_name}
-              onChange={handleChange("company_name")}
-            />
-            <input
-              className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40"
-              placeholder="Password"
-              type="password"
-              value={form.password}
-              onChange={handleChange("password")}
-              required
-            />
-            <button
-              type="submit"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-emerald-400 px-6 py-3 text-sm font-semibold text-slate-950"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? "Creating account..." : "Create account"}
-              <ArrowRight className="h-4 w-4" />
-            </button>
+      <div className="flex-1 flex items-center justify-center p-8">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="w-full max-w-sm">
+          <Link href="/" className="font-display text-xl font-bold mb-8 block">
+            keynou<span className="text-primary"> drive</span>
+          </Link>
+          <h1 className="font-display text-2xl font-bold mb-2">Create account</h1>
+          <p className="text-sm text-muted-foreground mb-8">Get started with your free account</p>
+
+          <Button variant="outline" className="w-full mb-4 h-11 gap-2" onClick={handleGoogle} type="button">
+            <svg className="w-4 h-4" viewBox="0 0 24 24">
+              <path
+                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"
+                fill="#4285F4"
+              />
+              <path
+                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                fill="#34A853"
+              />
+              <path
+                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                fill="#FBBC05"
+              />
+              <path
+                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                fill="#EA4335"
+              />
+            </svg>
+            Continue with Google
+          </Button>
+
+          <div className="flex items-center gap-3 my-6">
+            <Separator className="flex-1" />
+            <span className="text-xs text-muted-foreground">or</span>
+            <Separator className="flex-1" />
+          </div>
+
+          <form className="space-y-4" onSubmit={handleSubmit}>
+            <div className="space-y-2">
+              <Label htmlFor="name">Full name</Label>
+              <Input
+                id="name"
+                placeholder="John Doe"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+                className="h-11"
+                required
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="email">Email</Label>
+              <Input
+                id="email"
+                type="email"
+                placeholder="you@example.com"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+                className="h-11"
+                required
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="password">Password</Label>
+              <Input
+                id="password"
+                type="password"
+                placeholder="Min 8 characters"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+                className="h-11"
+                required
+              />
+            </div>
+            <Button className="w-full h-11 bg-gradient-primary hover:opacity-90 transition-opacity" disabled={isLoading}>
+              {isLoading ? "Creating account..." : "Create account"}
+            </Button>
           </form>
-          <p className="mt-6 text-xs text-white/50">
+
+          <p className="text-sm text-muted-foreground text-center mt-6">
             Already have an account?{" "}
-            <Link href="/login" className="text-emerald-200">
+            <Link href="/login" className="text-primary hover:underline">
               Sign in
             </Link>
           </p>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

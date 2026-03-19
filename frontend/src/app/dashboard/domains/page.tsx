@@ -75,23 +75,23 @@ export default function DomainsPage() {
     <AuthGuard>
       <DashboardShell>
         <header className="flex flex-col gap-2">
-          <p className="text-xs uppercase tracking-[0.3em] text-emerald-200">Domains</p>
+          <p className="text-xs uppercase tracking-[0.3em] text-primary">Domains</p>
           <h1 className="text-3xl font-semibold">Custom domain onboarding</h1>
-          <p className="text-sm text-white/70">Add a domain, point DNS, then verify ownership.</p>
+          <p className="text-sm text-muted-foreground">Add a domain, point DNS, then verify ownership.</p>
         </header>
 
         <section className="mt-8 grid gap-6 md:grid-cols-[1.1fr_0.9fr]">
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
+          <div className="glass rounded-3xl p-6">
             <h2 className="text-lg font-semibold">Add a domain</h2>
             <form onSubmit={handleAddDomain} className="mt-4 space-y-4">
               <input
-                className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40"
+                className="w-full rounded-2xl border border-border bg-secondary/30 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground"
                 placeholder="links.yourcompany.com"
                 value={form.domain}
                 onChange={(event) => setForm((prev) => ({ ...prev, domain: event.target.value }))}
                 required
               />
-              <label className="flex items-center gap-2 text-xs text-white/70">
+              <label className="flex items-center gap-2 text-xs text-muted-foreground">
                 <input
                   type="checkbox"
                   checked={form.is_primary}
@@ -101,7 +101,7 @@ export default function DomainsPage() {
               </label>
               <button
                 type="submit"
-                className="inline-flex items-center gap-2 rounded-full bg-emerald-400 px-6 py-3 text-sm font-semibold text-slate-950"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-primary px-6 py-3 text-sm font-semibold text-primary-foreground"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
@@ -110,61 +110,61 @@ export default function DomainsPage() {
             </form>
           </div>
 
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
+          <div className="glass rounded-3xl p-6">
             <h2 className="text-lg font-semibold">DNS configuration</h2>
-            <p className="mt-2 text-sm text-white/70">
+            <p className="mt-2 text-sm text-muted-foreground">
               Create a CNAME record that points to the host below. Once propagated, verify using your token.
             </p>
-            <div className="mt-4 rounded-2xl border border-white/10 bg-black/40 p-4 text-xs text-white/70">
+            <div className="mt-4 rounded-2xl border border-border bg-secondary/30 p-4 text-xs text-muted-foreground">
               <div className="flex items-center justify-between">
                 <span>Target</span>
                 <button
-                  className="inline-flex items-center gap-1 text-emerald-200"
+                  className="inline-flex items-center gap-1 text-primary"
                   onClick={() => navigator.clipboard.writeText(targetHost)}
                 >
                   <Copy className="h-3 w-3" /> Copy
                 </button>
               </div>
-              <p className="mt-2 font-mono text-sm text-white">{targetHost}</p>
+              <p className="mt-2 font-mono text-sm text-foreground">{targetHost}</p>
             </div>
           </div>
         </section>
 
-        <section className="mt-8 rounded-3xl border border-white/10 bg-white/5 p-6">
+        <section className="mt-8 glass rounded-3xl p-6">
           <h2 className="text-lg font-semibold">Connected domains</h2>
           {isLoading ? (
-            <div className="mt-4 flex items-center gap-2 text-sm text-white/70">
+            <div className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
               <Loader2 className="h-4 w-4 animate-spin" /> Loading domains...
             </div>
           ) : domains.length === 0 ? (
-            <p className="mt-4 text-sm text-white/60">No domains yet.</p>
+            <p className="mt-4 text-sm text-muted-foreground">No domains yet.</p>
           ) : (
             <div className="mt-4 space-y-4">
               {domains.map((domain) => (
-                <div key={domain.id} className="rounded-2xl border border-white/10 bg-black/40 p-4">
+                <div key={domain.id} className="rounded-2xl border border-border bg-secondary/30 p-4">
                   <div className="flex flex-wrap items-center justify-between gap-3">
                     <div className="flex items-center gap-3">
-                      <Globe2 className="h-4 w-4 text-emerald-200" />
+                      <Globe2 className="h-4 w-4 text-primary" />
                       <div>
-                        <p className="text-sm font-semibold text-white">{domain.domain}</p>
-                        <p className="text-xs text-white/50">
+                        <p className="text-sm font-semibold text-foreground">{domain.domain}</p>
+                        <p className="text-xs text-muted-foreground">
                           {domain.is_verified ? "Verified" : "Pending verification"}
                         </p>
                       </div>
                     </div>
                     <div className="flex items-center gap-3 text-xs">
                       {domain.is_verified ? (
-                        <span className="inline-flex items-center gap-1 text-emerald-200">
+                        <span className="inline-flex items-center gap-1 text-accent">
                           <CheckCircle2 className="h-3 w-3" /> Verified
                         </span>
                       ) : (
-                        <span className="inline-flex items-center gap-1 text-amber-200">
+                        <span className="inline-flex items-center gap-1 text-amber-500">
                           <XCircle className="h-3 w-3" /> Pending
                         </span>
                       )}
                       <button
                         onClick={() => handleRemove(domain.id)}
-                        className="inline-flex items-center gap-1 text-white/60"
+                        className="inline-flex items-center gap-1 text-muted-foreground"
                         disabled={isRemovingId === domain.id}
                       >
                         <Trash2 className="h-3 w-3" /> {isRemovingId === domain.id ? "Removing" : "Remove"}
@@ -175,7 +175,7 @@ export default function DomainsPage() {
                   {!domain.is_verified ? (
                     <div className="mt-4 grid gap-3 md:grid-cols-[1fr_auto]">
                       <input
-                        className="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs text-white"
+                        className="rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground"
                         placeholder="Verification token"
                         value={tokenForm[domain.id] || ""}
                         onChange={(event) =>
@@ -186,7 +186,7 @@ export default function DomainsPage() {
                         }
                       />
                       <button
-                        className="rounded-xl border border-emerald-400/40 bg-emerald-400/10 px-4 py-2 text-xs"
+                        className="rounded-xl border border-primary/40 bg-primary/10 px-4 py-2 text-xs text-primary"
                         onClick={() => handleVerify(domain.id)}
                         disabled={isVerifyingId === domain.id}
                       >
@@ -195,8 +195,8 @@ export default function DomainsPage() {
                     </div>
                   ) : null}
 
-                  <div className="mt-3 rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs text-white/60">
-                    Token: <span className="font-mono text-white/80">{domain.verification_token}</span>
+                  <div className="mt-3 rounded-xl border border-border bg-background px-3 py-2 text-xs text-muted-foreground">
+                    Token: <span className="font-mono text-foreground/80">{domain.verification_token}</span>
                   </div>
                 </div>
               ))}

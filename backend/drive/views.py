@@ -1,5 +1,5 @@
 from django.http import HttpResponseRedirect
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.views import APIView
 
 from analytics.services import log_click_event
@@ -37,9 +37,11 @@ class LinkListCreateView(APIView):
 
 
 class SubscriptionRequestListCreateView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]
 
     def get(self, request):
+        if not request.user.is_authenticated:
+            return api_response(message="Authentication required", status_code=401)
         tenant = request.tenant
         requests = list_subscription_requests_for_tenant(tenant=tenant)
         serializer = SubscriptionRequestSerializer(requests, many=True)

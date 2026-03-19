@@ -24,12 +24,14 @@ class LoginView(APIView):
     def post(self, request):
         serializer = LoginSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        identifier = serializer.validated_data["identifier"]
+        identifier = serializer.validated_data["identifier"].strip()
         password = serializer.validated_data["password"]
 
         user = authenticate(request, username=identifier, password=password)
         if user is None:
-            user = authenticate(request, email=identifier, password=password)
+            matched = User.objects.filter(email__iexact=identifier).first()
+            if matched:
+                user = authenticate(request, username=matched.username, password=password)
         if user is None:
             return api_response(message="Invalid credentials", status_code=401)
 

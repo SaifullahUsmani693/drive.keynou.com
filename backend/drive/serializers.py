@@ -4,15 +4,30 @@ from drive.models import Link, SubscriptionRequest
 
 
 class LinkSerializer(serializers.ModelSerializer):
+    clicks = serializers.SerializerMethodField()
+
+    def get_clicks(self, obj):
+        return getattr(obj, "clicks", 0)
+
     class Meta:
         model = Link
-        fields = ["id", "tenant", "owner", "short_code", "destination_url", "is_active", "created_at", "updated_at"]
-        read_only_fields = ["id", "tenant", "owner", "created_at", "updated_at"]
+        fields = [
+            "id",
+            "tenant",
+            "owner",
+            "short_code",
+            "destination_url",
+            "is_active",
+            "created_at",
+            "updated_at",
+            "clicks",
+        ]
+        read_only_fields = ["id", "tenant", "owner", "created_at", "updated_at", "clicks"]
 
 
 class LinkCreateSerializer(serializers.Serializer):
     destination_url = serializers.URLField(max_length=2000)
-    short_code = serializers.CharField(max_length=32)
+    short_code = serializers.CharField(max_length=32, required=False, allow_blank=True)
 
 
 class SubscriptionRequestSerializer(serializers.ModelSerializer):

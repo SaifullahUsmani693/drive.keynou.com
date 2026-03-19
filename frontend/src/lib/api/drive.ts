@@ -2,7 +2,7 @@ import api from "@/lib/api/axios";
 
 export type LinkCreatePayload = {
   destination_url: string;
-  short_code: string;
+  short_code?: string;
 };
 
 export type SubscriptionRequestPayload = {

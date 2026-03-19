@@ -1,3 +1,5 @@
+import secrets
+
 from django.db import transaction
 from django.db.models import Count
 
@@ -6,25 +8,48 @@ from drive.models import Link, SubscriptionRequest
 
 
 def list_links_for_user(*, tenant, user):
-    return Link.objects.filter(tenant=tenant, owner=user).order_by("-created_at")
+    return (
+        Link.objects.filter(tenant=tenant, owner=user)
+        .annotate(clicks=Count("click_events"))
+        .order_by("-created_at")
+    )
 
 
-def create_link(*, tenant, user, destination_url: str, short_code: str):
+def _generate_short_code() -> str:
+    return secrets.token_urlsafe(6).replace("-", "").replace("_", "")[:8]
+
+
+def _format_short_code(*, user, short_code: str | None) -> str:
+    if short_code:
+        cleaned = short_code.strip().replace(" ", "-")
+        candidate = cleaned if "/" in cleaned else f"{user.id}/{cleaned}"
+        if len(candidate) > 32:
+            raise ValueError("Custom alias is too long. Keep it under 32 characters.")
+        return candidate
+    return _generate_short_code()
+
+
+def create_link(*, tenant, user, destination_url: str, short_code: str | None):
     profile = Profile.objects.select_related("tenant").get(user=user)
-
-    if not profile.subscription_active:
-        raise ValueError("Access is not enabled yet.")
+    free_limit = 2
+    effective_limit = profile.link_limit if profile.subscription_active else free_limit
 
     link_count = Link.objects.filter(tenant=tenant, owner=user).count()
-    if link_count >= profile.link_limit:
-        raise ValueError("Link cap reached. Request a cap increase.")
+    if link_count >= effective_limit:
+        if profile.subscription_active:
+            raise ValueError("Link cap reached. Request a cap increase.")
+        raise ValueError("Free cap reached. Contact support to increase your limit.")
+
+    requested_code = _format_short_code(user=user, short_code=short_code)
+    if Link.objects.filter(tenant=tenant, short_code=requested_code).exists():
+        raise ValueError("Short link already exists. Choose a new alias.")
 
     with transaction.atomic():
         return Link.objects.create(
             tenant=tenant,
             owner=user,
             destination_url=destination_url,
-            short_code=short_code,
+            short_code=requested_code,
         )
 
 

@@ -6,7 +6,7 @@ User = get_user_model()
 
 
 def get_profile_for_user(user):
-    return Profile.objects.select_related("tenant").get(user=user)
+    return Profile.objects.select_related("tenant").filter(user=user).first()
 
 
 def list_profiles_for_tenant(*, tenant):
