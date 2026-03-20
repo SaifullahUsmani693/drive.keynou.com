@@ -22,3 +22,20 @@ class ClickEvent(models.Model):
 
     def __str__(self) -> str:
         return f"{self.link_id} @ {self.created_at}"
+
+
+class IP2LocationRange(models.Model):
+    start_ip = models.BigIntegerField(db_index=True)
+    end_ip = models.BigIntegerField(db_index=True)
+    country_code = models.CharField(max_length=8, blank=True)
+    country = models.CharField(max_length=128, blank=True)
+    region = models.CharField(max_length=128, blank=True)
+    city = models.CharField(max_length=128, blank=True)
+
+    class Meta:
+        indexes = [
+            models.Index(fields=["start_ip", "end_ip"]),
+        ]
+
+    def __str__(self) -> str:
+        return f"{self.start_ip}-{self.end_ip} {self.country_code}"

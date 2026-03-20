@@ -454,7 +454,21 @@ export default function Home() {
       <footer className="border-t border-border py-12">
         <div className="container mx-auto flex flex-col items-center justify-between gap-4 px-6 md:flex-row">
           <img src="/keynou_drove_logo.png" alt="Keynou Drive" className="h-8 w-auto" />
-          <p className="text-sm text-muted-foreground">© 2026 drive.keynou.com. All rights reserved.</p>
+          <div className="text-xs text-muted-foreground text-center md:text-right">
+            <p>© 2026 drive.keynou.com. All rights reserved.</p>
+            <p>
+              Keynou Drive uses the IP2Location LITE database for{" "}
+              <a
+                href="https://lite.ip2location.com"
+                className="underline underline-offset-4"
+                target="_blank"
+                rel="noreferrer"
+              >
+                IP geolocation
+              </a>
+              .
+            </p>
+          </div>
         </div>
       </footer>
     </div>

@@ -1,5 +1,6 @@
 from datetime import timedelta
 from functools import lru_cache
+import ipaddress
 import os
 from pathlib import Path
 
@@ -7,7 +8,7 @@ from django.core.cache import cache
 from django.db.models import Count
 from django.utils import timezone
 
-from analytics.models import ClickEvent
+from analytics.models import ClickEvent, IP2LocationRange
 
 try:
     import geoip2.database
@@ -31,6 +32,9 @@ def _geoip_reader():
 def enrich_geo_from_ip(ip_address: str | None):
     if not ip_address:
         return {"country": "", "country_code": "", "region": "", "city": ""}
+    ip2location = lookup_ip2location(ip_address)
+    if ip2location:
+        return ip2location
     reader = _geoip_reader()
     if reader is None:
         return {"country": "", "country_code": "", "region": "", "city": ""}
@@ -43,6 +47,26 @@ def enrich_geo_from_ip(ip_address: str | None):
         "country_code": response.country.iso_code or "",
         "region": response.subdivisions.most_specific.name or "",
         "city": response.city.name or "",
+    }
+
+
+def lookup_ip2location(ip_address: str):
+    try:
+        ip_int = int(ipaddress.ip_address(ip_address))
+    except ValueError:
+        return None
+    record = (
+        IP2LocationRange.objects.filter(start_ip__lte=ip_int, end_ip__gte=ip_int)
+        .only("country", "country_code", "region", "city")
+        .first()
+    )
+    if not record:
+        return None
+    return {
+        "country": record.country or "",
+        "country_code": record.country_code or "",
+        "region": record.region or "",
+        "city": record.city or "",
     }
 
 
