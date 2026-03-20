@@ -19,6 +19,7 @@ const navItems = [
   { icon: Link2, label: "Links", path: "/dashboard/links" },
   { icon: BarChart3, label: "Analytics", path: "/dashboard/analytics" },
   { icon: Globe2, label: "Domains", path: "/dashboard/domains" },
+  { icon: ShieldCheck, label: "Subscription", path: "/dashboard/subscription" },
   { icon: Settings, label: "Settings", path: "/dashboard/settings" },
 ];
 
@@ -30,11 +31,6 @@ export default function DashboardShell({ children }: { children: React.ReactNode
   const profile = user?.profile;
   const [linkCount, setLinkCount] = useState(0);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const [showCapForm, setShowCapForm] = useState(false);
-  const [isSubmittingCap, setIsSubmittingCap] = useState(false);
-  const [capAmount, setCapAmount] = useState("");
-  const [capMessage, setCapMessage] = useState("");
-  const [capPhone, setCapPhone] = useState("");
 
   const usageLimit = useMemo(() => {
     if (!profile) return 2;
@@ -56,32 +52,6 @@ export default function DashboardShell({ children }: { children: React.ReactNode
     router.replace("/login");
   };
 
-  const handleCapRequest = async (event: React.FormEvent) => {
-    event.preventDefault();
-    if (!user) return;
-    if (!capAmount || !capMessage) {
-      toast.error("Enter the requested cap and a short message.");
-      return;
-    }
-    setIsSubmittingCap(true);
-    try {
-      await driveApi.createSubscriptionRequest({
-        name: user.username || user.email || "User",
-        email: user.email || "",
-        phone: capPhone,
-        message: `Requested cap: ${capAmount}\n${capMessage}`,
-      });
-      toast.success("Cap increase request sent.");
-      setCapAmount("");
-      setCapMessage("");
-      setCapPhone("");
-      setShowCapForm(false);
-    } catch (error: any) {
-      toast.error(error?.response?.data?.message || "Unable to send request");
-    } finally {
-      setIsSubmittingCap(false);
-    }
-  };
 
   useEffect(() => {
     if (!user) return;
@@ -133,7 +103,7 @@ export default function DashboardShell({ children }: { children: React.ReactNode
             <p className="text-xs text-muted-foreground mb-3">
               {profile?.subscription_active
                 ? `Access enabled · Cap: ${profile.link_limit} links`
-                : "Free access · Cap: 2 links. Contact support to increase your limit."}
+                : "Want more than the free limit? Request a subscription and tell us how many links you need."}
             </p>
             <div className="text-xs text-muted-foreground mb-3">
               Usage: {linkCount} / {usageLimit}
@@ -141,44 +111,11 @@ export default function DashboardShell({ children }: { children: React.ReactNode
             <Button
               size="sm"
               className="w-full bg-gradient-primary hover:opacity-90 text-xs"
-              onClick={() => setShowCapForm((prev) => !prev)}
+              onClick={() => router.push("/dashboard/subscription")}
               type="button"
             >
-              Increase cap
+              Subscribe to premium
             </Button>
-            {showCapForm ? (
-              <form onSubmit={handleCapRequest} className="mt-3 space-y-2">
-                <Input
-                  value={capAmount}
-                  onChange={(event) => setCapAmount(event.target.value)}
-                  placeholder="Requested cap (e.g. 50 links)"
-                  className="h-9 bg-secondary/40"
-                  required
-                />
-                <Input
-                  value={capPhone}
-                  onChange={(event) => setCapPhone(event.target.value)}
-                  placeholder="Phone (optional)"
-                  className="h-9 bg-secondary/40"
-                />
-                <Textarea
-                  value={capMessage}
-                  onChange={(event) => setCapMessage(event.target.value)}
-                  placeholder="Tell us why you need more links"
-                  rows={3}
-                  className="bg-secondary/40"
-                  required
-                />
-                <Button
-                  size="sm"
-                  className="w-full bg-gradient-primary hover:opacity-90 text-xs"
-                  type="submit"
-                  disabled={isSubmittingCap}
-                >
-                  {isSubmittingCap ? "Sending..." : "Send request"}
-                </Button>
-              </form>
-            ) : null}
           </div>
           <button
             onClick={handleLogout}
@@ -273,7 +210,7 @@ export default function DashboardShell({ children }: { children: React.ReactNode
               <p className="text-xs text-muted-foreground mb-3">
                 {profile?.subscription_active
                   ? `Access enabled · Cap: ${profile.link_limit} links`
-                  : "Free access · Cap: 2 links. Contact support to increase your limit."}
+                  : "Want more than the free limit? Request a subscription and tell us how many links you need."}
               </p>
               <div className="text-xs text-muted-foreground mb-3">
                 Usage: {linkCount} / {usageLimit}
@@ -281,44 +218,14 @@ export default function DashboardShell({ children }: { children: React.ReactNode
               <Button
                 size="sm"
                 className="w-full bg-gradient-primary hover:opacity-90 text-xs"
-                onClick={() => setShowCapForm((prev) => !prev)}
+                onClick={() => {
+                  setIsMobileOpen(false);
+                  router.push("/dashboard/subscription");
+                }}
                 type="button"
               >
-                Increase cap
+                Subscribe to premium
               </Button>
-              {showCapForm ? (
-                <form onSubmit={handleCapRequest} className="mt-3 space-y-2">
-                  <Input
-                    value={capAmount}
-                    onChange={(event) => setCapAmount(event.target.value)}
-                    placeholder="Requested cap (e.g. 50 links)"
-                    className="h-9 bg-secondary/40"
-                    required
-                  />
-                  <Input
-                    value={capPhone}
-                    onChange={(event) => setCapPhone(event.target.value)}
-                    placeholder="Phone (optional)"
-                    className="h-9 bg-secondary/40"
-                  />
-                  <Textarea
-                    value={capMessage}
-                    onChange={(event) => setCapMessage(event.target.value)}
-                    placeholder="Tell us why you need more links"
-                    rows={3}
-                    className="bg-secondary/40"
-                    required
-                  />
-                  <Button
-                    size="sm"
-                    className="w-full bg-gradient-primary hover:opacity-90 text-xs"
-                    type="submit"
-                    disabled={isSubmittingCap}
-                  >
-                    {isSubmittingCap ? "Sending..." : "Send request"}
-                  </Button>
-                </form>
-              ) : null}
             </div>
 
             <button
