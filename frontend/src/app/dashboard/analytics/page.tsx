@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { geoNaturalEarth1, geoPath } from "d3-geo";
+import { feature } from "topojson-client";
 import { BarChart3, Globe2, Link2, Loader2, MousePointerClick } from "lucide-react";
-import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 
 import { analyticsApi } from "@/lib/api";
 import AuthGuard from "@/components/providers/AuthGuard";
@@ -11,6 +12,7 @@ import DashboardShell from "@/components/dashboard/DashboardShell";
 export default function AnalyticsPage() {
   const [analytics, setAnalytics] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [worldGeos, setWorldGeos] = useState<any[]>([]);
 
   const countryData = useMemo(() => {
     const list = (analytics?.country_counts ?? []) as Array<{
@@ -72,6 +74,37 @@ export default function AnalyticsPage() {
     };
   }, []);
 
+  useEffect(() => {
+    let active = true;
+    const loadMap = async () => {
+      try {
+        const response = await fetch("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json");
+        const topology = await response.json();
+        const countries = feature(topology, topology.objects.countries) as any;
+        if (active) {
+          setWorldGeos(countries.features || []);
+        }
+      } catch {
+        if (active) {
+          setWorldGeos([]);
+        }
+      }
+    };
+    loadMap();
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  const mapPath = useMemo(() => {
+    if (!worldGeos.length) return null;
+    const projection = geoNaturalEarth1().fitSize([800, 380], {
+      type: "FeatureCollection",
+      features: worldGeos,
+    } as any);
+    return geoPath(projection);
+  }, [worldGeos]);
+
   return (
     <AuthGuard>
       <DashboardShell>
@@ -108,33 +141,26 @@ export default function AnalyticsPage() {
             </div>
           ) : (
             <div className="w-full overflow-hidden rounded-lg bg-secondary/20 p-4">
-              <ComposableMap projectionConfig={{ scale: 140 }} width={800} height={380}>
-                <Geographies geography="https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json">
-                  {({ geographies }: { geographies: any[] }) =>
-                    geographies.map((geo: any) => {
-                      const iso = geo.properties.ISO_A2;
-                      const data = iso ? countryData[iso] : undefined;
-                      const intensity = data && maxCount ? data.total / maxCount : 0;
-                      const fill = data
-                        ? `rgba(8, 183, 185, ${0.25 + intensity * 0.75})`
-                        : "rgba(255,255,255,0.06)";
-                      return (
-                        <Geography
-                          key={geo.rsmKey}
-                          geography={geo}
-                          fill={fill}
-                          stroke="rgba(255,255,255,0.08)"
-                          style={{
-                            default: { outline: "none" },
-                            hover: { outline: "none", fill: "rgba(8, 183, 185, 0.9)" },
-                            pressed: { outline: "none" },
-                          }}
-                        />
-                      );
-                    })
-                  }
-                </Geographies>
-              </ComposableMap>
+              <svg viewBox="0 0 800 380" className="w-full h-[380px]">
+                {mapPath &&
+                  worldGeos.map((geo: any) => {
+                    const props = geo.properties || {};
+                    const iso = (props.ISO_A2 || props.iso_a2 || "").toUpperCase();
+                    const data = iso ? countryData[iso] : undefined;
+                    const intensity = data && maxCount ? data.total / maxCount : 0;
+                    const fill = data
+                      ? `rgba(8, 183, 185, ${0.25 + intensity * 0.75})`
+                      : "rgba(255,255,255,0.06)";
+                    return (
+                      <path
+                        key={geo.id || iso}
+                        d={mapPath(geo) || undefined}
+                        fill={fill}
+                        stroke="rgba(255,255,255,0.08)"
+                      />
+                    );
+                  })}
+              </svg>
               <div className="mt-4 grid gap-2 text-xs text-muted-foreground">
                 <p>
                   Highlighted countries: {analytics?.total_countries ?? 0}. Darker regions mean more clicks.
