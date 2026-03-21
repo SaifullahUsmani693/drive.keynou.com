@@ -62,7 +62,7 @@ export default function LoginPage() {
       <div className="flex-1 flex items-center justify-center p-8">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="w-full max-w-sm">
           <Link href="/" className="mb-8 block">
-            <img src="/keynou_drove_logo.png" alt="Keynou Drive" className="h-10 w-auto" />
+            <img src="/keynou_drove_logo.png" alt="Keynou Drive" className="h-20 w-auto drop-shadow" />
           </Link>
           <h1 className="font-display text-2xl font-bold mb-2">Sign in</h1>
           <p className="text-sm text-muted-foreground mb-8">Enter your credentials to access your account</p>

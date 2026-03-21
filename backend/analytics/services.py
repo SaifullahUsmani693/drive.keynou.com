@@ -5,10 +5,13 @@ import os
 from pathlib import Path
 
 from django.core.cache import cache
-from django.db.models import Count
+from django.db.models import Count, Q
 from django.utils import timezone
 
 from analytics.models import ClickEvent, IP2LocationRange
+
+DEFAULT_GEO_COUNTRY_CODE = os.getenv("DEFAULT_GEO_COUNTRY_CODE", "US")
+DEFAULT_GEO_COUNTRY_NAME = os.getenv("DEFAULT_GEO_COUNTRY_NAME", "United States")
 
 try:
     import geoip2.database
@@ -30,18 +33,30 @@ def _geoip_reader():
 
 
 def enrich_geo_from_ip(ip_address: str | None):
+    fallback = {"country": "", "country_code": "", "region": "", "city": ""}
     if not ip_address:
-        return {"country": "", "country_code": "", "region": "", "city": ""}
+        return fallback
+    try:
+        ip_obj = ipaddress.ip_address(ip_address)
+    except ValueError:
+        ip_obj = None
+    if ip_obj and (ip_obj.is_private or ip_obj.is_loopback or ip_obj.is_reserved):
+        return {
+            "country": DEFAULT_GEO_COUNTRY_NAME,
+            "country_code": DEFAULT_GEO_COUNTRY_CODE,
+            "region": "",
+            "city": "",
+        }
     ip2location = lookup_ip2location(ip_address)
     if ip2location:
         return ip2location
     reader = _geoip_reader()
     if reader is None:
-        return {"country": "", "country_code": "", "region": "", "city": ""}
+        return fallback
     try:
         response = reader.city(ip_address)
     except Exception:
-        return {"country": "", "country_code": "", "region": "", "city": ""}
+        return fallback
     return {
         "country": response.country.name or "",
         "country_code": response.country.iso_code or "",
@@ -68,6 +83,16 @@ def lookup_ip2location(ip_address: str):
         "region": record.region or "",
         "city": record.city or "",
     }
+
+
+def is_local_ip(ip_address: str | None) -> bool:
+    if not ip_address:
+        return False
+    try:
+        ip_obj = ipaddress.ip_address(ip_address)
+    except ValueError:
+        return False
+    return bool(ip_obj.is_private or ip_obj.is_loopback or ip_obj.is_reserved)
 
 
 def log_click_event(
@@ -117,6 +142,13 @@ def analytics_summary(*, tenant):
         .annotate(total=Count("id"))
         .order_by("-total")[:5]
     )
+    local_ip_filters = Q(ip_address__startswith="127.") | Q(ip_address="::1") | Q(ip_address__startswith="10.") | Q(
+        ip_address__startswith="192.168."
+    ) | Q(ip_address__startswith="172.16.") | Q(ip_address__startswith="172.17.") | Q(
+        ip_address__startswith="172.18."
+    ) | Q(ip_address__startswith="172.19.") | Q(ip_address__startswith="172.2") | Q(ip_address__startswith="fd") | Q(
+        ip_address__startswith="fc"
+    )
     country_counts = (
         ClickEvent.objects.filter(tenant=tenant)
         .exclude(country_code="")
@@ -124,13 +156,46 @@ def analytics_summary(*, tenant):
         .annotate(total=Count("id"))
         .order_by("-total")
     )
+    local_blank_country_total = (
+        ClickEvent.objects.filter(tenant=tenant)
+        .filter(local_ip_filters)
+        .filter(Q(country_code="") | Q(country_code__isnull=True))
+        .count()
+    )
+    normalized_country_counts = [
+        {
+            "country_code": item.get("country_code") or DEFAULT_GEO_COUNTRY_CODE,
+            "country": item.get("country") or DEFAULT_GEO_COUNTRY_NAME,
+            "total": item.get("total", 0),
+        }
+        for item in country_counts
+    ]
+    if local_blank_country_total:
+        normalized_country_counts.append(
+            {
+                "country_code": DEFAULT_GEO_COUNTRY_CODE,
+                "country": DEFAULT_GEO_COUNTRY_NAME,
+                "total": local_blank_country_total,
+            }
+        )
+    merged_country_counts = {}
+    for item in normalized_country_counts:
+        key = item["country_code"]
+        if key not in merged_country_counts:
+            merged_country_counts[key] = {
+                "country_code": item["country_code"],
+                "country": item["country"],
+                "total": 0,
+            }
+        merged_country_counts[key]["total"] += item["total"]
+    final_country_counts = sorted(merged_country_counts.values(), key=lambda item: item["total"], reverse=True)
     payload = {
         "total_clicks": total_clicks,
         "recent_clicks": recent_clicks,
         "unique_links": unique_links,
         "top_links": list(top_links),
-        "country_counts": list(country_counts),
-        "total_countries": len(country_counts),
+        "country_counts": final_country_counts,
+        "total_countries": len(final_country_counts),
     }
     cache.set(cache_key, payload, timeout=60)
     return payload

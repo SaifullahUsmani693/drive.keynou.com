@@ -155,6 +155,17 @@ class PublicResolveView(APIView):
             )
             cached_payload = cached.get("payload")
             if cached_payload:
+                tenant = Tenant.objects.filter(id=cached["tenant_id"], is_active=True).first()
+                if tenant is not None:
+                    branding_payload = get_cached_branding(tenant=tenant)
+                    return api_response(
+                        data={
+                            "destination_url": cached_payload.get("destination_url"),
+                            "tenant_id": cached["tenant_id"],
+                            **branding_payload,
+                        },
+                        message="Link resolved",
+                    )
                 return api_response(data=cached_payload, message="Link resolved")
         link = (
             Link.objects.select_related("tenant")

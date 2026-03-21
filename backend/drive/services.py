@@ -1,8 +1,9 @@
 import secrets
 
 from django.core.cache import cache
+from django.core.paginator import Paginator
 from django.db import transaction
-from django.db.models import Count
+from django.db.models import Count, Q
 
 from accounts.models import Profile
 from drive.models import Link, SubscriptionRequest
@@ -113,12 +114,58 @@ def create_subscription_request(*, tenant, user, payload):
         name=payload["name"],
         email=payload["email"],
         phone=payload.get("phone", ""),
+        requested_subscription=payload.get("requested_subscription", Profile.SUBSCRIPTION_TIER_LIMITED),
         message=payload["message"],
     )
 
 
-def list_subscription_requests_for_tenant(*, tenant):
-    return SubscriptionRequest.objects.filter(tenant=tenant).order_by("-created_at")
+def list_subscription_requests_for_tenant(
+    *,
+    tenant,
+    page: int = 1,
+    page_size: int = 10,
+    search: str = "",
+    ordering: str = "-created_at",
+    status: str = "all",
+    requested_subscription: str = "all",
+):
+    allowed_ordering = {
+        "created_at": "created_at",
+        "-created_at": "-created_at",
+        "email": "email",
+        "-email": "-email",
+        "name": "name",
+        "-name": "-name",
+        "status": "status",
+        "-status": "-status",
+        "requested_subscription": "requested_subscription",
+        "-requested_subscription": "-requested_subscription",
+    }
+    queryset = SubscriptionRequest.objects.filter(tenant=tenant).select_related("user", "user__profile").order_by(
+        allowed_ordering.get(ordering, "-created_at")
+    )
+    if search:
+        queryset = queryset.filter(
+            Q(name__icontains=search)
+            | Q(email__icontains=search)
+            | Q(phone__icontains=search)
+            | Q(message__icontains=search)
+            | Q(user__email__icontains=search)
+        )
+    if status != "all":
+        queryset = queryset.filter(status=status)
+    if requested_subscription != "all":
+        queryset = queryset.filter(requested_subscription=requested_subscription)
+
+    paginator = Paginator(queryset, page_size)
+    current_page = paginator.get_page(page)
+    return {
+        "items": list(current_page.object_list),
+        "page": current_page.number,
+        "page_size": page_size,
+        "total": paginator.count,
+        "pages": paginator.num_pages,
+    }
 
 
 def subscription_request_stats(*, tenant):
@@ -172,13 +219,57 @@ def bulk_delete_links(*, tenant, user, ids: list[int]) -> int:
     return deleted
 
 
-def update_subscription_request(*, request_obj, status: str, admin_notes: str = "", subscription_expires_at=None):
-    request_obj.status = status
+def update_subscription_request(
+    *,
+    request_obj,
+    status: str | None = None,
+    requested_subscription: str | None = None,
+    assign_subscription: bool | None = None,
+    assign_subscription_tier: str | None = None,
+    assign_link_limit: int | None = None,
+    admin_notes: str = "",
+    subscription_expires_at=None,
+    clear_subscription_expires_at: bool = False,
+):
+    update_fields = ["updated_at"]
+    if status is not None:
+        request_obj.status = status
+        update_fields.append("status")
     request_obj.admin_notes = admin_notes
-    if subscription_expires_at is not None:
-        request_obj.subscription_expires_at = subscription_expires_at
-    update_fields = ["status", "admin_notes", "updated_at"]
-    if subscription_expires_at is not None:
+    update_fields.append("admin_notes")
+    if requested_subscription is not None:
+        request_obj.requested_subscription = requested_subscription
+        update_fields.append("requested_subscription")
+    if clear_subscription_expires_at:
+        request_obj.subscription_expires_at = None
         update_fields.append("subscription_expires_at")
-    request_obj.save(update_fields=update_fields)
+    elif subscription_expires_at is not None:
+        request_obj.subscription_expires_at = subscription_expires_at
+        update_fields.append("subscription_expires_at")
+
+    if assign_subscription is not None and request_obj.user_id:
+        profile, _ = Profile.objects.get_or_create(
+            user=request_obj.user,
+            defaults={"tenant": request_obj.tenant},
+        )
+        if assign_subscription:
+            selected_tier = assign_subscription_tier or requested_subscription or request_obj.requested_subscription
+            profile.subscription_active = selected_tier != Profile.SUBSCRIPTION_TIER_FREE
+            profile.subscription_tier = selected_tier
+            if assign_link_limit is not None:
+                profile.link_limit = assign_link_limit
+            if clear_subscription_expires_at:
+                profile.subscription_expires_at = None
+            elif subscription_expires_at is not None:
+                profile.subscription_expires_at = subscription_expires_at
+            elif selected_tier == Profile.SUBSCRIPTION_TIER_UNLIMITED:
+                profile.subscription_expires_at = None
+            profile.save(update_fields=["subscription_active", "subscription_tier", "link_limit", "subscription_expires_at", "updated_at"])
+        else:
+            profile.subscription_active = False
+            profile.subscription_tier = Profile.SUBSCRIPTION_TIER_FREE
+            profile.subscription_expires_at = None
+            profile.save(update_fields=["subscription_active", "subscription_tier", "subscription_expires_at", "updated_at"])
+
+    request_obj.save(update_fields=list(dict.fromkeys(update_fields)))
     return request_obj

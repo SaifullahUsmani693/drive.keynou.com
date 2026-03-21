@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
-
+from accounts.models import Profile
 
 class Link(models.Model):
     tenant = models.ForeignKey("tenants.Tenant", on_delete=models.CASCADE, related_name="links")
@@ -41,6 +41,11 @@ class SubscriptionRequest(models.Model):
     name = models.CharField(max_length=255)
     email = models.EmailField()
     phone = models.CharField(max_length=50, blank=True)
+    requested_subscription = models.CharField(
+        max_length=20,
+        choices=Profile.SUBSCRIPTION_TIER_CHOICES,
+        default=Profile.SUBSCRIPTION_TIER_LIMITED,
+    )
     message = models.TextField()
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="pending")
     admin_notes = models.TextField(blank=True)
@@ -51,6 +56,7 @@ class SubscriptionRequest(models.Model):
     class Meta:
         indexes = [
             models.Index(fields=["tenant", "status"]),
+            models.Index(fields=["tenant", "requested_subscription"]),
             models.Index(fields=["tenant", "created_at"]),
         ]
 

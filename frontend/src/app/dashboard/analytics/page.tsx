@@ -13,6 +13,7 @@ export default function AnalyticsPage() {
   const [analytics, setAnalytics] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [worldGeos, setWorldGeos] = useState<any[]>([]);
+  const [mapLoadFailed, setMapLoadFailed] = useState(false);
 
   const countryData = useMemo(() => {
     const list = (analytics?.country_counts ?? []) as Array<{
@@ -79,14 +80,19 @@ export default function AnalyticsPage() {
     const loadMap = async () => {
       try {
         const response = await fetch("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json");
+        if (!response.ok) {
+          throw new Error("Unable to load map topology");
+        }
         const topology = await response.json();
         const countries = feature(topology, topology.objects.countries) as any;
         if (active) {
           setWorldGeos(countries.features || []);
+          setMapLoadFailed(false);
         }
       } catch {
         if (active) {
           setWorldGeos([]);
+          setMapLoadFailed(true);
         }
       }
     };
@@ -141,9 +147,9 @@ export default function AnalyticsPage() {
             </div>
           ) : (
             <div className="w-full overflow-hidden rounded-lg bg-secondary/20 p-4">
-              <svg viewBox="0 0 800 380" className="w-full h-[380px]">
-                {mapPath &&
-                  worldGeos.map((geo: any) => {
+              {mapPath && worldGeos.length ? (
+                <svg viewBox="0 0 800 380" className="w-full h-[380px]">
+                  {worldGeos.map((geo: any) => {
                     const props = geo.properties || {};
                     const iso = (props.ISO_A2 || props.iso_a2 || "").toUpperCase();
                     const data = iso ? countryData[iso] : undefined;
@@ -160,11 +166,28 @@ export default function AnalyticsPage() {
                       />
                     );
                   })}
-              </svg>
+                </svg>
+              ) : (
+                <div className="flex h-[220px] items-center justify-center rounded-lg border border-white/10 bg-black/10 text-center text-sm text-muted-foreground">
+                  {mapLoadFailed
+                    ? "Map background could not load on localhost, but country totals are still listed below."
+                    : "No country map data yet. Open a short link to generate click locations."}
+                </div>
+              )}
               <div className="mt-4 grid gap-2 text-xs text-muted-foreground">
                 <p>
                   Highlighted countries: {analytics?.total_countries ?? 0}. Darker regions mean more clicks.
                 </p>
+                {(analytics?.country_counts ?? []).length ? (
+                  <div className="grid gap-2 pt-2 sm:grid-cols-2 lg:grid-cols-3">
+                    {(analytics?.country_counts ?? []).map((item: any) => (
+                      <div key={`${item.country_code}-${item.country}`} className="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
+                        <div className="font-medium text-foreground">{item.country || item.country_code}</div>
+                        <div>{item.total ?? 0} clicks</div>
+                      </div>
+                    ))}
+                  </div>
+                ) : null}
               </div>
             </div>
           )}

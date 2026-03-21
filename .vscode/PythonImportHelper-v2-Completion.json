@@ -74,6 +74,110 @@
         "documentation": {}
     },
     {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "transaction",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "migrations",
         "importPath": "django.db",
         "description": "django.db",
@@ -154,62 +258,6 @@
         "documentation": {}
     },
     {
-        "label": "transaction",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
         "label": "admin",
         "importPath": "django.contrib",
         "description": "django.contrib",
@@ -255,6 +303,30 @@
         "description": "django.contrib",
         "isExtraImport": true,
         "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "Profile",
+        "importPath": "accounts.models",
+        "description": "accounts.models",
+        "isExtraImport": true,
+        "detail": "accounts.models",
+        "documentation": {}
+    },
+    {
+        "label": "Profile",
+        "importPath": "accounts.models",
+        "description": "accounts.models",
+        "isExtraImport": true,
+        "detail": "accounts.models",
+        "documentation": {}
+    },
+    {
+        "label": "Profile",
+        "importPath": "accounts.models",
+        "description": "accounts.models",
+        "isExtraImport": true,
+        "detail": "accounts.models",
         "documentation": {}
     },
     {
@@ -594,6 +666,14 @@
         "documentation": {}
     },
     {
+        "label": "AdminTableQuerySerializer",
+        "importPath": "accounts.admin_serializers",
+        "description": "accounts.admin_serializers",
+        "isExtraImport": true,
+        "detail": "accounts.admin_serializers",
+        "documentation": {}
+    },
+    {
         "label": "ProfileAccessUpdateSerializer",
         "importPath": "accounts.admin_serializers",
         "description": "accounts.admin_serializers",
@@ -794,6 +874,14 @@
         "documentation": {}
     },
     {
+        "label": "timezone",
+        "importPath": "django.utils",
+        "description": "django.utils",
+        "isExtraImport": true,
+        "detail": "django.utils",
+        "documentation": {}
+    },
+    {
         "label": "get_user_model",
         "importPath": "django.contrib.auth",
         "description": "django.contrib.auth",
@@ -839,6 +927,158 @@
         "description": "django.contrib.auth",
         "isExtraImport": true,
         "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "Paginator",
+        "importPath": "django.core.paginator",
+        "description": "django.core.paginator",
+        "isExtraImport": true,
+        "detail": "django.core.paginator",
+        "documentation": {}
+    },
+    {
+        "label": "Paginator",
+        "importPath": "django.core.paginator",
+        "description": "django.core.paginator",
+        "isExtraImport": true,
+        "detail": "django.core.paginator",
+        "documentation": {}
+    },
+    {
+        "label": "Q",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Count",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Q",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Count",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Q",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "SubscriptionRequest",
+        "importPath": "drive.models",
+        "description": "drive.models",
+        "isExtraImport": true,
+        "detail": "drive.models",
+        "documentation": {}
+    },
+    {
+        "label": "Link",
+        "importPath": "drive.models",
+        "description": "drive.models",
+        "isExtraImport": true,
+        "detail": "drive.models",
+        "documentation": {}
+    },
+    {
+        "label": "SubscriptionRequest",
+        "importPath": "drive.models",
+        "description": "drive.models",
+        "isExtraImport": true,
+        "detail": "drive.models",
+        "documentation": {}
+    },
+    {
+        "label": "SubscriptionRequest",
+        "importPath": "drive.models",
+        "description": "drive.models",
+        "isExtraImport": true,
+        "detail": "drive.models",
+        "documentation": {}
+    },
+    {
+        "label": "SubscriptionRequest",
+        "importPath": "drive.models",
+        "description": "drive.models",
+        "isExtraImport": true,
+        "detail": "drive.models",
+        "documentation": {}
+    },
+    {
+        "label": "Link",
+        "importPath": "drive.models",
+        "description": "drive.models",
+        "isExtraImport": true,
+        "detail": "drive.models",
+        "documentation": {}
+    },
+    {
+        "label": "SubscriptionRequest",
+        "importPath": "drive.models",
+        "description": "drive.models",
+        "isExtraImport": true,
+        "detail": "drive.models",
+        "documentation": {}
+    },
+    {
+        "label": "Link",
+        "importPath": "drive.models",
+        "description": "drive.models",
+        "isExtraImport": true,
+        "detail": "drive.models",
+        "documentation": {}
+    },
+    {
+        "label": "SubscriptionRequest",
+        "importPath": "drive.models",
+        "description": "drive.models",
+        "isExtraImport": true,
+        "detail": "drive.models",
+        "documentation": {}
+    },
+    {
+        "label": "Link",
+        "importPath": "drive.models",
+        "description": "drive.models",
+        "isExtraImport": true,
+        "detail": "drive.models",
         "documentation": {}
     },
     {
@@ -1019,6 +1259,14 @@
         "documentation": {}
     },
     {
+        "label": "IP2LocationRange",
+        "importPath": "analytics.models",
+        "description": "analytics.models",
+        "isExtraImport": true,
+        "detail": "analytics.models",
+        "documentation": {}
+    },
+    {
         "label": "ClickEvent",
         "importPath": "analytics.models",
         "description": "analytics.models",
@@ -1032,14 +1280,6 @@
         "description": "analytics.models",
         "isExtraImport": true,
         "detail": "analytics.models",
-        "documentation": {}
-    },
-    {
-        "label": "timedelta",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
         "documentation": {}
     },
     {
@@ -1082,22 +1322,6 @@
         "description": "django.core.cache",
         "isExtraImport": true,
         "detail": "django.core.cache",
-        "documentation": {}
-    },
-    {
-        "label": "Count",
-        "importPath": "django.db.models",
-        "description": "django.db.models",
-        "isExtraImport": true,
-        "detail": "django.db.models",
-        "documentation": {}
-    },
-    {
-        "label": "Count",
-        "importPath": "django.db.models",
-        "description": "django.db.models",
-        "isExtraImport": true,
-        "detail": "django.db.models",
         "documentation": {}
     },
     {
@@ -1221,78 +1445,6 @@
         "documentation": {}
     },
     {
-        "label": "Link",
-        "importPath": "drive.models",
-        "description": "drive.models",
-        "isExtraImport": true,
-        "detail": "drive.models",
-        "documentation": {}
-    },
-    {
-        "label": "SubscriptionRequest",
-        "importPath": "drive.models",
-        "description": "drive.models",
-        "isExtraImport": true,
-        "detail": "drive.models",
-        "documentation": {}
-    },
-    {
-        "label": "SubscriptionRequest",
-        "importPath": "drive.models",
-        "description": "drive.models",
-        "isExtraImport": true,
-        "detail": "drive.models",
-        "documentation": {}
-    },
-    {
-        "label": "SubscriptionRequest",
-        "importPath": "drive.models",
-        "description": "drive.models",
-        "isExtraImport": true,
-        "detail": "drive.models",
-        "documentation": {}
-    },
-    {
-        "label": "Link",
-        "importPath": "drive.models",
-        "description": "drive.models",
-        "isExtraImport": true,
-        "detail": "drive.models",
-        "documentation": {}
-    },
-    {
-        "label": "SubscriptionRequest",
-        "importPath": "drive.models",
-        "description": "drive.models",
-        "isExtraImport": true,
-        "detail": "drive.models",
-        "documentation": {}
-    },
-    {
-        "label": "Link",
-        "importPath": "drive.models",
-        "description": "drive.models",
-        "isExtraImport": true,
-        "detail": "drive.models",
-        "documentation": {}
-    },
-    {
-        "label": "SubscriptionRequest",
-        "importPath": "drive.models",
-        "description": "drive.models",
-        "isExtraImport": true,
-        "detail": "drive.models",
-        "documentation": {}
-    },
-    {
-        "label": "Link",
-        "importPath": "drive.models",
-        "description": "drive.models",
-        "isExtraImport": true,
-        "detail": "drive.models",
-        "documentation": {}
-    },
-    {
         "label": "AdminSubscriptionRequestListView",
         "importPath": "drive.admin_views",
         "description": "drive.admin_views",
@@ -1306,6 +1458,14 @@
         "description": "drive.admin_views",
         "isExtraImport": true,
         "detail": "drive.admin_views",
+        "documentation": {}
+    },
+    {
+        "label": "SubscriptionRequestAdminQuerySerializer",
+        "importPath": "drive.admin_serializers",
+        "description": "drive.admin_serializers",
+        "isExtraImport": true,
+        "detail": "drive.admin_serializers",
         "documentation": {}
     },
     {
@@ -1646,6 +1806,14 @@
         "documentation": {}
     },
     {
+        "label": "Tenant",
+        "importPath": "tenants.models",
+        "description": "tenants.models",
+        "isExtraImport": true,
+        "detail": "tenants.models",
+        "documentation": {}
+    },
+    {
         "label": "TenantDomain",
         "importPath": "tenants.models",
         "description": "tenants.models",
@@ -1744,6 +1912,55 @@
         "documentation": {}
     },
     {
+        "label": "TenantLogoUploadView",
+        "importPath": "tenants.views",
+        "description": "tenants.views",
+        "isExtraImport": true,
+        "detail": "tenants.views",
+        "documentation": {}
+    },
+    {
+        "label": "mimetypes",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "mimetypes",
+        "description": "mimetypes",
+        "detail": "mimetypes",
+        "documentation": {}
+    },
+    {
+        "label": "uuid4",
+        "importPath": "uuid",
+        "description": "uuid",
+        "isExtraImport": true,
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "default_storage",
+        "importPath": "django.core.files.storage",
+        "description": "django.core.files.storage",
+        "isExtraImport": true,
+        "detail": "django.core.files.storage",
+        "documentation": {}
+    },
+    {
+        "label": "FormParser",
+        "importPath": "rest_framework.parsers",
+        "description": "rest_framework.parsers",
+        "isExtraImport": true,
+        "detail": "rest_framework.parsers",
+        "documentation": {}
+    },
+    {
+        "label": "MultiPartParser",
+        "importPath": "rest_framework.parsers",
+        "description": "rest_framework.parsers",
+        "isExtraImport": true,
+        "detail": "rest_framework.parsers",
+        "documentation": {}
+    },
+    {
         "label": "TenantBrandingSerializer",
         "importPath": "tenants.serializers",
         "description": "tenants.serializers",
@@ -1827,6 +2044,15 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "backend.accounts.migrations.0002_profile_subscription_expires_at_and_more",
+        "description": "backend.accounts.migrations.0002_profile_subscription_expires_at_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        (\"accounts\", \"0001_initial\"),\n        (\"tenants\", \"0001_initial\"),\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name=\"profile\",\n            name=\"subscription_expires_at\",",
+        "detail": "backend.accounts.migrations.0002_profile_subscription_expires_at_and_more",
+        "documentation": {}
+    },
+    {
         "label": "ProfileAdmin",
         "kind": 6,
         "importPath": "backend.accounts.admin",
@@ -1840,7 +2066,16 @@
         "kind": 6,
         "importPath": "backend.accounts.admin_serializers",
         "description": "backend.accounts.admin_serializers",
-        "peekOfCode": "class ProfileAccessUpdateSerializer(serializers.Serializer):\n    subscription_active = serializers.BooleanField()\n    link_limit = serializers.IntegerField(min_value=0)\nclass ProfileAdminSerializer(serializers.ModelSerializer):\n    email = serializers.EmailField(source=\"user.email\", read_only=True)\n    class Meta:\n        model = Profile\n        fields = [\n            \"id\",\n            \"user\",",
+        "peekOfCode": "class ProfileAccessUpdateSerializer(serializers.Serializer):\n    subscription_active = serializers.BooleanField(required=False)\n    subscription_tier = serializers.ChoiceField(choices=Profile.SUBSCRIPTION_TIER_CHOICES, required=False)\n    link_limit = serializers.IntegerField(min_value=0, required=False)\n    subscription_expires_at = serializers.DateTimeField(required=False, allow_null=True)\nclass AdminTableQuerySerializer(serializers.Serializer):\n    page = serializers.IntegerField(min_value=1, required=False, default=1)\n    page_size = serializers.IntegerField(min_value=1, max_value=100, required=False, default=10)\n    search = serializers.CharField(required=False, allow_blank=True, default=\"\")\n    ordering = serializers.CharField(required=False, allow_blank=True, default=\"-created_at\")",
+        "detail": "backend.accounts.admin_serializers",
+        "documentation": {}
+    },
+    {
+        "label": "AdminTableQuerySerializer",
+        "kind": 6,
+        "importPath": "backend.accounts.admin_serializers",
+        "description": "backend.accounts.admin_serializers",
+        "peekOfCode": "class AdminTableQuerySerializer(serializers.Serializer):\n    page = serializers.IntegerField(min_value=1, required=False, default=1)\n    page_size = serializers.IntegerField(min_value=1, max_value=100, required=False, default=10)\n    search = serializers.CharField(required=False, allow_blank=True, default=\"\")\n    ordering = serializers.CharField(required=False, allow_blank=True, default=\"-created_at\")\n    subscription_status = serializers.ChoiceField(\n        choices=[\"all\", \"active\", \"inactive\", \"expiring\", \"expired\"],\n        required=False,\n        default=\"all\",\n    )",
         "detail": "backend.accounts.admin_serializers",
         "documentation": {}
     },
@@ -1849,7 +2084,7 @@
         "kind": 6,
         "importPath": "backend.accounts.admin_serializers",
         "description": "backend.accounts.admin_serializers",
-        "peekOfCode": "class ProfileAdminSerializer(serializers.ModelSerializer):\n    email = serializers.EmailField(source=\"user.email\", read_only=True)\n    class Meta:\n        model = Profile\n        fields = [\n            \"id\",\n            \"user\",\n            \"email\",\n            \"tenant\",\n            \"subscription_active\",",
+        "peekOfCode": "class ProfileAdminSerializer(serializers.ModelSerializer):\n    email = serializers.EmailField(source=\"user.email\", read_only=True)\n    requested_subscription = serializers.SerializerMethodField()\n    active_request_id = serializers.SerializerMethodField()\n    active_request_status = serializers.SerializerMethodField()\n    active_request_notes = serializers.SerializerMethodField()\n    def get_requested_subscription(self, obj):\n        request_obj = getattr(obj, \"latest_subscription_request\", None)\n        if request_obj is None:\n            return \"\"",
         "detail": "backend.accounts.admin_serializers",
         "documentation": {}
     },
@@ -1867,7 +2102,7 @@
         "kind": 6,
         "importPath": "backend.accounts.admin_views",
         "description": "backend.accounts.admin_views",
-        "peekOfCode": "class AdminProfileListView(APIView):\n    permission_classes = [IsAuthenticated, IsAdminUser]\n    def get(self, request):\n        tenant = request.tenant\n        profiles = list_profiles_for_tenant(tenant=tenant)\n        serializer = ProfileAdminSerializer(profiles, many=True)\n        return api_response(data=serializer.data, message=\"Profiles fetched\")\nclass AdminProfileUpdateView(APIView):\n    permission_classes = [IsAuthenticated, IsAdminUser]\n    def patch(self, request, profile_id: int):",
+        "peekOfCode": "class AdminProfileListView(APIView):\n    permission_classes = [IsAuthenticated, IsAdminUser]\n    def get(self, request):\n        tenant = request.tenant\n        serializer = AdminTableQuerySerializer(data=request.query_params)\n        serializer.is_valid(raise_exception=True)\n        result = list_profiles_for_tenant(tenant=tenant, **serializer.validated_data)\n        payload = {\n            \"items\": ProfileAdminSerializer(result[\"items\"], many=True).data,\n            \"page\": result[\"page\"],",
         "detail": "backend.accounts.admin_views",
         "documentation": {}
     },
@@ -1876,7 +2111,7 @@
         "kind": 6,
         "importPath": "backend.accounts.admin_views",
         "description": "backend.accounts.admin_views",
-        "peekOfCode": "class AdminProfileUpdateView(APIView):\n    permission_classes = [IsAuthenticated, IsAdminUser]\n    def patch(self, request, profile_id: int):\n        tenant = request.tenant\n        profile = get_object_or_404(Profile, id=profile_id, tenant=tenant)\n        serializer = ProfileAccessUpdateSerializer(data=request.data)\n        serializer.is_valid(raise_exception=True)\n        updated = update_profile_access(profile=profile, **serializer.validated_data)\n        return api_response(data=ProfileAdminSerializer(updated).data, message=\"Profile updated\")",
+        "peekOfCode": "class AdminProfileUpdateView(APIView):\n    permission_classes = [IsAuthenticated, IsAdminUser]\n    def patch(self, request, profile_id: int):\n        tenant = request.tenant\n        profile = get_object_or_404(Profile, id=profile_id, tenant=tenant)\n        serializer = ProfileAccessUpdateSerializer(data=request.data)\n        serializer.is_valid(raise_exception=True)\n        validated = dict(serializer.validated_data)\n        if \"subscription_expires_at\" in validated and validated[\"subscription_expires_at\"] is None:\n            validated.pop(\"subscription_expires_at\")",
         "detail": "backend.accounts.admin_views",
         "documentation": {}
     },
@@ -1894,7 +2129,7 @@
         "kind": 6,
         "importPath": "backend.accounts.models",
         "description": "backend.accounts.models",
-        "peekOfCode": "class Profile(models.Model):\n    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name=\"profile\")\n    tenant = models.ForeignKey(\"tenants.Tenant\", on_delete=models.CASCADE, related_name=\"profiles\")\n    company_name = models.CharField(max_length=255, blank=True)\n    subscription_active = models.BooleanField(default=False)\n    link_limit = models.PositiveIntegerField(default=50)\n    is_admin = models.BooleanField(default=False)\n    created_at = models.DateTimeField(default=timezone.now)\n    updated_at = models.DateTimeField(auto_now=True)\n    class Meta:",
+        "peekOfCode": "class Profile(models.Model):\n    SUBSCRIPTION_TIER_FREE = \"free\"\n    SUBSCRIPTION_TIER_LIMITED = \"limited\"\n    SUBSCRIPTION_TIER_CUSTOM = \"custom\"\n    SUBSCRIPTION_TIER_UNLIMITED = \"unlimited\"\n    SUBSCRIPTION_TIER_CHOICES = [\n        (SUBSCRIPTION_TIER_FREE, \"Free\"),\n        (SUBSCRIPTION_TIER_LIMITED, \"Limited\"),\n        (SUBSCRIPTION_TIER_CUSTOM, \"Custom\"),\n        (SUBSCRIPTION_TIER_UNLIMITED, \"Unlimited\"),",
         "detail": "backend.accounts.models",
         "documentation": {}
     },
@@ -1912,7 +2147,7 @@
         "kind": 6,
         "importPath": "backend.accounts.serializers",
         "description": "backend.accounts.serializers",
-        "peekOfCode": "class ProfileSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Profile\n        fields = [\n            \"id\",\n            \"user\",\n            \"tenant\",\n            \"company_name\",\n            \"subscription_active\",\n            \"link_limit\",",
+        "peekOfCode": "class ProfileSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Profile\n        fields = [\n            \"id\",\n            \"user\",\n            \"tenant\",\n            \"company_name\",\n            \"subscription_active\",\n            \"subscription_tier\",",
         "detail": "backend.accounts.serializers",
         "documentation": {}
     },
@@ -1921,7 +2156,7 @@
         "kind": 6,
         "importPath": "backend.accounts.serializers",
         "description": "backend.accounts.serializers",
-        "peekOfCode": "class UserSerializer(serializers.ModelSerializer):\n    profile = ProfileSerializer(read_only=True)\n    class Meta:\n        model = User\n        fields = [\"id\", \"email\", \"username\", \"first_name\", \"last_name\", \"profile\"]\nclass LoginSerializer(serializers.Serializer):\n    identifier = serializers.CharField()\n    password = serializers.CharField(write_only=True)\nclass RegisterSerializer(serializers.Serializer):\n    email = serializers.EmailField()",
+        "peekOfCode": "class UserSerializer(serializers.ModelSerializer):\n    profile = ProfileSerializer(read_only=True)\n    class Meta:\n        model = User\n        fields = [\"id\", \"email\", \"username\", \"first_name\", \"last_name\", \"is_superuser\", \"profile\"]\nclass LoginSerializer(serializers.Serializer):\n    identifier = serializers.CharField()\n    password = serializers.CharField(write_only=True)\nclass RegisterSerializer(serializers.Serializer):\n    email = serializers.EmailField()",
         "detail": "backend.accounts.serializers",
         "documentation": {}
     },
@@ -1957,7 +2192,7 @@
         "kind": 2,
         "importPath": "backend.accounts.services",
         "description": "backend.accounts.services",
-        "peekOfCode": "def get_profile_for_user(user):\n    return Profile.objects.select_related(\"tenant\").filter(user=user).first()\ndef list_profiles_for_tenant(*, tenant):\n    return Profile.objects.filter(tenant=tenant).select_related(\"user\").order_by(\"-created_at\")\ndef update_profile_access(*, profile, subscription_active: bool, link_limit: int):\n    profile.subscription_active = subscription_active\n    profile.link_limit = link_limit\n    profile.save(update_fields=[\"subscription_active\", \"link_limit\", \"updated_at\"])\n    return profile",
+        "peekOfCode": "def get_profile_for_user(user):\n    return Profile.objects.select_related(\"tenant\").filter(user=user).first()\ndef list_profiles_for_tenant(\n    *,\n    tenant,\n    page: int = 1,\n    page_size: int = 10,\n    search: str = \"\",\n    ordering: str = \"-created_at\",\n    subscription_status: str = \"all\",",
         "detail": "backend.accounts.services",
         "documentation": {}
     },
@@ -1966,7 +2201,7 @@
         "kind": 2,
         "importPath": "backend.accounts.services",
         "description": "backend.accounts.services",
-        "peekOfCode": "def list_profiles_for_tenant(*, tenant):\n    return Profile.objects.filter(tenant=tenant).select_related(\"user\").order_by(\"-created_at\")\ndef update_profile_access(*, profile, subscription_active: bool, link_limit: int):\n    profile.subscription_active = subscription_active\n    profile.link_limit = link_limit\n    profile.save(update_fields=[\"subscription_active\", \"link_limit\", \"updated_at\"])\n    return profile",
+        "peekOfCode": "def list_profiles_for_tenant(\n    *,\n    tenant,\n    page: int = 1,\n    page_size: int = 10,\n    search: str = \"\",\n    ordering: str = \"-created_at\",\n    subscription_status: str = \"all\",\n    subscription_tier: str = \"all\",\n):",
         "detail": "backend.accounts.services",
         "documentation": {}
     },
@@ -1975,7 +2210,7 @@
         "kind": 2,
         "importPath": "backend.accounts.services",
         "description": "backend.accounts.services",
-        "peekOfCode": "def update_profile_access(*, profile, subscription_active: bool, link_limit: int):\n    profile.subscription_active = subscription_active\n    profile.link_limit = link_limit\n    profile.save(update_fields=[\"subscription_active\", \"link_limit\", \"updated_at\"])\n    return profile",
+        "peekOfCode": "def update_profile_access(\n    *,\n    profile,\n    subscription_active: bool | None = None,\n    subscription_tier: str | None = None,\n    link_limit: int | None = None,\n    subscription_expires_at=None,\n    clear_subscription_expires_at: bool = False,\n):\n    update_fields = [\"updated_at\"]",
         "detail": "backend.accounts.services",
         "documentation": {}
     },
@@ -1984,7 +2219,7 @@
         "kind": 5,
         "importPath": "backend.accounts.services",
         "description": "backend.accounts.services",
-        "peekOfCode": "User = get_user_model()\ndef get_profile_for_user(user):\n    return Profile.objects.select_related(\"tenant\").filter(user=user).first()\ndef list_profiles_for_tenant(*, tenant):\n    return Profile.objects.filter(tenant=tenant).select_related(\"user\").order_by(\"-created_at\")\ndef update_profile_access(*, profile, subscription_active: bool, link_limit: int):\n    profile.subscription_active = subscription_active\n    profile.link_limit = link_limit\n    profile.save(update_fields=[\"subscription_active\", \"link_limit\", \"updated_at\"])\n    return profile",
+        "peekOfCode": "User = get_user_model()\ndef get_profile_for_user(user):\n    return Profile.objects.select_related(\"tenant\").filter(user=user).first()\ndef list_profiles_for_tenant(\n    *,\n    tenant,\n    page: int = 1,\n    page_size: int = 10,\n    search: str = \"\",\n    ordering: str = \"-created_at\",",
         "detail": "backend.accounts.services",
         "documentation": {}
     },
@@ -2065,7 +2300,16 @@
         "kind": 6,
         "importPath": "backend.analytics.admin",
         "description": "backend.analytics.admin",
-        "peekOfCode": "class ClickEventAdmin(admin.ModelAdmin):\n    list_display = (\"tenant\", \"link\", \"ip_address\", \"created_at\")\n    list_filter = (\"tenant\",)\n    search_fields = (\"ip_address\", \"referer\", \"link__short_code\")",
+        "peekOfCode": "class ClickEventAdmin(admin.ModelAdmin):\n    list_display = (\"tenant\", \"link\", \"ip_address\", \"country_code\", \"created_at\")\n    list_filter = (\"tenant\", \"country_code\")\n    search_fields = (\"ip_address\", \"referer\", \"link__short_code\")\n@admin.register(IP2LocationRange)\nclass IP2LocationRangeAdmin(admin.ModelAdmin):\n    list_display = (\"start_ip\", \"end_ip\", \"country_code\", \"country\")\n    list_filter = (\"country_code\",)\n    search_fields = (\"country_code\", \"country\")",
+        "detail": "backend.analytics.admin",
+        "documentation": {}
+    },
+    {
+        "label": "IP2LocationRangeAdmin",
+        "kind": 6,
+        "importPath": "backend.analytics.admin",
+        "description": "backend.analytics.admin",
+        "peekOfCode": "class IP2LocationRangeAdmin(admin.ModelAdmin):\n    list_display = (\"start_ip\", \"end_ip\", \"country_code\", \"country\")\n    list_filter = (\"country_code\",)\n    search_fields = (\"country_code\", \"country\")",
         "detail": "backend.analytics.admin",
         "documentation": {}
     },
@@ -2110,7 +2354,7 @@
         "kind": 2,
         "importPath": "backend.analytics.services",
         "description": "backend.analytics.services",
-        "peekOfCode": "def enrich_geo_from_ip(ip_address: str | None):\n    if not ip_address:\n        return {\"country\": \"\", \"country_code\": \"\", \"region\": \"\", \"city\": \"\"}\n    ip2location = lookup_ip2location(ip_address)\n    if ip2location:\n        return ip2location\n    reader = _geoip_reader()\n    if reader is None:\n        return {\"country\": \"\", \"country_code\": \"\", \"region\": \"\", \"city\": \"\"}\n    try:",
+        "peekOfCode": "def enrich_geo_from_ip(ip_address: str | None):\n    fallback = {\"country\": \"\", \"country_code\": \"\", \"region\": \"\", \"city\": \"\"}\n    if not ip_address:\n        return fallback\n    try:\n        ip_obj = ipaddress.ip_address(ip_address)\n    except ValueError:\n        ip_obj = None\n    if ip_obj and (ip_obj.is_private or ip_obj.is_loopback or ip_obj.is_reserved):\n        return {",
         "detail": "backend.analytics.services",
         "documentation": {}
     },
@@ -2120,6 +2364,15 @@
         "importPath": "backend.analytics.services",
         "description": "backend.analytics.services",
         "peekOfCode": "def lookup_ip2location(ip_address: str):\n    try:\n        ip_int = int(ipaddress.ip_address(ip_address))\n    except ValueError:\n        return None\n    record = (\n        IP2LocationRange.objects.filter(start_ip__lte=ip_int, end_ip__gte=ip_int)\n        .only(\"country\", \"country_code\", \"region\", \"city\")\n        .first()\n    )",
+        "detail": "backend.analytics.services",
+        "documentation": {}
+    },
+    {
+        "label": "is_local_ip",
+        "kind": 2,
+        "importPath": "backend.analytics.services",
+        "description": "backend.analytics.services",
+        "peekOfCode": "def is_local_ip(ip_address: str | None) -> bool:\n    if not ip_address:\n        return False\n    try:\n        ip_obj = ipaddress.ip_address(ip_address)\n    except ValueError:\n        return False\n    return bool(ip_obj.is_private or ip_obj.is_loopback or ip_obj.is_reserved)\ndef log_click_event(\n    *,",
         "detail": "backend.analytics.services",
         "documentation": {}
     },
@@ -2138,6 +2391,24 @@
         "importPath": "backend.analytics.services",
         "description": "backend.analytics.services",
         "peekOfCode": "def analytics_summary(*, tenant):\n    cache_key = f\"analytics:summary:{tenant.id}\"\n    cached = cache.get(cache_key)\n    if cached:\n        return cached\n    since = timezone.now() - timedelta(days=7)\n    total_clicks = ClickEvent.objects.filter(tenant=tenant).count()\n    recent_clicks = ClickEvent.objects.filter(tenant=tenant, created_at__gte=since).count()\n    unique_links = ClickEvent.objects.filter(tenant=tenant).values(\"link_id\").distinct().count()\n    top_links = (",
+        "detail": "backend.analytics.services",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_GEO_COUNTRY_CODE",
+        "kind": 5,
+        "importPath": "backend.analytics.services",
+        "description": "backend.analytics.services",
+        "peekOfCode": "DEFAULT_GEO_COUNTRY_CODE = os.getenv(\"DEFAULT_GEO_COUNTRY_CODE\", \"US\")\nDEFAULT_GEO_COUNTRY_NAME = os.getenv(\"DEFAULT_GEO_COUNTRY_NAME\", \"United States\")\ntry:\n    import geoip2.database\nexcept ImportError:  # pragma: no cover\n    geoip2 = None\n@lru_cache(maxsize=1)\ndef _geoip_reader():\n    if geoip2 is None:\n        return None",
+        "detail": "backend.analytics.services",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_GEO_COUNTRY_NAME",
+        "kind": 5,
+        "importPath": "backend.analytics.services",
+        "description": "backend.analytics.services",
+        "peekOfCode": "DEFAULT_GEO_COUNTRY_NAME = os.getenv(\"DEFAULT_GEO_COUNTRY_NAME\", \"United States\")\ntry:\n    import geoip2.database\nexcept ImportError:  # pragma: no cover\n    geoip2 = None\n@lru_cache(maxsize=1)\ndef _geoip_reader():\n    if geoip2 is None:\n        return None\n    db_path = os.getenv(\"GEOIP_DB_PATH\", \"\")",
         "detail": "backend.analytics.services",
         "documentation": {}
     },
@@ -2466,6 +2737,15 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "backend.drive.migrations.0002_subscriptionrequest_requested_subscription_and_more",
+        "description": "backend.drive.migrations.0002_subscriptionrequest_requested_subscription_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        (\"drive\", \"0001_initial\"),\n        (\"tenants\", \"0001_initial\"),\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name=\"subscriptionrequest\",\n            name=\"requested_subscription\",",
+        "detail": "backend.drive.migrations.0002_subscriptionrequest_requested_subscription_and_more",
+        "documentation": {}
+    },
+    {
         "label": "LinkAdmin",
         "kind": 6,
         "importPath": "backend.drive.admin",
@@ -2484,11 +2764,20 @@
         "documentation": {}
     },
     {
+        "label": "SubscriptionRequestAdminQuerySerializer",
+        "kind": 6,
+        "importPath": "backend.drive.admin_serializers",
+        "description": "backend.drive.admin_serializers",
+        "peekOfCode": "class SubscriptionRequestAdminQuerySerializer(serializers.Serializer):\n    page = serializers.IntegerField(min_value=1, required=False, default=1)\n    page_size = serializers.IntegerField(min_value=1, max_value=100, required=False, default=10)\n    search = serializers.CharField(required=False, allow_blank=True, default=\"\")\n    ordering = serializers.CharField(required=False, allow_blank=True, default=\"-created_at\")\n    status = serializers.ChoiceField(choices=[\"all\", \"pending\", \"approved\", \"declined\"], required=False, default=\"all\")\n    requested_subscription = serializers.ChoiceField(\n        choices=[choice[0] for choice in Profile.SUBSCRIPTION_TIER_CHOICES] + [\"all\"],\n        required=False,\n        default=\"all\",",
+        "detail": "backend.drive.admin_serializers",
+        "documentation": {}
+    },
+    {
         "label": "SubscriptionRequestAdminUpdateSerializer",
         "kind": 6,
         "importPath": "backend.drive.admin_serializers",
         "description": "backend.drive.admin_serializers",
-        "peekOfCode": "class SubscriptionRequestAdminUpdateSerializer(serializers.Serializer):\n    status = serializers.ChoiceField(choices=[\"pending\", \"approved\", \"declined\"])\n    admin_notes = serializers.CharField(required=False, allow_blank=True)\n    subscription_expires_at = serializers.DateTimeField(required=False, allow_null=True)\nclass SubscriptionRequestAdminSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = SubscriptionRequest\n        fields = [\n            \"id\",\n            \"tenant\",",
+        "peekOfCode": "class SubscriptionRequestAdminUpdateSerializer(serializers.Serializer):\n    status = serializers.ChoiceField(choices=[\"pending\", \"approved\", \"declined\"], required=False)\n    requested_subscription = serializers.ChoiceField(choices=Profile.SUBSCRIPTION_TIER_CHOICES, required=False)\n    assign_subscription = serializers.BooleanField(required=False)\n    assign_subscription_tier = serializers.ChoiceField(choices=Profile.SUBSCRIPTION_TIER_CHOICES, required=False)\n    assign_link_limit = serializers.IntegerField(min_value=0, required=False)\n    subscription_expires_at = serializers.DateTimeField(required=False, allow_null=True)\n    admin_notes = serializers.CharField(required=False, allow_blank=True)\nclass SubscriptionRequestAdminSerializer(serializers.ModelSerializer):\n    user_email = serializers.EmailField(source=\"user.email\", read_only=True)",
         "detail": "backend.drive.admin_serializers",
         "documentation": {}
     },
@@ -2497,7 +2786,7 @@
         "kind": 6,
         "importPath": "backend.drive.admin_serializers",
         "description": "backend.drive.admin_serializers",
-        "peekOfCode": "class SubscriptionRequestAdminSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = SubscriptionRequest\n        fields = [\n            \"id\",\n            \"tenant\",\n            \"user\",\n            \"name\",\n            \"email\",\n            \"phone\",",
+        "peekOfCode": "class SubscriptionRequestAdminSerializer(serializers.ModelSerializer):\n    user_email = serializers.EmailField(source=\"user.email\", read_only=True)\n    current_subscription_tier = serializers.SerializerMethodField()\n    current_subscription_active = serializers.SerializerMethodField()\n    current_subscription_expires_at = serializers.SerializerMethodField()\n    def get_current_subscription_tier(self, obj):\n        profile = getattr(getattr(obj, \"user\", None), \"profile\", None)\n        return getattr(profile, \"subscription_tier\", None)\n    def get_current_subscription_active(self, obj):\n        profile = getattr(getattr(obj, \"user\", None), \"profile\", None)",
         "detail": "backend.drive.admin_serializers",
         "documentation": {}
     },
@@ -2515,7 +2804,7 @@
         "kind": 6,
         "importPath": "backend.drive.admin_views",
         "description": "backend.drive.admin_views",
-        "peekOfCode": "class AdminSubscriptionRequestListView(APIView):\n    permission_classes = [IsAuthenticated, IsAdminUser]\n    def get(self, request):\n        tenant = request.tenant\n        requests = list_subscription_requests_for_tenant(tenant=tenant)\n        serializer = SubscriptionRequestAdminSerializer(requests, many=True)\n        return api_response(data=serializer.data, message=\"Requests fetched\")\nclass AdminSubscriptionRequestUpdateView(APIView):\n    permission_classes = [IsAuthenticated, IsAdminUser]\n    def patch(self, request, request_id: int):",
+        "peekOfCode": "class AdminSubscriptionRequestListView(APIView):\n    permission_classes = [IsAuthenticated, IsAdminUser]\n    def get(self, request):\n        tenant = request.tenant\n        serializer = SubscriptionRequestAdminQuerySerializer(data=request.query_params)\n        serializer.is_valid(raise_exception=True)\n        result = list_subscription_requests_for_tenant(tenant=tenant, **serializer.validated_data)\n        payload = {\n            \"items\": SubscriptionRequestAdminSerializer(result[\"items\"], many=True).data,\n            \"page\": result[\"page\"],",
         "detail": "backend.drive.admin_views",
         "documentation": {}
     },
@@ -2524,7 +2813,7 @@
         "kind": 6,
         "importPath": "backend.drive.admin_views",
         "description": "backend.drive.admin_views",
-        "peekOfCode": "class AdminSubscriptionRequestUpdateView(APIView):\n    permission_classes = [IsAuthenticated, IsAdminUser]\n    def patch(self, request, request_id: int):\n        tenant = request.tenant\n        request_obj = get_object_or_404(SubscriptionRequest, id=request_id, tenant=tenant)\n        serializer = SubscriptionRequestAdminUpdateSerializer(data=request.data)\n        serializer.is_valid(raise_exception=True)\n        updated = update_subscription_request(request_obj=request_obj, **serializer.validated_data)\n        return api_response(data=SubscriptionRequestAdminSerializer(updated).data, message=\"Request updated\")",
+        "peekOfCode": "class AdminSubscriptionRequestUpdateView(APIView):\n    permission_classes = [IsAuthenticated, IsAdminUser]\n    def patch(self, request, request_id: int):\n        tenant = request.tenant\n        request_obj = get_object_or_404(SubscriptionRequest, id=request_id, tenant=tenant)\n        serializer = SubscriptionRequestAdminUpdateSerializer(data=request.data)\n        serializer.is_valid(raise_exception=True)\n        validated = dict(serializer.validated_data)\n        if \"subscription_expires_at\" in validated and validated[\"subscription_expires_at\"] is None:\n            validated.pop(\"subscription_expires_at\")",
         "detail": "backend.drive.admin_views",
         "documentation": {}
     },
@@ -2605,7 +2894,7 @@
         "kind": 6,
         "importPath": "backend.drive.serializers",
         "description": "backend.drive.serializers",
-        "peekOfCode": "class SubscriptionRequestCreateSerializer(serializers.Serializer):\n    name = serializers.CharField(max_length=255)\n    email = serializers.EmailField()\n    phone = serializers.CharField(max_length=50, required=False, allow_blank=True)\n    message = serializers.CharField()",
+        "peekOfCode": "class SubscriptionRequestCreateSerializer(serializers.Serializer):\n    name = serializers.CharField(max_length=255)\n    email = serializers.EmailField()\n    phone = serializers.CharField(max_length=50, required=False, allow_blank=True)\n    requested_subscription = serializers.ChoiceField(choices=Profile.SUBSCRIPTION_TIER_CHOICES, required=False, default=Profile.SUBSCRIPTION_TIER_LIMITED)\n    message = serializers.CharField()",
         "detail": "backend.drive.serializers",
         "documentation": {}
     },
@@ -2677,7 +2966,7 @@
         "kind": 2,
         "importPath": "backend.drive.services",
         "description": "backend.drive.services",
-        "peekOfCode": "def create_subscription_request(*, tenant, user, payload):\n    return SubscriptionRequest.objects.create(\n        tenant=tenant,\n        user=user,\n        name=payload[\"name\"],\n        email=payload[\"email\"],\n        phone=payload.get(\"phone\", \"\"),\n        message=payload[\"message\"],\n    )\ndef list_subscription_requests_for_tenant(*, tenant):",
+        "peekOfCode": "def create_subscription_request(*, tenant, user, payload):\n    return SubscriptionRequest.objects.create(\n        tenant=tenant,\n        user=user,\n        name=payload[\"name\"],\n        email=payload[\"email\"],\n        phone=payload.get(\"phone\", \"\"),\n        requested_subscription=payload.get(\"requested_subscription\", Profile.SUBSCRIPTION_TIER_LIMITED),\n        message=payload[\"message\"],\n    )",
         "detail": "backend.drive.services",
         "documentation": {}
     },
@@ -2686,7 +2975,7 @@
         "kind": 2,
         "importPath": "backend.drive.services",
         "description": "backend.drive.services",
-        "peekOfCode": "def list_subscription_requests_for_tenant(*, tenant):\n    return SubscriptionRequest.objects.filter(tenant=tenant).order_by(\"-created_at\")\ndef subscription_request_stats(*, tenant):\n    return SubscriptionRequest.objects.filter(tenant=tenant).values(\"status\").annotate(total=Count(\"id\"))\ndef get_active_link(*, tenant, short_code: str):\n    return Link.objects.select_related(\"tenant\").get(tenant=tenant, short_code=short_code, is_active=True)\ndef update_link(*, tenant, user, link: Link, destination_url=None, short_code=None, is_active=None) -> Link:\n    previous_code = link.short_code\n    updates = {}\n    if destination_url is not None:",
+        "peekOfCode": "def list_subscription_requests_for_tenant(\n    *,\n    tenant,\n    page: int = 1,\n    page_size: int = 10,\n    search: str = \"\",\n    ordering: str = \"-created_at\",\n    status: str = \"all\",\n    requested_subscription: str = \"all\",\n):",
         "detail": "backend.drive.services",
         "documentation": {}
     },
@@ -2731,7 +3020,7 @@
         "kind": 2,
         "importPath": "backend.drive.services",
         "description": "backend.drive.services",
-        "peekOfCode": "def bulk_delete_links(*, tenant, user, ids: list[int]) -> int:\n    links = list(Link.objects.filter(id__in=ids, tenant=tenant, owner=user))\n    if not links:\n        return 0\n    short_codes = [link.short_code for link in links]\n    deleted = Link.objects.filter(id__in=ids, tenant=tenant, owner=user).delete()[0]\n    for code in short_codes:\n        invalidate_resolve_cache(short_code=code)\n    return deleted\ndef update_subscription_request(*, request_obj, status: str, admin_notes: str = \"\", subscription_expires_at=None):",
+        "peekOfCode": "def bulk_delete_links(*, tenant, user, ids: list[int]) -> int:\n    links = list(Link.objects.filter(id__in=ids, tenant=tenant, owner=user))\n    if not links:\n        return 0\n    short_codes = [link.short_code for link in links]\n    deleted = Link.objects.filter(id__in=ids, tenant=tenant, owner=user).delete()[0]\n    for code in short_codes:\n        invalidate_resolve_cache(short_code=code)\n    return deleted\ndef update_subscription_request(",
         "detail": "backend.drive.services",
         "documentation": {}
     },
@@ -2740,7 +3029,7 @@
         "kind": 2,
         "importPath": "backend.drive.services",
         "description": "backend.drive.services",
-        "peekOfCode": "def update_subscription_request(*, request_obj, status: str, admin_notes: str = \"\", subscription_expires_at=None):\n    request_obj.status = status\n    request_obj.admin_notes = admin_notes\n    if subscription_expires_at is not None:\n        request_obj.subscription_expires_at = subscription_expires_at\n    update_fields = [\"status\", \"admin_notes\", \"updated_at\"]\n    if subscription_expires_at is not None:\n        update_fields.append(\"subscription_expires_at\")\n    request_obj.save(update_fields=update_fields)\n    return request_obj",
+        "peekOfCode": "def update_subscription_request(\n    *,\n    request_obj,\n    status: str | None = None,\n    requested_subscription: str | None = None,\n    assign_subscription: bool | None = None,\n    assign_subscription_tier: str | None = None,\n    assign_link_limit: int | None = None,\n    admin_notes: str = \"\",\n    subscription_expires_at=None,",
         "detail": "backend.drive.services",
         "documentation": {}
     },
@@ -3037,7 +3326,7 @@
         "kind": 5,
         "importPath": "backend.tenants.urls",
         "description": "backend.tenants.urls",
-        "peekOfCode": "urlpatterns = [\n    path(\"domains/\", DomainListCreateView.as_view(), name=\"tenant-domains\"),\n    path(\"domains/<int:domain_id>/\", DomainDetailView.as_view(), name=\"tenant-domain-detail\"),\n    path(\"domains/<int:domain_id>/verify/\", DomainVerifyView.as_view(), name=\"tenant-domain-verify\"),\n    path(\"branding/\", TenantBrandingView.as_view(), name=\"tenant-branding\"),\n]",
+        "peekOfCode": "urlpatterns = [\n    path(\"domains/\", DomainListCreateView.as_view(), name=\"tenant-domains\"),\n    path(\"domains/<int:domain_id>/\", DomainDetailView.as_view(), name=\"tenant-domain-detail\"),\n    path(\"domains/<int:domain_id>/verify/\", DomainVerifyView.as_view(), name=\"tenant-domain-verify\"),\n    path(\"branding/\", TenantBrandingView.as_view(), name=\"tenant-branding\"),\n    path(\"branding/logo/\", TenantLogoUploadView.as_view(), name=\"tenant-branding-logo\"),\n]",
         "detail": "backend.tenants.urls",
         "documentation": {}
     },
@@ -3083,6 +3372,42 @@
         "importPath": "backend.tenants.views",
         "description": "backend.tenants.views",
         "peekOfCode": "class TenantBrandingView(APIView):\n    permission_classes = [IsAuthenticated]\n    def get(self, request):\n        tenant = request.tenant\n        if tenant is None:\n            return api_response(message=\"Tenant not resolved\", status_code=400)\n        serializer = TenantBrandingSerializer(tenant)\n        return api_response(data=serializer.data, message=\"Tenant branding fetched\")\n    def patch(self, request):\n        tenant = request.tenant",
+        "detail": "backend.tenants.views",
+        "documentation": {}
+    },
+    {
+        "label": "TenantLogoUploadView",
+        "kind": 6,
+        "importPath": "backend.tenants.views",
+        "description": "backend.tenants.views",
+        "peekOfCode": "class TenantLogoUploadView(APIView):\n    permission_classes = [IsAuthenticated]\n    parser_classes = [MultiPartParser, FormParser]\n    def post(self, request):\n        tenant = request.tenant\n        if tenant is None:\n            return api_response(message=\"Tenant not resolved\", status_code=400)\n        logo_file = request.FILES.get(\"logo\")\n        if logo_file is None:\n            return api_response(message=\"No logo file provided\", status_code=400)",
+        "detail": "backend.tenants.views",
+        "documentation": {}
+    },
+    {
+        "label": "ALLOWED_LOGO_EXTENSIONS",
+        "kind": 5,
+        "importPath": "backend.tenants.views",
+        "description": "backend.tenants.views",
+        "peekOfCode": "ALLOWED_LOGO_EXTENSIONS = {\".png\", \".jpg\", \".jpeg\", \".svg\", \".gif\", \".webp\"}\nALLOWED_LOGO_CONTENT_TYPES = {\n    \"image/png\": \".png\",\n    \"image/jpeg\": \".jpg\",\n    \"image/svg+xml\": \".svg\",\n    \"image/gif\": \".gif\",\n    \"image/webp\": \".webp\",\n}\nMAX_LOGO_SIZE_BYTES = 5 * 1024 * 1024  # 5 MB\nclass DomainListCreateView(APIView):",
+        "detail": "backend.tenants.views",
+        "documentation": {}
+    },
+    {
+        "label": "ALLOWED_LOGO_CONTENT_TYPES",
+        "kind": 5,
+        "importPath": "backend.tenants.views",
+        "description": "backend.tenants.views",
+        "peekOfCode": "ALLOWED_LOGO_CONTENT_TYPES = {\n    \"image/png\": \".png\",\n    \"image/jpeg\": \".jpg\",\n    \"image/svg+xml\": \".svg\",\n    \"image/gif\": \".gif\",\n    \"image/webp\": \".webp\",\n}\nMAX_LOGO_SIZE_BYTES = 5 * 1024 * 1024  # 5 MB\nclass DomainListCreateView(APIView):\n    permission_classes = [IsAuthenticated]",
+        "detail": "backend.tenants.views",
+        "documentation": {}
+    },
+    {
+        "label": "MAX_LOGO_SIZE_BYTES",
+        "kind": 5,
+        "importPath": "backend.tenants.views",
+        "description": "backend.tenants.views",
+        "peekOfCode": "MAX_LOGO_SIZE_BYTES = 5 * 1024 * 1024  # 5 MB\nclass DomainListCreateView(APIView):\n    permission_classes = [IsAuthenticated]\n    def get(self, request):\n        tenant = request.tenant\n        if tenant is None:\n            return api_response(message=\"Tenant not resolved\", status_code=400)\n        domains = list_domains_for_tenant(tenant=tenant)\n        serializer = TenantDomainSerializer(domains, many=True)\n        return api_response(data=serializer.data, message=\"Domains fetched\")",
         "detail": "backend.tenants.views",
         "documentation": {}
     },

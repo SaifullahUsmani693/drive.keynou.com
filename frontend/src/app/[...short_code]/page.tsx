@@ -55,27 +55,27 @@ export default function PublicRedirectPage() {
   }, [slug]);
 
   const logoUrl = useMemo(() => {
-    if (payload?.is_paid && branding.logo_url) {
+    if (branding.logo_url) {
       return branding.logo_url;
     }
     return "/keynou_drove_logo.png";
-  }, [payload, branding.logo_url]);
+  }, [branding.logo_url]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background text-foreground">
-      <div className="flex flex-col items-center gap-4">
+    <div className="min-h-screen flex items-center justify-center bg-background px-4 text-foreground">
+      <div className="flex w-full max-w-md flex-col items-center gap-4 rounded-3xl border border-border bg-card/70 px-8 py-10 shadow-2xl backdrop-blur">
         {logoUrl ? (
-          <img onClick={()=>!payload?.is_paid && window.open("https://drive.keynou.com")} src={logoUrl} alt="Brand logo" className="cursor-pointer h-28 w-28 rounded-full object-contain" />
+          <img src={logoUrl} alt="Brand logo" className="h-28 w-28 rounded-full object-contain" />
         ) : null}
         <div className="text-center">
-          <p className="text-sm font-semibold" style={{ color: textColor }}>
-            {payload?.tenant_name}
+          <p className="text-lg font-semibold" style={{ color: textColor }}>
+            {payload?.tenant_name || "Keynou Drive"}
           </p>
-          <p className="text-xs text-muted-foreground">
+          <p className="mt-1 text-xs text-muted-foreground">
             {error ? error : "Redirecting…"}
           </p>
         </div>
-        <div className="h-1 w-32 rounded-full bg-muted overflow-hidden">
+        <div className="h-1.5 w-40 rounded-full bg-muted overflow-hidden">
           <div className="h-full animate-pulse" style={{ background: primaryColor }} />
         </div>
       </div>

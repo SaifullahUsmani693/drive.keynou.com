@@ -1,5 +1,6 @@
 from rest_framework import serializers
 
+from accounts.models import Profile
 from drive.models import Link, SubscriptionRequest
 
 
@@ -50,6 +51,7 @@ class SubscriptionRequestSerializer(serializers.ModelSerializer):
             "name",
             "email",
             "phone",
+            "requested_subscription",
             "message",
             "status",
             "admin_notes",
@@ -63,4 +65,5 @@ class SubscriptionRequestCreateSerializer(serializers.Serializer):
     name = serializers.CharField(max_length=255)
     email = serializers.EmailField()
     phone = serializers.CharField(max_length=50, required=False, allow_blank=True)
+    requested_subscription = serializers.ChoiceField(choices=Profile.SUBSCRIPTION_TIER_CHOICES, required=False, default=Profile.SUBSCRIPTION_TIER_LIMITED)
     message = serializers.CharField()

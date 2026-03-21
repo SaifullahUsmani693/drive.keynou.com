@@ -72,7 +72,7 @@ export default function DashboardShell({ children }: { children: React.ReactNode
       <aside className="hidden md:flex w-64 flex-col border-r border-border bg-card/50">
         <div className="p-6">
           <Link href="/" className="flex items-center">
-            <img src="/keynou_drove_logo.png" alt="Keynou Drive" className="h-8 w-auto" />
+            <img src="/keynou_drove_logo.png" alt="Keynou Drive" className="h-16 w-auto drop-shadow" />
           </Link>
         </div>
 
@@ -129,7 +129,7 @@ export default function DashboardShell({ children }: { children: React.ReactNode
       <main className="flex-1 overflow-auto">
         <header className="md:hidden flex items-center justify-between p-4 border-b border-border">
           <Link href="/" className="flex items-center">
-            <img src="/keynou_drove_logo.png" alt="Keynou Drive" className="h-8 w-auto" />
+            <img src="/keynou_drove_logo.png" alt="Keynou Drive" className="h-12 w-auto drop-shadow" />
           </Link>
           <button
             type="button"
@@ -171,7 +171,7 @@ export default function DashboardShell({ children }: { children: React.ReactNode
           <aside className="absolute left-0 top-0 h-full w-72 bg-card shadow-2xl border-r border-border p-6 flex flex-col">
             <div className="flex items-center justify-between">
               <Link href="/" className="flex items-center">
-                <img src="/keynou_drove_logo.png" alt="Keynou Drive" className="h-8 w-auto" />
+                <img src="/keynou_drove_logo.png" alt="Keynou Drive" className="h-12 w-auto drop-shadow" />
               </Link>
               <button
                 type="button"

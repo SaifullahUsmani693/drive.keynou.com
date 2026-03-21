@@ -25,8 +25,8 @@ export default function SubscriptionPage() {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     if (!user) return;
-    if (!capAmount || !capMessage) {
-      toast.error("Tell us how many links you need and why.");
+    if (!capAmount) {
+      toast.error("Tell us how many links you need.");
       return;
     }
     setIsSubmitting(true);
@@ -35,7 +35,7 @@ export default function SubscriptionPage() {
         name: user.username || user.email || "User",
         email: user.email || "",
         phone: capPhone,
-        message: `Requested cap: ${capAmount}\n${capMessage}`,
+        message: `Requested cap: ${capAmount}${capMessage ? `\n${capMessage}` : ""}`,
       });
       toast.success("Subscription request sent.");
       setCapAmount("");
@@ -80,10 +80,9 @@ export default function SubscriptionPage() {
             <Textarea
               value={capMessage}
               onChange={(event) => setCapMessage(event.target.value)}
-              placeholder="Tell us about your team, usage, and any timeline"
+              placeholder="Tell us about your team, usage, and any timeline (optional)"
               rows={5}
               className="bg-secondary/30"
-              required
             />
             <Button
               type="submit"

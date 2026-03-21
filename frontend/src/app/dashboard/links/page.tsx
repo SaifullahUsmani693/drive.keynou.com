@@ -25,6 +25,7 @@ export default function LinksPage() {
   const [editSlug, setEditSlug] = useState("");
   const [editUrl, setEditUrl] = useState("");
   const [editActive, setEditActive] = useState(true);
+  const [showCreateModal, setShowCreateModal] = useState(false);
 
   const recentLinks = useMemo(() => links, [links]);
 
@@ -183,51 +184,6 @@ export default function LinksPage() {
           <p className="text-sm text-muted-foreground">Manage and share your shortened URLs</p>
         </div>
 
-        <div className="glass rounded-xl p-4 mb-8">
-          <div className="flex flex-col gap-3">
-            <Input
-              placeholder="Paste a long URL to shorten..."
-              value={newUrl}
-              onChange={(event) => setNewUrl(event.target.value)}
-              className="h-11 bg-secondary/30"
-              onKeyDown={(event) => event.key === "Enter" && handleShorten()}
-            />
-            {verifiedDomains.length > 1 ? (
-              <div className="flex flex-col gap-2">
-                <label className="text-xs text-muted-foreground">Short link domain</label>
-                <select
-                  value={selectedDomain}
-                  onChange={(event) => setSelectedDomain(event.target.value)}
-                  className="h-11 rounded-md border border-border bg-secondary/30 px-3 text-sm text-foreground"
-                >
-                  <option value="">Use {typeof window !== "undefined" ? window.location.host : "default"}</option>
-                  {verifiedDomains.map((domain) => (
-                    <option key={domain.id} value={domain.domain}>
-                      {domain.domain}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            ) : null}
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <Input
-                placeholder="Custom slug (optional)"
-                value={customSlug}
-                onChange={(event) => setCustomSlug(event.target.value)}
-                className="h-11 bg-secondary/30 sm:max-w-xs"
-              />
-              <Button
-                onClick={handleShorten}
-                disabled={isCreatingLink}
-                className="h-11 px-6 bg-gradient-primary hover:opacity-90 gap-2"
-              >
-                {isCreatingLink ? <Loader2 className="w-4 h-4 animate-spin" /> : <Plus className="w-4 h-4" />}
-                {isCreatingLink ? "Shortening" : "Shorten"}
-              </Button>
-            </div>
-          </div>
-        </div>
-
         <div className="glass rounded-xl overflow-hidden">
           <div className="p-5 border-b border-border flex flex-wrap items-center justify-between gap-3">
             <div>
@@ -235,6 +191,13 @@ export default function LinksPage() {
               <p className="text-xs text-muted-foreground">Every link you have created so far</p>
             </div>
             <div className="flex items-center gap-2">
+              <Button
+                size="sm"
+                className="gap-2 bg-gradient-primary text-white"
+                onClick={() => setShowCreateModal(true)}
+              >
+                <Plus className="w-4 h-4" /> Create link
+              </Button>
               <Button
                 variant="outline"
                 size="sm"
@@ -417,6 +380,81 @@ export default function LinksPage() {
           )}
         </div>
       </DashboardShell>
+      {showCreateModal ? (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4">
+          <div className="w-full max-w-lg rounded-2xl border border-white/15 bg-[#0B1120] p-6 shadow-2xl">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm font-semibold">Create short link</p>
+                <p className="text-xs text-white/60">Paste a long URL and optionally customize the slug.</p>
+              </div>
+              <button
+                type="button"
+                className="rounded-full p-1 text-white/60 hover:bg-white/10"
+                onClick={() => setShowCreateModal(false)}
+                aria-label="Close create link modal"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+            <div className="mt-6 space-y-4">
+              <Input
+                placeholder="Paste a long URL to shorten..."
+                value={newUrl}
+                onChange={(event) => setNewUrl(event.target.value)}
+                className="h-11 bg-white/5"
+                onKeyDown={(event) => event.key === "Enter" && handleShorten()}
+              />
+              {verifiedDomains.length > 1 ? (
+                <div className="space-y-1">
+                  <label className="text-xs text-white/60">Short link domain</label>
+                  <select
+                    value={selectedDomain}
+                    onChange={(event) => setSelectedDomain(event.target.value)}
+                    className="h-11 w-full rounded-xl border border-white/15 bg-white/5 px-3 text-sm text-white"
+                  >
+                    <option value="">Use {typeof window !== "undefined" ? window.location.host : "default"}</option>
+                    {verifiedDomains.map((domain) => (
+                      <option key={domain.id} value={domain.domain}>
+                        {domain.domain}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              ) : null}
+              <Input
+                placeholder="Custom slug (optional)"
+                value={customSlug}
+                onChange={(event) => setCustomSlug(event.target.value)}
+                className="h-11 bg-white/5"
+              />
+            </div>
+            <div className="mt-6 flex justify-end gap-3">
+              <Button
+                type="button"
+                variant="ghost"
+                className="text-white/70"
+                onClick={() => setShowCreateModal(false)}
+              >
+                Cancel
+              </Button>
+              <Button
+                onClick={async () => {
+                  await handleShorten();
+                  if (!isCreatingLink) {
+                    setShowCreateModal(false);
+                  }
+                }}
+                disabled={isCreatingLink}
+                className="gap-2 bg-gradient-primary"
+              >
+                {isCreatingLink ? <Loader2 className="w-4 h-4 animate-spin" /> : <Plus className="w-4 h-4" />}
+                {isCreatingLink ? "Creating" : "Create"}
+              </Button>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </AuthGuard>
   );
 }

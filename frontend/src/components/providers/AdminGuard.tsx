@@ -7,14 +7,18 @@ import { useAppSelector } from "@/lib/hooks";
 
 export default function AdminGuard({ children }: { children: React.ReactNode }) {
   const router = useRouter();
-  const user = useAppSelector((state) => state.auth.user);
-  const isAdmin = user?.profile?.is_admin;
+  const { user, isLoading } = useAppSelector((state) => state.auth);
+  const isAdmin = Boolean(user?.profile?.is_admin || user?.is_superuser);
 
   useEffect(() => {
-    if (!isAdmin) {
+    if (!isLoading && !isAdmin) {
       router.replace("/dashboard");
     }
-  }, [isAdmin, router]);
+  }, [isAdmin, isLoading, router]);
+
+  if (isLoading) {
+    return null;
+  }
 
   if (!isAdmin) {
     return null;

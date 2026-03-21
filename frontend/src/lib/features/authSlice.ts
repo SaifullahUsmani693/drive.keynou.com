@@ -6,10 +6,13 @@ export type AuthUser = {
   username?: string;
   first_name?: string;
   last_name?: string;
+  is_superuser?: boolean;
   profile?: {
     id: number | string;
     subscription_active: boolean;
+    subscription_tier?: "free" | "limited" | "custom" | "unlimited";
     link_limit: number;
+    subscription_expires_at?: string | null;
     is_admin: boolean;
   } | null;
 };
