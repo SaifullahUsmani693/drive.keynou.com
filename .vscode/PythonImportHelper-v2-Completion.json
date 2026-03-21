@@ -1,0 +1,3134 @@
+[
+    {
+        "label": "django.db.models.deletion",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.db.models.deletion",
+        "description": "django.db.models.deletion",
+        "detail": "django.db.models.deletion",
+        "documentation": {}
+    },
+    {
+        "label": "django.utils.timezone",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.utils.timezone",
+        "description": "django.utils.timezone",
+        "detail": "django.utils.timezone",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "transaction",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "transaction",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "Profile",
+        "importPath": "accounts.models",
+        "description": "accounts.models",
+        "isExtraImport": true,
+        "detail": "accounts.models",
+        "documentation": {}
+    },
+    {
+        "label": "Profile",
+        "importPath": "accounts.models",
+        "description": "accounts.models",
+        "isExtraImport": true,
+        "detail": "accounts.models",
+        "documentation": {}
+    },
+    {
+        "label": "Profile",
+        "importPath": "accounts.models",
+        "description": "accounts.models",
+        "isExtraImport": true,
+        "detail": "accounts.models",
+        "documentation": {}
+    },
+    {
+        "label": "Profile",
+        "importPath": "accounts.models",
+        "description": "accounts.models",
+        "isExtraImport": true,
+        "detail": "accounts.models",
+        "documentation": {}
+    },
+    {
+        "label": "Profile",
+        "importPath": "accounts.models",
+        "description": "accounts.models",
+        "isExtraImport": true,
+        "detail": "accounts.models",
+        "documentation": {}
+    },
+    {
+        "label": "Profile",
+        "importPath": "accounts.models",
+        "description": "accounts.models",
+        "isExtraImport": true,
+        "detail": "accounts.models",
+        "documentation": {}
+    },
+    {
+        "label": "Profile",
+        "importPath": "accounts.models",
+        "description": "accounts.models",
+        "isExtraImport": true,
+        "detail": "accounts.models",
+        "documentation": {}
+    },
+    {
+        "label": "Profile",
+        "importPath": "accounts.models",
+        "description": "accounts.models",
+        "isExtraImport": true,
+        "detail": "accounts.models",
+        "documentation": {}
+    },
+    {
+        "label": "serializers",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "serializers",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "serializers",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "serializers",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "serializers",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "serializers",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "include",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "AdminProfileListView",
+        "importPath": "accounts.admin_views",
+        "description": "accounts.admin_views",
+        "isExtraImport": true,
+        "detail": "accounts.admin_views",
+        "documentation": {}
+    },
+    {
+        "label": "AdminProfileUpdateView",
+        "importPath": "accounts.admin_views",
+        "description": "accounts.admin_views",
+        "isExtraImport": true,
+        "detail": "accounts.admin_views",
+        "documentation": {}
+    },
+    {
+        "label": "get_object_or_404",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "get_object_or_404",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "BasePermission",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "AllowAny",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "APIView",
+        "importPath": "rest_framework.views",
+        "description": "rest_framework.views",
+        "isExtraImport": true,
+        "detail": "rest_framework.views",
+        "documentation": {}
+    },
+    {
+        "label": "APIView",
+        "importPath": "rest_framework.views",
+        "description": "rest_framework.views",
+        "isExtraImport": true,
+        "detail": "rest_framework.views",
+        "documentation": {}
+    },
+    {
+        "label": "APIView",
+        "importPath": "rest_framework.views",
+        "description": "rest_framework.views",
+        "isExtraImport": true,
+        "detail": "rest_framework.views",
+        "documentation": {}
+    },
+    {
+        "label": "exception_handler",
+        "importPath": "rest_framework.views",
+        "description": "rest_framework.views",
+        "isExtraImport": true,
+        "detail": "rest_framework.views",
+        "documentation": {}
+    },
+    {
+        "label": "APIView",
+        "importPath": "rest_framework.views",
+        "description": "rest_framework.views",
+        "isExtraImport": true,
+        "detail": "rest_framework.views",
+        "documentation": {}
+    },
+    {
+        "label": "APIView",
+        "importPath": "rest_framework.views",
+        "description": "rest_framework.views",
+        "isExtraImport": true,
+        "detail": "rest_framework.views",
+        "documentation": {}
+    },
+    {
+        "label": "APIView",
+        "importPath": "rest_framework.views",
+        "description": "rest_framework.views",
+        "isExtraImport": true,
+        "detail": "rest_framework.views",
+        "documentation": {}
+    },
+    {
+        "label": "ProfileAccessUpdateSerializer",
+        "importPath": "accounts.admin_serializers",
+        "description": "accounts.admin_serializers",
+        "isExtraImport": true,
+        "detail": "accounts.admin_serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ProfileAdminSerializer",
+        "importPath": "accounts.admin_serializers",
+        "description": "accounts.admin_serializers",
+        "isExtraImport": true,
+        "detail": "accounts.admin_serializers",
+        "documentation": {}
+    },
+    {
+        "label": "IsAdminUser",
+        "importPath": "accounts.permissions",
+        "description": "accounts.permissions",
+        "isExtraImport": true,
+        "detail": "accounts.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAdminUser",
+        "importPath": "accounts.permissions",
+        "description": "accounts.permissions",
+        "isExtraImport": true,
+        "detail": "accounts.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "list_profiles_for_tenant",
+        "importPath": "accounts.services",
+        "description": "accounts.services",
+        "isExtraImport": true,
+        "detail": "accounts.services",
+        "documentation": {}
+    },
+    {
+        "label": "update_profile_access",
+        "importPath": "accounts.services",
+        "description": "accounts.services",
+        "isExtraImport": true,
+        "detail": "accounts.services",
+        "documentation": {}
+    },
+    {
+        "label": "get_profile_for_user",
+        "importPath": "accounts.services",
+        "description": "accounts.services",
+        "isExtraImport": true,
+        "detail": "accounts.services",
+        "documentation": {}
+    },
+    {
+        "label": "api_response",
+        "importPath": "common.responses",
+        "description": "common.responses",
+        "isExtraImport": true,
+        "detail": "common.responses",
+        "documentation": {}
+    },
+    {
+        "label": "api_response",
+        "importPath": "common.responses",
+        "description": "common.responses",
+        "isExtraImport": true,
+        "detail": "common.responses",
+        "documentation": {}
+    },
+    {
+        "label": "api_response",
+        "importPath": "common.responses",
+        "description": "common.responses",
+        "isExtraImport": true,
+        "detail": "common.responses",
+        "documentation": {}
+    },
+    {
+        "label": "api_response",
+        "importPath": "common.responses",
+        "description": "common.responses",
+        "isExtraImport": true,
+        "detail": "common.responses",
+        "documentation": {}
+    },
+    {
+        "label": "api_response",
+        "importPath": "common.responses",
+        "description": "common.responses",
+        "isExtraImport": true,
+        "detail": "common.responses",
+        "documentation": {}
+    },
+    {
+        "label": "api_response",
+        "importPath": "common.responses",
+        "description": "common.responses",
+        "isExtraImport": true,
+        "detail": "common.responses",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "django.utils",
+        "description": "django.utils",
+        "isExtraImport": true,
+        "detail": "django.utils",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "django.utils",
+        "description": "django.utils",
+        "isExtraImport": true,
+        "detail": "django.utils",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "django.utils",
+        "description": "django.utils",
+        "isExtraImport": true,
+        "detail": "django.utils",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "django.utils",
+        "description": "django.utils",
+        "isExtraImport": true,
+        "detail": "django.utils",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "django.utils",
+        "description": "django.utils",
+        "isExtraImport": true,
+        "detail": "django.utils",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "django.utils",
+        "description": "django.utils",
+        "isExtraImport": true,
+        "detail": "django.utils",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "django.utils",
+        "description": "django.utils",
+        "isExtraImport": true,
+        "detail": "django.utils",
+        "documentation": {}
+    },
+    {
+        "label": "get_user_model",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "get_user_model",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "authenticate",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "get_user_model",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "login",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "logout",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "LoginView",
+        "importPath": "accounts.views",
+        "description": "accounts.views",
+        "isExtraImport": true,
+        "detail": "accounts.views",
+        "documentation": {}
+    },
+    {
+        "label": "LogoutView",
+        "importPath": "accounts.views",
+        "description": "accounts.views",
+        "isExtraImport": true,
+        "detail": "accounts.views",
+        "documentation": {}
+    },
+    {
+        "label": "MeView",
+        "importPath": "accounts.views",
+        "description": "accounts.views",
+        "isExtraImport": true,
+        "detail": "accounts.views",
+        "documentation": {}
+    },
+    {
+        "label": "RegisterView",
+        "importPath": "accounts.views",
+        "description": "accounts.views",
+        "isExtraImport": true,
+        "detail": "accounts.views",
+        "documentation": {}
+    },
+    {
+        "label": "LoginSerializer",
+        "importPath": "accounts.serializers",
+        "description": "accounts.serializers",
+        "isExtraImport": true,
+        "detail": "accounts.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "RegisterSerializer",
+        "importPath": "accounts.serializers",
+        "description": "accounts.serializers",
+        "isExtraImport": true,
+        "detail": "accounts.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "UserSerializer",
+        "importPath": "accounts.serializers",
+        "description": "accounts.serializers",
+        "isExtraImport": true,
+        "detail": "accounts.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "csv",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "csv",
+        "description": "csv",
+        "detail": "csv",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "BaseCommand",
+        "importPath": "django.core.management.base",
+        "description": "django.core.management.base",
+        "isExtraImport": true,
+        "detail": "django.core.management.base",
+        "documentation": {}
+    },
+    {
+        "label": "CommandError",
+        "importPath": "django.core.management.base",
+        "description": "django.core.management.base",
+        "isExtraImport": true,
+        "detail": "django.core.management.base",
+        "documentation": {}
+    },
+    {
+        "label": "BaseCommand",
+        "importPath": "django.core.management.base",
+        "description": "django.core.management.base",
+        "isExtraImport": true,
+        "detail": "django.core.management.base",
+        "documentation": {}
+    },
+    {
+        "label": "IP2LocationRange",
+        "importPath": "analytics.models",
+        "description": "analytics.models",
+        "isExtraImport": true,
+        "detail": "analytics.models",
+        "documentation": {}
+    },
+    {
+        "label": "ClickEvent",
+        "importPath": "analytics.models",
+        "description": "analytics.models",
+        "isExtraImport": true,
+        "detail": "analytics.models",
+        "documentation": {}
+    },
+    {
+        "label": "ClickEvent",
+        "importPath": "analytics.models",
+        "description": "analytics.models",
+        "isExtraImport": true,
+        "detail": "analytics.models",
+        "documentation": {}
+    },
+    {
+        "label": "IP2LocationRange",
+        "importPath": "analytics.models",
+        "description": "analytics.models",
+        "isExtraImport": true,
+        "detail": "analytics.models",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "lru_cache",
+        "importPath": "functools",
+        "description": "functools",
+        "isExtraImport": true,
+        "detail": "functools",
+        "documentation": {}
+    },
+    {
+        "label": "ipaddress",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "ipaddress",
+        "description": "ipaddress",
+        "detail": "ipaddress",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "cache",
+        "importPath": "django.core.cache",
+        "description": "django.core.cache",
+        "isExtraImport": true,
+        "detail": "django.core.cache",
+        "documentation": {}
+    },
+    {
+        "label": "cache",
+        "importPath": "django.core.cache",
+        "description": "django.core.cache",
+        "isExtraImport": true,
+        "detail": "django.core.cache",
+        "documentation": {}
+    },
+    {
+        "label": "Count",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "Count",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "AnalyticsSummaryView",
+        "importPath": "analytics.views",
+        "description": "analytics.views",
+        "isExtraImport": true,
+        "detail": "analytics.views",
+        "documentation": {}
+    },
+    {
+        "label": "AnalyticsSummarySerializer",
+        "importPath": "analytics.serializers",
+        "description": "analytics.serializers",
+        "isExtraImport": true,
+        "detail": "analytics.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "analytics_summary",
+        "importPath": "analytics.services",
+        "description": "analytics.services",
+        "isExtraImport": true,
+        "detail": "analytics.services",
+        "documentation": {}
+    },
+    {
+        "label": "log_click_event",
+        "importPath": "analytics.services",
+        "description": "analytics.services",
+        "isExtraImport": true,
+        "detail": "analytics.services",
+        "documentation": {}
+    },
+    {
+        "label": "SessionAuthentication",
+        "importPath": "rest_framework.authentication",
+        "description": "rest_framework.authentication",
+        "isExtraImport": true,
+        "detail": "rest_framework.authentication",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Iterable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
+        "documentation": {}
+    },
+    {
+        "label": "get_asgi_application",
+        "importPath": "django.core.asgi",
+        "description": "django.core.asgi",
+        "isExtraImport": true,
+        "detail": "django.core.asgi",
+        "documentation": {}
+    },
+    {
+        "label": "get_wsgi_application",
+        "importPath": "django.core.wsgi",
+        "description": "django.core.wsgi",
+        "isExtraImport": true,
+        "detail": "django.core.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "Link",
+        "importPath": "drive.models",
+        "description": "drive.models",
+        "isExtraImport": true,
+        "detail": "drive.models",
+        "documentation": {}
+    },
+    {
+        "label": "SubscriptionRequest",
+        "importPath": "drive.models",
+        "description": "drive.models",
+        "isExtraImport": true,
+        "detail": "drive.models",
+        "documentation": {}
+    },
+    {
+        "label": "SubscriptionRequest",
+        "importPath": "drive.models",
+        "description": "drive.models",
+        "isExtraImport": true,
+        "detail": "drive.models",
+        "documentation": {}
+    },
+    {
+        "label": "SubscriptionRequest",
+        "importPath": "drive.models",
+        "description": "drive.models",
+        "isExtraImport": true,
+        "detail": "drive.models",
+        "documentation": {}
+    },
+    {
+        "label": "Link",
+        "importPath": "drive.models",
+        "description": "drive.models",
+        "isExtraImport": true,
+        "detail": "drive.models",
+        "documentation": {}
+    },
+    {
+        "label": "SubscriptionRequest",
+        "importPath": "drive.models",
+        "description": "drive.models",
+        "isExtraImport": true,
+        "detail": "drive.models",
+        "documentation": {}
+    },
+    {
+        "label": "Link",
+        "importPath": "drive.models",
+        "description": "drive.models",
+        "isExtraImport": true,
+        "detail": "drive.models",
+        "documentation": {}
+    },
+    {
+        "label": "SubscriptionRequest",
+        "importPath": "drive.models",
+        "description": "drive.models",
+        "isExtraImport": true,
+        "detail": "drive.models",
+        "documentation": {}
+    },
+    {
+        "label": "Link",
+        "importPath": "drive.models",
+        "description": "drive.models",
+        "isExtraImport": true,
+        "detail": "drive.models",
+        "documentation": {}
+    },
+    {
+        "label": "AdminSubscriptionRequestListView",
+        "importPath": "drive.admin_views",
+        "description": "drive.admin_views",
+        "isExtraImport": true,
+        "detail": "drive.admin_views",
+        "documentation": {}
+    },
+    {
+        "label": "AdminSubscriptionRequestUpdateView",
+        "importPath": "drive.admin_views",
+        "description": "drive.admin_views",
+        "isExtraImport": true,
+        "detail": "drive.admin_views",
+        "documentation": {}
+    },
+    {
+        "label": "SubscriptionRequestAdminSerializer",
+        "importPath": "drive.admin_serializers",
+        "description": "drive.admin_serializers",
+        "isExtraImport": true,
+        "detail": "drive.admin_serializers",
+        "documentation": {}
+    },
+    {
+        "label": "SubscriptionRequestAdminUpdateSerializer",
+        "importPath": "drive.admin_serializers",
+        "description": "drive.admin_serializers",
+        "isExtraImport": true,
+        "detail": "drive.admin_serializers",
+        "documentation": {}
+    },
+    {
+        "label": "list_subscription_requests_for_tenant",
+        "importPath": "drive.services",
+        "description": "drive.services",
+        "isExtraImport": true,
+        "detail": "drive.services",
+        "documentation": {}
+    },
+    {
+        "label": "update_subscription_request",
+        "importPath": "drive.services",
+        "description": "drive.services",
+        "isExtraImport": true,
+        "detail": "drive.services",
+        "documentation": {}
+    },
+    {
+        "label": "bulk_delete_links",
+        "importPath": "drive.services",
+        "description": "drive.services",
+        "isExtraImport": true,
+        "detail": "drive.services",
+        "documentation": {}
+    },
+    {
+        "label": "create_link",
+        "importPath": "drive.services",
+        "description": "drive.services",
+        "isExtraImport": true,
+        "detail": "drive.services",
+        "documentation": {}
+    },
+    {
+        "label": "create_subscription_request",
+        "importPath": "drive.services",
+        "description": "drive.services",
+        "isExtraImport": true,
+        "detail": "drive.services",
+        "documentation": {}
+    },
+    {
+        "label": "delete_link",
+        "importPath": "drive.services",
+        "description": "drive.services",
+        "isExtraImport": true,
+        "detail": "drive.services",
+        "documentation": {}
+    },
+    {
+        "label": "get_active_link",
+        "importPath": "drive.services",
+        "description": "drive.services",
+        "isExtraImport": true,
+        "detail": "drive.services",
+        "documentation": {}
+    },
+    {
+        "label": "get_cached_branding",
+        "importPath": "drive.services",
+        "description": "drive.services",
+        "isExtraImport": true,
+        "detail": "drive.services",
+        "documentation": {}
+    },
+    {
+        "label": "get_cached_resolve",
+        "importPath": "drive.services",
+        "description": "drive.services",
+        "isExtraImport": true,
+        "detail": "drive.services",
+        "documentation": {}
+    },
+    {
+        "label": "list_links_for_user",
+        "importPath": "drive.services",
+        "description": "drive.services",
+        "isExtraImport": true,
+        "detail": "drive.services",
+        "documentation": {}
+    },
+    {
+        "label": "list_subscription_requests_for_tenant",
+        "importPath": "drive.services",
+        "description": "drive.services",
+        "isExtraImport": true,
+        "detail": "drive.services",
+        "documentation": {}
+    },
+    {
+        "label": "set_cached_resolve",
+        "importPath": "drive.services",
+        "description": "drive.services",
+        "isExtraImport": true,
+        "detail": "drive.services",
+        "documentation": {}
+    },
+    {
+        "label": "update_link",
+        "importPath": "drive.services",
+        "description": "drive.services",
+        "isExtraImport": true,
+        "detail": "drive.services",
+        "documentation": {}
+    },
+    {
+        "label": "invalidate_branding_cache",
+        "importPath": "drive.services",
+        "description": "drive.services",
+        "isExtraImport": true,
+        "detail": "drive.services",
+        "documentation": {}
+    },
+    {
+        "label": "secrets",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "secrets",
+        "description": "secrets",
+        "detail": "secrets",
+        "documentation": {}
+    },
+    {
+        "label": "LinkBulkDeleteView",
+        "importPath": "drive.views",
+        "description": "drive.views",
+        "isExtraImport": true,
+        "detail": "drive.views",
+        "documentation": {}
+    },
+    {
+        "label": "LinkDetailView",
+        "importPath": "drive.views",
+        "description": "drive.views",
+        "isExtraImport": true,
+        "detail": "drive.views",
+        "documentation": {}
+    },
+    {
+        "label": "LinkListCreateView",
+        "importPath": "drive.views",
+        "description": "drive.views",
+        "isExtraImport": true,
+        "detail": "drive.views",
+        "documentation": {}
+    },
+    {
+        "label": "PublicResolveView",
+        "importPath": "drive.views",
+        "description": "drive.views",
+        "isExtraImport": true,
+        "detail": "drive.views",
+        "documentation": {}
+    },
+    {
+        "label": "RedirectView",
+        "importPath": "drive.views",
+        "description": "drive.views",
+        "isExtraImport": true,
+        "detail": "drive.views",
+        "documentation": {}
+    },
+    {
+        "label": "SubscriptionRequestListCreateView",
+        "importPath": "drive.views",
+        "description": "drive.views",
+        "isExtraImport": true,
+        "detail": "drive.views",
+        "documentation": {}
+    },
+    {
+        "label": "HttpResponseRedirect",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "HttpRequest",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "LinkBulkDeleteSerializer",
+        "importPath": "drive.serializers",
+        "description": "drive.serializers",
+        "isExtraImport": true,
+        "detail": "drive.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "LinkCreateSerializer",
+        "importPath": "drive.serializers",
+        "description": "drive.serializers",
+        "isExtraImport": true,
+        "detail": "drive.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "LinkSerializer",
+        "importPath": "drive.serializers",
+        "description": "drive.serializers",
+        "isExtraImport": true,
+        "detail": "drive.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "LinkUpdateSerializer",
+        "importPath": "drive.serializers",
+        "description": "drive.serializers",
+        "isExtraImport": true,
+        "detail": "drive.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "SubscriptionRequestCreateSerializer",
+        "importPath": "drive.serializers",
+        "description": "drive.serializers",
+        "isExtraImport": true,
+        "detail": "drive.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "SubscriptionRequestSerializer",
+        "importPath": "drive.serializers",
+        "description": "drive.serializers",
+        "isExtraImport": true,
+        "detail": "drive.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "Tenant",
+        "importPath": "tenants.models",
+        "description": "tenants.models",
+        "isExtraImport": true,
+        "detail": "tenants.models",
+        "documentation": {}
+    },
+    {
+        "label": "Tenant",
+        "importPath": "tenants.models",
+        "description": "tenants.models",
+        "isExtraImport": true,
+        "detail": "tenants.models",
+        "documentation": {}
+    },
+    {
+        "label": "TenantDomain",
+        "importPath": "tenants.models",
+        "description": "tenants.models",
+        "isExtraImport": true,
+        "detail": "tenants.models",
+        "documentation": {}
+    },
+    {
+        "label": "Tenant",
+        "importPath": "tenants.models",
+        "description": "tenants.models",
+        "isExtraImport": true,
+        "detail": "tenants.models",
+        "documentation": {}
+    },
+    {
+        "label": "TenantDomain",
+        "importPath": "tenants.models",
+        "description": "tenants.models",
+        "isExtraImport": true,
+        "detail": "tenants.models",
+        "documentation": {}
+    },
+    {
+        "label": "Tenant",
+        "importPath": "tenants.models",
+        "description": "tenants.models",
+        "isExtraImport": true,
+        "detail": "tenants.models",
+        "documentation": {}
+    },
+    {
+        "label": "TenantDomain",
+        "importPath": "tenants.models",
+        "description": "tenants.models",
+        "isExtraImport": true,
+        "detail": "tenants.models",
+        "documentation": {}
+    },
+    {
+        "label": "Tenant",
+        "importPath": "tenants.models",
+        "description": "tenants.models",
+        "isExtraImport": true,
+        "detail": "tenants.models",
+        "documentation": {}
+    },
+    {
+        "label": "TenantDomain",
+        "importPath": "tenants.models",
+        "description": "tenants.models",
+        "isExtraImport": true,
+        "detail": "tenants.models",
+        "documentation": {}
+    },
+    {
+        "label": "Tenant",
+        "importPath": "tenants.models",
+        "description": "tenants.models",
+        "isExtraImport": true,
+        "detail": "tenants.models",
+        "documentation": {}
+    },
+    {
+        "label": "TenantDomain",
+        "importPath": "tenants.models",
+        "description": "tenants.models",
+        "isExtraImport": true,
+        "detail": "tenants.models",
+        "documentation": {}
+    },
+    {
+        "label": "TenantDomain",
+        "importPath": "tenants.models",
+        "description": "tenants.models",
+        "isExtraImport": true,
+        "detail": "tenants.models",
+        "documentation": {}
+    },
+    {
+        "label": "zipfile",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "zipfile",
+        "description": "zipfile",
+        "detail": "zipfile",
+        "documentation": {}
+    },
+    {
+        "label": "urlretrieve",
+        "importPath": "urllib.request",
+        "description": "urllib.request",
+        "isExtraImport": true,
+        "detail": "urllib.request",
+        "documentation": {}
+    },
+    {
+        "label": "Team",
+        "importPath": "teams.models",
+        "description": "teams.models",
+        "isExtraImport": true,
+        "detail": "teams.models",
+        "documentation": {}
+    },
+    {
+        "label": "TeamMember",
+        "importPath": "teams.models",
+        "description": "teams.models",
+        "isExtraImport": true,
+        "detail": "teams.models",
+        "documentation": {}
+    },
+    {
+        "label": "resolve_tenant",
+        "importPath": "tenants.utils",
+        "description": "tenants.utils",
+        "isExtraImport": true,
+        "detail": "tenants.utils",
+        "documentation": {}
+    },
+    {
+        "label": "socket",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "socket",
+        "description": "socket",
+        "detail": "socket",
+        "documentation": {}
+    },
+    {
+        "label": "urlparse",
+        "importPath": "urllib.parse",
+        "description": "urllib.parse",
+        "isExtraImport": true,
+        "detail": "urllib.parse",
+        "documentation": {}
+    },
+    {
+        "label": "DomainDetailView",
+        "importPath": "tenants.views",
+        "description": "tenants.views",
+        "isExtraImport": true,
+        "detail": "tenants.views",
+        "documentation": {}
+    },
+    {
+        "label": "DomainListCreateView",
+        "importPath": "tenants.views",
+        "description": "tenants.views",
+        "isExtraImport": true,
+        "detail": "tenants.views",
+        "documentation": {}
+    },
+    {
+        "label": "DomainVerifyView",
+        "importPath": "tenants.views",
+        "description": "tenants.views",
+        "isExtraImport": true,
+        "detail": "tenants.views",
+        "documentation": {}
+    },
+    {
+        "label": "TenantBrandingView",
+        "importPath": "tenants.views",
+        "description": "tenants.views",
+        "isExtraImport": true,
+        "detail": "tenants.views",
+        "documentation": {}
+    },
+    {
+        "label": "TenantBrandingSerializer",
+        "importPath": "tenants.serializers",
+        "description": "tenants.serializers",
+        "isExtraImport": true,
+        "detail": "tenants.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "TenantDomainCreateSerializer",
+        "importPath": "tenants.serializers",
+        "description": "tenants.serializers",
+        "isExtraImport": true,
+        "detail": "tenants.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "TenantDomainSerializer",
+        "importPath": "tenants.serializers",
+        "description": "tenants.serializers",
+        "isExtraImport": true,
+        "detail": "tenants.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "TenantDomainVerifySerializer",
+        "importPath": "tenants.serializers",
+        "description": "tenants.serializers",
+        "isExtraImport": true,
+        "detail": "tenants.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "create_domain",
+        "importPath": "tenants.services",
+        "description": "tenants.services",
+        "isExtraImport": true,
+        "detail": "tenants.services",
+        "documentation": {}
+    },
+    {
+        "label": "list_domains_for_tenant",
+        "importPath": "tenants.services",
+        "description": "tenants.services",
+        "isExtraImport": true,
+        "detail": "tenants.services",
+        "documentation": {}
+    },
+    {
+        "label": "verify_domain",
+        "importPath": "tenants.services",
+        "description": "tenants.services",
+        "isExtraImport": true,
+        "detail": "tenants.services",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "backend.accounts.migrations.0001_initial",
+        "description": "backend.accounts.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        (\"tenants\", \"0001_initial\"),\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name=\"Profile\",\n            fields=[",
+        "detail": "backend.accounts.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "ProfileAdmin",
+        "kind": 6,
+        "importPath": "backend.accounts.admin",
+        "description": "backend.accounts.admin",
+        "peekOfCode": "class ProfileAdmin(admin.ModelAdmin):\n    list_display = (\"user\", \"tenant\", \"subscription_active\", \"link_limit\", \"is_admin\")\n    list_filter = (\"tenant\", \"subscription_active\", \"is_admin\")\n    search_fields = (\"user__email\", \"user__username\", \"tenant__name\")",
+        "detail": "backend.accounts.admin",
+        "documentation": {}
+    },
+    {
+        "label": "ProfileAccessUpdateSerializer",
+        "kind": 6,
+        "importPath": "backend.accounts.admin_serializers",
+        "description": "backend.accounts.admin_serializers",
+        "peekOfCode": "class ProfileAccessUpdateSerializer(serializers.Serializer):\n    subscription_active = serializers.BooleanField()\n    link_limit = serializers.IntegerField(min_value=0)\nclass ProfileAdminSerializer(serializers.ModelSerializer):\n    email = serializers.EmailField(source=\"user.email\", read_only=True)\n    class Meta:\n        model = Profile\n        fields = [\n            \"id\",\n            \"user\",",
+        "detail": "backend.accounts.admin_serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ProfileAdminSerializer",
+        "kind": 6,
+        "importPath": "backend.accounts.admin_serializers",
+        "description": "backend.accounts.admin_serializers",
+        "peekOfCode": "class ProfileAdminSerializer(serializers.ModelSerializer):\n    email = serializers.EmailField(source=\"user.email\", read_only=True)\n    class Meta:\n        model = Profile\n        fields = [\n            \"id\",\n            \"user\",\n            \"email\",\n            \"tenant\",\n            \"subscription_active\",",
+        "detail": "backend.accounts.admin_serializers",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "backend.accounts.admin_urls",
+        "description": "backend.accounts.admin_urls",
+        "peekOfCode": "urlpatterns = [\n    path(\"profiles/\", AdminProfileListView.as_view(), name=\"admin-profiles\"),\n    path(\"profiles/<int:profile_id>/\", AdminProfileUpdateView.as_view(), name=\"admin-profile-update\"),\n]",
+        "detail": "backend.accounts.admin_urls",
+        "documentation": {}
+    },
+    {
+        "label": "AdminProfileListView",
+        "kind": 6,
+        "importPath": "backend.accounts.admin_views",
+        "description": "backend.accounts.admin_views",
+        "peekOfCode": "class AdminProfileListView(APIView):\n    permission_classes = [IsAuthenticated, IsAdminUser]\n    def get(self, request):\n        tenant = request.tenant\n        profiles = list_profiles_for_tenant(tenant=tenant)\n        serializer = ProfileAdminSerializer(profiles, many=True)\n        return api_response(data=serializer.data, message=\"Profiles fetched\")\nclass AdminProfileUpdateView(APIView):\n    permission_classes = [IsAuthenticated, IsAdminUser]\n    def patch(self, request, profile_id: int):",
+        "detail": "backend.accounts.admin_views",
+        "documentation": {}
+    },
+    {
+        "label": "AdminProfileUpdateView",
+        "kind": 6,
+        "importPath": "backend.accounts.admin_views",
+        "description": "backend.accounts.admin_views",
+        "peekOfCode": "class AdminProfileUpdateView(APIView):\n    permission_classes = [IsAuthenticated, IsAdminUser]\n    def patch(self, request, profile_id: int):\n        tenant = request.tenant\n        profile = get_object_or_404(Profile, id=profile_id, tenant=tenant)\n        serializer = ProfileAccessUpdateSerializer(data=request.data)\n        serializer.is_valid(raise_exception=True)\n        updated = update_profile_access(profile=profile, **serializer.validated_data)\n        return api_response(data=ProfileAdminSerializer(updated).data, message=\"Profile updated\")",
+        "detail": "backend.accounts.admin_views",
+        "documentation": {}
+    },
+    {
+        "label": "AccountsConfig",
+        "kind": 6,
+        "importPath": "backend.accounts.apps",
+        "description": "backend.accounts.apps",
+        "peekOfCode": "class AccountsConfig(AppConfig):\n    default_auto_field = \"django.db.models.BigAutoField\"\n    name = \"accounts\"",
+        "detail": "backend.accounts.apps",
+        "documentation": {}
+    },
+    {
+        "label": "Profile",
+        "kind": 6,
+        "importPath": "backend.accounts.models",
+        "description": "backend.accounts.models",
+        "peekOfCode": "class Profile(models.Model):\n    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name=\"profile\")\n    tenant = models.ForeignKey(\"tenants.Tenant\", on_delete=models.CASCADE, related_name=\"profiles\")\n    company_name = models.CharField(max_length=255, blank=True)\n    subscription_active = models.BooleanField(default=False)\n    link_limit = models.PositiveIntegerField(default=50)\n    is_admin = models.BooleanField(default=False)\n    created_at = models.DateTimeField(default=timezone.now)\n    updated_at = models.DateTimeField(auto_now=True)\n    class Meta:",
+        "detail": "backend.accounts.models",
+        "documentation": {}
+    },
+    {
+        "label": "IsAdminUser",
+        "kind": 6,
+        "importPath": "backend.accounts.permissions",
+        "description": "backend.accounts.permissions",
+        "peekOfCode": "class IsAdminUser(BasePermission):\n    def has_permission(self, request, view):\n        if not request.user or not request.user.is_authenticated:\n            return False\n        if request.user.is_superuser:\n            return True\n        profile = get_profile_for_user(request.user)\n        return bool(profile and profile.is_admin)",
+        "detail": "backend.accounts.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "ProfileSerializer",
+        "kind": 6,
+        "importPath": "backend.accounts.serializers",
+        "description": "backend.accounts.serializers",
+        "peekOfCode": "class ProfileSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Profile\n        fields = [\n            \"id\",\n            \"user\",\n            \"tenant\",\n            \"company_name\",\n            \"subscription_active\",\n            \"link_limit\",",
+        "detail": "backend.accounts.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "UserSerializer",
+        "kind": 6,
+        "importPath": "backend.accounts.serializers",
+        "description": "backend.accounts.serializers",
+        "peekOfCode": "class UserSerializer(serializers.ModelSerializer):\n    profile = ProfileSerializer(read_only=True)\n    class Meta:\n        model = User\n        fields = [\"id\", \"email\", \"username\", \"first_name\", \"last_name\", \"profile\"]\nclass LoginSerializer(serializers.Serializer):\n    identifier = serializers.CharField()\n    password = serializers.CharField(write_only=True)\nclass RegisterSerializer(serializers.Serializer):\n    email = serializers.EmailField()",
+        "detail": "backend.accounts.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "LoginSerializer",
+        "kind": 6,
+        "importPath": "backend.accounts.serializers",
+        "description": "backend.accounts.serializers",
+        "peekOfCode": "class LoginSerializer(serializers.Serializer):\n    identifier = serializers.CharField()\n    password = serializers.CharField(write_only=True)\nclass RegisterSerializer(serializers.Serializer):\n    email = serializers.EmailField()\n    username = serializers.CharField(required=False, allow_blank=True)\n    password = serializers.CharField(write_only=True)\n    company_name = serializers.CharField(required=False, allow_blank=True)",
+        "detail": "backend.accounts.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "RegisterSerializer",
+        "kind": 6,
+        "importPath": "backend.accounts.serializers",
+        "description": "backend.accounts.serializers",
+        "peekOfCode": "class RegisterSerializer(serializers.Serializer):\n    email = serializers.EmailField()\n    username = serializers.CharField(required=False, allow_blank=True)\n    password = serializers.CharField(write_only=True)\n    company_name = serializers.CharField(required=False, allow_blank=True)",
+        "detail": "backend.accounts.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "kind": 5,
+        "importPath": "backend.accounts.serializers",
+        "description": "backend.accounts.serializers",
+        "peekOfCode": "User = get_user_model()\nclass ProfileSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Profile\n        fields = [\n            \"id\",\n            \"user\",\n            \"tenant\",\n            \"company_name\",\n            \"subscription_active\",",
+        "detail": "backend.accounts.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "get_profile_for_user",
+        "kind": 2,
+        "importPath": "backend.accounts.services",
+        "description": "backend.accounts.services",
+        "peekOfCode": "def get_profile_for_user(user):\n    return Profile.objects.select_related(\"tenant\").filter(user=user).first()\ndef list_profiles_for_tenant(*, tenant):\n    return Profile.objects.filter(tenant=tenant).select_related(\"user\").order_by(\"-created_at\")\ndef update_profile_access(*, profile, subscription_active: bool, link_limit: int):\n    profile.subscription_active = subscription_active\n    profile.link_limit = link_limit\n    profile.save(update_fields=[\"subscription_active\", \"link_limit\", \"updated_at\"])\n    return profile",
+        "detail": "backend.accounts.services",
+        "documentation": {}
+    },
+    {
+        "label": "list_profiles_for_tenant",
+        "kind": 2,
+        "importPath": "backend.accounts.services",
+        "description": "backend.accounts.services",
+        "peekOfCode": "def list_profiles_for_tenant(*, tenant):\n    return Profile.objects.filter(tenant=tenant).select_related(\"user\").order_by(\"-created_at\")\ndef update_profile_access(*, profile, subscription_active: bool, link_limit: int):\n    profile.subscription_active = subscription_active\n    profile.link_limit = link_limit\n    profile.save(update_fields=[\"subscription_active\", \"link_limit\", \"updated_at\"])\n    return profile",
+        "detail": "backend.accounts.services",
+        "documentation": {}
+    },
+    {
+        "label": "update_profile_access",
+        "kind": 2,
+        "importPath": "backend.accounts.services",
+        "description": "backend.accounts.services",
+        "peekOfCode": "def update_profile_access(*, profile, subscription_active: bool, link_limit: int):\n    profile.subscription_active = subscription_active\n    profile.link_limit = link_limit\n    profile.save(update_fields=[\"subscription_active\", \"link_limit\", \"updated_at\"])\n    return profile",
+        "detail": "backend.accounts.services",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "kind": 5,
+        "importPath": "backend.accounts.services",
+        "description": "backend.accounts.services",
+        "peekOfCode": "User = get_user_model()\ndef get_profile_for_user(user):\n    return Profile.objects.select_related(\"tenant\").filter(user=user).first()\ndef list_profiles_for_tenant(*, tenant):\n    return Profile.objects.filter(tenant=tenant).select_related(\"user\").order_by(\"-created_at\")\ndef update_profile_access(*, profile, subscription_active: bool, link_limit: int):\n    profile.subscription_active = subscription_active\n    profile.link_limit = link_limit\n    profile.save(update_fields=[\"subscription_active\", \"link_limit\", \"updated_at\"])\n    return profile",
+        "detail": "backend.accounts.services",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "backend.accounts.urls",
+        "description": "backend.accounts.urls",
+        "peekOfCode": "urlpatterns = [\n    path(\"me/\", MeView.as_view(), name=\"me\"),\n    path(\"login/\", LoginView.as_view(), name=\"login\"),\n    path(\"register/\", RegisterView.as_view(), name=\"register\"),\n    path(\"logout/\", LogoutView.as_view(), name=\"logout\"),\n]",
+        "detail": "backend.accounts.urls",
+        "documentation": {}
+    },
+    {
+        "label": "MeView",
+        "kind": 6,
+        "importPath": "backend.accounts.views",
+        "description": "backend.accounts.views",
+        "peekOfCode": "class MeView(APIView):\n    permission_classes = [IsAuthenticated]\n    def get(self, request):\n        serializer = UserSerializer(request.user)\n        return api_response(data=serializer.data, message=\"Profile fetched\")\nclass LoginView(APIView):\n    authentication_classes = []\n    permission_classes = []\n    def post(self, request):\n        serializer = LoginSerializer(data=request.data)",
+        "detail": "backend.accounts.views",
+        "documentation": {}
+    },
+    {
+        "label": "LoginView",
+        "kind": 6,
+        "importPath": "backend.accounts.views",
+        "description": "backend.accounts.views",
+        "peekOfCode": "class LoginView(APIView):\n    authentication_classes = []\n    permission_classes = []\n    def post(self, request):\n        serializer = LoginSerializer(data=request.data)\n        serializer.is_valid(raise_exception=True)\n        identifier = serializer.validated_data[\"identifier\"].strip()\n        password = serializer.validated_data[\"password\"]\n        user = authenticate(request, username=identifier, password=password)\n        if user is None:",
+        "detail": "backend.accounts.views",
+        "documentation": {}
+    },
+    {
+        "label": "RegisterView",
+        "kind": 6,
+        "importPath": "backend.accounts.views",
+        "description": "backend.accounts.views",
+        "peekOfCode": "class RegisterView(APIView):\n    authentication_classes = []\n    permission_classes = []\n    def post(self, request):\n        tenant = request.tenant\n        if tenant is None:\n            return api_response(message=\"Tenant not resolved\", status_code=400)\n        serializer = RegisterSerializer(data=request.data)\n        serializer.is_valid(raise_exception=True)\n        email = serializer.validated_data[\"email\"]",
+        "detail": "backend.accounts.views",
+        "documentation": {}
+    },
+    {
+        "label": "LogoutView",
+        "kind": 6,
+        "importPath": "backend.accounts.views",
+        "description": "backend.accounts.views",
+        "peekOfCode": "class LogoutView(APIView):\n    permission_classes = [IsAuthenticated]\n    def post(self, request):\n        logout(request)\n        return api_response(message=\"Logged out\")",
+        "detail": "backend.accounts.views",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "kind": 5,
+        "importPath": "backend.accounts.views",
+        "description": "backend.accounts.views",
+        "peekOfCode": "User = get_user_model()\nclass MeView(APIView):\n    permission_classes = [IsAuthenticated]\n    def get(self, request):\n        serializer = UserSerializer(request.user)\n        return api_response(data=serializer.data, message=\"Profile fetched\")\nclass LoginView(APIView):\n    authentication_classes = []\n    permission_classes = []\n    def post(self, request):",
+        "detail": "backend.accounts.views",
+        "documentation": {}
+    },
+    {
+        "label": "Command",
+        "kind": 6,
+        "importPath": "backend.analytics.management.commands.load_ip2location",
+        "description": "backend.analytics.management.commands.load_ip2location",
+        "peekOfCode": "class Command(BaseCommand):\n    help = \"Load IP2Location LITE CSV into the database for fast IP lookups.\"\n    def add_arguments(self, parser):\n        parser.add_argument(\n            \"--path\",\n            type=str,\n            default=\"\",\n            help=\"Path to the IP2Location CSV (defaults to first CSV in backend/ipdata).\",\n        )\n        parser.add_argument(",
+        "detail": "backend.analytics.management.commands.load_ip2location",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "backend.analytics.migrations.0001_initial",
+        "description": "backend.analytics.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        (\"drive\", \"0001_initial\"),\n        (\"tenants\", \"0001_initial\"),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name=\"IP2LocationRange\",\n            fields=[",
+        "detail": "backend.analytics.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "ClickEventAdmin",
+        "kind": 6,
+        "importPath": "backend.analytics.admin",
+        "description": "backend.analytics.admin",
+        "peekOfCode": "class ClickEventAdmin(admin.ModelAdmin):\n    list_display = (\"tenant\", \"link\", \"ip_address\", \"created_at\")\n    list_filter = (\"tenant\",)\n    search_fields = (\"ip_address\", \"referer\", \"link__short_code\")",
+        "detail": "backend.analytics.admin",
+        "documentation": {}
+    },
+    {
+        "label": "AnalyticsConfig",
+        "kind": 6,
+        "importPath": "backend.analytics.apps",
+        "description": "backend.analytics.apps",
+        "peekOfCode": "class AnalyticsConfig(AppConfig):\n    default_auto_field = \"django.db.models.BigAutoField\"\n    name = \"analytics\"",
+        "detail": "backend.analytics.apps",
+        "documentation": {}
+    },
+    {
+        "label": "ClickEvent",
+        "kind": 6,
+        "importPath": "backend.analytics.models",
+        "description": "backend.analytics.models",
+        "peekOfCode": "class ClickEvent(models.Model):\n    tenant = models.ForeignKey(\"tenants.Tenant\", on_delete=models.CASCADE, related_name=\"click_events\")\n    link = models.ForeignKey(\"drive.Link\", on_delete=models.CASCADE, related_name=\"click_events\")\n    ip_address = models.GenericIPAddressField(null=True, blank=True)\n    user_agent = models.TextField(blank=True)\n    referer = models.URLField(max_length=2000, blank=True)\n    country = models.CharField(max_length=128, blank=True)\n    country_code = models.CharField(max_length=8, blank=True)\n    region = models.CharField(max_length=128, blank=True)\n    city = models.CharField(max_length=128, blank=True)",
+        "detail": "backend.analytics.models",
+        "documentation": {}
+    },
+    {
+        "label": "IP2LocationRange",
+        "kind": 6,
+        "importPath": "backend.analytics.models",
+        "description": "backend.analytics.models",
+        "peekOfCode": "class IP2LocationRange(models.Model):\n    start_ip = models.BigIntegerField(db_index=True)\n    end_ip = models.BigIntegerField(db_index=True)\n    country_code = models.CharField(max_length=8, blank=True)\n    country = models.CharField(max_length=128, blank=True)\n    region = models.CharField(max_length=128, blank=True)\n    city = models.CharField(max_length=128, blank=True)\n    class Meta:\n        indexes = [\n            models.Index(fields=[\"start_ip\", \"end_ip\"]),",
+        "detail": "backend.analytics.models",
+        "documentation": {}
+    },
+    {
+        "label": "AnalyticsSummarySerializer",
+        "kind": 6,
+        "importPath": "backend.analytics.serializers",
+        "description": "backend.analytics.serializers",
+        "peekOfCode": "class AnalyticsSummarySerializer(serializers.Serializer):\n    total_clicks = serializers.IntegerField()\n    unique_links = serializers.IntegerField()\n    top_links = serializers.ListField(child=serializers.DictField())\n    recent_clicks = serializers.IntegerField()\n    country_counts = serializers.ListField(child=serializers.DictField(), required=False)\n    total_countries = serializers.IntegerField(required=False)",
+        "detail": "backend.analytics.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "enrich_geo_from_ip",
+        "kind": 2,
+        "importPath": "backend.analytics.services",
+        "description": "backend.analytics.services",
+        "peekOfCode": "def enrich_geo_from_ip(ip_address: str | None):\n    if not ip_address:\n        return {\"country\": \"\", \"country_code\": \"\", \"region\": \"\", \"city\": \"\"}\n    ip2location = lookup_ip2location(ip_address)\n    if ip2location:\n        return ip2location\n    reader = _geoip_reader()\n    if reader is None:\n        return {\"country\": \"\", \"country_code\": \"\", \"region\": \"\", \"city\": \"\"}\n    try:",
+        "detail": "backend.analytics.services",
+        "documentation": {}
+    },
+    {
+        "label": "lookup_ip2location",
+        "kind": 2,
+        "importPath": "backend.analytics.services",
+        "description": "backend.analytics.services",
+        "peekOfCode": "def lookup_ip2location(ip_address: str):\n    try:\n        ip_int = int(ipaddress.ip_address(ip_address))\n    except ValueError:\n        return None\n    record = (\n        IP2LocationRange.objects.filter(start_ip__lte=ip_int, end_ip__gte=ip_int)\n        .only(\"country\", \"country_code\", \"region\", \"city\")\n        .first()\n    )",
+        "detail": "backend.analytics.services",
+        "documentation": {}
+    },
+    {
+        "label": "log_click_event",
+        "kind": 2,
+        "importPath": "backend.analytics.services",
+        "description": "backend.analytics.services",
+        "peekOfCode": "def log_click_event(\n    *,\n    tenant=None,\n    link=None,\n    tenant_id=None,\n    link_id=None,\n    ip_address=None,\n    user_agent=\"\",\n    referer=\"\",\n    country=\"\",",
+        "detail": "backend.analytics.services",
+        "documentation": {}
+    },
+    {
+        "label": "analytics_summary",
+        "kind": 2,
+        "importPath": "backend.analytics.services",
+        "description": "backend.analytics.services",
+        "peekOfCode": "def analytics_summary(*, tenant):\n    cache_key = f\"analytics:summary:{tenant.id}\"\n    cached = cache.get(cache_key)\n    if cached:\n        return cached\n    since = timezone.now() - timedelta(days=7)\n    total_clicks = ClickEvent.objects.filter(tenant=tenant).count()\n    recent_clicks = ClickEvent.objects.filter(tenant=tenant, created_at__gte=since).count()\n    unique_links = ClickEvent.objects.filter(tenant=tenant).values(\"link_id\").distinct().count()\n    top_links = (",
+        "detail": "backend.analytics.services",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "backend.analytics.urls",
+        "description": "backend.analytics.urls",
+        "peekOfCode": "urlpatterns = [\n    path(\"summary/\", AnalyticsSummaryView.as_view(), name=\"analytics-summary\"),\n]",
+        "detail": "backend.analytics.urls",
+        "documentation": {}
+    },
+    {
+        "label": "AnalyticsSummaryView",
+        "kind": 6,
+        "importPath": "backend.analytics.views",
+        "description": "backend.analytics.views",
+        "peekOfCode": "class AnalyticsSummaryView(APIView):\n    permission_classes = [IsAuthenticated]\n    def get(self, request):\n        tenant = request.tenant\n        data = analytics_summary(tenant=tenant)\n        serializer = AnalyticsSummarySerializer(data)\n        return api_response(data=serializer.data, message=\"Analytics summary\")",
+        "detail": "backend.analytics.views",
+        "documentation": {}
+    },
+    {
+        "label": "CsrfExemptSessionAuthentication",
+        "kind": 6,
+        "importPath": "backend.common.authentication",
+        "description": "backend.common.authentication",
+        "peekOfCode": "class CsrfExemptSessionAuthentication(SessionAuthentication):\n    def enforce_csrf(self, request):\n        return",
+        "detail": "backend.common.authentication",
+        "documentation": {}
+    },
+    {
+        "label": "api_exception_handler",
+        "kind": 2,
+        "importPath": "backend.common.exceptions",
+        "description": "backend.common.exceptions",
+        "peekOfCode": "def api_exception_handler(exc: Exception, context: Dict[str, Any]):\n    response = exception_handler(exc, context)\n    if response is None:\n        return response\n    message = \"Request failed.\"\n    if isinstance(response.data, dict):\n        if \"detail\" in response.data:\n            message = response.data[\"detail\"]\n        elif response.data:\n            first_key = next(iter(response.data))",
+        "detail": "backend.common.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "api_response",
+        "kind": 2,
+        "importPath": "backend.common.responses",
+        "description": "backend.common.responses",
+        "peekOfCode": "def api_response(*, data: Optional[Any] = None, message: str = \"\", status_code: int = 200) -> Response:\n    payload: Dict[str, Any] = {\"message\": message}\n    if data is not None:\n        payload[\"data\"] = data\n    return Response(payload, status=status_code)",
+        "detail": "backend.common.responses",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "backend.config.asgi",
+        "description": "backend.config.asgi",
+        "peekOfCode": "application = get_asgi_application()",
+        "detail": "backend.config.asgi",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = \"django-insecure-700##3@3++a9143c=tjoavdn!oh4*^x@=(bnfi7^g%sbb!be5$\"\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = os.getenv(\"DJANGO_DEBUG\", \"1\") == \"1\"\nALLOWED_HOSTS = [host for host in os.getenv(\"DJANGO_ALLOWED_HOSTS\", \"*\").split(\",\") if host]\n# Application definition\nINSTALLED_APPS = [",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SECRET_KEY",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "SECRET_KEY = \"django-insecure-700##3@3++a9143c=tjoavdn!oh4*^x@=(bnfi7^g%sbb!be5$\"\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = os.getenv(\"DJANGO_DEBUG\", \"1\") == \"1\"\nALLOWED_HOSTS = [host for host in os.getenv(\"DJANGO_ALLOWED_HOSTS\", \"*\").split(\",\") if host]\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEBUG",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "DEBUG = os.getenv(\"DJANGO_DEBUG\", \"1\") == \"1\"\nALLOWED_HOSTS = [host for host in os.getenv(\"DJANGO_ALLOWED_HOSTS\", \"*\").split(\",\") if host]\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ALLOWED_HOSTS",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "ALLOWED_HOSTS = [host for host in os.getenv(\"DJANGO_ALLOWED_HOSTS\", \"*\").split(\",\") if host]\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n    \"rest_framework\",",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "INSTALLED_APPS",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "INSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n    \"rest_framework\",\n    \"corsheaders\",\n    \"django_filters\",",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MIDDLEWARE",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "MIDDLEWARE = [\n    \"django.middleware.security.SecurityMiddleware\",\n    \"corsheaders.middleware.CorsMiddleware\",\n    \"django.contrib.sessions.middleware.SessionMiddleware\",\n    \"django.middleware.common.CommonMiddleware\",\n    \"django.middleware.csrf.CsrfViewMiddleware\",\n    \"django.contrib.auth.middleware.AuthenticationMiddleware\",\n    \"django.contrib.messages.middleware.MessageMiddleware\",\n    \"django.middleware.clickjacking.XFrameOptionsMiddleware\",\n    \"tenants.middleware.TenantMiddleware\",",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ROOT_URLCONF",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "ROOT_URLCONF = \"config.urls\"\nTEMPLATES = [\n    {\n        \"BACKEND\": \"django.template.backends.django.DjangoTemplates\",\n        \"DIRS\": [],\n        \"APP_DIRS\": True,\n        \"OPTIONS\": {\n            \"context_processors\": [\n                \"django.template.context_processors.request\",\n                \"django.contrib.auth.context_processors.auth\",",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TEMPLATES",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "TEMPLATES = [\n    {\n        \"BACKEND\": \"django.template.backends.django.DjangoTemplates\",\n        \"DIRS\": [],\n        \"APP_DIRS\": True,\n        \"OPTIONS\": {\n            \"context_processors\": [\n                \"django.template.context_processors.request\",\n                \"django.contrib.auth.context_processors.auth\",\n                \"django.contrib.messages.context_processors.messages\",",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "WSGI_APPLICATION",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "WSGI_APPLICATION = \"config.wsgi.application\"\n# Database\n# https://docs.djangoproject.com/en/5.2/ref/settings/#databases\nUSE_POSTGRES = os.getenv(\"DJANGO_DB\", \"sqlite\") == \"postgres\"\nif USE_POSTGRES:\n    DATABASES = {\n        \"default\": {\n            \"ENGINE\": \"django.db.backends.postgresql\",\n            \"NAME\": os.getenv(\"POSTGRES_DB\", \"keynou_drive\"),\n            \"USER\": os.getenv(\"POSTGRES_USER\", \"postgres\"),",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_POSTGRES",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "USE_POSTGRES = os.getenv(\"DJANGO_DB\", \"sqlite\") == \"postgres\"\nif USE_POSTGRES:\n    DATABASES = {\n        \"default\": {\n            \"ENGINE\": \"django.db.backends.postgresql\",\n            \"NAME\": os.getenv(\"POSTGRES_DB\", \"keynou_drive\"),\n            \"USER\": os.getenv(\"POSTGRES_USER\", \"postgres\"),\n            \"PASSWORD\": os.getenv(\"POSTGRES_PASSWORD\", \"postgres\"),\n            \"HOST\": os.getenv(\"POSTGRES_HOST\", \"localhost\"),\n            \"PORT\": os.getenv(\"POSTGRES_PORT\", \"5432\"),",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "AUTH_PASSWORD_VALIDATORS",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "AUTH_PASSWORD_VALIDATORS = [\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.UserAttributeSimilarityValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.MinimumLengthValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.CommonPasswordValidator\",\n    },",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LANGUAGE_CODE",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "LANGUAGE_CODE = \"en-us\"\nTIME_ZONE = \"UTC\"\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.2/howto/static-files/\nSTATIC_URL = \"static/\"\nSTATIC_ROOT = BASE_DIR / \"staticfiles\"\nMEDIA_URL = \"media/\"\nMEDIA_ROOT = BASE_DIR / \"media\"",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TIME_ZONE",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "TIME_ZONE = \"UTC\"\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.2/howto/static-files/\nSTATIC_URL = \"static/\"\nSTATIC_ROOT = BASE_DIR / \"staticfiles\"\nMEDIA_URL = \"media/\"\nMEDIA_ROOT = BASE_DIR / \"media\"\n# Default primary key field type",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_I18N",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.2/howto/static-files/\nSTATIC_URL = \"static/\"\nSTATIC_ROOT = BASE_DIR / \"staticfiles\"\nMEDIA_URL = \"media/\"\nMEDIA_ROOT = BASE_DIR / \"media\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_TZ",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.2/howto/static-files/\nSTATIC_URL = \"static/\"\nSTATIC_ROOT = BASE_DIR / \"staticfiles\"\nMEDIA_URL = \"media/\"\nMEDIA_ROOT = BASE_DIR / \"media\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_URL",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "STATIC_URL = \"static/\"\nSTATIC_ROOT = BASE_DIR / \"staticfiles\"\nMEDIA_URL = \"media/\"\nMEDIA_ROOT = BASE_DIR / \"media\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"\nREST_FRAMEWORK = {\n    \"DEFAULT_AUTHENTICATION_CLASSES\": [\n        \"common.authentication.CsrfExemptSessionAuthentication\",",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_ROOT",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "STATIC_ROOT = BASE_DIR / \"staticfiles\"\nMEDIA_URL = \"media/\"\nMEDIA_ROOT = BASE_DIR / \"media\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"\nREST_FRAMEWORK = {\n    \"DEFAULT_AUTHENTICATION_CLASSES\": [\n        \"common.authentication.CsrfExemptSessionAuthentication\",\n        \"rest_framework.authentication.BasicAuthentication\",",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_URL",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "MEDIA_URL = \"media/\"\nMEDIA_ROOT = BASE_DIR / \"media\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"\nREST_FRAMEWORK = {\n    \"DEFAULT_AUTHENTICATION_CLASSES\": [\n        \"common.authentication.CsrfExemptSessionAuthentication\",\n        \"rest_framework.authentication.BasicAuthentication\",\n    ],",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_ROOT",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "MEDIA_ROOT = BASE_DIR / \"media\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"\nREST_FRAMEWORK = {\n    \"DEFAULT_AUTHENTICATION_CLASSES\": [\n        \"common.authentication.CsrfExemptSessionAuthentication\",\n        \"rest_framework.authentication.BasicAuthentication\",\n    ],\n    \"DEFAULT_PERMISSION_CLASSES\": [",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_AUTO_FIELD",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"\nREST_FRAMEWORK = {\n    \"DEFAULT_AUTHENTICATION_CLASSES\": [\n        \"common.authentication.CsrfExemptSessionAuthentication\",\n        \"rest_framework.authentication.BasicAuthentication\",\n    ],\n    \"DEFAULT_PERMISSION_CLASSES\": [\n        \"rest_framework.permissions.IsAuthenticated\",\n    ],\n    \"DEFAULT_FILTER_BACKENDS\": [",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "REST_FRAMEWORK",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "REST_FRAMEWORK = {\n    \"DEFAULT_AUTHENTICATION_CLASSES\": [\n        \"common.authentication.CsrfExemptSessionAuthentication\",\n        \"rest_framework.authentication.BasicAuthentication\",\n    ],\n    \"DEFAULT_PERMISSION_CLASSES\": [\n        \"rest_framework.permissions.IsAuthenticated\",\n    ],\n    \"DEFAULT_FILTER_BACKENDS\": [\n        \"django_filters.rest_framework.DjangoFilterBackend\",",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CORS_ALLOWED_ORIGINS",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "CORS_ALLOWED_ORIGINS = [\n    origin for origin in os.getenv(\"DJANGO_CORS_ALLOWED_ORIGINS\", \"http://localhost:3000\").split(\",\") if origin\n]\nCORS_ALLOW_CREDENTIALS = True\nCSRF_TRUSTED_ORIGINS = [\n    origin for origin in os.getenv(\"DJANGO_CSRF_TRUSTED_ORIGINS\", \"http://localhost:3000\").split(\",\") if origin\n]\nREDIS_URL = os.getenv(\"REDIS_URL\", \"redis://localhost:6379/0\")\nCUSTOM_DOMAIN_TARGET = os.getenv(\"CUSTOM_DOMAIN_TARGET\", os.getenv(\"DJANGO_ALLOWED_HOSTS\", \"localhost\").split(\",\")[0])\nCACHES = {",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CORS_ALLOW_CREDENTIALS",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "CORS_ALLOW_CREDENTIALS = True\nCSRF_TRUSTED_ORIGINS = [\n    origin for origin in os.getenv(\"DJANGO_CSRF_TRUSTED_ORIGINS\", \"http://localhost:3000\").split(\",\") if origin\n]\nREDIS_URL = os.getenv(\"REDIS_URL\", \"redis://localhost:6379/0\")\nCUSTOM_DOMAIN_TARGET = os.getenv(\"CUSTOM_DOMAIN_TARGET\", os.getenv(\"DJANGO_ALLOWED_HOSTS\", \"localhost\").split(\",\")[0])\nCACHES = {\n    \"default\": {\n        \"BACKEND\": \"django_redis.cache.RedisCache\",\n        \"LOCATION\": REDIS_URL,",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CSRF_TRUSTED_ORIGINS",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "CSRF_TRUSTED_ORIGINS = [\n    origin for origin in os.getenv(\"DJANGO_CSRF_TRUSTED_ORIGINS\", \"http://localhost:3000\").split(\",\") if origin\n]\nREDIS_URL = os.getenv(\"REDIS_URL\", \"redis://localhost:6379/0\")\nCUSTOM_DOMAIN_TARGET = os.getenv(\"CUSTOM_DOMAIN_TARGET\", os.getenv(\"DJANGO_ALLOWED_HOSTS\", \"localhost\").split(\",\")[0])\nCACHES = {\n    \"default\": {\n        \"BACKEND\": \"django_redis.cache.RedisCache\",\n        \"LOCATION\": REDIS_URL,\n        \"OPTIONS\": {",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "REDIS_URL",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "REDIS_URL = os.getenv(\"REDIS_URL\", \"redis://localhost:6379/0\")\nCUSTOM_DOMAIN_TARGET = os.getenv(\"CUSTOM_DOMAIN_TARGET\", os.getenv(\"DJANGO_ALLOWED_HOSTS\", \"localhost\").split(\",\")[0])\nCACHES = {\n    \"default\": {\n        \"BACKEND\": \"django_redis.cache.RedisCache\",\n        \"LOCATION\": REDIS_URL,\n        \"OPTIONS\": {\n            \"CLIENT_CLASS\": \"django_redis.client.DefaultClient\",\n        },\n    }",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CUSTOM_DOMAIN_TARGET",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "CUSTOM_DOMAIN_TARGET = os.getenv(\"CUSTOM_DOMAIN_TARGET\", os.getenv(\"DJANGO_ALLOWED_HOSTS\", \"localhost\").split(\",\")[0])\nCACHES = {\n    \"default\": {\n        \"BACKEND\": \"django_redis.cache.RedisCache\",\n        \"LOCATION\": REDIS_URL,\n        \"OPTIONS\": {\n            \"CLIENT_CLASS\": \"django_redis.client.DefaultClient\",\n        },\n    }\n}",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CACHES",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "CACHES = {\n    \"default\": {\n        \"BACKEND\": \"django_redis.cache.RedisCache\",\n        \"LOCATION\": REDIS_URL,\n        \"OPTIONS\": {\n            \"CLIENT_CLASS\": \"django_redis.client.DefaultClient\",\n        },\n    }\n}",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "backend.config.urls",
+        "description": "backend.config.urls",
+        "peekOfCode": "urlpatterns = [\n    path(\"admin/\", admin.site.urls),\n    path(\"api/accounts/\", include(\"accounts.urls\")),\n    path(\"api/drive/\", include(\"drive.urls\")),\n    path(\"api/analytics/\", include(\"analytics.urls\")),\n    path(\"api/tenants/\", include(\"tenants.urls\")),\n    path(\"api/admin/\", include(\"accounts.admin_urls\")),\n    path(\"api/admin/\", include(\"drive.admin_urls\")),\n]",
+        "detail": "backend.config.urls",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "backend.config.wsgi",
+        "description": "backend.config.wsgi",
+        "peekOfCode": "application = get_wsgi_application()",
+        "detail": "backend.config.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "backend.drive.migrations.0001_initial",
+        "description": "backend.drive.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        (\"tenants\", \"0001_initial\"),\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name=\"Link\",\n            fields=[",
+        "detail": "backend.drive.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "LinkAdmin",
+        "kind": 6,
+        "importPath": "backend.drive.admin",
+        "description": "backend.drive.admin",
+        "peekOfCode": "class LinkAdmin(admin.ModelAdmin):\n    list_display = (\"short_code\", \"tenant\", \"owner\", \"is_active\", \"created_at\")\n    list_filter = (\"tenant\", \"is_active\")\n    search_fields = (\"short_code\", \"destination_url\", \"owner__email\")\n@admin.register(SubscriptionRequest)\nclass SubscriptionRequestAdmin(admin.ModelAdmin):\n    list_display = (\"email\", \"tenant\", \"status\", \"created_at\")\n    list_filter = (\"tenant\", \"status\")\n    search_fields = (\"email\", \"name\")",
+        "detail": "backend.drive.admin",
+        "documentation": {}
+    },
+    {
+        "label": "SubscriptionRequestAdmin",
+        "kind": 6,
+        "importPath": "backend.drive.admin",
+        "description": "backend.drive.admin",
+        "peekOfCode": "class SubscriptionRequestAdmin(admin.ModelAdmin):\n    list_display = (\"email\", \"tenant\", \"status\", \"created_at\")\n    list_filter = (\"tenant\", \"status\")\n    search_fields = (\"email\", \"name\")",
+        "detail": "backend.drive.admin",
+        "documentation": {}
+    },
+    {
+        "label": "SubscriptionRequestAdminUpdateSerializer",
+        "kind": 6,
+        "importPath": "backend.drive.admin_serializers",
+        "description": "backend.drive.admin_serializers",
+        "peekOfCode": "class SubscriptionRequestAdminUpdateSerializer(serializers.Serializer):\n    status = serializers.ChoiceField(choices=[\"pending\", \"approved\", \"declined\"])\n    admin_notes = serializers.CharField(required=False, allow_blank=True)\n    subscription_expires_at = serializers.DateTimeField(required=False, allow_null=True)\nclass SubscriptionRequestAdminSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = SubscriptionRequest\n        fields = [\n            \"id\",\n            \"tenant\",",
+        "detail": "backend.drive.admin_serializers",
+        "documentation": {}
+    },
+    {
+        "label": "SubscriptionRequestAdminSerializer",
+        "kind": 6,
+        "importPath": "backend.drive.admin_serializers",
+        "description": "backend.drive.admin_serializers",
+        "peekOfCode": "class SubscriptionRequestAdminSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = SubscriptionRequest\n        fields = [\n            \"id\",\n            \"tenant\",\n            \"user\",\n            \"name\",\n            \"email\",\n            \"phone\",",
+        "detail": "backend.drive.admin_serializers",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "backend.drive.admin_urls",
+        "description": "backend.drive.admin_urls",
+        "peekOfCode": "urlpatterns = [\n    path(\"subscription-requests/\", AdminSubscriptionRequestListView.as_view(), name=\"admin-subscription-requests\"),\n    path(\"subscription-requests/<int:request_id>/\", AdminSubscriptionRequestUpdateView.as_view(), name=\"admin-subscription-request-update\"),\n]",
+        "detail": "backend.drive.admin_urls",
+        "documentation": {}
+    },
+    {
+        "label": "AdminSubscriptionRequestListView",
+        "kind": 6,
+        "importPath": "backend.drive.admin_views",
+        "description": "backend.drive.admin_views",
+        "peekOfCode": "class AdminSubscriptionRequestListView(APIView):\n    permission_classes = [IsAuthenticated, IsAdminUser]\n    def get(self, request):\n        tenant = request.tenant\n        requests = list_subscription_requests_for_tenant(tenant=tenant)\n        serializer = SubscriptionRequestAdminSerializer(requests, many=True)\n        return api_response(data=serializer.data, message=\"Requests fetched\")\nclass AdminSubscriptionRequestUpdateView(APIView):\n    permission_classes = [IsAuthenticated, IsAdminUser]\n    def patch(self, request, request_id: int):",
+        "detail": "backend.drive.admin_views",
+        "documentation": {}
+    },
+    {
+        "label": "AdminSubscriptionRequestUpdateView",
+        "kind": 6,
+        "importPath": "backend.drive.admin_views",
+        "description": "backend.drive.admin_views",
+        "peekOfCode": "class AdminSubscriptionRequestUpdateView(APIView):\n    permission_classes = [IsAuthenticated, IsAdminUser]\n    def patch(self, request, request_id: int):\n        tenant = request.tenant\n        request_obj = get_object_or_404(SubscriptionRequest, id=request_id, tenant=tenant)\n        serializer = SubscriptionRequestAdminUpdateSerializer(data=request.data)\n        serializer.is_valid(raise_exception=True)\n        updated = update_subscription_request(request_obj=request_obj, **serializer.validated_data)\n        return api_response(data=SubscriptionRequestAdminSerializer(updated).data, message=\"Request updated\")",
+        "detail": "backend.drive.admin_views",
+        "documentation": {}
+    },
+    {
+        "label": "DriveConfig",
+        "kind": 6,
+        "importPath": "backend.drive.apps",
+        "description": "backend.drive.apps",
+        "peekOfCode": "class DriveConfig(AppConfig):\n    default_auto_field = \"django.db.models.BigAutoField\"\n    name = \"drive\"",
+        "detail": "backend.drive.apps",
+        "documentation": {}
+    },
+    {
+        "label": "Link",
+        "kind": 6,
+        "importPath": "backend.drive.models",
+        "description": "backend.drive.models",
+        "peekOfCode": "class Link(models.Model):\n    tenant = models.ForeignKey(\"tenants.Tenant\", on_delete=models.CASCADE, related_name=\"links\")\n    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name=\"links\")\n    short_code = models.CharField(max_length=255, unique=True)\n    destination_url = models.URLField(max_length=2000)\n    is_active = models.BooleanField(default=True)\n    created_at = models.DateTimeField(default=timezone.now)\n    updated_at = models.DateTimeField(auto_now=True)\n    class Meta:\n        indexes = [",
+        "detail": "backend.drive.models",
+        "documentation": {}
+    },
+    {
+        "label": "SubscriptionRequest",
+        "kind": 6,
+        "importPath": "backend.drive.models",
+        "description": "backend.drive.models",
+        "peekOfCode": "class SubscriptionRequest(models.Model):\n    STATUS_CHOICES = [\n        (\"pending\", \"Pending\"),\n        (\"approved\", \"Approved\"),\n        (\"declined\", \"Declined\"),\n    ]\n    tenant = models.ForeignKey(\"tenants.Tenant\", on_delete=models.CASCADE, related_name=\"subscription_requests\")\n    user = models.ForeignKey(\n        settings.AUTH_USER_MODEL,\n        on_delete=models.SET_NULL,",
+        "detail": "backend.drive.models",
+        "documentation": {}
+    },
+    {
+        "label": "LinkSerializer",
+        "kind": 6,
+        "importPath": "backend.drive.serializers",
+        "description": "backend.drive.serializers",
+        "peekOfCode": "class LinkSerializer(serializers.ModelSerializer):\n    clicks = serializers.SerializerMethodField()\n    def get_clicks(self, obj):\n        return getattr(obj, \"clicks\", 0)\n    class Meta:\n        model = Link\n        fields = [\n            \"id\",\n            \"tenant\",\n            \"owner\",",
+        "detail": "backend.drive.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "LinkCreateSerializer",
+        "kind": 6,
+        "importPath": "backend.drive.serializers",
+        "description": "backend.drive.serializers",
+        "peekOfCode": "class LinkCreateSerializer(serializers.Serializer):\n    destination_url = serializers.URLField(max_length=2000)\n    short_code = serializers.CharField(max_length=255, required=False, allow_blank=True)\nclass LinkUpdateSerializer(serializers.Serializer):\n    destination_url = serializers.URLField(max_length=2000, required=False)\n    short_code = serializers.CharField(max_length=255, required=False, allow_blank=True)\n    is_active = serializers.BooleanField(required=False)\nclass LinkBulkDeleteSerializer(serializers.Serializer):\n    ids = serializers.ListField(child=serializers.IntegerField(), allow_empty=False)\nclass SubscriptionRequestSerializer(serializers.ModelSerializer):",
+        "detail": "backend.drive.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "LinkUpdateSerializer",
+        "kind": 6,
+        "importPath": "backend.drive.serializers",
+        "description": "backend.drive.serializers",
+        "peekOfCode": "class LinkUpdateSerializer(serializers.Serializer):\n    destination_url = serializers.URLField(max_length=2000, required=False)\n    short_code = serializers.CharField(max_length=255, required=False, allow_blank=True)\n    is_active = serializers.BooleanField(required=False)\nclass LinkBulkDeleteSerializer(serializers.Serializer):\n    ids = serializers.ListField(child=serializers.IntegerField(), allow_empty=False)\nclass SubscriptionRequestSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = SubscriptionRequest\n        fields = [",
+        "detail": "backend.drive.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "LinkBulkDeleteSerializer",
+        "kind": 6,
+        "importPath": "backend.drive.serializers",
+        "description": "backend.drive.serializers",
+        "peekOfCode": "class LinkBulkDeleteSerializer(serializers.Serializer):\n    ids = serializers.ListField(child=serializers.IntegerField(), allow_empty=False)\nclass SubscriptionRequestSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = SubscriptionRequest\n        fields = [\n            \"id\",\n            \"tenant\",\n            \"user\",\n            \"name\",",
+        "detail": "backend.drive.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "SubscriptionRequestSerializer",
+        "kind": 6,
+        "importPath": "backend.drive.serializers",
+        "description": "backend.drive.serializers",
+        "peekOfCode": "class SubscriptionRequestSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = SubscriptionRequest\n        fields = [\n            \"id\",\n            \"tenant\",\n            \"user\",\n            \"name\",\n            \"email\",\n            \"phone\",",
+        "detail": "backend.drive.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "SubscriptionRequestCreateSerializer",
+        "kind": 6,
+        "importPath": "backend.drive.serializers",
+        "description": "backend.drive.serializers",
+        "peekOfCode": "class SubscriptionRequestCreateSerializer(serializers.Serializer):\n    name = serializers.CharField(max_length=255)\n    email = serializers.EmailField()\n    phone = serializers.CharField(max_length=50, required=False, allow_blank=True)\n    message = serializers.CharField()",
+        "detail": "backend.drive.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "get_cached_resolve",
+        "kind": 2,
+        "importPath": "backend.drive.services",
+        "description": "backend.drive.services",
+        "peekOfCode": "def get_cached_resolve(*, short_code: str):\n    return cache.get(_resolve_cache_key(short_code=short_code))\ndef set_cached_resolve(*, short_code: str, payload: dict):\n    cache.set(_resolve_cache_key(short_code=short_code), payload, timeout=RESOLVE_CACHE_TTL)\ndef invalidate_resolve_cache(*, short_code: str):\n    cache.delete(_resolve_cache_key(short_code=short_code))\ndef get_cached_branding(*, tenant):\n    cache_key = _branding_cache_key(tenant_id=tenant.id)\n    cached = cache.get(cache_key)\n    if cached:",
+        "detail": "backend.drive.services",
+        "documentation": {}
+    },
+    {
+        "label": "set_cached_resolve",
+        "kind": 2,
+        "importPath": "backend.drive.services",
+        "description": "backend.drive.services",
+        "peekOfCode": "def set_cached_resolve(*, short_code: str, payload: dict):\n    cache.set(_resolve_cache_key(short_code=short_code), payload, timeout=RESOLVE_CACHE_TTL)\ndef invalidate_resolve_cache(*, short_code: str):\n    cache.delete(_resolve_cache_key(short_code=short_code))\ndef get_cached_branding(*, tenant):\n    cache_key = _branding_cache_key(tenant_id=tenant.id)\n    cached = cache.get(cache_key)\n    if cached:\n        return cached\n    is_paid = Profile.objects.filter(tenant=tenant, subscription_active=True).exists()",
+        "detail": "backend.drive.services",
+        "documentation": {}
+    },
+    {
+        "label": "invalidate_resolve_cache",
+        "kind": 2,
+        "importPath": "backend.drive.services",
+        "description": "backend.drive.services",
+        "peekOfCode": "def invalidate_resolve_cache(*, short_code: str):\n    cache.delete(_resolve_cache_key(short_code=short_code))\ndef get_cached_branding(*, tenant):\n    cache_key = _branding_cache_key(tenant_id=tenant.id)\n    cached = cache.get(cache_key)\n    if cached:\n        return cached\n    is_paid = Profile.objects.filter(tenant=tenant, subscription_active=True).exists()\n    payload = {\n        \"tenant_name\": tenant.name,",
+        "detail": "backend.drive.services",
+        "documentation": {}
+    },
+    {
+        "label": "get_cached_branding",
+        "kind": 2,
+        "importPath": "backend.drive.services",
+        "description": "backend.drive.services",
+        "peekOfCode": "def get_cached_branding(*, tenant):\n    cache_key = _branding_cache_key(tenant_id=tenant.id)\n    cached = cache.get(cache_key)\n    if cached:\n        return cached\n    is_paid = Profile.objects.filter(tenant=tenant, subscription_active=True).exists()\n    payload = {\n        \"tenant_name\": tenant.name,\n        \"is_paid\": is_paid,\n        \"branding\": {",
+        "detail": "backend.drive.services",
+        "documentation": {}
+    },
+    {
+        "label": "invalidate_branding_cache",
+        "kind": 2,
+        "importPath": "backend.drive.services",
+        "description": "backend.drive.services",
+        "peekOfCode": "def invalidate_branding_cache(*, tenant_id: int):\n    cache.delete(_branding_cache_key(tenant_id=tenant_id))\ndef list_links_for_user(*, tenant, user):\n    return (\n        Link.objects.filter(tenant=tenant, owner=user)\n        .annotate(clicks=Count(\"click_events\"))\n        .order_by(\"-created_at\")\n    )\ndef _generate_short_code() -> str:\n    return secrets.token_urlsafe(6).replace(\"-\", \"\").replace(\"_\", \"\")[:8]",
+        "detail": "backend.drive.services",
+        "documentation": {}
+    },
+    {
+        "label": "list_links_for_user",
+        "kind": 2,
+        "importPath": "backend.drive.services",
+        "description": "backend.drive.services",
+        "peekOfCode": "def list_links_for_user(*, tenant, user):\n    return (\n        Link.objects.filter(tenant=tenant, owner=user)\n        .annotate(clicks=Count(\"click_events\"))\n        .order_by(\"-created_at\")\n    )\ndef _generate_short_code() -> str:\n    return secrets.token_urlsafe(6).replace(\"-\", \"\").replace(\"_\", \"\")[:8]\ndef _format_short_code(*, user, short_code: str | None) -> str:\n    if short_code:",
+        "detail": "backend.drive.services",
+        "documentation": {}
+    },
+    {
+        "label": "create_link",
+        "kind": 2,
+        "importPath": "backend.drive.services",
+        "description": "backend.drive.services",
+        "peekOfCode": "def create_link(*, tenant, user, destination_url: str, short_code: str | None):\n    profile, _ = Profile.objects.select_related(\"tenant\").get_or_create(\n        user=user,\n        defaults={\"tenant\": tenant},\n    )\n    free_limit = 2\n    effective_limit = profile.link_limit if profile.subscription_active else free_limit\n    link_count = Link.objects.filter(tenant=tenant, owner=user).count()\n    if link_count >= effective_limit:\n        if profile.subscription_active:",
+        "detail": "backend.drive.services",
+        "documentation": {}
+    },
+    {
+        "label": "create_subscription_request",
+        "kind": 2,
+        "importPath": "backend.drive.services",
+        "description": "backend.drive.services",
+        "peekOfCode": "def create_subscription_request(*, tenant, user, payload):\n    return SubscriptionRequest.objects.create(\n        tenant=tenant,\n        user=user,\n        name=payload[\"name\"],\n        email=payload[\"email\"],\n        phone=payload.get(\"phone\", \"\"),\n        message=payload[\"message\"],\n    )\ndef list_subscription_requests_for_tenant(*, tenant):",
+        "detail": "backend.drive.services",
+        "documentation": {}
+    },
+    {
+        "label": "list_subscription_requests_for_tenant",
+        "kind": 2,
+        "importPath": "backend.drive.services",
+        "description": "backend.drive.services",
+        "peekOfCode": "def list_subscription_requests_for_tenant(*, tenant):\n    return SubscriptionRequest.objects.filter(tenant=tenant).order_by(\"-created_at\")\ndef subscription_request_stats(*, tenant):\n    return SubscriptionRequest.objects.filter(tenant=tenant).values(\"status\").annotate(total=Count(\"id\"))\ndef get_active_link(*, tenant, short_code: str):\n    return Link.objects.select_related(\"tenant\").get(tenant=tenant, short_code=short_code, is_active=True)\ndef update_link(*, tenant, user, link: Link, destination_url=None, short_code=None, is_active=None) -> Link:\n    previous_code = link.short_code\n    updates = {}\n    if destination_url is not None:",
+        "detail": "backend.drive.services",
+        "documentation": {}
+    },
+    {
+        "label": "subscription_request_stats",
+        "kind": 2,
+        "importPath": "backend.drive.services",
+        "description": "backend.drive.services",
+        "peekOfCode": "def subscription_request_stats(*, tenant):\n    return SubscriptionRequest.objects.filter(tenant=tenant).values(\"status\").annotate(total=Count(\"id\"))\ndef get_active_link(*, tenant, short_code: str):\n    return Link.objects.select_related(\"tenant\").get(tenant=tenant, short_code=short_code, is_active=True)\ndef update_link(*, tenant, user, link: Link, destination_url=None, short_code=None, is_active=None) -> Link:\n    previous_code = link.short_code\n    updates = {}\n    if destination_url is not None:\n        updates[\"destination_url\"] = destination_url\n    if is_active is not None:",
+        "detail": "backend.drive.services",
+        "documentation": {}
+    },
+    {
+        "label": "get_active_link",
+        "kind": 2,
+        "importPath": "backend.drive.services",
+        "description": "backend.drive.services",
+        "peekOfCode": "def get_active_link(*, tenant, short_code: str):\n    return Link.objects.select_related(\"tenant\").get(tenant=tenant, short_code=short_code, is_active=True)\ndef update_link(*, tenant, user, link: Link, destination_url=None, short_code=None, is_active=None) -> Link:\n    previous_code = link.short_code\n    updates = {}\n    if destination_url is not None:\n        updates[\"destination_url\"] = destination_url\n    if is_active is not None:\n        updates[\"is_active\"] = is_active\n    if short_code is not None:",
+        "detail": "backend.drive.services",
+        "documentation": {}
+    },
+    {
+        "label": "update_link",
+        "kind": 2,
+        "importPath": "backend.drive.services",
+        "description": "backend.drive.services",
+        "peekOfCode": "def update_link(*, tenant, user, link: Link, destination_url=None, short_code=None, is_active=None) -> Link:\n    previous_code = link.short_code\n    updates = {}\n    if destination_url is not None:\n        updates[\"destination_url\"] = destination_url\n    if is_active is not None:\n        updates[\"is_active\"] = is_active\n    if short_code is not None:\n        cleaned_code = _format_short_code(user=user, short_code=short_code)\n        if cleaned_code != link.short_code and Link.objects.filter(short_code=cleaned_code).exists():",
+        "detail": "backend.drive.services",
+        "documentation": {}
+    },
+    {
+        "label": "delete_link",
+        "kind": 2,
+        "importPath": "backend.drive.services",
+        "description": "backend.drive.services",
+        "peekOfCode": "def delete_link(*, tenant, user, link_id: int) -> int:\n    link = Link.objects.filter(id=link_id, tenant=tenant, owner=user).first()\n    if link is None:\n        return 0\n    short_code = link.short_code\n    deleted = link.delete()[0]\n    invalidate_resolve_cache(short_code=short_code)\n    return deleted\ndef bulk_delete_links(*, tenant, user, ids: list[int]) -> int:\n    links = list(Link.objects.filter(id__in=ids, tenant=tenant, owner=user))",
+        "detail": "backend.drive.services",
+        "documentation": {}
+    },
+    {
+        "label": "bulk_delete_links",
+        "kind": 2,
+        "importPath": "backend.drive.services",
+        "description": "backend.drive.services",
+        "peekOfCode": "def bulk_delete_links(*, tenant, user, ids: list[int]) -> int:\n    links = list(Link.objects.filter(id__in=ids, tenant=tenant, owner=user))\n    if not links:\n        return 0\n    short_codes = [link.short_code for link in links]\n    deleted = Link.objects.filter(id__in=ids, tenant=tenant, owner=user).delete()[0]\n    for code in short_codes:\n        invalidate_resolve_cache(short_code=code)\n    return deleted\ndef update_subscription_request(*, request_obj, status: str, admin_notes: str = \"\", subscription_expires_at=None):",
+        "detail": "backend.drive.services",
+        "documentation": {}
+    },
+    {
+        "label": "update_subscription_request",
+        "kind": 2,
+        "importPath": "backend.drive.services",
+        "description": "backend.drive.services",
+        "peekOfCode": "def update_subscription_request(*, request_obj, status: str, admin_notes: str = \"\", subscription_expires_at=None):\n    request_obj.status = status\n    request_obj.admin_notes = admin_notes\n    if subscription_expires_at is not None:\n        request_obj.subscription_expires_at = subscription_expires_at\n    update_fields = [\"status\", \"admin_notes\", \"updated_at\"]\n    if subscription_expires_at is not None:\n        update_fields.append(\"subscription_expires_at\")\n    request_obj.save(update_fields=update_fields)\n    return request_obj",
+        "detail": "backend.drive.services",
+        "documentation": {}
+    },
+    {
+        "label": "RESOLVE_CACHE_TTL",
+        "kind": 5,
+        "importPath": "backend.drive.services",
+        "description": "backend.drive.services",
+        "peekOfCode": "RESOLVE_CACHE_TTL = 60 * 60\ndef _resolve_cache_key(*, short_code: str) -> str:\n    return f\"resolve:{short_code}\"\ndef _branding_cache_key(*, tenant_id: int) -> str:\n    return f\"tenant:branding:{tenant_id}\"\ndef get_cached_resolve(*, short_code: str):\n    return cache.get(_resolve_cache_key(short_code=short_code))\ndef set_cached_resolve(*, short_code: str, payload: dict):\n    cache.set(_resolve_cache_key(short_code=short_code), payload, timeout=RESOLVE_CACHE_TTL)\ndef invalidate_resolve_cache(*, short_code: str):",
+        "detail": "backend.drive.services",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "backend.drive.urls",
+        "description": "backend.drive.urls",
+        "peekOfCode": "urlpatterns = [\n    path(\"links/\", LinkListCreateView.as_view(), name=\"link-list-create\"),\n    path(\"links/bulk-delete/\", LinkBulkDeleteView.as_view(), name=\"link-bulk-delete\"),\n    path(\"links/<int:link_id>/\", LinkDetailView.as_view(), name=\"link-detail\"),\n    path(\"subscription-requests/\", SubscriptionRequestListCreateView.as_view(), name=\"subscription-request-list-create\"),\n    path(\"resolve/<path:short_code>/\", PublicResolveView.as_view(), name=\"public-resolve\"),\n    path(\"r/<path:short_code>/\", RedirectView.as_view(), name=\"redirect\"),\n]",
+        "detail": "backend.drive.urls",
+        "documentation": {}
+    },
+    {
+        "label": "LinkListCreateView",
+        "kind": 6,
+        "importPath": "backend.drive.views",
+        "description": "backend.drive.views",
+        "peekOfCode": "class LinkListCreateView(APIView):\n    permission_classes = [IsAuthenticated]\n    def get(self, request):\n        tenant = request.tenant\n        links = list_links_for_user(tenant=tenant, user=request.user)\n        serializer = LinkSerializer(links, many=True)\n        return api_response(data=serializer.data, message=\"Links fetched\")\n    def post(self, request):\n        tenant = request.tenant\n        serializer = LinkCreateSerializer(data=request.data)",
+        "detail": "backend.drive.views",
+        "documentation": {}
+    },
+    {
+        "label": "SubscriptionRequestListCreateView",
+        "kind": 6,
+        "importPath": "backend.drive.views",
+        "description": "backend.drive.views",
+        "peekOfCode": "class SubscriptionRequestListCreateView(APIView):\n    permission_classes = [AllowAny]\n    def get(self, request):\n        if not request.user.is_authenticated:\n            return api_response(message=\"Authentication required\", status_code=401)\n        tenant = request.tenant\n        requests = list_subscription_requests_for_tenant(tenant=tenant)\n        serializer = SubscriptionRequestSerializer(requests, many=True)\n        return api_response(data=serializer.data, message=\"Requests fetched\")\n    def post(self, request):",
+        "detail": "backend.drive.views",
+        "documentation": {}
+    },
+    {
+        "label": "LinkDetailView",
+        "kind": 6,
+        "importPath": "backend.drive.views",
+        "description": "backend.drive.views",
+        "peekOfCode": "class LinkDetailView(APIView):\n    permission_classes = [IsAuthenticated]\n    def patch(self, request, link_id: int):\n        tenant = request.tenant\n        link = Link.objects.filter(id=link_id, tenant=tenant, owner=request.user).first()\n        if link is None:\n            return api_response(message=\"Link not found\", status_code=404)\n        serializer = LinkUpdateSerializer(data=request.data)\n        serializer.is_valid(raise_exception=True)\n        try:",
+        "detail": "backend.drive.views",
+        "documentation": {}
+    },
+    {
+        "label": "LinkBulkDeleteView",
+        "kind": 6,
+        "importPath": "backend.drive.views",
+        "description": "backend.drive.views",
+        "peekOfCode": "class LinkBulkDeleteView(APIView):\n    permission_classes = [IsAuthenticated]\n    def post(self, request):\n        tenant = request.tenant\n        serializer = LinkBulkDeleteSerializer(data=request.data)\n        serializer.is_valid(raise_exception=True)\n        deleted = bulk_delete_links(tenant=tenant, user=request.user, ids=serializer.validated_data[\"ids\"])\n        return api_response(data={\"deleted\": deleted}, message=\"Links deleted\")\nclass RedirectView(APIView):\n    authentication_classes = []",
+        "detail": "backend.drive.views",
+        "documentation": {}
+    },
+    {
+        "label": "RedirectView",
+        "kind": 6,
+        "importPath": "backend.drive.views",
+        "description": "backend.drive.views",
+        "peekOfCode": "class RedirectView(APIView):\n    authentication_classes = []\n    permission_classes = []\n    def get(self, request, short_code: str):\n        tenant = request.tenant\n        link = get_active_link(tenant=tenant, short_code=short_code)\n        ip_address = request.META.get(\"HTTP_X_FORWARDED_FOR\", \"\").split(\",\")[0].strip() or request.META.get(\n            \"REMOTE_ADDR\"\n        )\n        user_agent = request.META.get(\"HTTP_USER_AGENT\", \"\")",
+        "detail": "backend.drive.views",
+        "documentation": {}
+    },
+    {
+        "label": "PublicResolveView",
+        "kind": 6,
+        "importPath": "backend.drive.views",
+        "description": "backend.drive.views",
+        "peekOfCode": "class PublicResolveView(APIView):\n    authentication_classes = []\n    permission_classes = [AllowAny]\n    def get(self, request, short_code: str):\n        cached = get_cached_resolve(short_code=short_code)\n        if cached:\n            ip_address = request.META.get(\"HTTP_X_FORWARDED_FOR\", \"\").split(\",\")[0].strip() or request.META.get(\n                \"REMOTE_ADDR\"\n            )\n            user_agent = request.META.get(\"HTTP_USER_AGENT\", \"\")",
+        "detail": "backend.drive.views",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "backend.scripts.download_geoip",
+        "description": "backend.scripts.download_geoip",
+        "peekOfCode": "def main() -> None:\n    license_key = os.getenv(\"MAXMIND_LICENSE_KEY\", \"\")\n    if not license_key:\n        raise SystemExit(\"MAXMIND_LICENSE_KEY is required to download GeoLite2.\")\n    output_dir = Path(__file__).resolve().parent / \"..\" / \"geoip\"\n    output_dir.mkdir(parents=True, exist_ok=True)\n    zip_path = output_dir / \"GeoLite2-City.zip\"\n    params = \"?edition_id=GeoLite2-City&license_key={}&suffix=zip\".format(license_key)\n    url = f\"{MAXMIND_URL}{params}\"\n    print(f\"Downloading GeoLite2 City database to {zip_path}...\")",
+        "detail": "backend.scripts.download_geoip",
+        "documentation": {}
+    },
+    {
+        "label": "MAXMIND_URL",
+        "kind": 5,
+        "importPath": "backend.scripts.download_geoip",
+        "description": "backend.scripts.download_geoip",
+        "peekOfCode": "MAXMIND_URL = \"https://download.maxmind.com/app/geoip_download\"\ndef main() -> None:\n    license_key = os.getenv(\"MAXMIND_LICENSE_KEY\", \"\")\n    if not license_key:\n        raise SystemExit(\"MAXMIND_LICENSE_KEY is required to download GeoLite2.\")\n    output_dir = Path(__file__).resolve().parent / \"..\" / \"geoip\"\n    output_dir.mkdir(parents=True, exist_ok=True)\n    zip_path = output_dir / \"GeoLite2-City.zip\"\n    params = \"?edition_id=GeoLite2-City&license_key={}&suffix=zip\".format(license_key)\n    url = f\"{MAXMIND_URL}{params}\"",
+        "detail": "backend.scripts.download_geoip",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "backend.teams.migrations.0001_initial",
+        "description": "backend.teams.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        (\"tenants\", \"0001_initial\"),\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name=\"Team\",\n            fields=[",
+        "detail": "backend.teams.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "TeamAdmin",
+        "kind": 6,
+        "importPath": "backend.teams.admin",
+        "description": "backend.teams.admin",
+        "peekOfCode": "class TeamAdmin(admin.ModelAdmin):\n    list_display = (\"name\", \"tenant\", \"created_at\")\n    list_filter = (\"tenant\",)\n    search_fields = (\"name\", \"tenant__name\")\n@admin.register(TeamMember)\nclass TeamMemberAdmin(admin.ModelAdmin):\n    list_display = (\"team\", \"user\", \"role\", \"created_at\")\n    list_filter = (\"role\",)\n    search_fields = (\"team__name\", \"user__email\")",
+        "detail": "backend.teams.admin",
+        "documentation": {}
+    },
+    {
+        "label": "TeamMemberAdmin",
+        "kind": 6,
+        "importPath": "backend.teams.admin",
+        "description": "backend.teams.admin",
+        "peekOfCode": "class TeamMemberAdmin(admin.ModelAdmin):\n    list_display = (\"team\", \"user\", \"role\", \"created_at\")\n    list_filter = (\"role\",)\n    search_fields = (\"team__name\", \"user__email\")",
+        "detail": "backend.teams.admin",
+        "documentation": {}
+    },
+    {
+        "label": "TeamsConfig",
+        "kind": 6,
+        "importPath": "backend.teams.apps",
+        "description": "backend.teams.apps",
+        "peekOfCode": "class TeamsConfig(AppConfig):\n    default_auto_field = \"django.db.models.BigAutoField\"\n    name = \"teams\"",
+        "detail": "backend.teams.apps",
+        "documentation": {}
+    },
+    {
+        "label": "Team",
+        "kind": 6,
+        "importPath": "backend.teams.models",
+        "description": "backend.teams.models",
+        "peekOfCode": "class Team(models.Model):\n    tenant = models.ForeignKey(\"tenants.Tenant\", on_delete=models.CASCADE, related_name=\"teams\")\n    name = models.CharField(max_length=255)\n    created_at = models.DateTimeField(default=timezone.now)\n    class Meta:\n        indexes = [models.Index(fields=[\"tenant\", \"name\"])]\n    def __str__(self) -> str:\n        return self.name\nclass TeamMember(models.Model):\n    team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name=\"members\")",
+        "detail": "backend.teams.models",
+        "documentation": {}
+    },
+    {
+        "label": "TeamMember",
+        "kind": 6,
+        "importPath": "backend.teams.models",
+        "description": "backend.teams.models",
+        "peekOfCode": "class TeamMember(models.Model):\n    team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name=\"members\")\n    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name=\"team_memberships\")\n    role = models.CharField(max_length=50, default=\"member\")\n    created_at = models.DateTimeField(default=timezone.now)\n    class Meta:\n        constraints = [\n            models.UniqueConstraint(fields=[\"team\", \"user\"], name=\"uniq_team_member\"),\n        ]\n        indexes = [models.Index(fields=[\"team\", \"role\"])]",
+        "detail": "backend.teams.models",
+        "documentation": {}
+    },
+    {
+        "label": "Command",
+        "kind": 6,
+        "importPath": "backend.tenants.management.commands.seed_default_tenant",
+        "description": "backend.tenants.management.commands.seed_default_tenant",
+        "peekOfCode": "class Command(BaseCommand):\n    help = \"Seed a default tenant + domain for local development.\"\n    def handle(self, *args, **options):\n        tenant, _ = Tenant.objects.get_or_create(\n            slug=\"default\",\n            defaults={\"name\": \"Default Tenant\", \"primary_domain\": \"localhost\", \"is_active\": True},\n        )\n        TenantDomain.objects.get_or_create(\n            tenant=tenant,\n            domain=\"localhost\",",
+        "detail": "backend.tenants.management.commands.seed_default_tenant",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "backend.tenants.migrations.0001_initial",
+        "description": "backend.tenants.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = []\n    operations = [\n        migrations.CreateModel(\n            name=\"Tenant\",\n            fields=[\n                (\n                    \"id\",\n                    models.BigAutoField(",
+        "detail": "backend.tenants.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "TenantAdmin",
+        "kind": 6,
+        "importPath": "backend.tenants.admin",
+        "description": "backend.tenants.admin",
+        "peekOfCode": "class TenantAdmin(admin.ModelAdmin):\n    list_display = (\"name\", \"slug\", \"primary_domain\", \"is_active\")\n    search_fields = (\"name\", \"slug\", \"primary_domain\")\n    list_filter = (\"is_active\",)\n@admin.register(TenantDomain)\nclass TenantDomainAdmin(admin.ModelAdmin):\n    list_display = (\"domain\", \"tenant\", \"is_primary\", \"is_verified\", \"verified_at\")\n    list_filter = (\"is_primary\", \"is_verified\")\n    search_fields = (\"domain\", \"tenant__name\")",
+        "detail": "backend.tenants.admin",
+        "documentation": {}
+    },
+    {
+        "label": "TenantDomainAdmin",
+        "kind": 6,
+        "importPath": "backend.tenants.admin",
+        "description": "backend.tenants.admin",
+        "peekOfCode": "class TenantDomainAdmin(admin.ModelAdmin):\n    list_display = (\"domain\", \"tenant\", \"is_primary\", \"is_verified\", \"verified_at\")\n    list_filter = (\"is_primary\", \"is_verified\")\n    search_fields = (\"domain\", \"tenant__name\")",
+        "detail": "backend.tenants.admin",
+        "documentation": {}
+    },
+    {
+        "label": "TenantsConfig",
+        "kind": 6,
+        "importPath": "backend.tenants.apps",
+        "description": "backend.tenants.apps",
+        "peekOfCode": "class TenantsConfig(AppConfig):\n    default_auto_field = \"django.db.models.BigAutoField\"\n    name = \"tenants\"",
+        "detail": "backend.tenants.apps",
+        "documentation": {}
+    },
+    {
+        "label": "TenantMiddleware",
+        "kind": 6,
+        "importPath": "backend.tenants.middleware",
+        "description": "backend.tenants.middleware",
+        "peekOfCode": "class TenantMiddleware:\n    def __init__(self, get_response):\n        self.get_response = get_response\n    def __call__(self, request):\n        request.tenant = resolve_tenant(request)\n        return self.get_response(request)",
+        "detail": "backend.tenants.middleware",
+        "documentation": {}
+    },
+    {
+        "label": "Tenant",
+        "kind": 6,
+        "importPath": "backend.tenants.models",
+        "description": "backend.tenants.models",
+        "peekOfCode": "class Tenant(models.Model):\n    name = models.CharField(max_length=255)\n    slug = models.SlugField(unique=True)\n    primary_domain = models.CharField(max_length=255, unique=True)\n    is_active = models.BooleanField(default=True)\n    brand_logo_url = models.URLField(max_length=2000, blank=True)\n    brand_primary_color = models.CharField(max_length=32, blank=True)\n    brand_text_color = models.CharField(max_length=32, blank=True)\n    created_at = models.DateTimeField(default=timezone.now)\n    updated_at = models.DateTimeField(auto_now=True)",
+        "detail": "backend.tenants.models",
+        "documentation": {}
+    },
+    {
+        "label": "TenantDomain",
+        "kind": 6,
+        "importPath": "backend.tenants.models",
+        "description": "backend.tenants.models",
+        "peekOfCode": "class TenantDomain(models.Model):\n    tenant = models.ForeignKey(Tenant, on_delete=models.CASCADE, related_name=\"domains\")\n    domain = models.CharField(max_length=255, unique=True)\n    is_primary = models.BooleanField(default=False)\n    is_verified = models.BooleanField(default=False)\n    verification_token = models.CharField(max_length=64, blank=True)\n    verified_at = models.DateTimeField(null=True, blank=True)\n    created_at = models.DateTimeField(default=timezone.now)\n    class Meta:\n        indexes = [models.Index(fields=[\"tenant\", \"domain\"]), models.Index(fields=[\"is_verified\"])]",
+        "detail": "backend.tenants.models",
+        "documentation": {}
+    },
+    {
+        "label": "TenantDomainSerializer",
+        "kind": 6,
+        "importPath": "backend.tenants.serializers",
+        "description": "backend.tenants.serializers",
+        "peekOfCode": "class TenantDomainSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = TenantDomain\n        fields = [\n            \"id\",\n            \"domain\",\n            \"is_primary\",\n            \"is_verified\",\n            \"verification_token\",\n            \"verified_at\",",
+        "detail": "backend.tenants.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "TenantDomainCreateSerializer",
+        "kind": 6,
+        "importPath": "backend.tenants.serializers",
+        "description": "backend.tenants.serializers",
+        "peekOfCode": "class TenantDomainCreateSerializer(serializers.Serializer):\n    domain = serializers.CharField(max_length=255)\n    is_primary = serializers.BooleanField(default=False, required=False)\nclass TenantDomainVerifySerializer(serializers.Serializer):\n    token = serializers.CharField(max_length=64)\nclass TenantBrandingSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Tenant\n        fields = [\n            \"id\",",
+        "detail": "backend.tenants.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "TenantDomainVerifySerializer",
+        "kind": 6,
+        "importPath": "backend.tenants.serializers",
+        "description": "backend.tenants.serializers",
+        "peekOfCode": "class TenantDomainVerifySerializer(serializers.Serializer):\n    token = serializers.CharField(max_length=64)\nclass TenantBrandingSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Tenant\n        fields = [\n            \"id\",\n            \"name\",\n            \"brand_logo_url\",\n            \"brand_primary_color\",",
+        "detail": "backend.tenants.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "TenantBrandingSerializer",
+        "kind": 6,
+        "importPath": "backend.tenants.serializers",
+        "description": "backend.tenants.serializers",
+        "peekOfCode": "class TenantBrandingSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Tenant\n        fields = [\n            \"id\",\n            \"name\",\n            \"brand_logo_url\",\n            \"brand_primary_color\",\n            \"brand_text_color\",\n        ]",
+        "detail": "backend.tenants.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "normalize_domain",
+        "kind": 2,
+        "importPath": "backend.tenants.services",
+        "description": "backend.tenants.services",
+        "peekOfCode": "def normalize_domain(domain: str) -> str:\n    domain = domain.strip().lower()\n    if domain.startswith(\"http://\") or domain.startswith(\"https://\"):\n        parsed = urlparse(domain)\n        domain = parsed.netloc\n    else:\n        parsed = urlparse(f\"//{domain}\")\n        domain = parsed.netloc or domain\n    return domain.split(\"/\")[0].strip()\ndef list_domains_for_tenant(*, tenant: Tenant) -> Iterable[TenantDomain]:",
+        "detail": "backend.tenants.services",
+        "documentation": {}
+    },
+    {
+        "label": "list_domains_for_tenant",
+        "kind": 2,
+        "importPath": "backend.tenants.services",
+        "description": "backend.tenants.services",
+        "peekOfCode": "def list_domains_for_tenant(*, tenant: Tenant) -> Iterable[TenantDomain]:\n    return TenantDomain.objects.filter(tenant=tenant).order_by(\"-created_at\")\ndef create_domain(*, tenant: Tenant, domain: str, is_primary: bool = False) -> TenantDomain:\n    domain = normalize_domain(domain)\n    token = secrets.token_hex(16)\n    return TenantDomain.objects.create(\n        tenant=tenant,\n        domain=domain,\n        is_primary=is_primary,\n        verification_token=token,",
+        "detail": "backend.tenants.services",
+        "documentation": {}
+    },
+    {
+        "label": "create_domain",
+        "kind": 2,
+        "importPath": "backend.tenants.services",
+        "description": "backend.tenants.services",
+        "peekOfCode": "def create_domain(*, tenant: Tenant, domain: str, is_primary: bool = False) -> TenantDomain:\n    domain = normalize_domain(domain)\n    token = secrets.token_hex(16)\n    return TenantDomain.objects.create(\n        tenant=tenant,\n        domain=domain,\n        is_primary=is_primary,\n        verification_token=token,\n    )\ndef _resolve_ips(host: str) -> set[str]:",
+        "detail": "backend.tenants.services",
+        "documentation": {}
+    },
+    {
+        "label": "verify_domain",
+        "kind": 2,
+        "importPath": "backend.tenants.services",
+        "description": "backend.tenants.services",
+        "peekOfCode": "def verify_domain(*, domain_obj: TenantDomain, token: str, target_host: str) -> bool:\n    if token != domain_obj.verification_token:\n        return False\n    try:\n        domain_ips = _resolve_ips(domain_obj.domain)\n        target_ips = _resolve_ips(target_host)\n    except socket.gaierror:\n        return False\n    if not domain_ips or not target_ips or domain_ips.isdisjoint(target_ips):\n        return False",
+        "detail": "backend.tenants.services",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "backend.tenants.urls",
+        "description": "backend.tenants.urls",
+        "peekOfCode": "urlpatterns = [\n    path(\"domains/\", DomainListCreateView.as_view(), name=\"tenant-domains\"),\n    path(\"domains/<int:domain_id>/\", DomainDetailView.as_view(), name=\"tenant-domain-detail\"),\n    path(\"domains/<int:domain_id>/verify/\", DomainVerifyView.as_view(), name=\"tenant-domain-verify\"),\n    path(\"branding/\", TenantBrandingView.as_view(), name=\"tenant-branding\"),\n]",
+        "detail": "backend.tenants.urls",
+        "documentation": {}
+    },
+    {
+        "label": "resolve_tenant",
+        "kind": 2,
+        "importPath": "backend.tenants.utils",
+        "description": "backend.tenants.utils",
+        "peekOfCode": "def resolve_tenant(request: HttpRequest) -> Optional[object]:\n    host = request.get_host().split(\":\")[0].lower()\n    if not host:\n        return None\n    try:\n        domain = TenantDomain.objects.select_related(\"tenant\").get(domain=host, is_verified=True)\n    except TenantDomain.DoesNotExist:\n        if host in {\"localhost\", \"127.0.0.1\"}:\n            tenant = Tenant.objects.filter(is_active=True).first()\n            if tenant:",
+        "detail": "backend.tenants.utils",
+        "documentation": {}
+    },
+    {
+        "label": "DomainListCreateView",
+        "kind": 6,
+        "importPath": "backend.tenants.views",
+        "description": "backend.tenants.views",
+        "peekOfCode": "class DomainListCreateView(APIView):\n    permission_classes = [IsAuthenticated]\n    def get(self, request):\n        tenant = request.tenant\n        if tenant is None:\n            return api_response(message=\"Tenant not resolved\", status_code=400)\n        domains = list_domains_for_tenant(tenant=tenant)\n        serializer = TenantDomainSerializer(domains, many=True)\n        return api_response(data=serializer.data, message=\"Domains fetched\")\n    def post(self, request):",
+        "detail": "backend.tenants.views",
+        "documentation": {}
+    },
+    {
+        "label": "DomainDetailView",
+        "kind": 6,
+        "importPath": "backend.tenants.views",
+        "description": "backend.tenants.views",
+        "peekOfCode": "class DomainDetailView(APIView):\n    permission_classes = [IsAuthenticated]\n    def delete(self, request, domain_id: int):\n        tenant = request.tenant\n        if tenant is None:\n            return api_response(message=\"Tenant not resolved\", status_code=400)\n        try:\n            domain = TenantDomain.objects.get(id=domain_id, tenant=tenant)\n        except TenantDomain.DoesNotExist:\n            return api_response(message=\"Domain not found\", status_code=404)",
+        "detail": "backend.tenants.views",
+        "documentation": {}
+    },
+    {
+        "label": "DomainVerifyView",
+        "kind": 6,
+        "importPath": "backend.tenants.views",
+        "description": "backend.tenants.views",
+        "peekOfCode": "class DomainVerifyView(APIView):\n    permission_classes = [IsAuthenticated]\n    def post(self, request, domain_id: int):\n        tenant = request.tenant\n        if tenant is None:\n            return api_response(message=\"Tenant not resolved\", status_code=400)\n        try:\n            domain = TenantDomain.objects.get(id=domain_id, tenant=tenant)\n        except TenantDomain.DoesNotExist:\n            return api_response(message=\"Domain not found\", status_code=404)",
+        "detail": "backend.tenants.views",
+        "documentation": {}
+    },
+    {
+        "label": "TenantBrandingView",
+        "kind": 6,
+        "importPath": "backend.tenants.views",
+        "description": "backend.tenants.views",
+        "peekOfCode": "class TenantBrandingView(APIView):\n    permission_classes = [IsAuthenticated]\n    def get(self, request):\n        tenant = request.tenant\n        if tenant is None:\n            return api_response(message=\"Tenant not resolved\", status_code=400)\n        serializer = TenantBrandingSerializer(tenant)\n        return api_response(data=serializer.data, message=\"Tenant branding fetched\")\n    def patch(self, request):\n        tenant = request.tenant",
+        "detail": "backend.tenants.views",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "backend.manage",
+        "description": "backend.manage",
+        "peekOfCode": "def main():\n    \"\"\"Run administrative tasks.\"\"\"\n    os.environ.setdefault(\"DJANGO_SETTINGS_MODULE\", \"config.settings\")\n    try:\n        from django.core.management import execute_from_command_line\n    except ImportError as exc:\n        raise ImportError(\n            \"Couldn't import Django. Are you sure it's installed and \"\n            \"available on your PYTHONPATH environment variable? Did you \"\n            \"forget to activate a virtual environment?\"",
+        "detail": "backend.manage",
+        "documentation": {}
+    },
+    {
+        "label": "_Known",
+        "kind": 6,
+        "importPath": "frontend.node_modules.flatted.python.flatted",
+        "description": "frontend.node_modules.flatted.python.flatted",
+        "peekOfCode": "class _Known:\n    def __init__(self):\n        self.key = []\n        self.value = []\nclass _String:\n    def __init__(self, value):\n        self.value = value\ndef _array_keys(value):\n    for i in range(len(value)):\n        yield i",
+        "detail": "frontend.node_modules.flatted.python.flatted",
+        "documentation": {}
+    },
+    {
+        "label": "_String",
+        "kind": 6,
+        "importPath": "frontend.node_modules.flatted.python.flatted",
+        "description": "frontend.node_modules.flatted.python.flatted",
+        "peekOfCode": "class _String:\n    def __init__(self, value):\n        self.value = value\ndef _array_keys(value):\n    for i in range(len(value)):\n        yield i\ndef _object_keys(value):\n    for key in value:\n        yield key\ndef _is_array(value):",
+        "detail": "frontend.node_modules.flatted.python.flatted",
+        "documentation": {}
+    },
+    {
+        "label": "parse",
+        "kind": 2,
+        "importPath": "frontend.node_modules.flatted.python.flatted",
+        "description": "frontend.node_modules.flatted.python.flatted",
+        "peekOfCode": "def parse(value, *args, **kwargs):\n    json = _json.loads(value, *args, **kwargs)\n    wrapped = []\n    for value in json:\n        wrapped.append(_wrap(value))\n    input = []\n    for value in wrapped:\n        if isinstance(value, _String):\n            input.append(value.value)\n        else:",
+        "detail": "frontend.node_modules.flatted.python.flatted",
+        "documentation": {}
+    },
+    {
+        "label": "stringify",
+        "kind": 2,
+        "importPath": "frontend.node_modules.flatted.python.flatted",
+        "description": "frontend.node_modules.flatted.python.flatted",
+        "peekOfCode": "def stringify(value, *args, **kwargs):\n    known = _Known()\n    input = []\n    output = []\n    i = int(_index(known, input, value))\n    while i < len(input):\n        output.append(_transform(known, input, input[i]))\n        i += 1\n    return _json.dumps(output, *args, **kwargs)",
+        "detail": "frontend.node_modules.flatted.python.flatted",
+        "documentation": {}
+    }
+]
