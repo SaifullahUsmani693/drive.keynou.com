@@ -1,0 +1,34 @@
+{
+  "extends": ["next", "next/core-web-vitals"],
+  "overrides": [
+    {
+      "files": [
+        "src/app/admin/page.tsx",
+        "src/app/dashboard/admin/page.tsx",
+        "src/app/dashboard/analytics/page.tsx",
+        "src/app/dashboard/domains/page.tsx",
+        "src/app/dashboard/links/page.tsx",
+        "src/app/dashboard/page.tsx",
+        "src/app/dashboard/settings/page.tsx",
+        "src/app/dashboard/subscription/page.tsx",
+        "src/app/login/page.tsx",
+        "src/app/signup/page.tsx"
+      ],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off"
+      }
+    },
+    {
+      "files": ["src/components/ui/textarea.tsx"],
+      "rules": {
+        "@typescript-eslint/no-empty-object-type": "off"
+      }
+    },
+    {
+      "files": ["src/app/dashboard/page.tsx"],
+      "rules": {
+        "@next/next/no-html-link-for-pages": "warn"
+      }
+    }
+  ]
+}

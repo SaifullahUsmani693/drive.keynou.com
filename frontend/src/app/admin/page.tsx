@@ -7,9 +7,26 @@ import AdminGuard from "@/components/providers/AdminGuard";
 import DashboardShell from "@/components/dashboard/DashboardShell";
 import { adminApi } from "@/lib/api";
 
+type LegacyProfileRow = {
+  id: number | string;
+  email: string;
+  link_limit: number;
+  subscription_active: boolean;
+};
+
+type LegacyRequestRow = {
+  id: number | string;
+  name: string;
+  email: string;
+  status: "pending" | "approved" | "declined";
+  admin_notes?: string;
+  subscription_expires_at?: string | null;
+  message: string;
+};
+
 export default function AdminPage() {
-  const [profiles, setProfiles] = useState<Array<any>>([]);
-  const [requests, setRequests] = useState<Array<any>>([]);
+  const [profiles, setProfiles] = useState<LegacyProfileRow[]>([]);
+  const [requests, setRequests] = useState<LegacyRequestRow[]>([]);
   const [isLoadingProfiles, setIsLoadingProfiles] = useState(false);
   const [isLoadingRequests, setIsLoadingRequests] = useState(false);
   const [savingProfileId, setSavingProfileId] = useState<number | string | null>(null);
