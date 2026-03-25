@@ -90,12 +90,12 @@ def create_link(*, tenant, user, destination_url: str, short_code: str | None):
     link_count = Link.objects.filter(tenant=tenant, owner=user).count()
     if link_count >= effective_limit:
         if profile.subscription_active:
-            raise ValueError("Link cap reached. Request a cap increase.")
-        raise ValueError("Free cap reached. Contact support to increase your limit.")
+            return None, "Link cap reached. Request a cap increase."
+        return None, "Free cap reached. Contact support to increase your limit."
 
     requested_code = _format_short_code(user=user, short_code=short_code)
     if Link.objects.filter(short_code=requested_code).exists():
-        raise ValueError("Short link already exists. Choose a new alias.")
+        return None, "Short link already exists. Choose a new alias."
 
     with transaction.atomic():
         link = Link.objects.create(
@@ -105,7 +105,7 @@ def create_link(*, tenant, user, destination_url: str, short_code: str | None):
             short_code=requested_code,
         )
     invalidate_resolve_cache(short_code=requested_code)
-    return link
+    return link, "Link created"
 
 
 def create_subscription_request(*, tenant, user, payload):

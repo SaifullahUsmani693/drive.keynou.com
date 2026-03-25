@@ -43,8 +43,13 @@ class LinkListCreateView(APIView):
         tenant = request.tenant
         serializer = LinkCreateSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        link = create_link(tenant=tenant, user=request.user, **serializer.validated_data)
-        return api_response(data=LinkSerializer(link).data, message="Link created", status_code=201)
+        link, message = create_link(tenant=tenant, user=request.user, **serializer.validated_data)
+        data = None
+        status = 400
+        if link:
+            data = LinkSerializer(link).data
+            status = 201
+        return api_response(data=data, message=message, status_code=status)
 
 
 class SubscriptionRequestListCreateView(APIView):
