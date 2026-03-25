@@ -67,9 +67,9 @@ export default function PublicRedirectPage() {
         {logoUrl ? (
           <img src={logoUrl} alt="Brand logo" className="h-28 w-28 rounded-full object-contain" />
         ) : null}
-        <div className="text-center">
+        {payload ? <><div className="text-center">
           <p className="text-lg font-semibold" style={{ color: textColor }}>
-            {payload?.tenant_name || "Keynou Drive"}
+            {payload?.tenant_name}
           </p>
           <p className="mt-1 text-xs text-muted-foreground">
             {error ? error : "Redirecting…"}
@@ -77,7 +77,7 @@ export default function PublicRedirectPage() {
         </div>
         <div className="h-1.5 w-40 rounded-full bg-muted overflow-hidden">
           <div className="h-full animate-pulse" style={{ background: primaryColor }} />
-        </div>
+        </div></>:""}
       </div>
     </div>
   );
