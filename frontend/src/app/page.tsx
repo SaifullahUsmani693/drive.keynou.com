@@ -70,6 +70,25 @@ const faqs = [
   },
 ];
 
+const saasHighlights = [
+  {
+    title: "SaaS-grade governance",
+    body: "Gate every cap increase through manual approvals, admin notes, and Celery-backed audit logging so nothing slips past finance.",
+  },
+  {
+    title: "Global performance",
+    body: "Resolve cached links worldwide with a 60-minute TTL, Redis-backed caching, and fallback redirects that keep campaigns live.",
+  },
+  {
+    title: "Analytics your board trusts",
+    body: "Stream clicks into asynchronous Celery tasks for geo enrichment, device insights, and channel attribution without blocking redirects.",
+  },
+  {
+    title: "Multi-domain orchestration",
+    body: "Point dozens of verified domains at a single workspace, rotate vanity URLs per campaign, and deliver branded splash pages every time.",
+  },
+];
+
 export default function Home() {
   const [url, setUrl] = useState("");
   const [contact, setContact] = useState({ name: "", email: "", phone: "", message: "" });
@@ -160,7 +179,7 @@ export default function Home() {
               <Zap className="h-3.5 w-3.5" />
               Built for modern teams shipping branded links
             </div>
-            <h1 className="font-display text-5xl font-bold tracking-tight leading-[1.1] md:text-7xl">
+         <h1 className="font-display text-5xl font-bold tracking-tight leading-[1.1] md:text-7xl">
               Short links that <span className="text-gradient">feel premium</span>
             </h1>
             <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground md:text-xl">
@@ -183,6 +202,7 @@ export default function Home() {
                 </Button>
               </Link>
             </div>
+           
           </motion.div>
 
           <motion.div
@@ -226,6 +246,37 @@ export default function Home() {
               </div>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      <section id="saas" className="py-24">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="mb-14 text-center"
+          >
+            <h2 className="font-display text-3xl font-bold md:text-5xl">Purpose-built for SaaS growth engines</h2>
+            <p className="mx-auto mt-4 max-w-3xl text-lg text-muted-foreground">
+              Keynou Drive is more than a vanity shortener. It’s a branded link operations layer with multi-tenant access,
+              Celery offloading, and contact caps that let you keep revenue ops hands-on.
+            </p>
+          </motion.div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {saasHighlights.map((item) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="glass rounded-2xl p-6 text-left"
+              >
+                <p className="text-sm font-semibold uppercase tracking-wide text-primary/80">{item.title}</p>
+                <p className="mt-3 text-base text-muted-foreground">{item.body}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
