@@ -1,11 +1,24 @@
-from datetime import timedelta
 from django.contrib.auth import get_user_model
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.utils import timezone
 
 from accounts.models import Profile
+from accounts.subscription import FREE_LINK_LIMIT, default_subscription_expiry
 from drive.models import SubscriptionRequest
+
+
+def reset_expired_profiles(*, tenant=None) -> int:
+    queryset = Profile.objects.filter(subscription_active=True, subscription_expires_at__lt=timezone.now())
+    if tenant is not None:
+        queryset = queryset.filter(tenant=tenant)
+    updated = queryset.update(
+        subscription_active=False,
+        subscription_tier=Profile.SUBSCRIPTION_TIER_FREE,
+        subscription_expires_at=None,
+        link_limit=FREE_LINK_LIMIT,
+    )
+    return updated
 
 User = get_user_model()
 
@@ -24,6 +37,8 @@ def list_profiles_for_tenant(
     subscription_status: str = "all",
     subscription_tier: str = "all",
 ):
+    reset_expired_profiles(tenant=tenant)
+
     allowed_ordering = {
         "created_at": "created_at",
         "-created_at": "-created_at",
@@ -57,6 +72,10 @@ def list_profiles_for_tenant(
         queryset = queryset.filter(subscription_active=True, subscription_expires_at__gte=now, subscription_expires_at__lte=in_seven_days)
     elif subscription_status == "expired":
         queryset = queryset.filter(subscription_expires_at__lt=now)
+    elif subscription_status == "reset":
+        queryset = queryset.filter(subscription_active=False, link_limit__lte=FREE_LINK_LIMIT).filter(
+            Q(subscription_expires_at__isnull=True) | Q(subscription_expires_at__lt=now)
+        )
 
     if subscription_tier != "all":
         queryset = queryset.filter(subscription_tier=subscription_tier)
@@ -109,15 +128,22 @@ def update_profile_access(
     elif subscription_expires_at is not None:
         profile.subscription_expires_at = subscription_expires_at
         update_fields.append("subscription_expires_at")
+
+    if profile.subscription_active and profile.subscription_expires_at is None:
+        profile.subscription_expires_at = default_subscription_expiry()
+        update_fields.append("subscription_expires_at")
     if profile.subscription_tier == Profile.SUBSCRIPTION_TIER_FREE or not profile.subscription_active:
         profile.subscription_active = False
         profile.subscription_tier = Profile.SUBSCRIPTION_TIER_FREE
         profile.subscription_expires_at = None
+        profile.link_limit = FREE_LINK_LIMIT
         if "subscription_active" not in update_fields:
             update_fields.append("subscription_active")
         if "subscription_tier" not in update_fields:
             update_fields.append("subscription_tier")
         if "subscription_expires_at" not in update_fields:
             update_fields.append("subscription_expires_at")
+        if "link_limit" not in update_fields:
+            update_fields.append("link_limit")
     profile.save(update_fields=list(dict.fromkeys(update_fields)))
     return profile

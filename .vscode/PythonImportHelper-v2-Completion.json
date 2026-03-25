@@ -890,6 +890,14 @@
         "documentation": {}
     },
     {
+        "label": "timezone",
+        "importPath": "django.utils",
+        "description": "django.utils",
+        "isExtraImport": true,
+        "detail": "django.utils",
+        "documentation": {}
+    },
+    {
         "label": "get_user_model",
         "importPath": "django.contrib.auth",
         "description": "django.contrib.auth",
@@ -938,22 +946,6 @@
         "documentation": {}
     },
     {
-        "label": "timedelta",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "timedelta",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
-        "documentation": {}
-    },
-    {
         "label": "Paginator",
         "importPath": "django.core.paginator",
         "description": "django.core.paginator",
@@ -1010,51 +1002,35 @@
         "documentation": {}
     },
     {
-        "label": "SubscriptionRequest",
-        "importPath": "drive.models",
-        "description": "drive.models",
+        "label": "FREE_LINK_LIMIT",
+        "importPath": "accounts.subscription",
+        "description": "accounts.subscription",
         "isExtraImport": true,
-        "detail": "drive.models",
+        "detail": "accounts.subscription",
         "documentation": {}
     },
     {
-        "label": "Link",
-        "importPath": "drive.models",
-        "description": "drive.models",
+        "label": "default_subscription_expiry",
+        "importPath": "accounts.subscription",
+        "description": "accounts.subscription",
         "isExtraImport": true,
-        "detail": "drive.models",
+        "detail": "accounts.subscription",
         "documentation": {}
     },
     {
-        "label": "SubscriptionRequest",
-        "importPath": "drive.models",
-        "description": "drive.models",
+        "label": "FREE_LINK_LIMIT",
+        "importPath": "accounts.subscription",
+        "description": "accounts.subscription",
         "isExtraImport": true,
-        "detail": "drive.models",
+        "detail": "accounts.subscription",
         "documentation": {}
     },
     {
-        "label": "SubscriptionRequest",
-        "importPath": "drive.models",
-        "description": "drive.models",
+        "label": "default_subscription_expiry",
+        "importPath": "accounts.subscription",
+        "description": "accounts.subscription",
         "isExtraImport": true,
-        "detail": "drive.models",
-        "documentation": {}
-    },
-    {
-        "label": "SubscriptionRequest",
-        "importPath": "drive.models",
-        "description": "drive.models",
-        "isExtraImport": true,
-        "detail": "drive.models",
-        "documentation": {}
-    },
-    {
-        "label": "Link",
-        "importPath": "drive.models",
-        "description": "drive.models",
-        "isExtraImport": true,
-        "detail": "drive.models",
+        "detail": "accounts.subscription",
         "documentation": {}
     },
     {
@@ -1082,11 +1058,75 @@
         "documentation": {}
     },
     {
+        "label": "SubscriptionRequest",
+        "importPath": "drive.models",
+        "description": "drive.models",
+        "isExtraImport": true,
+        "detail": "drive.models",
+        "documentation": {}
+    },
+    {
+        "label": "SubscriptionRequest",
+        "importPath": "drive.models",
+        "description": "drive.models",
+        "isExtraImport": true,
+        "detail": "drive.models",
+        "documentation": {}
+    },
+    {
         "label": "Link",
         "importPath": "drive.models",
         "description": "drive.models",
         "isExtraImport": true,
         "detail": "drive.models",
+        "documentation": {}
+    },
+    {
+        "label": "SubscriptionRequest",
+        "importPath": "drive.models",
+        "description": "drive.models",
+        "isExtraImport": true,
+        "detail": "drive.models",
+        "documentation": {}
+    },
+    {
+        "label": "Link",
+        "importPath": "drive.models",
+        "description": "drive.models",
+        "isExtraImport": true,
+        "detail": "drive.models",
+        "documentation": {}
+    },
+    {
+        "label": "SubscriptionRequest",
+        "importPath": "drive.models",
+        "description": "drive.models",
+        "isExtraImport": true,
+        "detail": "drive.models",
+        "documentation": {}
+    },
+    {
+        "label": "Link",
+        "importPath": "drive.models",
+        "description": "drive.models",
+        "isExtraImport": true,
+        "detail": "drive.models",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
         "documentation": {}
     },
     {
@@ -2083,7 +2123,7 @@
         "kind": 6,
         "importPath": "backend.accounts.admin_serializers",
         "description": "backend.accounts.admin_serializers",
-        "peekOfCode": "class AdminTableQuerySerializer(serializers.Serializer):\n    page = serializers.IntegerField(min_value=1, required=False, default=1)\n    page_size = serializers.IntegerField(min_value=1, max_value=100, required=False, default=10)\n    search = serializers.CharField(required=False, allow_blank=True, default=\"\")\n    ordering = serializers.CharField(required=False, allow_blank=True, default=\"-created_at\")\n    subscription_status = serializers.ChoiceField(\n        choices=[\"all\", \"active\", \"inactive\", \"expiring\", \"expired\"],\n        required=False,\n        default=\"all\",\n    )",
+        "peekOfCode": "class AdminTableQuerySerializer(serializers.Serializer):\n    page = serializers.IntegerField(min_value=1, required=False, default=1)\n    page_size = serializers.IntegerField(min_value=1, max_value=100, required=False, default=10)\n    search = serializers.CharField(required=False, allow_blank=True, default=\"\")\n    ordering = serializers.CharField(required=False, allow_blank=True, default=\"-created_at\")\n    subscription_status = serializers.ChoiceField(\n        choices=[\"all\", \"active\", \"inactive\", \"expiring\", \"expired\", \"reset\"],\n        required=False,\n        default=\"all\",\n    )",
         "detail": "backend.accounts.admin_serializers",
         "documentation": {}
     },
@@ -2196,6 +2236,15 @@
         "documentation": {}
     },
     {
+        "label": "reset_expired_profiles",
+        "kind": 2,
+        "importPath": "backend.accounts.services",
+        "description": "backend.accounts.services",
+        "peekOfCode": "def reset_expired_profiles(*, tenant=None) -> int:\n    queryset = Profile.objects.filter(subscription_active=True, subscription_expires_at__lt=timezone.now())\n    if tenant is not None:\n        queryset = queryset.filter(tenant=tenant)\n    updated = queryset.update(\n        subscription_active=False,\n        subscription_tier=Profile.SUBSCRIPTION_TIER_FREE,\n        subscription_expires_at=None,\n        link_limit=FREE_LINK_LIMIT,\n    )",
+        "detail": "backend.accounts.services",
+        "documentation": {}
+    },
+    {
         "label": "get_profile_for_user",
         "kind": 2,
         "importPath": "backend.accounts.services",
@@ -2229,6 +2278,33 @@
         "description": "backend.accounts.services",
         "peekOfCode": "User = get_user_model()\ndef get_profile_for_user(user):\n    return Profile.objects.select_related(\"tenant\").filter(user=user).first()\ndef list_profiles_for_tenant(\n    *,\n    tenant,\n    page: int = 1,\n    page_size: int = 10,\n    search: str = \"\",\n    ordering: str = \"-created_at\",",
         "detail": "backend.accounts.services",
+        "documentation": {}
+    },
+    {
+        "label": "default_subscription_expiry",
+        "kind": 2,
+        "importPath": "backend.accounts.subscription",
+        "description": "backend.accounts.subscription",
+        "peekOfCode": "def default_subscription_expiry():\n    return timezone.now() + timedelta(days=SUBSCRIPTION_EXTENSION_DAYS)",
+        "detail": "backend.accounts.subscription",
+        "documentation": {}
+    },
+    {
+        "label": "FREE_LINK_LIMIT",
+        "kind": 5,
+        "importPath": "backend.accounts.subscription",
+        "description": "backend.accounts.subscription",
+        "peekOfCode": "FREE_LINK_LIMIT = 2\nSUBSCRIPTION_EXTENSION_DAYS = 30\ndef default_subscription_expiry():\n    return timezone.now() + timedelta(days=SUBSCRIPTION_EXTENSION_DAYS)",
+        "detail": "backend.accounts.subscription",
+        "documentation": {}
+    },
+    {
+        "label": "SUBSCRIPTION_EXTENSION_DAYS",
+        "kind": 5,
+        "importPath": "backend.accounts.subscription",
+        "description": "backend.accounts.subscription",
+        "peekOfCode": "SUBSCRIPTION_EXTENSION_DAYS = 30\ndef default_subscription_expiry():\n    return timezone.now() + timedelta(days=SUBSCRIPTION_EXTENSION_DAYS)",
+        "detail": "backend.accounts.subscription",
         "documentation": {}
     },
     {
@@ -3019,7 +3095,7 @@
         "kind": 2,
         "importPath": "backend.drive.services",
         "description": "backend.drive.services",
-        "peekOfCode": "def create_link(*, tenant, user, destination_url: str, short_code: str | None):\n    profile, _ = Profile.objects.select_related(\"tenant\").get_or_create(\n        user=user,\n        defaults={\"tenant\": tenant},\n    )\n    free_limit = 2\n    effective_limit = profile.link_limit if profile.subscription_active else free_limit\n    link_count = Link.objects.filter(tenant=tenant, owner=user).count()\n    if link_count >= effective_limit:\n        if profile.subscription_active:",
+        "peekOfCode": "def create_link(*, tenant, user, destination_url: str, short_code: str | None):\n    profile, _ = Profile.objects.select_related(\"tenant\").get_or_create(\n        user=user,\n        defaults={\"tenant\": tenant},\n    )\n    free_limit = FREE_LINK_LIMIT\n    effective_limit = profile.link_limit if profile.subscription_active else free_limit\n    link_count = Link.objects.filter(tenant=tenant, owner=user).count()\n    if link_count >= effective_limit:\n        if profile.subscription_active:",
         "detail": "backend.drive.services",
         "documentation": {}
     },

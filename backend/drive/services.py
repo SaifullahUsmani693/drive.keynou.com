@@ -6,6 +6,7 @@ from django.db import transaction
 from django.db.models import Count, Q
 
 from accounts.models import Profile
+from accounts.subscription import FREE_LINK_LIMIT, default_subscription_expiry
 from drive.models import Link, SubscriptionRequest
 
 RESOLVE_CACHE_TTL = 60 * 60
@@ -83,7 +84,7 @@ def create_link(*, tenant, user, destination_url: str, short_code: str | None):
         user=user,
         defaults={"tenant": tenant},
     )
-    free_limit = 2
+    free_limit = FREE_LINK_LIMIT
     effective_limit = profile.link_limit if profile.subscription_active else free_limit
 
     link_count = Link.objects.filter(tenant=tenant, owner=user).count()
@@ -264,11 +265,14 @@ def update_subscription_request(
                 profile.subscription_expires_at = subscription_expires_at
             elif selected_tier == Profile.SUBSCRIPTION_TIER_UNLIMITED:
                 profile.subscription_expires_at = None
+            else:
+                profile.subscription_expires_at = default_subscription_expiry()
             profile.save(update_fields=["subscription_active", "subscription_tier", "link_limit", "subscription_expires_at", "updated_at"])
         else:
             profile.subscription_active = False
             profile.subscription_tier = Profile.SUBSCRIPTION_TIER_FREE
             profile.subscription_expires_at = None
+            profile.link_limit = FREE_LINK_LIMIT
             profile.save(update_fields=["subscription_active", "subscription_tier", "subscription_expires_at", "updated_at"])
 
     request_obj.save(update_fields=list(dict.fromkeys(update_fields)))

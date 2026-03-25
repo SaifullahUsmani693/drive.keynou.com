@@ -16,7 +16,7 @@ class AdminTableQuerySerializer(serializers.Serializer):
     search = serializers.CharField(required=False, allow_blank=True, default="")
     ordering = serializers.CharField(required=False, allow_blank=True, default="-created_at")
     subscription_status = serializers.ChoiceField(
-        choices=["all", "active", "inactive", "expiring", "expired"],
+        choices=["all", "active", "inactive", "expiring", "expired", "reset"],
         required=False,
         default="all",
     )
