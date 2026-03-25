@@ -21,6 +21,7 @@ export default function AnalyticsPage() {
     x: number;
     y: number;
   } | null>(null);
+  const [hoveredRegionKey, setHoveredRegionKey] = useState<string | null>(null);
 
   const countryData = useMemo(() => {
     const list = (analytics?.country_counts ?? []) as Array<{
@@ -131,15 +132,21 @@ export default function AnalyticsPage() {
     event: React.MouseEvent<SVGPathElement, MouseEvent>,
     displayName: string,
     data: { total: number; country: string } | undefined,
+    regionKey: string,
   ) => {
-    const { clientX, clientY } = event.nativeEvent;
+    const svg = event.currentTarget.ownerSVGElement;
+    if (!svg) return;
+    const rect = svg.getBoundingClientRect();
+    const x = event.clientX - rect.left + 12;
+    const y = event.clientY - rect.top + 12;
     setHoveredCountry({
       name: data?.country || displayName || "No data",
       total: data?.total ?? 0,
       hasData: Boolean(data),
-      x: clientX + 12,
-      y: clientY + 12,
+      x,
+      y,
     });
+    setHoveredRegionKey(regionKey);
   };
 
   return (
@@ -177,13 +184,16 @@ export default function AnalyticsPage() {
               <Loader2 className="w-6 h-6 animate-spin text-muted-foreground" />
             </div>
           ) : (
-            <div className="w-full overflow-hidden rounded-lg bg-secondary/20 p-4">
+            <div className="w-full  rounded-lg ">
               {mapPath && worldGeos.length ? (
                 <div className="relative">
                   <svg
                     viewBox="0 0 800 380"
                     className="w-full h-[380px]"
-                    onMouseLeave={() => setHoveredCountry(null)}
+                    onMouseLeave={() => {
+                      setHoveredCountry(null);
+                      setHoveredRegionKey(null);
+                    }}
                   >
                     {worldGeos.map((geo: any) => {
                       const props = geo.properties || {};
@@ -191,20 +201,22 @@ export default function AnalyticsPage() {
                       const nameKey = (props.name || props.NAME || "").toUpperCase();
                       const data = countryData[iso] || countryData[nameKey];
                       const intensity = data && maxCount ? data.total / maxCount : 0;
+                      const regionKey = iso || nameKey;
                       const fill = data
                         ? `rgba(8, 183, 185, ${0.25 + intensity * 0.75})`
-                        : "rgba(255,255,255,0.06)";
+                        : "rgba(200,200,200)";
                       return (
                         <path
                           key={geo.id || iso}
                           d={mapPath(geo) || undefined}
                           fill={fill}
-                          stroke="rgba(255,255,255,0.08)"
+                          stroke={hoveredRegionKey === regionKey ? "rgba(8,183,185,0.9)" : "rgba(255,255,255,0.08)"}
+                          strokeWidth={hoveredRegionKey === regionKey ? 1.5 : 0.5}
                           onMouseEnter={(event) =>
-                            handleRegionHover(event, props.name || props.NAME || iso || "Unknown", data)
+                            handleRegionHover(event, props.name || props.NAME || iso || "Unknown", data, regionKey)
                           }
                           onMouseMove={(event) =>
-                            handleRegionHover(event, props.name || props.NAME || iso || "Unknown", data)
+                            handleRegionHover(event, props.name || props.NAME || iso || "Unknown", data, regionKey)
                           }
                         />
                       );
@@ -212,7 +224,7 @@ export default function AnalyticsPage() {
                   </svg>
                   {hoveredCountry ? (
                     <div
-                      className="pointer-events-none fixed z-50 rounded-lg border border-white/20 bg-background/90 px-3 py-2 shadow-lg backdrop-blur"
+                      className="pointer-events-none absolute z-50 rounded-lg border border-white/20 bg-background/90 px-3 py-2 shadow-lg backdrop-blur"
                       style={{ left: hoveredCountry.x, top: hoveredCountry.y }}
                     >
                       <p className="text-xs font-semibold text-foreground">{hoveredCountry.name}</p>
