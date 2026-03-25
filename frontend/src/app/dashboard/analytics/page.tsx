@@ -22,11 +22,20 @@ export default function AnalyticsPage() {
       total?: number;
     }>;
     return list.reduce((acc, item) => {
-      if (!item?.country_code) return acc;
-      acc[item.country_code] = {
-        total: Number(item.total) || 0,
-        country: item.country || item.country_code,
+      if (!item) return acc;
+      const total = Number(item.total) || 0;
+      const isoKey = (item.country_code || "").toUpperCase();
+      const nameKey = (item.country || "").toUpperCase();
+      const payload = {
+        total,
+        country: item.country || item.country_code || "Unknown",
       };
+      if (isoKey) {
+        acc[isoKey] = payload;
+      }
+      if (nameKey && nameKey !== isoKey) {
+        acc[nameKey] = payload;
+      }
       return acc;
     }, {} as Record<string, { total: number; country: string }>);
   }, [analytics]);
@@ -151,8 +160,9 @@ export default function AnalyticsPage() {
                 <svg viewBox="0 0 800 380" className="w-full h-[380px]">
                   {worldGeos.map((geo: any) => {
                     const props = geo.properties || {};
-                    const iso = (props.ISO_A2 || props.iso_a2 || "").toUpperCase();
-                    const data = iso ? countryData[iso] : undefined;
+                    const iso = (props.ISO_A2 || props.iso_a2 || props.ISO_A2_EH || "").toUpperCase();
+                    const nameKey = (props.name || props.NAME || "").toUpperCase();
+                    const data = countryData[iso] || countryData[nameKey];
                     const intensity = data && maxCount ? data.total / maxCount : 0;
                     const fill = data
                       ? `rgba(8, 183, 185, ${0.25 + intensity * 0.75})`

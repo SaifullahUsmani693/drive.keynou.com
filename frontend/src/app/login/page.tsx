@@ -36,8 +36,6 @@ export default function LoginPage() {
       const response = await accountsApi.login({ identifier: email, password });
       dispatch(setUser(response.data?.data ?? null));
       router.push("/dashboard");
-    } catch (error: any) {
-      toast.error(error?.response?.data?.message || "Unable to sign in");
     } finally {
       setIsLoading(false);
     }

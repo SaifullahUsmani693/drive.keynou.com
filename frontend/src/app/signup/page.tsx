@@ -44,8 +44,6 @@ export default function SignupPage() {
       });
       dispatch(setUser(response.data?.data ?? null));
       router.push("/dashboard");
-    } catch (error: any) {
-      toast.error(error?.response?.data?.message || "Unable to create account");
     } finally {
       setIsLoading(false);
     }
@@ -57,17 +55,15 @@ export default function SignupPage() {
 
   return (
     <div className="min-h-screen flex">
-      <div
-        className="hidden lg:flex lg:w-1/2 relative overflow-hidden items-center justify-center"
-        style={{ background: "var(--gradient-dark)" }}
-      >
-        <div className="absolute inset-0 grid-pattern opacity-20" />
-        <div className="relative z-10 p-12 max-w-md text-primary-foreground">
-          <h2 className="font-display text-4xl font-bold mb-4">Start shortening</h2>
+       <div className="hidden lg:flex lg:w-1/2 bg-gradient-primary relative overflow-hidden items-center justify-center">
+        <div className="absolute inset-0 grid-pattern opacity-10" />
+        <div className="relative z-10 p-12 max-w-md">
+          <h2 className="font-display text-4xl font-bold text-primary-foreground mb-4">Start shortening</h2>
           <p className="text-primary-foreground/70 text-lg">
-            Join thousands of marketers using keynou drive to grow their business.
+                        Join thousands of marketers using keynou drive to grow their business.
+
           </p>
-          <div className="mt-8 grid grid-cols-3 gap-4">
+       <div className="mt-8 grid grid-cols-3 gap-4">
             {[
               { n: "10K+", l: "Users" },
               { n: "50M+", l: "Links" },
@@ -75,7 +71,7 @@ export default function SignupPage() {
             ].map((stat) => (
               <div key={stat.l} className="glass rounded-lg p-3 text-center">
                 <p className="font-display text-xl font-bold text-primary">{stat.n}</p>
-                <p className="text-xs text-primary-foreground/70">{stat.l}</p>
+                <p className="text-xs text-primary-foreground">{stat.l}</p>
               </div>
             ))}
           </div>
@@ -84,8 +80,8 @@ export default function SignupPage() {
 
       <div className="flex-1 flex items-center justify-center p-8">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="w-full max-w-sm">
-          <Link href="/" className="mb-8 block">
-            <img src="/keynou_drove_logo.png" alt="Keynou Drive" className="h-10 w-auto" />
+           <Link href="/" className="mb-8 block">
+            <img src="/keynou_drove_logo.png" alt="Keynou Drive" className="h-20 w-auto drop-shadow" />
           </Link>
           <h1 className="font-display text-2xl font-bold mb-2">Create account</h1>
           <p className="text-sm text-muted-foreground mb-8">Get started with your free account</p>

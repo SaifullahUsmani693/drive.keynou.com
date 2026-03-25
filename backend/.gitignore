@@ -44,6 +44,7 @@ eggs/
 lib/
 lib64/
 parts/
+media/
 sdist/
 var/
 *.egg-info/

@@ -96,9 +96,9 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       <nav className="fixed top-0 z-50 w-full glass">
-        <div className="container mx-auto flex h-16 items-center justify-between px-6">
-          <Link href="/" className="flex items-center">
-            <img src="/keynou_drove_logo.png" alt="Keynou Drive" className="h-9 w-auto" />
+        <div className="container mx-auto flex h-20 items-center justify-between px-6">
+          <Link href="/" className="flex items-center ">
+            <img src="/keynou_drove_logo.png" alt="Keynou Drive" className="h-16 w-auto" />
           </Link>
           <div className="hidden items-center gap-8 md:flex">
             <a
@@ -453,7 +453,7 @@ export default function Home() {
 
       <footer className="border-t border-border py-12">
         <div className="container mx-auto flex flex-col items-center justify-between gap-4 px-6 md:flex-row">
-          <img src="/keynou_drove_logo.png" alt="Keynou Drive" className="h-8 w-auto" />
+          <img src="/keynou_drove_logo.png" alt="Keynou Drive" className="h-16 w-auto" />
           <div className="text-xs text-muted-foreground text-center md:text-right">
             <p>© 2026 drive.keynou.com. All rights reserved.</p>
             <p>
