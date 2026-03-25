@@ -104,7 +104,7 @@ export default function DashboardShell({ children, className, contentClassName }
           <div className="glass rounded-xl p-4 mb-3">
             <div className="flex items-center gap-2 mb-2">
               <ShieldCheck className="w-4 h-4 text-primary" />
-              <span className="text-xs font-semibold">Manual Access</span>
+              <span className="text-xs font-semibold">Premium Access</span>
             </div>
             <p className="text-xs text-muted-foreground mb-3">
               {profile?.subscription_active
@@ -211,7 +211,7 @@ export default function DashboardShell({ children, className, contentClassName }
             <div className="glass rounded-xl p-4 mb-4">
               <div className="flex items-center gap-2 mb-2">
                 <ShieldCheck className="w-4 h-4 text-primary" />
-                <span className="text-xs font-semibold">Manual Access</span>
+                <span className="text-xs font-semibold">Premium Access</span>
               </div>
               <p className="text-xs text-muted-foreground mb-3">
                 {profile?.subscription_active

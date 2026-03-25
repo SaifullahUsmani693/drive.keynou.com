@@ -248,16 +248,6 @@ export default function AnalyticsPage() {
                 <p>
                   Highlighted countries: {analytics?.total_countries ?? 0}. Darker regions mean more clicks.
                 </p>
-                {(analytics?.country_counts ?? []).length ? (
-                  <div className="grid gap-2 pt-2 sm:grid-cols-2 lg:grid-cols-3">
-                    {(analytics?.country_counts ?? []).map((item: any) => (
-                      <div key={`${item.country_code}-${item.country}`} className="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
-                        <div className="font-medium text-foreground">{item.country || item.country_code}</div>
-                        <div>{item.total ?? 0} clicks</div>
-                      </div>
-                    ))}
-                  </div>
-                ) : null}
               </div>
             </div>
           )}
