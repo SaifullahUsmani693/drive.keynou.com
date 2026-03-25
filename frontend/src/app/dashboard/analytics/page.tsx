@@ -14,6 +14,13 @@ export default function AnalyticsPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [worldGeos, setWorldGeos] = useState<any[]>([]);
   const [mapLoadFailed, setMapLoadFailed] = useState(false);
+  const [hoveredCountry, setHoveredCountry] = useState<{
+    name: string;
+    total: number;
+    hasData: boolean;
+    x: number;
+    y: number;
+  } | null>(null);
 
   const countryData = useMemo(() => {
     const list = (analytics?.country_counts ?? []) as Array<{
@@ -120,6 +127,21 @@ export default function AnalyticsPage() {
     return geoPath(projection);
   }, [worldGeos]);
 
+  const handleRegionHover = (
+    event: React.MouseEvent<SVGPathElement, MouseEvent>,
+    displayName: string,
+    data: { total: number; country: string } | undefined,
+  ) => {
+    const { clientX, clientY } = event.nativeEvent;
+    setHoveredCountry({
+      name: data?.country || displayName || "No data",
+      total: data?.total ?? 0,
+      hasData: Boolean(data),
+      x: clientX + 12,
+      y: clientY + 12,
+    });
+  };
+
   return (
     <AuthGuard>
       <DashboardShell>
@@ -157,26 +179,52 @@ export default function AnalyticsPage() {
           ) : (
             <div className="w-full overflow-hidden rounded-lg bg-secondary/20 p-4">
               {mapPath && worldGeos.length ? (
-                <svg viewBox="0 0 800 380" className="w-full h-[380px]">
-                  {worldGeos.map((geo: any) => {
-                    const props = geo.properties || {};
-                    const iso = (props.ISO_A2 || props.iso_a2 || props.ISO_A2_EH || "").toUpperCase();
-                    const nameKey = (props.name || props.NAME || "").toUpperCase();
-                    const data = countryData[iso] || countryData[nameKey];
-                    const intensity = data && maxCount ? data.total / maxCount : 0;
-                    const fill = data
-                      ? `rgba(8, 183, 185, ${0.25 + intensity * 0.75})`
-                      : "rgba(255,255,255,0.06)";
-                    return (
-                      <path
-                        key={geo.id || iso}
-                        d={mapPath(geo) || undefined}
-                        fill={fill}
-                        stroke="rgba(255,255,255,0.08)"
-                      />
-                    );
-                  })}
-                </svg>
+                <div className="relative">
+                  <svg
+                    viewBox="0 0 800 380"
+                    className="w-full h-[380px]"
+                    onMouseLeave={() => setHoveredCountry(null)}
+                  >
+                    {worldGeos.map((geo: any) => {
+                      const props = geo.properties || {};
+                      const iso = (props.ISO_A2 || props.iso_a2 || props.ISO_A2_EH || "").toUpperCase();
+                      const nameKey = (props.name || props.NAME || "").toUpperCase();
+                      const data = countryData[iso] || countryData[nameKey];
+                      const intensity = data && maxCount ? data.total / maxCount : 0;
+                      const fill = data
+                        ? `rgba(8, 183, 185, ${0.25 + intensity * 0.75})`
+                        : "rgba(255,255,255,0.06)";
+                      return (
+                        <path
+                          key={geo.id || iso}
+                          d={mapPath(geo) || undefined}
+                          fill={fill}
+                          stroke="rgba(255,255,255,0.08)"
+                          onMouseEnter={(event) =>
+                            handleRegionHover(event, props.name || props.NAME || iso || "Unknown", data)
+                          }
+                          onMouseMove={(event) =>
+                            handleRegionHover(event, props.name || props.NAME || iso || "Unknown", data)
+                          }
+                        />
+                      );
+                    })}
+                  </svg>
+                  {hoveredCountry ? (
+                    <div
+                      className="pointer-events-none fixed z-50 rounded-lg border border-white/20 bg-background/90 px-3 py-2 shadow-lg backdrop-blur"
+                      style={{ left: hoveredCountry.x, top: hoveredCountry.y }}
+                    >
+                      <p className="text-xs font-semibold text-foreground">{hoveredCountry.name}</p>
+                      <p className="text-[11px] text-muted-foreground">
+                        {hoveredCountry.total.toLocaleString()} click{hoveredCountry.total === 1 ? "" : "s"}
+                      </p>
+                      {!hoveredCountry.hasData ? (
+                        <p className="text-[10px] uppercase tracking-wide text-muted-foreground">No tracked clicks</p>
+                      ) : null}
+                    </div>
+                  ) : null}
+                </div>
               ) : (
                 <div className="flex h-[220px] items-center justify-center rounded-lg border border-white/10 bg-black/10 text-center text-sm text-muted-foreground">
                   {mapLoadFailed

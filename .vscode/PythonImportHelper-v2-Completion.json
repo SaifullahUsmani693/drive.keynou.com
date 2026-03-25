@@ -1219,14 +1219,6 @@
         "documentation": {}
     },
     {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
-        "isExtraImport": true,
-        "detail": "pathlib",
-        "documentation": {}
-    },
-    {
         "label": "BaseCommand",
         "importPath": "django.core.management.base",
         "description": "django.core.management.base",
@@ -2366,6 +2358,33 @@
         "documentation": {}
     },
     {
+        "label": "get_client_ip",
+        "kind": 2,
+        "importPath": "backend.analytics.services",
+        "description": "backend.analytics.services",
+        "peekOfCode": "def get_client_ip(request):\n    meta = getattr(request, \"META\", {}) or {}\n    forwarded = meta.get(\"HTTP_X_FORWARDED_FOR\", \"\")\n    if forwarded:\n        parts = [part.strip() for part in forwarded.split(\",\") if part.strip()]\n        if parts:\n            return parts[0]\n    for header in [\"HTTP_CF_CONNECTING_IP\", \"HTTP_X_REAL_IP\", \"HTTP_X_CLIENT_IP\"]:\n        candidate = meta.get(header, \"\").strip()\n        if candidate:",
+        "detail": "backend.analytics.services",
+        "documentation": {}
+    },
+    {
+        "label": "normalize_country_code",
+        "kind": 2,
+        "importPath": "backend.analytics.services",
+        "description": "backend.analytics.services",
+        "peekOfCode": "def normalize_country_code(country_code: str | None) -> str:\n    return (country_code or \"\").upper()\ndef normalize_country_name(country: str | None, country_code: str | None) -> str:\n    iso = normalize_country_code(country_code)\n    upper_name = (country or \"\").upper()\n    if iso and iso in COUNTRY_NAME_OVERRIDES:\n        return COUNTRY_NAME_OVERRIDES[iso]\n    if upper_name and upper_name in COUNTRY_NAME_OVERRIDES:\n        return COUNTRY_NAME_OVERRIDES[upper_name]\n    if country:",
+        "detail": "backend.analytics.services",
+        "documentation": {}
+    },
+    {
+        "label": "normalize_country_name",
+        "kind": 2,
+        "importPath": "backend.analytics.services",
+        "description": "backend.analytics.services",
+        "peekOfCode": "def normalize_country_name(country: str | None, country_code: str | None) -> str:\n    iso = normalize_country_code(country_code)\n    upper_name = (country or \"\").upper()\n    if iso and iso in COUNTRY_NAME_OVERRIDES:\n        return COUNTRY_NAME_OVERRIDES[iso]\n    if upper_name and upper_name in COUNTRY_NAME_OVERRIDES:\n        return COUNTRY_NAME_OVERRIDES[upper_name]\n    if country:\n        return country\n    if iso and iso in COUNTRY_NAME_OVERRIDES:",
+        "detail": "backend.analytics.services",
+        "documentation": {}
+    },
+    {
         "label": "enrich_geo_from_ip",
         "kind": 2,
         "importPath": "backend.analytics.services",
@@ -2415,7 +2434,7 @@
         "kind": 5,
         "importPath": "backend.analytics.services",
         "description": "backend.analytics.services",
-        "peekOfCode": "DEFAULT_GEO_COUNTRY_CODE = os.getenv(\"DEFAULT_GEO_COUNTRY_CODE\", \"US\")\nDEFAULT_GEO_COUNTRY_NAME = os.getenv(\"DEFAULT_GEO_COUNTRY_NAME\", \"United States\")\ntry:\n    import geoip2.database\nexcept ImportError:  # pragma: no cover\n    geoip2 = None\n@lru_cache(maxsize=1)\ndef _geoip_reader():\n    if geoip2 is None:\n        return None",
+        "peekOfCode": "DEFAULT_GEO_COUNTRY_CODE = os.getenv(\"DEFAULT_GEO_COUNTRY_CODE\", \"US\")\nDEFAULT_GEO_COUNTRY_NAME = os.getenv(\"DEFAULT_GEO_COUNTRY_NAME\", \"United States of America\")\nLOCAL_NETWORK_COUNTRY_CODE = os.getenv(\"LOCAL_NETWORK_COUNTRY_CODE\", \"LOCAL\")\nLOCAL_NETWORK_COUNTRY_NAME = os.getenv(\"LOCAL_NETWORK_COUNTRY_NAME\", \"Private Network\")\nCOUNTRY_NAME_OVERRIDES = {\n    \"US\": \"United States of America\",\n    \"USA\": \"United States of America\",\n    \"UNITED STATES\": \"United States of America\",\n    \"UNITED STATES OF AMERICA\": \"United States of America\",\n}",
         "detail": "backend.analytics.services",
         "documentation": {}
     },
@@ -2424,7 +2443,34 @@
         "kind": 5,
         "importPath": "backend.analytics.services",
         "description": "backend.analytics.services",
-        "peekOfCode": "DEFAULT_GEO_COUNTRY_NAME = os.getenv(\"DEFAULT_GEO_COUNTRY_NAME\", \"United States\")\ntry:\n    import geoip2.database\nexcept ImportError:  # pragma: no cover\n    geoip2 = None\n@lru_cache(maxsize=1)\ndef _geoip_reader():\n    if geoip2 is None:\n        return None\n    db_path = os.getenv(\"GEOIP_DB_PATH\", \"\")",
+        "peekOfCode": "DEFAULT_GEO_COUNTRY_NAME = os.getenv(\"DEFAULT_GEO_COUNTRY_NAME\", \"United States of America\")\nLOCAL_NETWORK_COUNTRY_CODE = os.getenv(\"LOCAL_NETWORK_COUNTRY_CODE\", \"LOCAL\")\nLOCAL_NETWORK_COUNTRY_NAME = os.getenv(\"LOCAL_NETWORK_COUNTRY_NAME\", \"Private Network\")\nCOUNTRY_NAME_OVERRIDES = {\n    \"US\": \"United States of America\",\n    \"USA\": \"United States of America\",\n    \"UNITED STATES\": \"United States of America\",\n    \"UNITED STATES OF AMERICA\": \"United States of America\",\n}\ndef normalize_country_code(country_code: str | None) -> str:",
+        "detail": "backend.analytics.services",
+        "documentation": {}
+    },
+    {
+        "label": "LOCAL_NETWORK_COUNTRY_CODE",
+        "kind": 5,
+        "importPath": "backend.analytics.services",
+        "description": "backend.analytics.services",
+        "peekOfCode": "LOCAL_NETWORK_COUNTRY_CODE = os.getenv(\"LOCAL_NETWORK_COUNTRY_CODE\", \"LOCAL\")\nLOCAL_NETWORK_COUNTRY_NAME = os.getenv(\"LOCAL_NETWORK_COUNTRY_NAME\", \"Private Network\")\nCOUNTRY_NAME_OVERRIDES = {\n    \"US\": \"United States of America\",\n    \"USA\": \"United States of America\",\n    \"UNITED STATES\": \"United States of America\",\n    \"UNITED STATES OF AMERICA\": \"United States of America\",\n}\ndef normalize_country_code(country_code: str | None) -> str:\n    return (country_code or \"\").upper()",
+        "detail": "backend.analytics.services",
+        "documentation": {}
+    },
+    {
+        "label": "LOCAL_NETWORK_COUNTRY_NAME",
+        "kind": 5,
+        "importPath": "backend.analytics.services",
+        "description": "backend.analytics.services",
+        "peekOfCode": "LOCAL_NETWORK_COUNTRY_NAME = os.getenv(\"LOCAL_NETWORK_COUNTRY_NAME\", \"Private Network\")\nCOUNTRY_NAME_OVERRIDES = {\n    \"US\": \"United States of America\",\n    \"USA\": \"United States of America\",\n    \"UNITED STATES\": \"United States of America\",\n    \"UNITED STATES OF AMERICA\": \"United States of America\",\n}\ndef normalize_country_code(country_code: str | None) -> str:\n    return (country_code or \"\").upper()\ndef normalize_country_name(country: str | None, country_code: str | None) -> str:",
+        "detail": "backend.analytics.services",
+        "documentation": {}
+    },
+    {
+        "label": "COUNTRY_NAME_OVERRIDES",
+        "kind": 5,
+        "importPath": "backend.analytics.services",
+        "description": "backend.analytics.services",
+        "peekOfCode": "COUNTRY_NAME_OVERRIDES = {\n    \"US\": \"United States of America\",\n    \"USA\": \"United States of America\",\n    \"UNITED STATES\": \"United States of America\",\n    \"UNITED STATES OF AMERICA\": \"United States of America\",\n}\ndef normalize_country_code(country_code: str | None) -> str:\n    return (country_code or \"\").upper()\ndef normalize_country_name(country: str | None, country_code: str | None) -> str:\n    iso = normalize_country_code(country_code)",
         "detail": "backend.analytics.services",
         "documentation": {}
     },

@@ -1,9 +1,19 @@
+def get_client_ip(request):
+    meta = getattr(request, "META", {}) or {}
+    forwarded = meta.get("HTTP_X_FORWARDED_FOR", "")
+    if forwarded:
+        parts = [part.strip() for part in forwarded.split(",") if part.strip()]
+        if parts:
+            return parts[0]
+    for header in ["HTTP_CF_CONNECTING_IP", "HTTP_X_REAL_IP", "HTTP_X_CLIENT_IP"]:
+        candidate = meta.get(header, "").strip()
+        if candidate:
+            return candidate
+    return meta.get("REMOTE_ADDR", "")
 from datetime import timedelta
 from functools import lru_cache
 import ipaddress
 import os
-from pathlib import Path
-
 from django.core.cache import cache
 from django.db.models import Count, Q
 from django.utils import timezone
@@ -11,26 +21,34 @@ from django.utils import timezone
 from analytics.models import ClickEvent, IP2LocationRange
 
 DEFAULT_GEO_COUNTRY_CODE = os.getenv("DEFAULT_GEO_COUNTRY_CODE", "US")
-DEFAULT_GEO_COUNTRY_NAME = os.getenv("DEFAULT_GEO_COUNTRY_NAME", "United States")
+DEFAULT_GEO_COUNTRY_NAME = os.getenv("DEFAULT_GEO_COUNTRY_NAME", "United States of America")
+LOCAL_NETWORK_COUNTRY_CODE = os.getenv("LOCAL_NETWORK_COUNTRY_CODE", "LOCAL")
+LOCAL_NETWORK_COUNTRY_NAME = os.getenv("LOCAL_NETWORK_COUNTRY_NAME", "Private Network")
 
-try:
-    import geoip2.database
-except ImportError:  # pragma: no cover
-    geoip2 = None
+COUNTRY_NAME_OVERRIDES = {
+    "US": "United States of America",
+    "USA": "United States of America",
+    "UNITED STATES": "United States of America",
+    "UNITED STATES OF AMERICA": "United States of America",
+}
 
 
-@lru_cache(maxsize=1)
-def _geoip_reader():
-    if geoip2 is None:
-        return None
-    db_path = os.getenv("GEOIP_DB_PATH", "")
-    if not db_path:
-        return None
-    resolved = Path(db_path)
-    if not resolved.exists():
-        return None
-    return geoip2.database.Reader(str(resolved))
+def normalize_country_code(country_code: str | None) -> str:
+    return (country_code or "").upper()
 
+
+def normalize_country_name(country: str | None, country_code: str | None) -> str:
+    iso = normalize_country_code(country_code)
+    upper_name = (country or "").upper()
+    if iso and iso in COUNTRY_NAME_OVERRIDES:
+        return COUNTRY_NAME_OVERRIDES[iso]
+    if upper_name and upper_name in COUNTRY_NAME_OVERRIDES:
+        return COUNTRY_NAME_OVERRIDES[upper_name]
+    if country:
+        return country
+    if iso and iso in COUNTRY_NAME_OVERRIDES:
+        return COUNTRY_NAME_OVERRIDES[iso]
+    return DEFAULT_GEO_COUNTRY_NAME
 
 def enrich_geo_from_ip(ip_address: str | None):
     fallback = {"country": "", "country_code": "", "region": "", "city": ""}
@@ -42,27 +60,15 @@ def enrich_geo_from_ip(ip_address: str | None):
         ip_obj = None
     if ip_obj and (ip_obj.is_private or ip_obj.is_loopback or ip_obj.is_reserved):
         return {
-            "country": DEFAULT_GEO_COUNTRY_NAME,
-            "country_code": DEFAULT_GEO_COUNTRY_CODE,
+            "country": "",
+            "country_code": "",
             "region": "",
             "city": "",
         }
     ip2location = lookup_ip2location(ip_address)
     if ip2location:
         return ip2location
-    reader = _geoip_reader()
-    if reader is None:
-        return fallback
-    try:
-        response = reader.city(ip_address)
-    except Exception:
-        return fallback
-    return {
-        "country": response.country.name or "",
-        "country_code": response.country.iso_code or "",
-        "region": response.subdivisions.most_specific.name or "",
-        "city": response.city.name or "",
-    }
+    return fallback
 
 
 def lookup_ip2location(ip_address: str):
@@ -113,14 +119,18 @@ def log_click_event(
     if resolved_tenant_id is None or resolved_link_id is None:
         raise ValueError("tenant/tenant_id and link/link_id are required")
     geo = enrich_geo_from_ip(ip_address)
+    geo_country_code = geo.get("country_code", "")
+    geo_country = geo.get("country", "")
+    resolved_country_code = normalize_country_code(country or geo_country_code)
+    resolved_country = normalize_country_name(country or geo_country, resolved_country_code or geo_country_code)
     return ClickEvent.objects.create(
         tenant_id=resolved_tenant_id,
         link_id=resolved_link_id,
         ip_address=ip_address,
         user_agent=user_agent,
         referer=referer,
-        country=country or geo["country"],
-        country_code=geo.get("country_code", ""),
+        country=resolved_country,
+        country_code=resolved_country_code,
         region=region or geo["region"],
         city=city or geo["city"],
     )
@@ -162,19 +172,22 @@ def analytics_summary(*, tenant):
         .filter(Q(country_code="") | Q(country_code__isnull=True))
         .count()
     )
-    normalized_country_counts = [
-        {
-            "country_code": item.get("country_code") or DEFAULT_GEO_COUNTRY_CODE,
-            "country": item.get("country") or DEFAULT_GEO_COUNTRY_NAME,
-            "total": item.get("total", 0),
-        }
-        for item in country_counts
-    ]
+    normalized_country_counts = []
+    for item in country_counts:
+        normalized_code = normalize_country_code(item.get("country_code")) or DEFAULT_GEO_COUNTRY_CODE
+        normalized_name = normalize_country_name(item.get("country"), normalized_code)
+        normalized_country_counts.append(
+            {
+                "country_code": normalized_code,
+                "country": normalized_name,
+                "total": item.get("total", 0),
+            }
+        )
     if local_blank_country_total:
         normalized_country_counts.append(
             {
-                "country_code": DEFAULT_GEO_COUNTRY_CODE,
-                "country": DEFAULT_GEO_COUNTRY_NAME,
+                "country_code": LOCAL_NETWORK_COUNTRY_CODE,
+                "country": LOCAL_NETWORK_COUNTRY_NAME,
                 "total": local_blank_country_total,
             }
         )
