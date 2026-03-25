@@ -258,16 +258,16 @@ function PaginationControls({ page, pages, total, pageSize, onPageChange }: Pagi
       <p>
         Page {page} of {pages} • Showing {pageSize} per page • {total} total
       </p>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 text-black">
         <button
-          className="rounded-full border border-white/10 px-3 py-1 disabled:opacity-40"
+          className="rounded-full border border-black/10 px-3 py-1 text-black disabled:border-black/10 disabled:opacity-40"
           onClick={() => onPageChange(Math.max(1, page - 1))}
           disabled={page <= 1}
         >
           Prev
         </button>
         <button
-          className="rounded-full border border-white/10 px-3 py-1 disabled:opacity-40"
+          className="rounded-full border border-black/10 px-3 py-1 text-black disabled:border-black/10 disabled:opacity-40"
           onClick={() => onPageChange(Math.min(pages, page + 1))}
           disabled={page >= pages}
         >
@@ -292,6 +292,16 @@ function formatRelativeDays(value?: string | null) {
   if (diffDays < 0) return "Expired";
   if (diffDays === 0) return "Expires today";
   return `In ${diffDays}d`;
+}
+
+function extractRequestedCap(message?: string | null) {
+  if (!message) return undefined;
+  const match = /Requested cap:\s*([^\n]+)/i.exec(message);
+  const capLine = match?.[1]?.trim();
+  if (!capLine) return undefined;
+  const numberMatch = capLine.match(/\d+/);
+  if (!numberMatch) return undefined;
+  return Number(numberMatch[0]);
 }
 
 export default function AdminPage() {
@@ -332,7 +342,8 @@ export default function AdminPage() {
       pendingRequests.data.items.forEach((request) => {
         const key = String(request.id);
         if (next[key] === undefined) {
-          next[key] = 10;
+          const requestedCap = extractRequestedCap(request.message);
+          next[key] = requestedCap ?? 10;
         }
       });
       return next;
@@ -440,7 +451,8 @@ export default function AdminPage() {
                 </tr>
               ) : pendingRequests.data.items.length ? (
                 pendingRequests.data.items.map((request) => {
-                  const limitValue = requestLimitDrafts[String(request.id)] ?? 10;
+                  const requestedCap = extractRequestedCap(request.message);
+                  const limitValue = requestLimitDrafts[String(request.id)] ?? requestedCap ?? 10;
                   return (
                     <tr key={request.id} className="border-t border-white/5">
                       <td className="p-3">
@@ -462,6 +474,9 @@ export default function AdminPage() {
                             }))
                           }
                         />
+                        {requestedCap !== undefined && (
+                          <p className="mt-1 text-[11px] text-black/50">Requested: {requestedCap}</p>
+                        )}
                       </td>
                       <td className="p-3">
                         <p>{formatDate(request.subscription_expires_at)}</p>
