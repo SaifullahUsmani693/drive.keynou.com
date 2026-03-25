@@ -1373,6 +1373,38 @@
         "documentation": {}
     },
     {
+        "label": "shared_task",
+        "importPath": "celery",
+        "description": "celery",
+        "isExtraImport": true,
+        "detail": "celery",
+        "documentation": {}
+    },
+    {
+        "label": "Celery",
+        "importPath": "celery",
+        "description": "celery",
+        "isExtraImport": true,
+        "detail": "celery",
+        "documentation": {}
+    },
+    {
+        "label": "log_click_event",
+        "importPath": "analytics.services",
+        "description": "analytics.services",
+        "isExtraImport": true,
+        "detail": "analytics.services",
+        "documentation": {}
+    },
+    {
+        "label": "analytics_summary",
+        "importPath": "analytics.services",
+        "description": "analytics.services",
+        "isExtraImport": true,
+        "detail": "analytics.services",
+        "documentation": {}
+    },
+    {
         "label": "AnalyticsSummaryView",
         "importPath": "analytics.views",
         "description": "analytics.views",
@@ -1386,22 +1418,6 @@
         "description": "analytics.serializers",
         "isExtraImport": true,
         "detail": "analytics.serializers",
-        "documentation": {}
-    },
-    {
-        "label": "analytics_summary",
-        "importPath": "analytics.services",
-        "description": "analytics.services",
-        "isExtraImport": true,
-        "detail": "analytics.services",
-        "documentation": {}
-    },
-    {
-        "label": "log_click_event",
-        "importPath": "analytics.services",
-        "description": "analytics.services",
-        "isExtraImport": true,
-        "detail": "analytics.services",
         "documentation": {}
     },
     {
@@ -1653,6 +1669,15 @@
         "documentation": {}
     },
     {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
         "label": "secrets",
         "kind": 6,
         "isExtraImport": true,
@@ -1723,6 +1748,14 @@
         "description": "django.http",
         "isExtraImport": true,
         "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "record_click_event_task",
+        "importPath": "analytics.tasks",
+        "description": "analytics.tasks",
+        "isExtraImport": true,
+        "detail": "analytics.tasks",
         "documentation": {}
     },
     {
@@ -2559,6 +2592,15 @@
         "documentation": {}
     },
     {
+        "label": "record_click_event_task",
+        "kind": 2,
+        "importPath": "backend.analytics.tasks",
+        "description": "backend.analytics.tasks",
+        "peekOfCode": "def record_click_event_task(\n    self,\n    *,\n    tenant_id: int | None = None,\n    link_id: int | None = None,\n    ip_address: str | None = None,\n    user_agent: str = \"\",\n    referer: str = \"\",\n    country: str = \"\",\n    region: str = \"\",",
+        "detail": "backend.analytics.tasks",
+        "documentation": {}
+    },
+    {
         "label": "urlpatterns",
         "kind": 5,
         "importPath": "backend.analytics.urls",
@@ -2610,6 +2652,24 @@
         "description": "backend.config.asgi",
         "peekOfCode": "application = get_asgi_application()",
         "detail": "backend.config.asgi",
+        "documentation": {}
+    },
+    {
+        "label": "debug_task",
+        "kind": 2,
+        "importPath": "backend.config.celery",
+        "description": "backend.config.celery",
+        "peekOfCode": "def debug_task(self):\n    print(f\"Request: {self.request!r}\")",
+        "detail": "backend.config.celery",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "backend.config.celery",
+        "description": "backend.config.celery",
+        "peekOfCode": "app = Celery(\"keynou_drive\")\napp.config_from_object(\"django.conf:settings\", namespace=\"CELERY\")\napp.autodiscover_tasks()\n@app.task(bind=True)\ndef debug_task(self):\n    print(f\"Request: {self.request!r}\")",
+        "detail": "backend.config.celery",
         "documentation": {}
     },
     {
@@ -2851,7 +2911,61 @@
         "kind": 5,
         "importPath": "backend.config.settings",
         "description": "backend.config.settings",
-        "peekOfCode": "CACHES = {\n    \"default\": {\n        \"BACKEND\": \"django_redis.cache.RedisCache\",\n        \"LOCATION\": REDIS_URL,\n        \"OPTIONS\": {\n            \"CLIENT_CLASS\": \"django_redis.client.DefaultClient\",\n        },\n    }\n}",
+        "peekOfCode": "CACHES = {\n    \"default\": {\n        \"BACKEND\": \"django_redis.cache.RedisCache\",\n        \"LOCATION\": REDIS_URL,\n        \"OPTIONS\": {\n            \"CLIENT_CLASS\": \"django_redis.client.DefaultClient\",\n        },\n    }\n}\nCELERY_BROKER_URL = os.getenv(\"CELERY_BROKER_URL\", REDIS_URL)",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CELERY_BROKER_URL",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "CELERY_BROKER_URL = os.getenv(\"CELERY_BROKER_URL\", REDIS_URL)\nCELERY_RESULT_BACKEND = os.getenv(\"CELERY_RESULT_BACKEND\", CELERY_BROKER_URL)\nCELERY_TASK_ALWAYS_EAGER = os.getenv(\"CELERY_TASK_ALWAYS_EAGER\", \"0\") == \"1\"\nCELERY_TASK_EAGER_PROPAGATES = True\nCELERY_TASK_TRACK_STARTED = True\nCELERY_TASK_TIME_LIMIT = 60 * 5",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CELERY_RESULT_BACKEND",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "CELERY_RESULT_BACKEND = os.getenv(\"CELERY_RESULT_BACKEND\", CELERY_BROKER_URL)\nCELERY_TASK_ALWAYS_EAGER = os.getenv(\"CELERY_TASK_ALWAYS_EAGER\", \"0\") == \"1\"\nCELERY_TASK_EAGER_PROPAGATES = True\nCELERY_TASK_TRACK_STARTED = True\nCELERY_TASK_TIME_LIMIT = 60 * 5",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CELERY_TASK_ALWAYS_EAGER",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "CELERY_TASK_ALWAYS_EAGER = os.getenv(\"CELERY_TASK_ALWAYS_EAGER\", \"0\") == \"1\"\nCELERY_TASK_EAGER_PROPAGATES = True\nCELERY_TASK_TRACK_STARTED = True\nCELERY_TASK_TIME_LIMIT = 60 * 5",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CELERY_TASK_EAGER_PROPAGATES",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "CELERY_TASK_EAGER_PROPAGATES = True\nCELERY_TASK_TRACK_STARTED = True\nCELERY_TASK_TIME_LIMIT = 60 * 5",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CELERY_TASK_TRACK_STARTED",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "CELERY_TASK_TRACK_STARTED = True\nCELERY_TASK_TIME_LIMIT = 60 * 5",
+        "detail": "backend.config.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CELERY_TASK_TIME_LIMIT",
+        "kind": 5,
+        "importPath": "backend.config.settings",
+        "description": "backend.config.settings",
+        "peekOfCode": "CELERY_TASK_TIME_LIMIT = 60 * 5",
         "detail": "backend.config.settings",
         "documentation": {}
     },

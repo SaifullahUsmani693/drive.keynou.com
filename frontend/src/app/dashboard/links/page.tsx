@@ -176,6 +176,8 @@ export default function LinksPage() {
     }
   };
 
+  const normalizeSlugInput = (value: string) => value.replace(/\s+/g, "-").toLowerCase();
+
   return (
     <AuthGuard>
       <DashboardShell>
@@ -263,7 +265,7 @@ export default function LinksPage() {
                             <div className="flex flex-col gap-2">
                               <Input
                                 value={editSlug}
-                                onChange={(event) => setEditSlug(event.target.value)}
+                                onChange={(event) => setEditSlug(normalizeSlugInput(event.target.value))}
                                 className="h-9 bg-secondary/30"
                                 placeholder="Short code"
                               />
@@ -381,16 +383,16 @@ export default function LinksPage() {
         </div>
       </DashboardShell>
       {showCreateModal ? (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4">
-          <div className="w-full max-w-lg rounded-2xl border border-white/15 bg-[#0B1120] p-6 shadow-2xl">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm px-4">
+          <div className="w-full max-w-lg rounded-2xl border border-border bg-card p-6 shadow-2xl">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-semibold">Create short link</p>
-                <p className="text-xs text-white/60">Paste a long URL and optionally customize the slug.</p>
+                <p className="text-base font-semibold text-foreground">Create short link</p>
+                <p className="text-xs text-muted-foreground">Paste a long URL and optionally customize the slug.</p>
               </div>
               <button
                 type="button"
-                className="rounded-full p-1 text-white/60 hover:bg-white/10"
+                className="rounded-full p-1 text-muted-foreground hover:bg-secondary/60"
                 onClick={() => setShowCreateModal(false)}
                 aria-label="Close create link modal"
               >
@@ -402,16 +404,16 @@ export default function LinksPage() {
                 placeholder="Paste a long URL to shorten..."
                 value={newUrl}
                 onChange={(event) => setNewUrl(event.target.value)}
-                className="h-11 bg-white/5"
+                className="h-11 bg-secondary/40"
                 onKeyDown={(event) => event.key === "Enter" && handleShorten()}
               />
               {verifiedDomains.length > 1 ? (
                 <div className="space-y-1">
-                  <label className="text-xs text-white/60">Short link domain</label>
+                  <label className="text-xs text-muted-foreground">Short link domain</label>
                   <select
                     value={selectedDomain}
                     onChange={(event) => setSelectedDomain(event.target.value)}
-                    className="h-11 w-full rounded-xl border border-white/15 bg-white/5 px-3 text-sm text-white"
+                    className="h-11 w-full rounded-xl border border-border px-3 text-sm text-foreground bg-secondary/30"
                   >
                     <option value="">Use {typeof window !== "undefined" ? window.location.host : "default"}</option>
                     {verifiedDomains.map((domain) => (
@@ -422,18 +424,23 @@ export default function LinksPage() {
                   </select>
                 </div>
               ) : null}
-              <Input
-                placeholder="Custom slug (optional)"
-                value={customSlug}
-                onChange={(event) => setCustomSlug(event.target.value)}
-                className="h-11 bg-white/5"
-              />
+              <div className="space-y-1">
+                <Input
+                  placeholder="Custom slug (optional)"
+                  value={customSlug}
+                  onChange={(event) => setCustomSlug(normalizeSlugInput(event.target.value))}
+                  className="h-11 bg-secondary/40"
+                />
+                <p className="text-[11px] text-muted-foreground">
+                  Lowercase letters only. Spaces will become dashes automatically.
+                </p>
+              </div>
             </div>
             <div className="mt-6 flex justify-end gap-3">
               <Button
                 type="button"
                 variant="ghost"
-                className="text-white/70"
+                className="text-muted-foreground"
                 onClick={() => setShowCreateModal(false)}
               >
                 Cancel

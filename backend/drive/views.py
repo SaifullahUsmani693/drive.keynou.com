@@ -2,7 +2,7 @@ from django.http import HttpResponseRedirect
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.views import APIView
 
-from analytics.services import log_click_event
+from analytics.tasks import record_click_event_task
 from common.responses import api_response
 from drive.serializers import (
     LinkBulkDeleteSerializer,
@@ -128,9 +128,9 @@ class RedirectView(APIView):
         user_agent = request.META.get("HTTP_USER_AGENT", "")
         referer = request.META.get("HTTP_REFERER", "")
 
-        log_click_event(
-            tenant=tenant,
-            link=link,
+        record_click_event_task.delay(
+            tenant_id=tenant.id,
+            link_id=link.id,
             ip_address=ip_address,
             user_agent=user_agent,
             referer=referer,
@@ -151,26 +151,15 @@ class PublicResolveView(APIView):
             )
             user_agent = request.META.get("HTTP_USER_AGENT", "")
             referer = request.META.get("HTTP_REFERER", "")
-            log_click_event(
-                tenant_id=cached["tenant_id"],
-                link_id=cached["link_id"],
+            record_click_event_task.delay(
+                tenant_id=cached.get("tenant_id"),
+                link_id=cached.get("link_id"),
                 ip_address=ip_address,
                 user_agent=user_agent,
                 referer=referer,
             )
             cached_payload = cached.get("payload")
             if cached_payload:
-                tenant = Tenant.objects.filter(id=cached["tenant_id"], is_active=True).first()
-                if tenant is not None:
-                    branding_payload = get_cached_branding(tenant=tenant)
-                    return api_response(
-                        data={
-                            "destination_url": cached_payload.get("destination_url"),
-                            "tenant_id": cached["tenant_id"],
-                            **branding_payload,
-                        },
-                        message="Link resolved",
-                    )
                 return api_response(data=cached_payload, message="Link resolved")
         link = (
             Link.objects.select_related("tenant")
@@ -188,9 +177,9 @@ class PublicResolveView(APIView):
         user_agent = request.META.get("HTTP_USER_AGENT", "")
         referer = request.META.get("HTTP_REFERER", "")
 
-        log_click_event(
-            tenant=tenant,
-            link=link,
+        record_click_event_task.delay(
+            tenant_id=tenant.id,
+            link_id=link.id,
             ip_address=ip_address,
             user_agent=user_agent,
             referer=referer,

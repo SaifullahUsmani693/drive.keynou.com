@@ -1,3 +1,4 @@
+import re
 import secrets
 
 from django.core.cache import cache
@@ -69,7 +70,7 @@ def _generate_short_code() -> str:
 
 def _format_short_code(*, user, short_code: str | None) -> str:
     if short_code:
-        cleaned = short_code.strip().replace(" ", "-")
+        cleaned = re.sub(r"\s+", "-", short_code.strip()).lower()
         if "/" in cleaned:
             raise ValueError("Custom slug cannot contain '/'.")
         candidate = cleaned
