@@ -351,7 +351,10 @@ export default function DashboardAdminPage() {
   return (
     <AuthGuard>
       <AdminGuard>
-        <DashboardShell>
+        <DashboardShell
+          className="bg-[#040612] text-white"
+          contentClassName="bg-gradient-to-br from-[#050915] via-[#060d1c] to-[#0b1730]"
+        >
           <header className="flex flex-col gap-2">
             <p className="text-xs uppercase tracking-[0.3em] text-emerald-200">Admin</p>
             <h1 className="text-3xl font-semibold">Subscription control center</h1>

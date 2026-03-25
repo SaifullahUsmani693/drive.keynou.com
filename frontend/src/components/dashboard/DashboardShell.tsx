@@ -23,7 +23,13 @@ const navItems = [
   { icon: Settings, label: "Settings", path: "/dashboard/settings" },
 ];
 
-export default function DashboardShell({ children }: { children: React.ReactNode }) {
+interface DashboardShellProps {
+  children: React.ReactNode;
+  className?: string;
+  contentClassName?: string;
+}
+
+export default function DashboardShell({ children, className, contentClassName }: DashboardShellProps) {
   const router = useRouter();
   const pathname = usePathname();
   const dispatch = useAppDispatch();
@@ -68,7 +74,7 @@ export default function DashboardShell({ children }: { children: React.ReactNode
   }, [user]);
 
   return (
-    <div className="min-h-screen flex bg-background">
+    <div className={cn("min-h-screen flex bg-background text-foreground", className)}>
       <aside className="hidden md:flex w-64 flex-col border-r border-border bg-card/50">
         <div className="p-6">
           <Link href="/" className="flex items-center">
@@ -126,7 +132,7 @@ export default function DashboardShell({ children }: { children: React.ReactNode
         </div>
       </aside>
 
-      <main className="flex-1 overflow-auto">
+      <main className={cn("flex-1 overflow-auto", contentClassName)}>
         <header className="md:hidden flex items-center justify-between p-4 border-b border-border">
           <Link href="/" className="flex items-center">
             <img src="/keynou_drove_logo.png" alt="Keynou Drive" className="h-12 w-auto drop-shadow" />
