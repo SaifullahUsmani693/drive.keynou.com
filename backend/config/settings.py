@@ -30,9 +30,35 @@ if not SECRET_KEY:
     raise ImproperlyConfigured("DJANGO_SECRET_KEY environment variable is required")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DJANGO_DEBUG", "1") == "1"
 
-ALLOWED_HOSTS = [host for host in os.getenv("DJANGO_ALLOWED_HOSTS", "*").split(",") if host]
+
+def _split_csv(value: str | None, fallback: str = "") -> list[str]:
+    source = value if value is not None else fallback
+    return [item.strip() for item in source.split(",") if item.strip()]
+
+
+ALLOWED_HOSTS = _split_csv(os.getenv("DJANGO_ALLOWED_HOSTS"), "localhost,127.0.0.1")
+
+
+def _build_csrf_trusted(origins_env: str | None, hosts: list[str]) -> list[str]:
+    if origins_env:
+        return _split_csv(origins_env)
+    seen = set()
+    origins: list[str] = []
+    for host in hosts:
+        if host.startswith("http://") or host.startswith("https://"):
+            candidate = host
+            if candidate not in seen:
+                origins.append(candidate)
+                seen.add(candidate)
+            continue
+        for scheme in ("https://", "http://"):
+            candidate = f"{scheme}{host}"
+            if candidate not in seen:
+                origins.append(candidate)
+                seen.add(candidate)
+    return origins
 
 
 # Application definition
@@ -169,14 +195,10 @@ REST_FRAMEWORK = {
     "EXCEPTION_HANDLER": "common.exceptions.api_exception_handler",
 }
 
-CORS_ALLOWED_ORIGINS = [
-    origin for origin in os.getenv("DJANGO_CORS_ALLOWED_ORIGINS", "http://localhost:3000").split(",") if origin
-]
+CORS_ALLOWED_ORIGINS = _split_csv(os.getenv("DJANGO_CORS_ALLOWED_ORIGINS"), "http://localhost:3000")
 CORS_ALLOW_CREDENTIALS = True
 
-CSRF_TRUSTED_ORIGINS = [
-    origin for origin in os.getenv("DJANGO_CSRF_TRUSTED_ORIGINS", "http://localhost:3000").split(",") if origin
-]
+CSRF_TRUSTED_ORIGINS = _build_csrf_trusted(os.getenv("DJANGO_CSRF_TRUSTED_ORIGINS"), ALLOWED_HOSTS)
 
 REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379/0")
 

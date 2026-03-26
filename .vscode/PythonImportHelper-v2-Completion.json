@@ -2701,7 +2701,7 @@
         "kind": 5,
         "importPath": "backend.config.settings",
         "description": "backend.config.settings",
-        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\nload_dotenv(BASE_DIR / \".env\")\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = os.getenv(\"DJANGO_SECRET_KEY\") or os.getenv(\"SECRET_KEY\")\nif not SECRET_KEY:\n    raise ImproperlyConfigured(\"DJANGO_SECRET_KEY environment variable is required\")\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\nload_dotenv(BASE_DIR / \".env\")\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = os.getenv(\"DJANGO_SECRET_KEY\") or os.getenv(\"SECRET_KEY\")\nif not SECRET_KEY:\n    raise ImproperlyConfigured(\"DJANGO_SECRET_KEY environment variable is required\")\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = os.getenv(\"DJANGO_DEBUG\", \"1\") == \"1\"",
         "detail": "backend.config.settings",
         "documentation": {}
     },
@@ -2710,7 +2710,7 @@
         "kind": 5,
         "importPath": "backend.config.settings",
         "description": "backend.config.settings",
-        "peekOfCode": "SECRET_KEY = os.getenv(\"DJANGO_SECRET_KEY\") or os.getenv(\"SECRET_KEY\")\nif not SECRET_KEY:\n    raise ImproperlyConfigured(\"DJANGO_SECRET_KEY environment variable is required\")\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = [host for host in os.getenv(\"DJANGO_ALLOWED_HOSTS\", \"*\").split(\",\") if host]\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",",
+        "peekOfCode": "SECRET_KEY = os.getenv(\"DJANGO_SECRET_KEY\") or os.getenv(\"SECRET_KEY\")\nif not SECRET_KEY:\n    raise ImproperlyConfigured(\"DJANGO_SECRET_KEY environment variable is required\")\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = os.getenv(\"DJANGO_DEBUG\", \"1\") == \"1\"\ndef _split_csv(value: str | None, fallback: str = \"\") -> list[str]:\n    source = value if value is not None else fallback\n    return [item.strip() for item in source.split(\",\") if item.strip()]\nALLOWED_HOSTS = _split_csv(os.getenv(\"DJANGO_ALLOWED_HOSTS\"), \"localhost,127.0.0.1\")\ndef _build_csrf_trusted(origins_env: str | None, hosts: list[str]) -> list[str]:",
         "detail": "backend.config.settings",
         "documentation": {}
     },
@@ -2719,7 +2719,7 @@
         "kind": 5,
         "importPath": "backend.config.settings",
         "description": "backend.config.settings",
-        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = [host for host in os.getenv(\"DJANGO_ALLOWED_HOSTS\", \"*\").split(\",\") if host]\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",",
+        "peekOfCode": "DEBUG = os.getenv(\"DJANGO_DEBUG\", \"1\") == \"1\"\ndef _split_csv(value: str | None, fallback: str = \"\") -> list[str]:\n    source = value if value is not None else fallback\n    return [item.strip() for item in source.split(\",\") if item.strip()]\nALLOWED_HOSTS = _split_csv(os.getenv(\"DJANGO_ALLOWED_HOSTS\"), \"localhost,127.0.0.1\")\ndef _build_csrf_trusted(origins_env: str | None, hosts: list[str]) -> list[str]:\n    if origins_env:\n        return _split_csv(origins_env)\n    seen = set()\n    origins: list[str] = []",
         "detail": "backend.config.settings",
         "documentation": {}
     },
@@ -2728,7 +2728,7 @@
         "kind": 5,
         "importPath": "backend.config.settings",
         "description": "backend.config.settings",
-        "peekOfCode": "ALLOWED_HOSTS = [host for host in os.getenv(\"DJANGO_ALLOWED_HOSTS\", \"*\").split(\",\") if host]\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n    \"rest_framework\",",
+        "peekOfCode": "ALLOWED_HOSTS = _split_csv(os.getenv(\"DJANGO_ALLOWED_HOSTS\"), \"localhost,127.0.0.1\")\ndef _build_csrf_trusted(origins_env: str | None, hosts: list[str]) -> list[str]:\n    if origins_env:\n        return _split_csv(origins_env)\n    seen = set()\n    origins: list[str] = []\n    for host in hosts:\n        if host.startswith(\"http://\") or host.startswith(\"https://\"):\n            candidate = host\n            if candidate not in seen:",
         "detail": "backend.config.settings",
         "documentation": {}
     },
@@ -2890,7 +2890,7 @@
         "kind": 5,
         "importPath": "backend.config.settings",
         "description": "backend.config.settings",
-        "peekOfCode": "CORS_ALLOWED_ORIGINS = [\n    origin for origin in os.getenv(\"DJANGO_CORS_ALLOWED_ORIGINS\", \"http://localhost:3000\").split(\",\") if origin\n]\nCORS_ALLOW_CREDENTIALS = True\nCSRF_TRUSTED_ORIGINS = [\n    origin for origin in os.getenv(\"DJANGO_CSRF_TRUSTED_ORIGINS\", \"http://localhost:3000\").split(\",\") if origin\n]\nREDIS_URL = os.getenv(\"REDIS_URL\", \"redis://localhost:6379/0\")\nCUSTOM_DOMAIN_TARGET = os.getenv(\"CUSTOM_DOMAIN_TARGET\", os.getenv(\"DJANGO_ALLOWED_HOSTS\", \"localhost\").split(\",\")[0])\nCACHES = {",
+        "peekOfCode": "CORS_ALLOWED_ORIGINS = _split_csv(os.getenv(\"DJANGO_CORS_ALLOWED_ORIGINS\"), \"http://localhost:3000\")\nCORS_ALLOW_CREDENTIALS = True\nCSRF_TRUSTED_ORIGINS = _build_csrf_trusted(os.getenv(\"DJANGO_CSRF_TRUSTED_ORIGINS\"), ALLOWED_HOSTS)\nREDIS_URL = os.getenv(\"REDIS_URL\", \"redis://localhost:6379/0\")\nCUSTOM_DOMAIN_TARGET = os.getenv(\"CUSTOM_DOMAIN_TARGET\", os.getenv(\"DJANGO_ALLOWED_HOSTS\", \"localhost\").split(\",\")[0])\nCACHES = {\n    \"default\": {\n        \"BACKEND\": \"django_redis.cache.RedisCache\",\n        \"LOCATION\": REDIS_URL,\n        \"OPTIONS\": {",
         "detail": "backend.config.settings",
         "documentation": {}
     },
@@ -2899,7 +2899,7 @@
         "kind": 5,
         "importPath": "backend.config.settings",
         "description": "backend.config.settings",
-        "peekOfCode": "CORS_ALLOW_CREDENTIALS = True\nCSRF_TRUSTED_ORIGINS = [\n    origin for origin in os.getenv(\"DJANGO_CSRF_TRUSTED_ORIGINS\", \"http://localhost:3000\").split(\",\") if origin\n]\nREDIS_URL = os.getenv(\"REDIS_URL\", \"redis://localhost:6379/0\")\nCUSTOM_DOMAIN_TARGET = os.getenv(\"CUSTOM_DOMAIN_TARGET\", os.getenv(\"DJANGO_ALLOWED_HOSTS\", \"localhost\").split(\",\")[0])\nCACHES = {\n    \"default\": {\n        \"BACKEND\": \"django_redis.cache.RedisCache\",\n        \"LOCATION\": REDIS_URL,",
+        "peekOfCode": "CORS_ALLOW_CREDENTIALS = True\nCSRF_TRUSTED_ORIGINS = _build_csrf_trusted(os.getenv(\"DJANGO_CSRF_TRUSTED_ORIGINS\"), ALLOWED_HOSTS)\nREDIS_URL = os.getenv(\"REDIS_URL\", \"redis://localhost:6379/0\")\nCUSTOM_DOMAIN_TARGET = os.getenv(\"CUSTOM_DOMAIN_TARGET\", os.getenv(\"DJANGO_ALLOWED_HOSTS\", \"localhost\").split(\",\")[0])\nCACHES = {\n    \"default\": {\n        \"BACKEND\": \"django_redis.cache.RedisCache\",\n        \"LOCATION\": REDIS_URL,\n        \"OPTIONS\": {\n            \"CLIENT_CLASS\": \"django_redis.client.DefaultClient\",",
         "detail": "backend.config.settings",
         "documentation": {}
     },
@@ -2908,7 +2908,7 @@
         "kind": 5,
         "importPath": "backend.config.settings",
         "description": "backend.config.settings",
-        "peekOfCode": "CSRF_TRUSTED_ORIGINS = [\n    origin for origin in os.getenv(\"DJANGO_CSRF_TRUSTED_ORIGINS\", \"http://localhost:3000\").split(\",\") if origin\n]\nREDIS_URL = os.getenv(\"REDIS_URL\", \"redis://localhost:6379/0\")\nCUSTOM_DOMAIN_TARGET = os.getenv(\"CUSTOM_DOMAIN_TARGET\", os.getenv(\"DJANGO_ALLOWED_HOSTS\", \"localhost\").split(\",\")[0])\nCACHES = {\n    \"default\": {\n        \"BACKEND\": \"django_redis.cache.RedisCache\",\n        \"LOCATION\": REDIS_URL,\n        \"OPTIONS\": {",
+        "peekOfCode": "CSRF_TRUSTED_ORIGINS = _build_csrf_trusted(os.getenv(\"DJANGO_CSRF_TRUSTED_ORIGINS\"), ALLOWED_HOSTS)\nREDIS_URL = os.getenv(\"REDIS_URL\", \"redis://localhost:6379/0\")\nCUSTOM_DOMAIN_TARGET = os.getenv(\"CUSTOM_DOMAIN_TARGET\", os.getenv(\"DJANGO_ALLOWED_HOSTS\", \"localhost\").split(\",\")[0])\nCACHES = {\n    \"default\": {\n        \"BACKEND\": \"django_redis.cache.RedisCache\",\n        \"LOCATION\": REDIS_URL,\n        \"OPTIONS\": {\n            \"CLIENT_CLASS\": \"django_redis.client.DefaultClient\",\n        },",
         "detail": "backend.config.settings",
         "documentation": {}
     },
