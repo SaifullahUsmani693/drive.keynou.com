@@ -30,7 +30,7 @@ if not SECRET_KEY:
     raise ImproperlyConfigured("DJANGO_SECRET_KEY environment variable is required")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DJANGO_DEBUG", "1") == "1"
+DEBUG = True
 
 ALLOWED_HOSTS = [host for host in os.getenv("DJANGO_ALLOWED_HOSTS", "*").split(",") if host]
 

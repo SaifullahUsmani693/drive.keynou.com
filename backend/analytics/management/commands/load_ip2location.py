@@ -1,4 +1,5 @@
 import csv
+from ipaddress import ip_address
 from pathlib import Path
 
 from django.core.management.base import BaseCommand, CommandError
@@ -56,8 +57,8 @@ class Command(BaseCommand):
                 if not row or len(row) < 4:
                     continue
                 try:
-                    start_ip = int(row[0].strip().strip('"'))
-                    end_ip = int(row[1].strip().strip('"'))
+                    start_ip = self._parse_ip(row[0])
+                    end_ip = self._parse_ip(row[1])
                 except ValueError:
                     continue
                 country_code = row[2].strip().strip('"') if len(row) > 2 else ""
@@ -89,3 +90,12 @@ class Command(BaseCommand):
             total += len(rows)
 
         self.stdout.write(self.style.SUCCESS(f"Loaded {total} IP ranges."))
+
+    @staticmethod
+    def _parse_ip(value: str) -> int:
+        cleaned = value.strip().strip('"')
+        if not cleaned:
+            raise ValueError("Empty IP value")
+        if cleaned.isdigit():
+            return int(cleaned)
+        return int(ip_address(cleaned))

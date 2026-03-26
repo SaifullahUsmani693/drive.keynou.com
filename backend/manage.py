@@ -24,4 +24,4 @@ if __name__ == "__main__":
 
 # python manage.py makemigrations
 # python manage.py migrate
-# python manage.py load_ip2location --path backend/ipdata/your_file.csv --truncate
+# python manage.py load_ip2location --path /home/deploy/drive.keynou.com/backend/ipdata/IP2LOCATION-LITE-DB11.CSV --truncate
