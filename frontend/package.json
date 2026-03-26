@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "seed-blogs": "node scripts/seed-blogs.js"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "''1.2.12",
