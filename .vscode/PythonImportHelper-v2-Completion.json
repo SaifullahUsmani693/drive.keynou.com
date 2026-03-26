@@ -1501,6 +1501,22 @@
         "documentation": {}
     },
     {
+        "label": "ImproperlyConfigured",
+        "importPath": "django.core.exceptions",
+        "description": "django.core.exceptions",
+        "isExtraImport": true,
+        "detail": "django.core.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
         "label": "static",
         "importPath": "django.conf.urls.static",
         "description": "django.conf.urls.static",
@@ -2677,7 +2693,7 @@
         "kind": 5,
         "importPath": "backend.config.settings",
         "description": "backend.config.settings",
-        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = \"django-insecure-700##3@3++a9143c=tjoavdn!oh4*^x@=(bnfi7^g%sbb!be5$\"\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = os.getenv(\"DJANGO_DEBUG\", \"1\") == \"1\"\nALLOWED_HOSTS = [host for host in os.getenv(\"DJANGO_ALLOWED_HOSTS\", \"*\").split(\",\") if host]\n# Application definition\nINSTALLED_APPS = [",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\nload_dotenv(BASE_DIR / \".env\")\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = os.getenv(\"DJANGO_SECRET_KEY\") or os.getenv(\"SECRET_KEY\")\nif not SECRET_KEY:\n    raise ImproperlyConfigured(\"DJANGO_SECRET_KEY environment variable is required\")\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = os.getenv(\"DJANGO_DEBUG\", \"1\") == \"1\"",
         "detail": "backend.config.settings",
         "documentation": {}
     },
@@ -2686,7 +2702,7 @@
         "kind": 5,
         "importPath": "backend.config.settings",
         "description": "backend.config.settings",
-        "peekOfCode": "SECRET_KEY = \"django-insecure-700##3@3++a9143c=tjoavdn!oh4*^x@=(bnfi7^g%sbb!be5$\"\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = os.getenv(\"DJANGO_DEBUG\", \"1\") == \"1\"\nALLOWED_HOSTS = [host for host in os.getenv(\"DJANGO_ALLOWED_HOSTS\", \"*\").split(\",\") if host]\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",",
+        "peekOfCode": "SECRET_KEY = os.getenv(\"DJANGO_SECRET_KEY\") or os.getenv(\"SECRET_KEY\")\nif not SECRET_KEY:\n    raise ImproperlyConfigured(\"DJANGO_SECRET_KEY environment variable is required\")\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = os.getenv(\"DJANGO_DEBUG\", \"1\") == \"1\"\nALLOWED_HOSTS = [host for host in os.getenv(\"DJANGO_ALLOWED_HOSTS\", \"*\").split(\",\") if host]\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",",
         "detail": "backend.config.settings",
         "documentation": {}
     },
