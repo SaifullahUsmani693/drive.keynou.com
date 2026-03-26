@@ -50,10 +50,19 @@ export default function DomainsPage() {
     }
   };
 
+  const resolveTokenValue = (domainId: number) => {
+    if (tokenForm[domainId]) {
+      return tokenForm[domainId];
+    }
+    const domain = domains.find((item) => item.id === domainId);
+    return domain?.verification_token ?? "";
+  };
+
   const handleVerify = async (domainId: number) => {
     setIsVerifyingId(domainId);
     try {
-      const response = await tenantsApi.verifyDomain(domainId, { token: tokenForm[domainId] || "" });
+      const token = resolveTokenValue(domainId);
+      const response = await tenantsApi.verifyDomain(domainId, { token });
       const updated = response.data?.data;
       setDomains((prev) => prev.map((item) => (item.id === domainId ? updated : item)));
     } finally {
@@ -177,7 +186,7 @@ export default function DomainsPage() {
                       <input
                         className="rounded-xl border border-border bg-background px-3 py-2 text-xs text-foreground"
                         placeholder="Verification token"
-                        value={tokenForm[domain.id] || ""}
+                        value={resolveTokenValue(domain.id)}
                         onChange={(event) =>
                           setTokenForm((prev) => ({
                             ...prev,
