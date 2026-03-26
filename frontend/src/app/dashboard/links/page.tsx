@@ -128,7 +128,7 @@ export default function LinksPage() {
         setDomains(data);
         const verified = data.filter((domain: any) => domain.is_verified);
         if (verified.length === 1) {
-          setSelectedDomain(verified[0].domain);
+          setSelectedDomain(verified[0].domain.replace("driveapi", "drive"));
         }
       } catch {
         if (isMounted) {

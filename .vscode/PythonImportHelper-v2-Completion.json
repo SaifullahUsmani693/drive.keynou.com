@@ -2074,6 +2074,15 @@
         "documentation": {}
     },
     {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
         "label": "TenantBrandingSerializer",
         "importPath": "tenants.serializers",
         "description": "tenants.serializers",
@@ -3692,6 +3701,15 @@
         "importPath": "backend.tenants.views",
         "description": "backend.tenants.views",
         "peekOfCode": "MAX_LOGO_SIZE_BYTES = 5 * 1024 * 1024  # 5 MB\nclass DomainListCreateView(APIView):\n    permission_classes = [IsAuthenticated]\n    def get(self, request):\n        tenant = request.tenant\n        if tenant is None:\n            return api_response(message=\"Tenant not resolved\", status_code=400)\n        domains = list_domains_for_tenant(tenant=tenant)\n        serializer = TenantDomainSerializer(domains, many=True)\n        return api_response(data=serializer.data, message=\"Domains fetched\")",
+        "detail": "backend.tenants.views",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "backend.tenants.views",
+        "description": "backend.tenants.views",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nclass DomainVerifyView(APIView):\n    permission_classes = [IsAuthenticated]\n    def post(self, request, domain_id: int):\n        tenant = request.tenant\n        if tenant is None:\n            return api_response(message=\"Tenant not resolved\", status_code=400)\n        try:\n            domain = TenantDomain.objects.get(id=domain_id, tenant=tenant)\n        except TenantDomain.DoesNotExist:",
         "detail": "backend.tenants.views",
         "documentation": {}
     },

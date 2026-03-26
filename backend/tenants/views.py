@@ -8,6 +8,8 @@ from rest_framework.parsers import FormParser, MultiPartParser
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 
+import logging
+
 from common.responses import api_response
 from tenants.models import Tenant, TenantDomain
 from tenants.serializers import (
@@ -66,6 +68,9 @@ class DomainDetailView(APIView):
         return api_response(message="Domain removed")
 
 
+logger = logging.getLogger(__name__)
+
+
 class DomainVerifyView(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -79,13 +84,43 @@ class DomainVerifyView(APIView):
             return api_response(message="Domain not found", status_code=404)
         serializer = TenantDomainVerifySerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
+        token = serializer.validated_data["token"]
+        target_host = getattr(settings, "CUSTOM_DOMAIN_TARGET", "driveapi.keynou.com")
+        logger.info(
+            "Domain verify attempt",
+            extra={
+                "tenant_id": tenant.id,
+                "domain_id": domain.id,
+                "domain": domain.domain,
+                "is_verified": domain.is_verified,
+                "target_host": target_host,
+            },
+        )
         success = verify_domain(
             domain_obj=domain,
-            token=serializer.validated_data["token"],
-            target_host=getattr(settings, "CUSTOM_DOMAIN_TARGET", "driveapi.keynou.com"),
+            token=token,
+            target_host=target_host,
         )
         if not success:
+            logger.warning(
+                "Domain verification failed",
+                extra={
+                    "tenant_id": tenant.id,
+                    "domain_id": domain.id,
+                    "domain": domain.domain,
+                    "target_host": target_host,
+                },
+            )
             return api_response(message="Domain verification failed", status_code=400)
+        logger.info(
+            "Domain verified",
+            extra={
+                "tenant_id": tenant.id,
+                "domain_id": domain.id,
+                "domain": domain.domain,
+                "target_host": target_host,
+            },
+        )
         return api_response(data=TenantDomainSerializer(domain).data, message="Domain verified")
 
 
