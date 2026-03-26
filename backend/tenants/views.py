@@ -82,7 +82,7 @@ class DomainVerifyView(APIView):
         success = verify_domain(
             domain_obj=domain,
             token=serializer.validated_data["token"],
-            target_host=getattr(settings, "CUSTOM_DOMAIN_TARGET", "localhost"),
+            target_host=getattr(settings, "CUSTOM_DOMAIN_TARGET", "driveapi.keynou.com"),
         )
         if not success:
             return api_response(message="Domain verification failed", status_code=400)
