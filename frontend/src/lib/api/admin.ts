@@ -5,7 +5,7 @@ export type AdminListQuery = {
   page_size?: number;
   search?: string;
   ordering?: string;
-  subscription_status?: "all" | "active" | "inactive" | "expiring" | "expired";
+  subscription_status?: "all" | "active" | "inactive" | "expiring" | "expired" | "reset";
   subscription_tier?: "all" | "free" | "limited" | "custom" | "unlimited";
   status?: "all" | "pending" | "approved" | "declined";
   requested_subscription?: "all" | "free" | "limited" | "custom" | "unlimited";
