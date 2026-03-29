@@ -58,7 +58,7 @@ export default function PublicRedirectPage() {
     if (branding.logo_url) {
       return branding.logo_url;
     }
-    return null
+    return branding?.logo_url
   }, [branding.logo_url]);
 
   return (
