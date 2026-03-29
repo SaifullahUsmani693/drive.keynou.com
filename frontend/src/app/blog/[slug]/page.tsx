@@ -3,7 +3,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getAllBlogs, getBlogBySlug } from '@/lib/blog';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, ArrowRight, Calendar, User, Tag, Share2 } from 'lucide-react';
+import { ShareButton } from '@/components/blog/ShareButton';
+import { ArrowLeft, ArrowRight, Calendar, User, Tag } from 'lucide-react';
 
 export async function generateStaticParams() {
   const blogs = getAllBlogs();
@@ -200,24 +201,7 @@ export default async function BlogPostPage({
             <Link href="/blog" className="text-blue-600 hover:text-blue-700 font-medium">
               ← All Blog Posts
             </Link>
-            <button
-              onClick={() => {
-                if (navigator.share) {
-                  navigator.share({
-                    title: blog.title,
-                    text: blog.excerpt,
-                    url: blogUrl,
-                  });
-                } else {
-                  navigator.clipboard.writeText(blogUrl);
-                  alert('Link copied to clipboard!');
-                }
-              }}
-              className="inline-flex items-center gap-2 text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100"
-            >
-              <Share2 className="w-5 h-5" />
-              Share
-            </button>
+            <ShareButton title={blog.title} excerpt={blog.excerpt} url={blogUrl} />
           </div>
         </div>
       </article>
