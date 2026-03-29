@@ -26,8 +26,5 @@ export const tenantsApi = {
   removeDomain: (id: number | string) => api.delete(`/api/tenants/domains/${id}/`),
   getBranding: () => api.get("/api/tenants/branding/"),
   updateBranding: (payload: Partial<TenantBranding>) => api.patch("/api/tenants/branding/", payload),
-  uploadLogo: (formData: FormData) =>
-    api.post("/api/tenants/branding/logo/", formData, {
-      headers: { "Content-Type": "multipart/form-data" },
-    }),
+  uploadLogo: (formData: FormData) => api.post("/api/tenants/branding/logo/", formData),
 };

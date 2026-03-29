@@ -58,7 +58,7 @@ export default function PublicRedirectPage() {
     if (branding.logo_url) {
       return branding.logo_url;
     }
-    return "/keynou_drove_logo.png";
+    return null
   }, [branding.logo_url]);
 
   return (
@@ -66,7 +66,7 @@ export default function PublicRedirectPage() {
       <div className="flex w-full max-w-md flex-col items-center gap-4 rounded-3xl border border-border bg-card/70 px-8 py-10 shadow-2xl backdrop-blur">
         {logoUrl ? (
           <img src={logoUrl} alt="Brand logo" className="h-28 w-28 rounded-full object-contain" />
-        ) : null}
+        ) : <p>Redirecting...</p>}
         {payload ? <><div className="text-center">
           <p className="text-lg font-semibold" style={{ color: textColor }}>
             {payload?.tenant_name}

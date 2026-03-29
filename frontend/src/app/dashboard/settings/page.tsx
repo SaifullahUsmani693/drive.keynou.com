@@ -57,12 +57,44 @@ export default function SettingsPage() {
     return () => URL.revokeObjectURL(objectUrl);
   }, [logoFile]);
 
+  const performLogoUpload = async () => {
+    if (!logoFile) {
+      throw new Error("Choose a logo first");
+    }
+    setIsUploadingLogo(true);
+    try {
+      const formData = new FormData();
+      formData.append("logo", logoFile);
+      const response = await tenantsApi.uploadLogo(formData);
+      const uploadedUrl = response.data?.data?.brand_logo_url;
+      if (!uploadedUrl) {
+        throw new Error("Missing upload URL");
+      }
+      setLogoUrl(uploadedUrl);
+      setLogoFile(null);
+      return uploadedUrl;
+    } finally {
+      setIsUploadingLogo(false);
+    }
+  };
+
   const handleSave = async () => {
     setIsSaving(true);
     try {
+      let latestLogoUrl = logoUrl;
+      if (logoFile) {
+        try {
+          latestLogoUrl = await performLogoUpload();
+          toast.success("Logo uploaded");
+        } catch (error: any) {
+          toast.error(error?.response?.data?.message || error?.message || "Unable to upload logo");
+          return;
+        }
+      }
+
       await tenantsApi.updateBranding({
         name: tenantName,
-        brand_logo_url: logoUrl,
+        brand_logo_url: latestLogoUrl,
         brand_primary_color: primaryColor,
         brand_text_color: textColor,
       });
@@ -81,26 +113,14 @@ export default function SettingsPage() {
   const textHexFallback = textColor?.startsWith("#") ? textColor : "#0f172a";
 
   const handleLogoUpload = async () => {
-    if (!logoFile) {
-      toast.error("Choose a logo first");
-      return;
-    }
-    setIsUploadingLogo(true);
     try {
-      const formData = new FormData();
-      formData.append("logo", logoFile);
-      const response = await tenantsApi.uploadLogo(formData);
-      const uploadedUrl = response.data?.data?.brand_logo_url;
-      if (!uploadedUrl) {
-        throw new Error("Missing upload URL");
-      }
-      setLogoUrl(uploadedUrl);
-      setLogoFile(null);
+      await performLogoUpload();
       toast.success("Logo uploaded");
     } catch (error: any) {
-      toast.error(error?.response?.data?.message || error?.message || "Unable to upload logo");
-    } finally {
-      setIsUploadingLogo(false);
+      toast.error(
+        error?.response?.data?.message ||
+          (error?.message === "Choose a logo first" ? error.message : "Unable to upload logo"),
+      );
     }
   };
 
