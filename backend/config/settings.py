@@ -195,8 +195,9 @@ REST_FRAMEWORK = {
     "EXCEPTION_HANDLER": "common.exceptions.api_exception_handler",
 }
 
-CORS_ALLOWED_ORIGINS = _split_csv(os.getenv("DJANGO_CORS_ALLOWED_ORIGINS"), "http://localhost:3000")
+# CORS_ALLOWED_ORIGINS = _split_csv(os.getenv("DJANGO_CORS_ALLOWED_ORIGINS"), "http://localhost:3000")
 CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_ALL_ORIGINS = True
 
 CSRF_TRUSTED_ORIGINS = _build_csrf_trusted(os.getenv("DJANGO_CSRF_TRUSTED_ORIGINS"), ALLOWED_HOSTS)
 
