@@ -3,12 +3,14 @@
 import { useEffect, useMemo, useState } from "react";
 import { Check, Copy, ExternalLink, Link2, Loader2, Pencil, Plus, Trash2, X } from "lucide-react";
 import { toast } from "sonner";
+import Swal from "sweetalert2";
 
 import { driveApi, tenantsApi } from "@/lib/api";
 import AuthGuard from "@/components/providers/AuthGuard";
 import DashboardShell from "@/components/dashboard/DashboardShell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { CopyDomainDropdown } from "@/components/links/CopyDomainDropdown";
 
 const fallbackSiteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
@@ -60,6 +62,16 @@ export default function LinksPage() {
   };
 
   const handleDelete = async (id: number) => {
+    const result = await Swal.fire({
+      title: "Delete this link?",
+      text: "This action cannot be undone.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Delete",
+      cancelButtonText: "Cancel",
+      confirmButtonColor: "#ef4444",
+    });
+    if (!result.isConfirmed) return;
     try {
       await driveApi.deleteLink(id);
       toast.success("Link deleted");
@@ -76,6 +88,16 @@ export default function LinksPage() {
 
   const handleBulkDelete = async () => {
     if (selectedIds.size === 0) return;
+    const result = await Swal.fire({
+      title: "Delete selected links?",
+      text: `You are about to delete ${selectedIds.size} link(s). This cannot be undone.`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Delete",
+      cancelButtonText: "Cancel",
+      confirmButtonColor: "#ef4444",
+    });
+    if (!result.isConfirmed) return;
     try {
       await driveApi.bulkDeleteLinks(Array.from(selectedIds));
       toast.success("Links deleted");
@@ -144,7 +166,7 @@ export default function LinksPage() {
     };
   }, []);
 
-  const verifiedDomains = useMemo(() => domains.filter((domain) => domain.is_verified), [domains]);
+  const verifiedDomains = domains
   const resolvedBaseUrl = useMemo(() => {
     if (selectedDomain) {
       return `https://${selectedDomain}`;
@@ -289,18 +311,12 @@ export default function LinksPage() {
                             <>
                               <div className="flex items-center gap-2">
                                 <p className="text-sm font-medium text-primary truncate">{shortUrl}</p>
-                                <button
-                                  type="button"
-                                  onClick={() => {
-                                    navigator.clipboard.writeText(shortUrl);
-                                    toast.success("Copied!");
-                                  }}
-                                  className="text-muted-foreground hover:text-foreground"
-                                  aria-label="Copy short link"
-                                  title="Copy short link"
-                                >
-                                  <Copy className="w-3.5 h-3.5" />
-                                </button>
+                                <CopyDomainDropdown
+                                  shortCode={link.short_code}
+                                  currentBaseUrl={resolvedBaseUrl}
+                                  verifiedDomains={verifiedDomains}
+                                  fallbackHost={typeof window !== "undefined" ? window.location.host : undefined}
+                                />
                                 <a
                                   href={link.destination_url}
                                   target="_blank"

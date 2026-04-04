@@ -18,11 +18,9 @@ export default function DomainsPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isVerifyingId, setIsVerifyingId] = useState<number | null>(null);
   const [isRemovingId, setIsRemovingId] = useState<number | null>(null);
+  const [isSettingPrimaryId, setIsSettingPrimaryId] = useState<number | null>(null);
 
-  const targetHost = useMemo(() => {
-    if (typeof window === "undefined") return "localhost";
-    return process.env.NEXT_PUBLIC_CUSTOM_DOMAIN_TARGET || window.location.hostname;
-  }, []);
+  const targetHost = '5.189.141.219'
 
   useEffect(() => {
     const loadDomains = async () => {
@@ -80,6 +78,21 @@ export default function DomainsPage() {
     }
   };
 
+  const handleSetPrimary = async (domainId: number) => {
+    setIsSettingPrimaryId(domainId);
+    try {
+      await tenantsApi.setPrimaryDomain(domainId);
+      setDomains((prev) =>
+        prev.map((item) => ({
+          ...item,
+          is_primary: item.id === domainId,
+        }))
+      );
+    } finally {
+      setIsSettingPrimaryId(null);
+    }
+  };
+
   return (
     <AuthGuard>
       <DashboardShell>
@@ -122,11 +135,11 @@ export default function DomainsPage() {
           <div className="glass rounded-3xl p-6">
             <h2 className="text-lg font-semibold">DNS configuration</h2>
             <p className="mt-2 text-sm text-muted-foreground">
-              Create a CNAME record that points to the host below. Once propagated, verify using your token.
+              Create an A record that points to this IP below. Once propagated, verify using your token.
             </p>
             <div className="mt-4 rounded-2xl border border-border bg-secondary/30 p-4 text-xs text-muted-foreground">
               <div className="flex items-center justify-between">
-                <span>Target</span>
+                <span>IP Address</span>
                 <button
                   className="inline-flex items-center gap-1 text-primary"
                   onClick={() => navigator.clipboard.writeText(targetHost)}
@@ -156,27 +169,51 @@ export default function DomainsPage() {
                       <Globe2 className="h-4 w-4 text-primary" />
                       <div>
                         <p className="text-sm font-semibold text-foreground">{domain.domain}</p>
-                        <p className="text-xs text-muted-foreground">
-                          {domain.is_verified ? "Verified" : "Pending verification"}
-                        </p>
+                        <div className="flex items-center gap-2 text-xs">
+                          {domain.is_verified ? (
+                            <span className="inline-flex items-center gap-1 text-accent">
+                              <CheckCircle2 className="h-3 w-3" /> Verified
+                            </span>
+                          ) : (
+                            <span className="inline-flex items-center gap-1 text-amber-500">
+                              <XCircle className="h-3 w-3" /> Pending
+                            </span>
+                          )}
+                          {domain.is_primary && (
+                            <span className="px-2 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-medium">
+                              Primary
+                            </span>
+                          )}
+                        </div>
                       </div>
                     </div>
-                    <div className="flex items-center gap-3 text-xs">
-                      {domain.is_verified ? (
-                        <span className="inline-flex items-center gap-1 text-accent">
-                          <CheckCircle2 className="h-3 w-3" /> Verified
-                        </span>
-                      ) : (
-                        <span className="inline-flex items-center gap-1 text-amber-500">
-                          <XCircle className="h-3 w-3" /> Pending
-                        </span>
+                    <div className="flex items-center gap-2">
+                      {domain.is_verified && !domain.is_primary && (
+                        <button
+                          onClick={() => {
+                            if (confirm(`Make ${domain.domain} the primary domain?`)) {
+                              handleSetPrimary(domain.id);
+                            }
+                          }}
+                          disabled={isSettingPrimaryId === domain.id}
+                          className="inline-flex items-center gap-1 text-muted-foreground hover:text-primary text-xs"
+                          title="Set as primary"
+                        >
+                          {isSettingPrimaryId === domain.id ? <Loader2 className="h-3 w-3 animate-spin" /> : "★"}
+                          {isSettingPrimaryId === domain.id ? "Setting" : "Primary"}
+                        </button>
                       )}
                       <button
-                        onClick={() => handleRemove(domain.id)}
-                        className="inline-flex items-center gap-1 text-muted-foreground"
+                        onClick={() => {
+                          if (confirm(`Remove ${domain.domain}? This cannot be undone.`)) {
+                            handleRemove(domain.id);
+                          }
+                        }}
                         disabled={isRemovingId === domain.id}
+                        className="inline-flex items-center gap-1 text-muted-foreground hover:text-destructive text-xs"
                       >
-                        <Trash2 className="h-3 w-3" /> {isRemovingId === domain.id ? "Removing" : "Remove"}
+                        {isRemovingId === domain.id ? <Loader2 className="h-3 w-3 animate-spin" /> : <Trash2 className="h-3 w-3" />}
+                        {isRemovingId === domain.id ? "Removing" : "Remove"}
                       </button>
                     </div>
                   </div>
